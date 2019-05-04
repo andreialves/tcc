@@ -59,15 +59,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\grade.cs" />
+    <Compile Include="Interfaces\gradeInterface.cs" />
+    <Compile Include="Interfaces\preliminarInterface.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>

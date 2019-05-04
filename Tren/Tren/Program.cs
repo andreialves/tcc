@@ -10,6 +10,10 @@ namespace Tren
     {
         static void Main(string[] args)
         {
+            Classes.grade teste = new Classes.grade(3, 8);
+
+            Console.WriteLine(teste.espacamentoBarras + " " + teste.eficiencia);
+            Console.ReadKey();
         }
     }
 }
