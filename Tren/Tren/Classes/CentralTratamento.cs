@@ -9,6 +9,5 @@ namespace Tren.Classes
 {
     class CentralTratamento{
         private List<Sequencia> sequencia;
-
     }
 }

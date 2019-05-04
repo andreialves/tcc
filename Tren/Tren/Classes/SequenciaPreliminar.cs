@@ -9,5 +9,17 @@ namespace Tren.Classes
 {
     class SequenciaPreliminar : Sequencia{
         private List<UnidadePreliminar> sequenciaPreliminar;
+
+        public SequenciaPreliminar(UnidadePreliminar a)
+        {
+            sequenciaPreliminar = new List<UnidadePreliminar>();
+            sequenciaPreliminar.Add(a);
+
+        }
+
+        public List<UnidadePreliminar> getUnidadePreliminar()
+        {
+            return sequenciaPreliminar;
+        }
     }
 }

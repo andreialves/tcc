@@ -10,8 +10,15 @@ namespace Tren
     {
         static void Main(string[] args)
         {
-            Classes.Sequencia s = new Classes.Sequencia();
+            Classes.UnidadePreliminar a = new Classes.UnidadePreliminar(35000, 52008, 1.4, 10.0, 34.9, 12.5);
+           // a.imprime();
 
+            Classes.SequenciaPreliminar sequencia = new Classes.SequenciaPreliminar(a);
+
+            foreach (Classes.UnidadePreliminar i in sequencia.getUnidadePreliminar())
+            {
+                i.imprime();
+            }
             Console.ReadKey();
         }
     }
