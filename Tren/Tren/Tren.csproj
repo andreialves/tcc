@@ -48,26 +48,34 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\grade.cs" />
-    <Compile Include="Interfaces\gradeInterface.cs" />
-    <Compile Include="Interfaces\preliminarInterface.cs" />
+    <Compile Include="Classes\CentralTratamento.cs" />
+    <Compile Include="Classes\Sequencia.cs" />
+    <Compile Include="Classes\SequenciaPreliminar.cs" />
+    <Compile Include="Classes\UnidadePreliminar.cs" />
+    <Compile Include="Interfaces\CentralTratamentoInterface.cs" />
+    <Compile Include="Interfaces\SequenciaInterface.cs" />
+    <Compile Include="Interfaces\SequenciaPreliminarInterface.cs" />
+    <Compile Include="Interfaces\UnidadePreliminarInterface.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>

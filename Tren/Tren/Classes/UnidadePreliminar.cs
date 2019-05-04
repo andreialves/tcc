@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tren.Classes
 {
-    class Sequencia : Tren.Interfaces.SequenciaInterface{
-
+    class UnidadePreliminar
+    {
     }
 }

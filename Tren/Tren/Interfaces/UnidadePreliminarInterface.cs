@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tren.Classes
+namespace Tren.Interfaces
 {
-    class Sequencia : Tren.Interfaces.SequenciaInterface{
-
+    interface UnidadePreliminarInterface
+    {
     }
 }
