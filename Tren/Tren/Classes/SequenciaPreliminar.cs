@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Tren.Classes
 {
-    class SequenciaPreliminar
-    {
+    class SequenciaPreliminar : Sequencia{
+        private List<UnidadePreliminar> sequenciaPreliminar;
     }
 }

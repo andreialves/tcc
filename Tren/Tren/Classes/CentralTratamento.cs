@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Tren.Classes
 {
-    class CentralTratamento
-    {
+    class CentralTratamento{
+        private List<Sequencia> sequencia;
+
     }
 }

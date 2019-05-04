@@ -66,10 +66,6 @@
     <Compile Include="Classes\Sequencia.cs" />
     <Compile Include="Classes\SequenciaPreliminar.cs" />
     <Compile Include="Classes\UnidadePreliminar.cs" />
-    <Compile Include="Interfaces\CentralTratamentoInterface.cs" />
-    <Compile Include="Interfaces\SequenciaInterface.cs" />
-    <Compile Include="Interfaces\SequenciaPreliminarInterface.cs" />
-    <Compile Include="Interfaces\UnidadePreliminarInterface.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
