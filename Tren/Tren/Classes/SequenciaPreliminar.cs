@@ -21,5 +21,10 @@ namespace Tren.Classes
         {
             return sequenciaPreliminar;
         }
+
+        public void adicionar(UnidadePreliminar a)
+        {
+            sequenciaPreliminar.Add(a);
+        }
     }
 }

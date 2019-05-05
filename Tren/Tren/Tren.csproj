@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\CentralTratamento.cs" />
+    <Compile Include="Classes\Desarenador.cs" />
     <Compile Include="Classes\Sequencia.cs" />
     <Compile Include="Classes\SequenciaPreliminar.cs" />
     <Compile Include="Classes\UnidadePreliminar.cs" />

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tren.Classes;
 
 namespace Tren
 {
@@ -10,12 +11,16 @@ namespace Tren
     {
         static void Main(string[] args)
         {
-            Classes.UnidadePreliminar a = new Classes.UnidadePreliminar(35000, 52008, 1.4, 10.0, 34.9, 12.5);
-           // a.imprime();
+            UnidadePreliminar a = new UnidadePreliminar(60000, 70411, 150, 120, 140, 0, 0.2);
+            // a.imprime();
 
-            Classes.SequenciaPreliminar sequencia = new Classes.SequenciaPreliminar(a);
+            Desarenador b = new Desarenador(0.2, 5, 3, 60000, 70411, 150, 120, 140, 0, 0.2);
 
-            foreach (Classes.UnidadePreliminar i in sequencia.getUnidadePreliminar())
+           
+            SequenciaPreliminar sequencia = new SequenciaPreliminar(b);
+            //sequencia.adicionar(a);
+
+            foreach (UnidadePreliminar i in sequencia.getUnidadePreliminar())
             {
                 i.imprime();
             }
