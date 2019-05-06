@@ -8,12 +8,12 @@ namespace Tren.Classes
 {
     class UnidadePreliminar {
 
-        private double vazaoMax;
-        private double vazaoMed;
-        private double vazaoMin;
-        private double vazaoMaxFut;
-        private double vazaoMedFut;
-        private double vazaoMinFut;
+        private static double vazaoMax;
+        private static double vazaoMed;
+        private static double vazaoMin;
+        private static double vazaoMaxFut;
+        private static double vazaoMedFut;
+        private static double vazaoMinFut;
 
         private int populacao;
         private int populacaoFut;
@@ -27,20 +27,23 @@ namespace Tren.Classes
         private double vazaoDomestica;
         private double vazaoDomesticaFut;
 
-        public UnidadePreliminar(double vazaoMax, double vazaoMed, double vazaoMin,
-           double vazaoMaxFut, double vazaoMedFut, double vazaoMinFut){
 
-            this.vazaoMax = vazaoMax;
-            this.vazaoMed = vazaoMed;
-            this.vazaoMin = vazaoMin;
-            this.vazaoMaxFut = vazaoMaxFut;
-            this.vazaoMedFut = vazaoMedFut;
-            this.vazaoMinFut = vazaoMinFut;
+		public UnidadePreliminar() { }
+
+        public UnidadePreliminar(double vMax, double vMed, double vMin,
+           double vMaxFut, double vMedFut, double vMinFut){
+
+            vazaoMax = vMax;
+            vazaoMed = vMed;
+            vazaoMin = vMin;
+            vazaoMaxFut = vMaxFut;
+            vazaoMedFut = vMedFut;
+            vazaoMinFut = vMinFut;
             this.populacao = 0;
             this.populacaoFut = 0;
         }
 
-       public UnidadePreliminar(int populacao, int populacaoFut, double qpc, 
+        public UnidadePreliminar(int populacao, int populacaoFut, double qpc, 
            double extensaoRede, double extensaoRedeFut, double taxaInfiltracao, double taxaInfiltracaoFut){
 
             this.populacao = populacao;

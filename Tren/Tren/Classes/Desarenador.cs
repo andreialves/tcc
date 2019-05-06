@@ -68,7 +68,7 @@ namespace Tren.Classes
                     velocidadeTeste = 3;
                 }
 
-            }catch(Exception e)
+            }catch(Exception)
             {
                 Console.WriteLine("ERRO - Área da Seção do Canal não foi Calculado");
             }
