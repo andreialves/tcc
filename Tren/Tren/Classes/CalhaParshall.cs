@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
+using System.IO;
 
 
 namespace Tren.Classes
@@ -26,7 +27,7 @@ namespace Tren.Classes
 			// carrega tabelaCalhas
 			try
 			{
-				string[] linhas = System.IO.File.ReadAllLines(@"C:\TREN\calhas.tren");
+				string[] linhas = System.IO.File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory+@"\Tabelas Tren\calhas.tren");
 				tabelaCalhas = new Dictionary<string, string> [linhas.Length];
 				
 				for(int i = 0; i < linhas.Length; i++)

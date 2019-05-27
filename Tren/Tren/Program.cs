@@ -13,7 +13,7 @@ namespace Tren
         {
 			UnidadePreliminar a = new UnidadePreliminar(40, 30, 19, 119, 60, 50);
 			// a.imprime();
-			//Desarenador b = new Desarenador(0.2, 5, 3, 60000, 70411, 150, 120, 140, 0, 0.2);
+			// Desarenador b = new Desarenador(0.2, 5, 3, 60000, 70411, 150, 120, 140, 0, 0.2);
 			CalhaParshall cp = new CalhaParshall();
 			Console.WriteLine("dados: " + cp.getW + " " + cp.getN + " " + cp.getK + " " + cp.getHMin + " " + cp.getHMax + " " + cp.gethMin + " " + cp.gethMax);
             //SequenciaPreliminar sequencia = new SequenciaPreliminar(b);
