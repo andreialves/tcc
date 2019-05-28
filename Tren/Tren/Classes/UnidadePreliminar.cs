@@ -15,17 +15,17 @@ namespace Tren.Classes
         private static double vazaoMedFut;
         private static double vazaoMinFut;
 
-        private int populacao;
-        private int populacaoFut;
-        private double qpc;
-        private double extensaoRede;
-        private double extensaoRedeFut;
-        private double taxaInfiltracao;
-        private double taxaInfiltracaoFut;
-        private double vazaoInfiltracao;
-        private double vazaoInfiltracaoFut;
-        private double vazaoDomestica;
-        private double vazaoDomesticaFut;
+        private static int populacao;
+        private static int populacaoFut;
+        private static double qpc;
+        private static double extensaoRede;
+        private static double extensaoRedeFut;
+        private static double taxaInfiltracao;
+        private static double taxaInfiltracaoFut;
+        private static double vazaoInfiltracao;
+        private static double vazaoInfiltracaoFut;
+        private static double vazaoDomestica;
+        private static double vazaoDomesticaFut;
 
 
 		public UnidadePreliminar() { }
@@ -39,20 +39,20 @@ namespace Tren.Classes
             vazaoMaxFut = vMaxFut;
             vazaoMedFut = vMedFut;
             vazaoMinFut = vMinFut;
-            this.populacao = 0;
-            this.populacaoFut = 0;
+            populacao = 0;
+            populacaoFut = 0;
         }
 
-        public UnidadePreliminar(int populacao, int populacaoFut, double qpc, 
-           double extensaoRede, double extensaoRedeFut, double taxaInfiltracao, double taxaInfiltracaoFut){
+        public UnidadePreliminar(int pop, int popFut, double QPC, 
+           double extensao, double extensaoFut, double taxaInf, double taxaInfFut){
 
-            this.populacao = populacao;
-            this.populacaoFut = populacaoFut;
-            this.qpc = qpc;
-            this.extensaoRede = extensaoRede;
-            this.extensaoRedeFut = extensaoRedeFut;
-            this.taxaInfiltracao = taxaInfiltracao;
-            this.taxaInfiltracaoFut = taxaInfiltracaoFut;
+            populacao = pop;
+            populacaoFut = popFut;
+            qpc = QPC;
+            extensaoRede = extensao;
+            extensaoRedeFut = extensaoFut;
+            taxaInfiltracao = taxaInf;
+            taxaInfiltracaoFut = taxaInfFut;
 
             calculaVazaoDomestica();
             calculaVazaoDomesticaFut();
@@ -73,24 +73,24 @@ namespace Tren.Classes
             }
             catch(Exception e)
             {
-                Console.WriteLine("ERRO - As vazões não foram calculadas");
+                Console.WriteLine(e.Message);
             }
         }
 
         public void calculaVazaoDomestica(){
-            this.vazaoDomestica = (populacao * qpc * 0.8) / 86400;
+            vazaoDomestica = (populacao * qpc * 0.8) / 86400;
         }
 
         public void calculaVazaoDomesticaFut(){
-            this.vazaoDomesticaFut = (populacaoFut * qpc * 0.8) / 86400;
+            vazaoDomesticaFut = (populacaoFut * qpc * 0.8) / 86400;
         }
 
         public void calculaVazaoInfiltracao(){
-            this.vazaoInfiltracao = extensaoRede * taxaInfiltracao;
+            vazaoInfiltracao = extensaoRede * taxaInfiltracao;
         }
 
         public void calculaVazaoInfiltracaoFut(){
-            this.vazaoInfiltracaoFut = extensaoRedeFut * taxaInfiltracaoFut;
+            vazaoInfiltracaoFut = extensaoRedeFut * taxaInfiltracaoFut;
         }
 
         public void calculaVazao(){
