@@ -69,7 +69,9 @@
     <Compile Include="Classes\Desarenador.cs" />
     <Compile Include="Classes\Sequencia.cs" />
     <Compile Include="Classes\SequenciaPreliminar.cs" />
+    <Compile Include="Classes\SequenciaSecundaria.cs" />
     <Compile Include="Classes\UnidadePreliminar.cs" />
+    <Compile Include="Classes\UnidadeSecundaria.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
