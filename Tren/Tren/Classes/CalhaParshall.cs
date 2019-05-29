@@ -21,7 +21,6 @@ namespace Tren.Classes
 		private double hMax;
 		private double desnivel;
 
-
 		public CalhaParshall()
 		{
 			// carrega tabelaCalhas
