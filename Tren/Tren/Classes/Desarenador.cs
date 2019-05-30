@@ -127,7 +127,6 @@ namespace Tren.Classes
                     vh = double.Parse(Console.ReadLine(), format);
                     while(CalculaVelocidadeTeste(vh))
                     {
-                        Console.WriteLine(vh);
                         if (vh < 0.2 || vh > 0.4)
                         {
                             Console.WriteLine("Valor fora do intervalo (0.2 , 0.4)");
@@ -245,12 +244,14 @@ namespace Tren.Classes
         private bool verificaExtremos(double velocidade)
         {
             double largura, area, vh, superficial, taxa;
+
             largura = (VazaoMaxFut / 1000) / (alturaMax * velocidade);
             area = alturaMin * largura;
             vh = VazaoMinFut / 1000 / area;
             superficial = comprimentoDesarenador * largura;
             taxa = (VazaoMaxFut / 1000) * superficial;
-            return (taxa > 1300 || taxa < 600);
+
+            return (taxa < 1300 || taxa > 600);
         }
     }
 }
