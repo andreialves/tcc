@@ -11,17 +11,17 @@ namespace Tren.Classes
     {
         IFormatProvider format = CultureInfo.InvariantCulture;
 
-        private double velocidadeEfluente;
-        private double velocidadeTeste;
-        private double larguraDesarenador;
-        private double areaSecaoDesarenador;
-        private double comprimentoDesarenador;
-        private double areaSuperficial;
-        private double taxaAplicacaoSueprficial;
-        private int frequenciaLimpeza;
-        private double volDiarioAreiaRetido;
-        private double alturaGeradaAreiaDia;
-        private double taxaAreiaDiaria;
+        private double? velocidadeEfluente;
+        private double? velocidadeTeste;
+        private double? larguraDesarenador;
+        private double? areaSecaoDesarenador;
+        private double? comprimentoDesarenador;
+        private double? areaSuperficial;
+        private double? taxaAplicacaoSueprficial;
+        private int? frequenciaLimpeza;
+        private double? volDiarioAreiaRetido;
+        private double? alturaGeradaAreiaDia;
+        private double? taxaAreiaDiaria;
       
 
         // Construtores do Desarenador
@@ -104,7 +104,7 @@ namespace Tren.Classes
         {
             volDiarioAreiaRetido = taxaAreiaDiaria * 1000 * (getPertenceASeq.getCentral.getVazaoMedFut / 1000) * 86400;
             alturaGeradaAreiaDia = (volDiarioAreiaRetido / 1000) * areaSuperficial;
-            frequenciaLimpeza = Convert.ToInt32(Math.Round(0.2 * alturaGeradaAreiaDia, MidpointRounding.AwayFromZero));
+            frequenciaLimpeza = Convert.ToInt32(Math.Round((Convert.ToDouble(0.2 * alturaGeradaAreiaDia)+0.5), MidpointRounding.ToEven));
         }
 
         public void imprime()
@@ -126,9 +126,8 @@ namespace Tren.Classes
          * Função para verificar se a velocidade informada é menor que o recomendado pela norma
          * 
         **/
-        private bool CalculaVelocidadeTeste(double velocidade)
-        {
-            double largura, area, vh;
+        private bool CalculaVelocidadeTeste(double? velocidade){
+            double? largura, area, vh;
             largura = (getPertenceASeq.getCentral.getVazaoMaxFut / 1000) / (getPertenceASeq.gethMax * velocidade);
             area = getPertenceASeq.gethMin * largura;
             vh = getPertenceASeq.getCentral.getVazaoMinFut / 1000 / area;

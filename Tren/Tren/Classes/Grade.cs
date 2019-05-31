@@ -181,7 +181,7 @@ namespace Tren.Classes
         public void CalculaBarras() {
             if (larguraCanalMax != null) {
                 double? b = (larguraCanalMax - espacamentoGrade) / (espacamentoGrade + espessuraGrade);
-                numeroBarras = Convert.ToInt32(Math.Round( Convert.ToDouble(Convert.ToString(b+0.5)), MidpointRounding.ToEven));
+                numeroBarras = Convert.ToInt32(Math.Round( Convert.ToDouble(b+0.5), MidpointRounding.ToEven));
                 numeroEspacamentos = numeroBarras + 1; /// Converter sempre pro maior, refazer isso.
             } else {
                 throw new Exception("Largura do Canal não calculada.");
@@ -207,10 +207,10 @@ namespace Tren.Classes
             if (perdaCargaTotal != null) {
                 switch (tipoLimpeza) {
                     case 1:
-                        comprimentoGrade = Convert.ToDouble(Convert.ToString(perdaCargaTotal)) / Math.Sin(a: Math.PI/3);
+                        comprimentoGrade = Convert.ToDouble(perdaCargaTotal) / Math.Sin(a: Math.PI/3);
                         break;
                     case 2:
-                        comprimentoGrade = Convert.ToDouble(Convert.ToString(perdaCargaTotal)) / Math.Sin(a: 7 * Math.PI / 18);
+                        comprimentoGrade = Convert.ToDouble(perdaCargaTotal) / Math.Sin(a: 7 * Math.PI / 18);
                         break;
                     default:
                         throw new Exception("Tipo de Grade não selecionado.");
