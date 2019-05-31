@@ -10,6 +10,7 @@ namespace Tren.Classes
     class Desarenador : UnidadePreliminar
     {
         IFormatProvider format = CultureInfo.InvariantCulture;
+
         private double velocidadeEfluente;
         private double velocidadeTeste;
         private double larguraDesarenador;
@@ -20,6 +21,7 @@ namespace Tren.Classes
         private int frequenciaLimpeza;
         private double volDiarioAreiaRetido;
         private double alturaGeradaAreiaDia;
+        private double taxaAreiaDiaria;
 
 
         // Calculo da altura provisório
@@ -29,187 +31,86 @@ namespace Tren.Classes
 
         // Construtores do Desarenador
 
-        public Desarenador(double velocidadeEfluente, double alturaMax, double alturaMin)
-        {
-            this.velocidadeEfluente = velocidadeEfluente;
-            calculaLarguraDesarenador(VazaoMaxFut, alturaMax, this.velocidadeEfluente);
-            calculaAreaSecao(alturaMin);
-
-            corrigeVelocidade(velocidadeEfluente);
-
-
-            calculaComprimento(alturaMax);
-            calculaAreaSuperficial();
-            calculaTaxaAplicacaoSuperficial();
-            calculaFrequenciaLimpeza(0.9);
-
-
-
-            this.alturaMin = alturaMin;
-            this.alturaMax = alturaMax;
-        }
-
-        public Desarenador( double velocidadeEfluente, double alturaMax, double alturaMin,
-            double vazaoMax, double vazaoMed, double vazaoMin, double vazaoMaxFut, double vazaoMedFut, double vazaoMinFut)
-            : base(vazaoMax, vazaoMed, vazaoMin, vazaoMaxFut, vazaoMedFut, vazaoMinFut){
-
-            this.velocidadeEfluente = velocidadeEfluente;
-            calculaLarguraDesarenador(VazaoMaxFut, alturaMax, this.velocidadeEfluente);
-            calculaAreaSecao(alturaMin);
-            
-            corrigeVelocidade(velocidadeEfluente);
-
-           
-            calculaComprimento(alturaMax);
-            calculaAreaSuperficial();
-            calculaTaxaAplicacaoSuperficial();
-            calculaFrequenciaLimpeza(0.9);
-
-
-
-            this.alturaMin = alturaMin;
-            this.alturaMax = alturaMax;
-        }
-
-        public Desarenador(double velocidadeEfluente, double alturaMax, double alturaMin,
-            int populacao, int populacaoFut, double qpc, double extensaoRede, double extensaoRedeFut, double taxaInfiltracao, double taxaInfiltracaoFut)
-            : base(populacao, populacaoFut, qpc, extensaoRede, extensaoRedeFut, taxaInfiltracao, taxaInfiltracaoFut){
-
-            this.velocidadeEfluente = velocidadeEfluente;
-            calculaLarguraDesarenador(VazaoMaxFut, alturaMax, this.velocidadeEfluente);
-            calculaAreaSecao(alturaMin);
-            corrigeVelocidade(velocidadeEfluente);
-            calculaComprimento(alturaMax);
-            calculaAreaSuperficial();
-            calculaTaxaAplicacaoSuperficial();
-            calculaFrequenciaLimpeza(0.9);
-
-
-
-            this.alturaMin = alturaMin;
-            this.alturaMax = alturaMax;
+        public Desarenador(double velocidadeEfluente, double taxaAreiaDiaria){
+            if (velocidadeEfluente > 0.4 || velocidadeEfluente < 0.2) {
+                throw new Exception("Velocidade Fora do Intervalo.");
+            } else {
+                this.velocidadeEfluente = velocidadeEfluente;
+                this.taxaAreiaDiaria = taxaAreiaDiaria;
+            }
         }
 
         //
 
 
-        // Calcula a largura inicial do desarenador
-        public void calculaLarguraDesarenador(double vazaoMaxFut, double alturaMax, double velocidadeEfluente)
-        {
+        // Calcula a largura do desarenador
+        public void CalculaLarguraDesarenador(){
+
             larguraDesarenador = (VazaoMaxFut / 1000) / (alturaMax * velocidadeEfluente);
+
         }
 
-        // Calcula a area da seção do canal inicial
-        public void calculaAreaSecao(double alturaMin) 
-        {
+        // Calcula a area da seção do canal
+        public void CalculaAreaSecao() {
+
             areaSecaoDesarenador = alturaMin * larguraDesarenador;
+
+        }
+
+        //Calcula o comprimento do desarenador
+        public void CalculaComprimento() {
+
+            comprimentoDesarenador = 22.5 * alturaMax;
+
+        }
+
+        // Calcula a area superficial do Desarenador
+        public void calculaAreaSuperficial() {
+
+            areaSuperficial = comprimentoDesarenador * larguraDesarenador;
+
+        }
+
+        // Função para verificar se a velocidade escolhida pelo usuário é correta.
+        public bool VerificaVH() {
+            if (CalculaVelocidadeTeste(0.2) && CalculaVelocidadeTeste(0.4)) {
+                throw new Exception("Impossível Dimensionar essa unidade para esses dados.");
+            } else if (areaSecaoDesarenador == 0) {
+                throw new Exception("Area da Seção do Desarenador não calculada.");
+            } else {
+                velocidadeTeste = VazaoMinFut / 1000 / areaSecaoDesarenador;
+                return velocidadeTeste > 4;
+            }
+        }
+
+        public bool VerificaTAS() {
+
+            return taxaAplicacaoSueprficial <= 1300 && taxaAplicacaoSueprficial >= 600;
+
+        }
+
+        public void CalculaTAS() {
+
+            taxaAplicacaoSueprficial = VazaoMaxFut / 1000 / areaSuperficial;
+
         }
 
         // Corrige a velocidade do efluente
         public void corrigeVelocidade(double vh){
-            try
-            {
-                if (vh < 0.2 || vh > 0.4)
-                {
-                    Console.WriteLine("Valor fora do intervalo (0.2 , 0.4)");
-                    Console.WriteLine(vh);
-                    vh = double.Parse(Console.ReadLine(), format);
-                }
-                if (CalculaVelocidadeTeste(0.2) && CalculaVelocidadeTeste(0.4))
-                {
-                   
-                        throw new Exception("Largura Fora das Normas, impossível realizar a operação!");
-                }
-
-                if (CalculaVelocidadeTeste(vh))
-                {
-                    Console.WriteLine("Sua velocidade está fora das normas, por favor insira uma nova velocidade: ");
-                    vh = double.Parse(Console.ReadLine(), format);
-                    while(CalculaVelocidadeTeste(vh))
-                    {
-                        if (vh < 0.2 || vh > 0.4)
-                        {
-                            Console.WriteLine("Valor fora do intervalo (0.2 , 0.4)");
-                            vh = double.Parse(Console.ReadLine(), format);
-                        }
-                        else
-                        {
-                            Console.WriteLine("Sua velocidade está fora das normas, por favor insira uma nova velocidade: ");
-                            vh = double.Parse(Console.ReadLine(), format);
-                        }
-
-                    }
-
-                    velocidadeEfluente = vh;
-                    larguraDesarenador = VazaoMaxFut / 1000 / (alturaMax * velocidadeEfluente);
-                    areaSecaoDesarenador = alturaMin * larguraDesarenador;
-                    
-                }
-                velocidadeTeste = (VazaoMinFut / 1000) / areaSecaoDesarenador;
-
-            }catch(Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }
-
-        public void calculaComprimento(double alturaMax)
-        {
-            comprimentoDesarenador = 22.5 * alturaMax;
-        }
-
-        public void calculaAreaSuperficial()
-        {
-            try
-            {
-                areaSuperficial = comprimentoDesarenador * larguraDesarenador;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message); 
+            if (vh < 0.2 || vh > 0.4) {
+                throw new Exception("Velocidade fora do intervalo.");
+            } else {
+                velocidadeEfluente = vh;
+                CalculaLarguraDesarenador();
+                CalculaAreaSecao();
             }
         }
  
-        /* Calcula a taxa de aplicação superficial, e verifica se ela está dentro dos padões. Caso não esteja pede pra corrigir 
-         * velocidade e recalcula todos os coeficientes
-        */
-        public void calculaTaxaAplicacaoSuperficial()
+        public void calculaFrequenciaLimpeza()
         {
-            taxaAplicacaoSueprficial = (VazaoMaxFut / 1000) * areaSuperficial;
-            try
-            {
-                if (verificaExtremos(0.2) && verificaExtremos(0.4))
-                {
-                    throw new Exception("Fora do intervalo, impossível fazer a verificação");
-                }
-
-                if (taxaAplicacaoSueprficial > 1300 || taxaAplicacaoSueprficial < 600)
-                {
-                    do
-                    {
-                        Console.WriteLine("TAS " + taxaAplicacaoSueprficial + "fora da faixa, por favor informe uma nova velocidade: ");
-                        double vh;
-                        vh = double.Parse(Console.ReadLine(), format);
-                        Console.WriteLine(vh);
-                        corrigeVelocidade(vh);
-                        calculaAreaSuperficial();
-                        taxaAplicacaoSueprficial = (VazaoMaxFut / 1000) * areaSuperficial;
-
-
-                    } while (taxaAplicacaoSueprficial > 1300 || taxaAplicacaoSueprficial < 600);
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }
-
-        public void calculaFrequenciaLimpeza(double taxaDiariaAreia)
-        {
-            volDiarioAreiaRetido = (taxaDiariaAreia * 1000) * (VazaoMedFut/1000) * 86400;
+            volDiarioAreiaRetido = taxaAreiaDiaria * 1000 * (VazaoMedFut / 1000) * 86400;
             alturaGeradaAreiaDia = (volDiarioAreiaRetido / 1000) * areaSuperficial;
-            frequenciaLimpeza = (int)Math.Round((0.2 * alturaGeradaAreiaDia));
+            frequenciaLimpeza = Convert.ToInt32(Math.Round(0.2 * alturaGeradaAreiaDia, MidpointRounding.AwayFromZero));
         }
 
         public override void imprime()
@@ -240,18 +141,6 @@ namespace Tren.Classes
             
             return vh > 4;
         }
-
-        private bool verificaExtremos(double velocidade)
-        {
-            double largura, area, vh, superficial, taxa;
-
-            largura = (VazaoMaxFut / 1000) / (alturaMax * velocidade);
-            area = alturaMin * largura;
-            vh = VazaoMinFut / 1000 / area;
-            superficial = comprimentoDesarenador * largura;
-            taxa = (VazaoMaxFut / 1000) * superficial;
-
-            return (taxa < 1300 || taxa > 600);
-        }
+        
     }
 }
