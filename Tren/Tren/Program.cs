@@ -5,28 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using Tren.Classes;
 
-namespace Tren
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-			//UnidadePreliminar a = new UnidadePreliminar(60000, 70411, 150, 120, 140.822, 0, 0.2);
-			
-		//	CalhaParshall cp = new CalhaParshall();
-            //Desarenador b = new Desarenador(0.3, cp.getHMax, cp.getHMin);
-            //Console.WriteLine("dados: " + cp.getW + " " + cp.getN + " " + cp.getK + " " + cp.getHMin + " " + cp.getHMax + " " + cp.gethMin + " " + cp.gethMax);
-            //SequenciaPreliminar sequencia = new SequenciaPreliminar(cp);
-            //sequencia.adicionar(b);
-            //b.imprime();
+namespace Tren {
+    class Program {
+        static void Main(string[] args) {
+			try {
+				CentralTratamento ct = new CentralTratamento(1000, 600, 400, 2000, 1200, 400, 6000, 12000);
+				SequenciaPreliminar sp = new SequenciaPreliminar(ct);
+				ct.adicionar(sp);
+				CalhaParshall cp = new CalhaParshall(sp);
+				CaixaSAO cSao = new CaixaSAO(1.0, 0.8, 1.37, sp);
+			}catch(Exception e) {
+				Console.WriteLine(e.Message);
+			}
 
-            /*foreach (UnidadePreliminar i in sequencia.getUnidadePreliminar())
-            {
-                i.imprime();
-            }*/
+			Console.WriteLine("Fim do programa!");
 
-          
-
+				
             Console.ReadKey();
         }
     }

@@ -19,26 +19,9 @@ namespace Tren.Classes {
 
 		public CalhaParshall(SequenciaPreliminar sp) : base(sp)	{
 			// carrega tabelaCalhas
-			try	{
-				string[] linhas = System.IO.File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory+@"\Tabelas Tren\calhas.tren");
-				tabelaCalhas = new Dictionary<string, string> [linhas.Length];
-				
-				for(int i = 0; i < linhas.Length; i++) {
-					string[] aux = linhas[i].Split(' ');
+			carregaTabela();
 
-					tabelaCalhas[i] = new Dictionary<string, string>();
-					tabelaCalhas[i]["mm"] = aux[0];
-					tabelaCalhas[i]["pol"] = aux[1];
-					tabelaCalhas[i]["vMin"] = aux[2];
-					tabelaCalhas[i]["vMax"] = aux[3];
-					tabelaCalhas[i]["n"] = aux[4];
-					tabelaCalhas[i]["k"] = aux[5];
-				}
-				//calcula valores dos atributos
-			}catch (Exception e) {
-				Console.WriteLine(e.Message);
-			}
-
+			//calcula valores dos atributos
 			IFormatProvider prov = CultureInfo.InvariantCulture;
 			double menorInt = 100000;
 			double vazaoMin = getPertenceASeq.getCentral.getVazaoMin;
@@ -60,6 +43,27 @@ namespace Tren.Classes {
 			desnivel = Math.Round((vazaoMaxFut*HMin - vazaoMinFut*HMax) / (vazaoMaxFut - vazaoMinFut), 2);
 			getPertenceASeq.gethMin = Math.Round(HMin - desnivel, 2);
 			getPertenceASeq.gethMax = Math.Round(HMax - desnivel, 2);
+		}
+
+		private void carregaTabela() {
+			try {
+				string[] linhas = System.IO.File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + @"\Tabelas Tren\calhas.tren");
+				tabelaCalhas = new Dictionary<string, string>[linhas.Length];
+
+				for (int i = 0; i < linhas.Length; i++) {
+					string[] aux = linhas[i].Split(' ');
+
+					tabelaCalhas[i] = new Dictionary<string, string>();
+					tabelaCalhas[i]["mm"] = aux[0];
+					tabelaCalhas[i]["pol"] = aux[1];
+					tabelaCalhas[i]["vMin"] = aux[2];
+					tabelaCalhas[i]["vMax"] = aux[3];
+					tabelaCalhas[i]["n"] = aux[4];
+					tabelaCalhas[i]["k"] = aux[5];
+				}
+			} catch (Exception) {
+				throw new Exception("CalhaParshall::carregaTabela - Erro na leitura de tabelaCalhas");
+;			}
 		}
 
 		public double getW {

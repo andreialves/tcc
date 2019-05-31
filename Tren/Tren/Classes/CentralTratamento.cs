@@ -31,6 +31,8 @@ namespace Tren.Classes {
 
 		public CentralTratamento(double vMax, double vMed, double vMin,
 								double vMaxFut, double vMedFut, double vMinFut, int pop, int popFut) {
+			sequencia = new List<Sequencia>();
+
 			vazaoMax = vMax;
 			vazaoMed = vMed;
 			vazaoMin = vMin;
@@ -43,6 +45,8 @@ namespace Tren.Classes {
 
 		public CentralTratamento(int pop, int popFut, double QPC,
 								double extensao, double extensaoFut, double taxaInf, double taxaInfFut){
+			sequencia = new List<Sequencia>();
+
 			populacao = pop;
 			populacaoFut = popFut;
 			qpc = QPC;
@@ -57,6 +61,10 @@ namespace Tren.Classes {
 			calculaVazaoInfiltracaoFut();
 			calculaVazao();
 			calculaVazaoFut();
+		}
+
+		public void adicionar(Sequencia seq) {
+			sequencia.Add(seq);
 		}
 
 		public void calculaVazaoDomestica(){
