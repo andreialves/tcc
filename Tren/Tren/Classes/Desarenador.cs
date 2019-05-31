@@ -11,17 +11,17 @@ namespace Tren.Classes
     {
         IFormatProvider format = CultureInfo.InvariantCulture;
 
-        private double? velocidadeEfluente;
-        private double? velocidadeTeste;
-        private double? larguraDesarenador;
-        private double? areaSecaoDesarenador;
-        private double? comprimentoDesarenador;
-        private double? areaSuperficial;
-        private double? taxaAplicacaoSueprficial;
-        private int? frequenciaLimpeza;
-        private double? volDiarioAreiaRetido;
-        private double? alturaGeradaAreiaDia;
-        private double? taxaAreiaDiaria;
+        private double? velocidadeEfluente = null;
+        private double? velocidadeTeste = null;
+        private double? larguraDesarenador = null;
+        private double? areaSecaoDesarenador = null;
+        private double? comprimentoDesarenador = null;
+        private double? areaSuperficial = null;
+        private double? taxaAplicacaoSueprficial = null;
+        private int? frequenciaLimpeza = null;
+        private double? volDiarioAreiaRetido = null;
+        private double? alturaGeradaAreiaDia = null;
+        private double? taxaAreiaDiaria = null;
       
 
         // Construtores do Desarenador
@@ -34,7 +34,6 @@ namespace Tren.Classes
                 this.taxaAreiaDiaria = taxaAreiaDiaria;
             }
         }
-        //
 
 
         // Calcula a largura do desarenador
