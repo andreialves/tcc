@@ -9,55 +9,48 @@ namespace Tren.Classes
     class Grade : UnidadePreliminar
     {
         private IDictionary<string, string>[] tabelaGrade;
-        private int? tipoGrade; // 1 = grossa; 2 = média; 3 = fina.
-        private double? espessuraGrade;
-        private double? espacamentoGrade;
-        private int? tipoLimpeza; // 1 = mecanizada; 2 = manual.
-        private double? velocidade; // 1.2 = mecanizada; 0.8 = manual.
-        private double? velocidadeLinha;
-        private double? eficienciaGrade;
-        private double? areaUtilMax;
-        private double? areaUtilMin;
-        private double? secaoCanalMax;
-        private double? larguraCanalMax;
-        private double? secaoCanalMin;
-        private double? larguraCanalMin;
-        private double? velocidadeMin;
-        private double? velocidadeAproxMax;
-        private double? velocidadeAproxMin;
-        private double? perdaCargaMax;
-        private double? perdaCargaMin;
-        private double? perdaCargaMaxObs;
-        private double? perdaCargaMinObs;
-        private double? perdaCargaTotal;
-        private int? numeroBarras;
-        private int? numeroEspacamentos;
-        private double? correcaoBarraLateral;
-        private double? difRetLateral;
-        private double comprimentoGrade;
+        private int? tipoGrade = null; // 1 = grossa; 2 = média; 3 = fina.
+        private double? espessuraGrade = null;
+        private double? espacamentoGrade = null;
+        private int? tipoLimpeza = null; // 1 = mecanizada; 2 = manual.
+        private double? velocidade = null; // 1.2 = mecanizada; 0.8 = manual.
+        private double? velocidadeLinha = null;
+        private double? eficienciaGrade = null;
+        private double? areaUtilMax = null;
+        private double? areaUtilMin = null;
+        private double? secaoCanalMax = null;
+        private double? larguraCanalMax = null;
+        private double? secaoCanalMin = null;
+        private double? larguraCanalMin = null;
+        private double? velocidadeMin = null;
+        private double? velocidadeAproxMax = null;
+        private double? velocidadeAproxMin = null;
+        private double? perdaCargaMax = null;
+        private double? perdaCargaMin = null;
+        private double? perdaCargaMaxObs = null;
+        private double? perdaCargaMinObs = null;
+        private double? perdaCargaTotal = null;
+        private int? numeroBarras = null;
+        private int? numeroEspacamentos = null;
+        private double? correcaoBarraLateral = null;
+        private double? difRetLateral = null;
+        private double? comprimentoGrade;
 
 
-        public Grade(int espessura, int espacamento, int tipo)
-        {
-           
-                espessuraGrade = espessura;
-                espacamentoGrade = espacamento;
-                if (tipo < 1 || tipo > 3)
-                {
-                    throw new Exception("Tipo informador diferente dos existentes");
-                }
-                else
-                {
-                    tipoGrade = tipo;
-                }
+        public Grade(int espessura, int espacamento, int tipo, SequenciaPreliminar sp) : base(sp) {
+            espessuraGrade = espessura;
+            espacamentoGrade = espacamento;
+            if (tipo < 1 || tipo > 3) {
+                throw new Exception("Tipo informador diferente dos existentes");
+            } else {
+                tipoGrade = tipo;
+            }
 
-            try
-            {
+            try {
                 string[] linhas = System.IO.File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + @"\Tabelas Tren\grades.tren");
                 tabelaGrade = new Dictionary<string, string>[linhas.Length];
 
-                for (int i = 0; i < linhas.Length; i++)
-                {
+                for (int i = 0; i < linhas.Length; i++) {
                     string[] aux = linhas[i].Split(' ');
 
                     tabelaGrade[i] = new Dictionary<string, string>();
@@ -68,21 +61,19 @@ namespace Tren.Classes
                     tabelaGrade[i]["matMin"] = aux[4];
                     tabelaGrade[i]["matMax"] = aux[5];
                 }
-            }catch (Exception e)
-            {
+            }catch (Exception e) {
                 // Tratar excessão de tentativa de acessar o arquivo
             }
         }
 
-        public void calculoEficiencia()
-        {
+        public void CalculoEficiencia() {
+
             eficienciaGrade = espacamentoGrade / (espacamentoGrade + espessuraGrade);
+
         }
 
-        public void escolhaTipoLimpeza(int tipo)
-        {
-            switch (tipo)
-            {
+        public void EscolhaTipoLimpeza(int tipo) {
+            switch (tipo) {
                 case 1:
                     tipoLimpeza = tipo;
                     velocidade = 1.2;
@@ -96,177 +87,123 @@ namespace Tren.Classes
             }
         }
 
-        public void calculaAreaUtil()
-        {
-            if (velocidade != null)
-            {
-                areaUtilMax = (VazaoMaxFut / 1000) / velocidade;
-            }
-            else
-            {
+        public void CalculaAreaUtil() {
+            if (velocidade != null) {
+                areaUtilMax = (getPertenceASeq.getCentral.getVazaoMaxFut / 1000) / velocidade;
+            } else {
                 throw new Exception("Tipo de Limpeza não informada");
             }
         }
 
-        public void calculaAreaUtilLinha()
-        {
-            if (velocidade != null)
-            {
-                areaUtilMin = (VazaoMinFut / 1000) / velocidade;
-            }
-            else
-            {
+        public void CalculaAreaUtilLinha() {
+            if (velocidade != null) {
+                areaUtilMin = (getPertenceASeq.getCentral.getVazaoMinFut / 1000) / velocidade;
+            } else {
                 throw new Exception("Tipo de Limpeza não informada");
             }
         }
-        public void calculaSecaoCanal()
-        {
-            if (areaUtilMax != null && eficienciaGrade != null)
-            {
+        public void CalculaSecaoCanal() {
+            if (areaUtilMax != null && eficienciaGrade != null) {
                 secaoCanalMax = areaUtilMax / eficienciaGrade;
-            }
-            else
-            {
+            } else {
                 throw new Exception("Au e Eficiencia Não calculados");
             }
         }
 
-        public void calculaLarguraCanal()
-        {
-            if (secaoCanalMax != null)
-            {
-                larguraCanalMax = secaoCanalMax;// Falta dividir pela altura da calha parhsall
-            }
-            else
-            {
-                throw new Exception("Seção do Canal não calculada.");
+        public void CalculaLarguraCanal() {
+            if (secaoCanalMax != null && getPertenceASeq.gethMax != null) {
+                larguraCanalMax = secaoCanalMax / getPertenceASeq.gethMax;
+            } else {
+                throw new Exception("Seção do Canal não calculada ou Altura não calculada.");
             }
         }
 
-        public void calculaSecaoCanalLinha()
-        {
-            if (areaUtilMin != null && eficienciaGrade != null)
-            {
+        public void CalculaSecaoCanalLinha() {
+            if (areaUtilMin != null && eficienciaGrade != null) {
                 secaoCanalMin = areaUtilMin / eficienciaGrade;
-            }
-            else
-            {
+            } else {
                 throw new Exception("Au' e Eficiencia Não calculados");
             }
         }
 
-        public void calculaLarguraCanalLinha()
-        {
-            if(secaoCanalMin != null)
-            {
-                larguraCanalMin = secaoCanalMin; // falta dividir pela altura da calha parshall
-            }
-            else
-            {
-                throw new Exception("S' não calculada.");
+        public void CalculaLarguraCanalLinha() {
+            if(secaoCanalMin != null && getPertenceASeq.gethMin != null) {
+                larguraCanalMin = secaoCanalMin / getPertenceASeq.gethMin; 
+            } else {
+                throw new Exception("S' ou Altura mínima não calculadas.");
             }
         }
 
-        public void calculaVelocidadeLinha()
-        {
-            if (areaUtilMin != null)
-            {
-                velocidadeLinha = VazaoMinFut / areaUtilMin;
-            }
-            else
-            {
-                throw new Exception("Au' não foi calculado.");
+        public void CalculaVelocidadeLinha() {
+            if (areaUtilMin != null && getPertenceASeq.getCentral.getVazaoMinFut != null) {
+                velocidadeLinha = getPertenceASeq.getCentral.getVazaoMinFut / areaUtilMin;
+            } else {
+                throw new Exception("Au' ou Vazão não foram calculados.");
             }
         }
 
-        public void calculaVelAproxMax()
-        {
-            if (eficienciaGrade != null && areaUtilMax != null)
-            {
-                velocidadeAproxMax = VazaoMaxFut / 1000 * eficienciaGrade / areaUtilMax;
-            }
-            else
-            {
-                throw new Exception("Eficiencia ou Au não foram calculados.");
+        public void CalculaVelAproxMax() {
+            if (eficienciaGrade != null && areaUtilMax != null && getPertenceASeq.getCentral.getVazaoMaxFut != null) {
+                velocidadeAproxMax = getPertenceASeq.getCentral.getVazaoMaxFut / 1000 * eficienciaGrade / areaUtilMax;
+            } else {
+                throw new Exception("Eficiencia, Au ou Vazão não foram calculados.");
             }
         }
 
-        public void calculaVelAproxMin()
-        {
-            if (eficienciaGrade != null && areaUtilMin != null)
-            {
-                velocidadeAproxMin = VazaoMinFut / 1000 * eficienciaGrade / areaUtilMin;
-            }
-            else
-            {
-                throw new Exception("Eficiencia ou Au' não foram calculados.");
+        public void CalculaVelAproxMin() {
+            if (eficienciaGrade != null && areaUtilMin != null && getPertenceASeq.getCentral.getVazaoMinFut != null) {
+                velocidadeAproxMin = getPertenceASeq.getCentral.getVazaoMinFut / 1000 * eficienciaGrade / areaUtilMin;
+            } else {
+                throw new Exception("Eficiencia, Au' ou Vazão não foram calculados.");
             }
         }
 
-        public void calculaPerdaCarga()
-        {
-            if (velocidade != null && velocidadeAproxMax != null && velocidadeAproxMin != null && velocidadeLinha != null)
-            {
+        public void CalculaPerdaCarga() {
+            if (velocidade != null && velocidadeAproxMax != null && velocidadeAproxMin != null && velocidadeLinha != null) {
                 perdaCargaMax = 1.43 * ((velocidade * velocidade) - (velocidadeAproxMax * velocidadeAproxMax)) / 2 * g; // Tem que trocar o g por gravidade
                 perdaCargaMin = 1.43 * ((velocidadeLinha * velocidadeLinha) - (velocidadeAproxMin * velocidadeAproxMin)) / 2 * g;
 
                 perdaCargaMaxObs = 1.43 * ((4 * velocidade * velocidade) - (velocidadeAproxMax * velocidadeAproxMax)) / 2 * g;
                 perdaCargaMinObs = 1.43 * ((4 * velocidadeLinha * velocidadeLinha) - (velocidadeAproxMin * velocidadeAproxMin)) / 2 * g;
-            }
-            else
-            {
+            } else {
                 throw new Exception("Velocidades não calculadas.");
             }
         }
 
-        public void calculaPerdaCargaTotal()
-        {
-            if (perdaCargaMaxObs != null)
-            {
-                perdaCargaTotal = perdaCargaMaxObs; // falta dividir pela altura da calha parshall
-            }
-            else
-            {
+        public void CalculaPerdaCargaTotal() {
+            if (perdaCargaMaxObs != null && getPertenceASeq.gethMax != null) {
+                perdaCargaTotal = perdaCargaMaxObs / getPertenceASeq.gethMax;
+            } else {
                 throw new Exception("Perda de Carga Obstruida não calculada.");
             }
         }
 
-        public void calculaBarras()
-        {
-            if (larguraCanalMax != null)
-            {
+        public void CalculaBarras() {
+            if (larguraCanalMax != null) {
                 double? b = (larguraCanalMax - espacamentoGrade) / (espacamentoGrade + espessuraGrade);
-                numeroBarras = Convert.ToInt32(Math.Round( Convert.ToDouble(Convert.ToString(b)), MidpointRounding.AwayFromZero));
+                numeroBarras = Convert.ToInt32(Math.Round( Convert.ToDouble(Convert.ToString(b+0.5)), MidpointRounding.ToEven));
                 numeroEspacamentos = numeroBarras + 1; /// Converter sempre pro maior, refazer isso.
-            }
-            else
-            {
+            } else {
                 throw new Exception("Largura do Canal não calculada.");
             }
         }
 
-        public void calculaCorrecaoEspaco()
-        {
+        public void CalculaCorrecaoEspaco() {
             if (numeroBarras != null)
                 correcaoBarraLateral = (espacamentoGrade * numeroEspacamentos) + (espessuraGrade * numeroBarras) - larguraCanalMax;
             else
                 throw new Exception("Numero de Barras não calculado.");
         }
 
-        public void calculaDiferencaEspaco()
-        {
-            if (correcaoBarraLateral != null)
-            {
+        public void CalculaDiferencaEspaco() {
+            if (correcaoBarraLateral != null) {
                 difRetLateral = (espacamentoGrade - correcaoBarraLateral) / 2;
-            }
-            else
-            {
+            } else {
                 throw new Exception("Correção dos espaços laterais não calculado.");
             }
         }
 
-        public void calculaComprimento()
-        {
+        public void CalculaComprimento() {
             if (perdaCargaTotal != null) {
                 switch (tipoLimpeza) {
                     case 1:

@@ -9,8 +9,8 @@ namespace Tren.Classes {
 	class SequenciaPreliminar : Sequencia {
 		private List<UnidadePreliminar> sequenciaPreliminar;
 
-		private double hMin;
-		private double hMax;
+		private double? hMin = null;
+		private double? hMax = null;
 
 
 		public SequenciaPreliminar(CentralTratamento ct) : base(ct) {
@@ -21,12 +21,12 @@ namespace Tren.Classes {
 			sequenciaPreliminar.Add(a);
 		}
 
-		public double gethMin {
+		public double? gethMin {
 			get { return hMin; }
 			set { hMin = value; }
 		}
 
-		public double gethMax {
+		public double? gethMax {
 			get { return hMax; }
 			set { hMax = value; }
 		}

@@ -22,16 +22,11 @@ namespace Tren.Classes
         private double volDiarioAreiaRetido;
         private double alturaGeradaAreiaDia;
         private double taxaAreiaDiaria;
-
-
-        // Calculo da altura provisório
-        private double alturaMin;
-        private double alturaMax;
       
 
         // Construtores do Desarenador
 
-        public Desarenador(double velocidadeEfluente, double taxaAreiaDiaria){
+        public Desarenador(double velocidadeEfluente, double taxaAreiaDiaria, SequenciaPreliminar sp) : base(sp){
             if (velocidadeEfluente > 0.4 || velocidadeEfluente < 0.2) {
                 throw new Exception("Velocidade Fora do Intervalo.");
             } else {
@@ -39,28 +34,27 @@ namespace Tren.Classes
                 this.taxaAreiaDiaria = taxaAreiaDiaria;
             }
         }
-
         //
 
 
         // Calcula a largura do desarenador
         public void CalculaLarguraDesarenador(){
 
-            larguraDesarenador = (VazaoMaxFut / 1000) / (alturaMax * velocidadeEfluente);
+            larguraDesarenador = (getPertenceASeq.getCentral.getVazaoMaxFut / 1000) / (getPertenceASeq.gethMax * velocidadeEfluente);
 
         }
 
         // Calcula a area da seção do canal
         public void CalculaAreaSecao() {
 
-            areaSecaoDesarenador = alturaMin * larguraDesarenador;
+            areaSecaoDesarenador = getPertenceASeq.gethMin * larguraDesarenador;
 
         }
 
         //Calcula o comprimento do desarenador
         public void CalculaComprimento() {
 
-            comprimentoDesarenador = 22.5 * alturaMax;
+            comprimentoDesarenador = 22.5 * getPertenceASeq.gethMax;
 
         }
 
@@ -78,7 +72,7 @@ namespace Tren.Classes
             } else if (areaSecaoDesarenador == 0) {
                 throw new Exception("Area da Seção do Desarenador não calculada.");
             } else {
-                velocidadeTeste = VazaoMinFut / 1000 / areaSecaoDesarenador;
+                velocidadeTeste = getPertenceASeq.getCentral.getVazaoMinFut / 1000 / areaSecaoDesarenador;
                 return velocidadeTeste > 4;
             }
         }
@@ -91,7 +85,7 @@ namespace Tren.Classes
 
         public void CalculaTAS() {
 
-            taxaAplicacaoSueprficial = VazaoMaxFut / 1000 / areaSuperficial;
+            taxaAplicacaoSueprficial = getPertenceASeq.getCentral.getVazaoMaxFut / 1000 / areaSuperficial;
 
         }
 
@@ -108,12 +102,12 @@ namespace Tren.Classes
  
         public void calculaFrequenciaLimpeza()
         {
-            volDiarioAreiaRetido = taxaAreiaDiaria * 1000 * (VazaoMedFut / 1000) * 86400;
+            volDiarioAreiaRetido = taxaAreiaDiaria * 1000 * (getPertenceASeq.getCentral.getVazaoMedFut / 1000) * 86400;
             alturaGeradaAreiaDia = (volDiarioAreiaRetido / 1000) * areaSuperficial;
             frequenciaLimpeza = Convert.ToInt32(Math.Round(0.2 * alturaGeradaAreiaDia, MidpointRounding.AwayFromZero));
         }
 
-        public override void imprime()
+        public void imprime()
         {
             Console.WriteLine(larguraDesarenador);
             Console.WriteLine(velocidadeEfluente);
@@ -135,9 +129,9 @@ namespace Tren.Classes
         private bool CalculaVelocidadeTeste(double velocidade)
         {
             double largura, area, vh;
-            largura = (VazaoMaxFut / 1000) / (alturaMax * velocidade);
-            area = alturaMin * largura;
-            vh = VazaoMinFut / 1000 / area;
+            largura = (getPertenceASeq.getCentral.getVazaoMaxFut / 1000) / (getPertenceASeq.gethMax * velocidade);
+            area = getPertenceASeq.gethMin * largura;
+            vh = getPertenceASeq.getCentral.getVazaoMinFut / 1000 / area;
             
             return vh > 4;
         }
