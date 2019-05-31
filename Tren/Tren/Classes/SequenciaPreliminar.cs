@@ -5,26 +5,34 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Tren.Classes
-{
-    class SequenciaPreliminar : Sequencia{
-        private List<UnidadePreliminar> sequenciaPreliminar;
+namespace Tren.Classes {
+	class SequenciaPreliminar : Sequencia {
+		private List<UnidadePreliminar> sequenciaPreliminar;
 
-        public SequenciaPreliminar(UnidadePreliminar a)
-        {
-            sequenciaPreliminar = new List<UnidadePreliminar>();
-            sequenciaPreliminar.Add(a);
+		private double hMin;
+		private double hMax;
 
-        }
 
-        public List<UnidadePreliminar> getUnidadePreliminar()
-        {
-            return sequenciaPreliminar;
-        }
+		public SequenciaPreliminar(CentralTratamento ct) : base(ct) {
+			sequenciaPreliminar = new List<UnidadePreliminar>();
+		}
 
-        public void adicionar(UnidadePreliminar a)
-        {
-            sequenciaPreliminar.Add(a);
-        }
-    }
+		public void adicionar(UnidadePreliminar a) {
+			sequenciaPreliminar.Add(a);
+		}
+
+		public double gethMin {
+			get { return hMin; }
+			set { hMin = value; }
+		}
+
+		public double gethMax {
+			get { return hMax; }
+			set { hMax = value; }
+		}
+
+		public List<UnidadePreliminar> getSeqPreliminar {
+			get { return sequenciaPreliminar; }
+		}
+	}
 }
