@@ -207,7 +207,7 @@ namespace Tren.Classes
         {
             if (velocidade != null && velocidadeAproxMax != null && velocidadeAproxMin != null && velocidadeLinha != null)
             {
-                perdaCargaMax = 1.43 * ((velocidade * velocidade) - (velocidadeAproxMax * velocidadeAproxMax)) / 2 * g;
+                perdaCargaMax = 1.43 * ((velocidade * velocidade) - (velocidadeAproxMax * velocidadeAproxMax)) / 2 * g; // Tem que trocar o g por gravidade
                 perdaCargaMin = 1.43 * ((velocidadeLinha * velocidadeLinha) - (velocidadeAproxMin * velocidadeAproxMin)) / 2 * g;
 
                 perdaCargaMaxObs = 1.43 * ((4 * velocidade * velocidade) - (velocidadeAproxMax * velocidadeAproxMax)) / 2 * g;
@@ -237,7 +237,7 @@ namespace Tren.Classes
             {
                 double? b = (larguraCanalMax - espacamentoGrade) / (espacamentoGrade + espessuraGrade);
                 numeroBarras = Convert.ToInt32(Math.Round( Convert.ToDouble(Convert.ToString(b)), MidpointRounding.AwayFromZero));
-                numeroEspacamentos = numeroBarras + 1;
+                numeroEspacamentos = numeroBarras + 1; /// Converter sempre pro maior, refazer isso.
             }
             else
             {
