@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tren.Classes
 {
-    class Grade : UnidadePreliminar
-    {
+    class Grade : UnidadePreliminar {
         private IDictionary<string, string>[] tabelaGrade;
         private int? tipoGrade = null; // 1 = grossa; 2 = média; 3 = fina.
         private double? espessuraGrade = null;
@@ -22,7 +21,6 @@ namespace Tren.Classes
         private double? larguraCanalMax = null;
         private double? secaoCanalMin = null;
         private double? larguraCanalMin = null;
-        private double? velocidadeMin = null;
         private double? velocidadeAproxMax = null;
         private double? velocidadeAproxMin = null;
         private double? perdaCargaMax = null;
@@ -34,16 +32,24 @@ namespace Tren.Classes
         private int? numeroEspacamentos = null;
         private double? correcaoBarraLateral = null;
         private double? difRetLateral = null;
-        private double? comprimentoGrade;
+        private double? comprimentoGrade = null;
 
 
-        public Grade(int espessura, int espacamento, int tipo, SequenciaPreliminar sp) : base(sp) {
+        public Grade(int espessura, int espacamento, int tipo, int tipoLimpeza, SequenciaPreliminar sp) : base(sp) {
             espessuraGrade = espessura;
             espacamentoGrade = espacamento;
             if (tipo < 1 || tipo > 3) {
-                throw new Exception("Tipo informador diferente dos existentes");
+                throw new Exception("Tipo de grade informador diferente dos existentes.");
             } else {
                 tipoGrade = tipo;
+            }
+
+            if (tipoLimpeza != 1 && tipoLimpeza != 2) {
+                throw new Exception("Tipo de limpeza diferente dos existentes.");
+            } else {
+                this.tipoLimpeza = tipoLimpeza;
+                if (tipoLimpeza == 1) velocidade = 1.2;
+                else velocidade = 0.8;
             }
 
             try {
@@ -61,7 +67,7 @@ namespace Tren.Classes
                     tabelaGrade[i]["matMin"] = aux[4];
                     tabelaGrade[i]["matMax"] = aux[5];
                 }
-            }catch (Exception e) {
+            } catch (Exception e) {
                 // Tratar excessão de tentativa de acessar o arquivo
             }
         }
@@ -70,21 +76,6 @@ namespace Tren.Classes
 
             eficienciaGrade = espacamentoGrade / (espacamentoGrade + espessuraGrade);
 
-        }
-
-        public void EscolhaTipoLimpeza(int tipo) {
-            switch (tipo) {
-                case 1:
-                    tipoLimpeza = tipo;
-                    velocidade = 1.2;
-                    break;
-                case 2:
-                    tipoLimpeza = tipo;
-                    velocidade = 0.8;
-                    break;
-                default:
-                    throw new Exception("Tipo de grade não reconhecido!");
-            }
         }
 
         public void CalculaAreaUtil() {
@@ -127,8 +118,8 @@ namespace Tren.Classes
         }
 
         public void CalculaLarguraCanalLinha() {
-            if(secaoCanalMin != null && getPertenceASeq.gethMin != null) {
-                larguraCanalMin = secaoCanalMin / getPertenceASeq.gethMin; 
+            if (secaoCanalMin != null && getPertenceASeq.gethMin != null) {
+                larguraCanalMin = secaoCanalMin / getPertenceASeq.gethMin;
             } else {
                 throw new Exception("S' ou Altura mínima não calculadas.");
             }
@@ -181,7 +172,7 @@ namespace Tren.Classes
         public void CalculaBarras() {
             if (larguraCanalMax != null) {
                 double? b = (larguraCanalMax - espacamentoGrade) / (espacamentoGrade + espessuraGrade);
-                numeroBarras = Convert.ToInt32(Math.Round( Convert.ToDouble(b+0.5), MidpointRounding.ToEven));
+                numeroBarras = Convert.ToInt32(Math.Round(Convert.ToDouble(b + 0.5), MidpointRounding.ToEven));
                 numeroEspacamentos = numeroBarras + 1; /// Converter sempre pro maior, refazer isso.
             } else {
                 throw new Exception("Largura do Canal não calculada.");
@@ -207,7 +198,7 @@ namespace Tren.Classes
             if (perdaCargaTotal != null) {
                 switch (tipoLimpeza) {
                     case 1:
-                        comprimentoGrade = Convert.ToDouble(perdaCargaTotal) / Math.Sin(a: Math.PI/3);
+                        comprimentoGrade = Convert.ToDouble(perdaCargaTotal) / Math.Sin(a: Math.PI / 3);
                         break;
                     case 2:
                         comprimentoGrade = Convert.ToDouble(perdaCargaTotal) / Math.Sin(a: 7 * Math.PI / 18);
@@ -218,5 +209,111 @@ namespace Tren.Classes
             }
         }
 
+        public double? SecaoCanalMax {
+            get {
+                return secaoCanalMax;
+            }
+        }
+
+        public double? SecaoCanalMin {
+            get {
+                return secaoCanalMin;
+            }
+        }
+
+        public double? AreaUtilMax {
+            get {
+                return areaUtilMax;
+            }
+        }
+        public double? AreaUtilMin {
+            get {
+                return areaUtilMin;
+            }
+        }
+
+        public double? VelocidadeInformada {
+            get {
+                return velocidade;
+            }
+        }
+
+        public double? VelocidadeLinha {
+            get {
+                return velocidadeLinha;
+            }
+        }
+
+        public double? VelocidadeAproximacaoMax {
+            get {
+                return velocidadeAproxMax;
+            }
+        }
+
+        public double? VelocidadeAproximacaoMin {
+            get {
+                return velocidadeAproxMin;
+            }
+        }
+
+        public double? PerdaCargaMax {
+            get {
+                return perdaCargaMax;
+            }
+        }
+
+        public double? PerdaCargaMin {
+            get {
+                return perdaCargaMin;
+            }
+        }
+
+        public double? PerdaCargaMaxObs {
+            get {
+                return perdaCargaMaxObs;
+            }
+        }
+
+        public double? PerdaCargaMinObs {
+            get {
+                return perdaCargaMinObs;
+            }
+        }
+
+        public double? PerdaCargaTotal {
+            get {
+                return perdaCargaTotal;
+            }
+        }
+
+        public int? NumEspacamento {
+            get {
+                return numeroEspacamentos;
+            }
+        }
+
+        public double? CorrecaoEspacamento {
+            get {
+                return correcaoBarraLateral;
+            }
+        }
+
+        public double? DiferencaEspacoLateral {
+            get {
+                return difRetLateral;
+            }
+        }
+
+        public double? Comprimento {
+            get {
+                return comprimentoGrade;
+            }
+        }
+
+        public IDictionary<string, string>[] Tabela {
+            get {
+                return tabelaGrade;
+            }
+        }
     }
 }

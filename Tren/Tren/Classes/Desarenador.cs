@@ -5,10 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
 
-namespace Tren.Classes
-{
-    class Desarenador : UnidadePreliminar
-    {
+namespace Tren.Classes {
+    class Desarenador : UnidadePreliminar {
         IFormatProvider format = CultureInfo.InvariantCulture;
 
         private double? velocidadeEfluente = null;
@@ -22,11 +20,11 @@ namespace Tren.Classes
         private double? volDiarioAreiaRetido = null;
         private double? alturaGeradaAreiaDia = null;
         private double? taxaAreiaDiaria = null;
-      
+
 
         // Construtores do Desarenador
 
-        public Desarenador(double velocidadeEfluente, double taxaAreiaDiaria, SequenciaPreliminar sp) : base(sp){
+        public Desarenador(double velocidadeEfluente, double taxaAreiaDiaria, SequenciaPreliminar sp) : base(sp) {
             if (velocidadeEfluente > 0.4 || velocidadeEfluente < 0.2) {
                 throw new Exception("Velocidade Fora do Intervalo.");
             } else {
@@ -37,7 +35,7 @@ namespace Tren.Classes
 
 
         // Calcula a largura do desarenador
-        public void CalculaLarguraDesarenador(){
+        public void CalculaLarguraDesarenador() {
 
             larguraDesarenador = (getPertenceASeq.getCentral.getVazaoMaxFut / 1000) / (getPertenceASeq.gethMax * velocidadeEfluente);
 
@@ -89,7 +87,7 @@ namespace Tren.Classes
         }
 
         // Corrige a velocidade do efluente
-        public void corrigeVelocidade(double vh){
+        public void corrigeVelocidade(double vh) {
             if (vh < 0.2 || vh > 0.4) {
                 throw new Exception("Velocidade fora do intervalo.");
             } else {
@@ -98,16 +96,14 @@ namespace Tren.Classes
                 CalculaAreaSecao();
             }
         }
- 
-        public void calculaFrequenciaLimpeza()
-        {
+
+        public void calculaFrequenciaLimpeza() {
             volDiarioAreiaRetido = taxaAreiaDiaria * 1000 * (getPertenceASeq.getCentral.getVazaoMedFut / 1000) * 86400;
             alturaGeradaAreiaDia = (volDiarioAreiaRetido / 1000) * areaSuperficial;
-            frequenciaLimpeza = Convert.ToInt32(Math.Round((Convert.ToDouble(0.2 * alturaGeradaAreiaDia)+0.5), MidpointRounding.ToEven));
+            frequenciaLimpeza = Convert.ToInt32(Math.Round((Convert.ToDouble(0.2 * alturaGeradaAreiaDia) + 0.5), MidpointRounding.ToEven));
         }
 
-        public void imprime()
-        {
+        public void imprime() {
             Console.WriteLine(larguraDesarenador);
             Console.WriteLine(velocidadeEfluente);
             Console.WriteLine(comprimentoDesarenador);
@@ -125,14 +121,14 @@ namespace Tren.Classes
          * Função para verificar se a velocidade informada é menor que o recomendado pela norma
          * 
         **/
-        private bool CalculaVelocidadeTeste(double? velocidade){
+        private bool CalculaVelocidadeTeste(double? velocidade) {
             double? largura, area, vh;
             largura = (getPertenceASeq.getCentral.getVazaoMaxFut / 1000) / (getPertenceASeq.gethMax * velocidade);
             area = getPertenceASeq.gethMin * largura;
             vh = getPertenceASeq.getCentral.getVazaoMinFut / 1000 / area;
-            
+
             return vh > 4;
         }
-        
+
     }
 }
