@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Tren.Views {
-    public partial class Principal : MetroFramework.Forms.MetroForm {
+    public partial class Principal : Form {
         public Principal() {
             InitializeComponent();
         }
@@ -18,12 +18,16 @@ namespace Tren.Views {
 
         }
 
-        private void metroButton1_Click(object sender, EventArgs e) {
+        private void metroTabPage1_Click(object sender, EventArgs e) {
 
         }
 
-        private void metroButton2_Click(object sender, EventArgs e) {
+        private void metroButton1_Click(object sender, EventArgs e) {
+            
+        }
 
+        private void metroButton2_Click(object sender, EventArgs e) {
+            
         }
     }
 }
