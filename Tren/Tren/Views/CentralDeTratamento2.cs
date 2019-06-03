@@ -9,12 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Tren.Views {
-	public partial class Form1 : Form {
-		public Form1() {
+	public partial class CentralDeTratamento2 : Form {
+		public CentralDeTratamento2() {
 			InitializeComponent();
 		}
 
-		private void Form1_Load(object sender, EventArgs e) {
+		private void lb_populacao_Click(object sender, EventArgs e) {
+
+		}
+
+		private void CentralDeTratamento2_Load(object sender, EventArgs e) {
 
 		}
 	}

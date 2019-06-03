@@ -7,15 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MetroFramework.Forms;
 
 namespace Tren.Views {
-    public partial class Inicio : MetroFramework .Forms .MetroForm {
+    public partial class Inicio : MetroForm {
         public Inicio() {
 			InitializeComponent();
             Principal principal = new Principal();
             principal.TopLevel = false;
             principal.Dock = DockStyle.Fill;
-            panel1.Controls.Add(principal);
+            mainPanel.Controls.Add(principal);
             principal.Show();
 			
 		}
