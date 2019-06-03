@@ -47,7 +47,7 @@
 			// lb_vazaoMax
 			// 
 			this.lb_vazaoMax.AutoSize = true;
-			this.lb_vazaoMax.Location = new System.Drawing.Point(165, 69);
+			this.lb_vazaoMax.Location = new System.Drawing.Point(165, 77);
 			this.lb_vazaoMax.Name = "lb_vazaoMax";
 			this.lb_vazaoMax.Size = new System.Drawing.Size(94, 19);
 			this.lb_vazaoMax.TabIndex = 0;
@@ -55,7 +55,7 @@
 			// 
 			// txb_vazaoMax
 			// 
-			this.txb_vazaoMax.Location = new System.Drawing.Point(403, 65);
+			this.txb_vazaoMax.Location = new System.Drawing.Point(403, 73);
 			this.txb_vazaoMax.Name = "txb_vazaoMax";
 			this.txb_vazaoMax.Size = new System.Drawing.Size(238, 23);
 			this.txb_vazaoMax.TabIndex = 1;
@@ -63,7 +63,7 @@
 			// lb_vazaoMed
 			// 
 			this.lb_vazaoMed.AutoSize = true;
-			this.lb_vazaoMed.Location = new System.Drawing.Point(165, 105);
+			this.lb_vazaoMed.Location = new System.Drawing.Point(165, 113);
 			this.lb_vazaoMed.Name = "lb_vazaoMed";
 			this.lb_vazaoMed.Size = new System.Drawing.Size(84, 19);
 			this.lb_vazaoMed.TabIndex = 2;
@@ -72,7 +72,7 @@
 			// lb_vazaoMin
 			// 
 			this.lb_vazaoMin.AutoSize = true;
-			this.lb_vazaoMin.Location = new System.Drawing.Point(165, 140);
+			this.lb_vazaoMin.Location = new System.Drawing.Point(165, 148);
 			this.lb_vazaoMin.Name = "lb_vazaoMin";
 			this.lb_vazaoMin.Size = new System.Drawing.Size(91, 19);
 			this.lb_vazaoMin.TabIndex = 3;
@@ -81,7 +81,7 @@
 			// lb_vazaoMaxFut
 			// 
 			this.lb_vazaoMaxFut.AutoSize = true;
-			this.lb_vazaoMaxFut.Location = new System.Drawing.Point(165, 176);
+			this.lb_vazaoMaxFut.Location = new System.Drawing.Point(165, 184);
 			this.lb_vazaoMaxFut.Name = "lb_vazaoMaxFut";
 			this.lb_vazaoMaxFut.Size = new System.Drawing.Size(135, 19);
 			this.lb_vazaoMaxFut.TabIndex = 4;
@@ -90,7 +90,7 @@
 			// lb_vazaoMedFut
 			// 
 			this.lb_vazaoMedFut.AutoSize = true;
-			this.lb_vazaoMedFut.Location = new System.Drawing.Point(165, 211);
+			this.lb_vazaoMedFut.Location = new System.Drawing.Point(165, 219);
 			this.lb_vazaoMedFut.Name = "lb_vazaoMedFut";
 			this.lb_vazaoMedFut.Size = new System.Drawing.Size(125, 19);
 			this.lb_vazaoMedFut.TabIndex = 5;
@@ -99,7 +99,7 @@
 			// lb_vazaoMinFut
 			// 
 			this.lb_vazaoMinFut.AutoSize = true;
-			this.lb_vazaoMinFut.Location = new System.Drawing.Point(165, 246);
+			this.lb_vazaoMinFut.Location = new System.Drawing.Point(165, 254);
 			this.lb_vazaoMinFut.Name = "lb_vazaoMinFut";
 			this.lb_vazaoMinFut.Size = new System.Drawing.Size(132, 19);
 			this.lb_vazaoMinFut.TabIndex = 6;
@@ -108,7 +108,7 @@
 			// lb_populacao
 			// 
 			this.lb_populacao.AutoSize = true;
-			this.lb_populacao.Location = new System.Drawing.Point(165, 282);
+			this.lb_populacao.Location = new System.Drawing.Point(165, 290);
 			this.lb_populacao.Name = "lb_populacao";
 			this.lb_populacao.Size = new System.Drawing.Size(70, 19);
 			this.lb_populacao.TabIndex = 7;
@@ -117,7 +117,7 @@
 			// lb_populacaoFut
 			// 
 			this.lb_populacaoFut.AutoSize = true;
-			this.lb_populacaoFut.Location = new System.Drawing.Point(165, 317);
+			this.lb_populacaoFut.Location = new System.Drawing.Point(165, 325);
 			this.lb_populacaoFut.Name = "lb_populacaoFut";
 			this.lb_populacaoFut.Size = new System.Drawing.Size(111, 19);
 			this.lb_populacaoFut.TabIndex = 8;
@@ -125,49 +125,49 @@
 			// 
 			// txb_vazaoMed
 			// 
-			this.txb_vazaoMed.Location = new System.Drawing.Point(403, 101);
+			this.txb_vazaoMed.Location = new System.Drawing.Point(403, 109);
 			this.txb_vazaoMed.Name = "txb_vazaoMed";
 			this.txb_vazaoMed.Size = new System.Drawing.Size(238, 23);
 			this.txb_vazaoMed.TabIndex = 9;
 			// 
 			// txb_vazaoMin
 			// 
-			this.txb_vazaoMin.Location = new System.Drawing.Point(403, 136);
+			this.txb_vazaoMin.Location = new System.Drawing.Point(403, 144);
 			this.txb_vazaoMin.Name = "txb_vazaoMin";
 			this.txb_vazaoMin.Size = new System.Drawing.Size(238, 23);
 			this.txb_vazaoMin.TabIndex = 10;
 			// 
 			// txb_vazaoMaxFut
 			// 
-			this.txb_vazaoMaxFut.Location = new System.Drawing.Point(403, 172);
+			this.txb_vazaoMaxFut.Location = new System.Drawing.Point(403, 180);
 			this.txb_vazaoMaxFut.Name = "txb_vazaoMaxFut";
 			this.txb_vazaoMaxFut.Size = new System.Drawing.Size(238, 23);
 			this.txb_vazaoMaxFut.TabIndex = 11;
 			// 
 			// txb_vazaoMedFut
 			// 
-			this.txb_vazaoMedFut.Location = new System.Drawing.Point(403, 207);
+			this.txb_vazaoMedFut.Location = new System.Drawing.Point(403, 215);
 			this.txb_vazaoMedFut.Name = "txb_vazaoMedFut";
 			this.txb_vazaoMedFut.Size = new System.Drawing.Size(238, 23);
 			this.txb_vazaoMedFut.TabIndex = 12;
 			// 
 			// txb_vazaoMinFut
 			// 
-			this.txb_vazaoMinFut.Location = new System.Drawing.Point(403, 242);
+			this.txb_vazaoMinFut.Location = new System.Drawing.Point(403, 250);
 			this.txb_vazaoMinFut.Name = "txb_vazaoMinFut";
 			this.txb_vazaoMinFut.Size = new System.Drawing.Size(238, 23);
 			this.txb_vazaoMinFut.TabIndex = 13;
 			// 
 			// txb_populacao
 			// 
-			this.txb_populacao.Location = new System.Drawing.Point(403, 278);
+			this.txb_populacao.Location = new System.Drawing.Point(403, 286);
 			this.txb_populacao.Name = "txb_populacao";
 			this.txb_populacao.Size = new System.Drawing.Size(238, 23);
 			this.txb_populacao.TabIndex = 14;
 			// 
 			// txb_populacaoFut
 			// 
-			this.txb_populacaoFut.Location = new System.Drawing.Point(403, 317);
+			this.txb_populacaoFut.Location = new System.Drawing.Point(403, 325);
 			this.txb_populacaoFut.Name = "txb_populacaoFut";
 			this.txb_populacaoFut.Size = new System.Drawing.Size(238, 23);
 			this.txb_populacaoFut.TabIndex = 15;
@@ -177,7 +177,7 @@
 			this.lb_centralTitulo.AutoSize = true;
 			this.lb_centralTitulo.FontSize = MetroFramework.MetroLabelSize.Tall;
 			this.lb_centralTitulo.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-			this.lb_centralTitulo.Location = new System.Drawing.Point(325, 9);
+			this.lb_centralTitulo.Location = new System.Drawing.Point(322, 9);
 			this.lb_centralTitulo.Name = "lb_centralTitulo";
 			this.lb_centralTitulo.Size = new System.Drawing.Size(161, 25);
 			this.lb_centralTitulo.TabIndex = 16;
@@ -185,19 +185,21 @@
 			// 
 			// bt_central1_avancar
 			// 
-			this.bt_central1_avancar.Location = new System.Drawing.Point(450, 370);
+			this.bt_central1_avancar.Location = new System.Drawing.Point(450, 393);
 			this.bt_central1_avancar.Name = "bt_central1_avancar";
 			this.bt_central1_avancar.Size = new System.Drawing.Size(237, 45);
 			this.bt_central1_avancar.TabIndex = 17;
 			this.bt_central1_avancar.Text = "Avançar";
+			this.bt_central1_avancar.Click += new System.EventHandler(this.bt_central1_avancar_Click);
 			// 
 			// bt_central2_voltar
 			// 
-			this.bt_central2_voltar.Location = new System.Drawing.Point(107, 370);
+			this.bt_central2_voltar.Location = new System.Drawing.Point(107, 393);
 			this.bt_central2_voltar.Name = "bt_central2_voltar";
 			this.bt_central2_voltar.Size = new System.Drawing.Size(237, 45);
 			this.bt_central2_voltar.TabIndex = 18;
 			this.bt_central2_voltar.Text = "Voltar";
+			this.bt_central2_voltar.Click += new System.EventHandler(this.bt_central2_voltar_Click);
 			// 
 			// CentralDeTratamento1
 			// 

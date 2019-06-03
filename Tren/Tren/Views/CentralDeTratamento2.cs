@@ -13,13 +13,5 @@ namespace Tren.Views {
 		public CentralDeTratamento2() {
 			InitializeComponent();
 		}
-
-		private void lb_populacao_Click(object sender, EventArgs e) {
-
-		}
-
-		private void CentralDeTratamento2_Load(object sender, EventArgs e) {
-
-		}
 	}
 }

@@ -17,5 +17,18 @@ namespace Tren.Views {
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {
 
         }
-    }
+
+		private void bt_grade_avancar_Click(object sender, EventArgs e) {
+
+		}
+
+		private void bt_grade_voltar_Click(object sender, EventArgs e) {
+			CaixaSAO caixaSAO = new CaixaSAO();
+			caixaSAO.TopLevel = false;
+			caixaSAO.Dock = DockStyle.Fill;
+			Parent.Controls.Add(caixaSAO);
+			caixaSAO.Show();
+			Close();
+		}
+	}
 }

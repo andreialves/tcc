@@ -79,11 +79,23 @@
     <Compile Include="Classes\CalhaParshall.cs" />
     <Compile Include="Classes\Desarenador.cs" />
     <Compile Include="Classes\Grade.cs" />
+    <Compile Include="Views\CaixaSAO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CaixaSAO.Designer.cs">
+      <DependentUpon>CaixaSAO.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CentralDeTratamento1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\CentralDeTratamento1.Designer.cs">
       <DependentUpon>CentralDeTratamento1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CentralDeTratamento2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CentralDeTratamento2.Designer.cs">
+      <DependentUpon>CentralDeTratamento2.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Grade.cs">
       <SubType>Form</SubType>
@@ -110,6 +122,12 @@
     <Compile Include="Views\Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\SequenciaPreliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SequenciaPreliminar.Designer.cs">
+      <DependentUpon>SequenciaPreliminar.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -131,8 +149,14 @@
     <Content Include="MetroFramework.txt" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Views\CaixaSAO.resx">
+      <DependentUpon>CaixaSAO.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\CentralDeTratamento1.resx">
       <DependentUpon>CentralDeTratamento1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CentralDeTratamento2.resx">
+      <DependentUpon>CentralDeTratamento2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Grade.resx">
       <DependentUpon>Grade.cs</DependentUpon>
@@ -142,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SequenciaPreliminar.resx">
+      <DependentUpon>SequenciaPreliminar.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
