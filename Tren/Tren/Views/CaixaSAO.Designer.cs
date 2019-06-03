@@ -41,6 +41,7 @@
 			this.bt_central2_voltar.Size = new System.Drawing.Size(237, 45);
 			this.bt_central2_voltar.TabIndex = 53;
 			this.bt_central2_voltar.Text = "Voltar";
+			this.bt_central2_voltar.Click += new System.EventHandler(this.bt_central2_voltar_Click);
 			// 
 			// bt_central1_avancar
 			// 
