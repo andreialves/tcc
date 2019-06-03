@@ -11,13 +11,19 @@ using System.Windows.Forms;
 namespace Tren.Views {
     public partial class Inicio : MetroFramework .Forms .MetroForm {
         public Inicio() {
-            InitializeComponent();
-            Principal principal = new Principal();
+			InitializeComponent();
+            /*Principal principal = new Principal();
             principal.TopLevel = false;
             principal.Dock = DockStyle.Fill;
             panel1.Controls.Add(principal);
-            principal.Show();
-        }
+            principal.Show();*/
+			Form1 frm1 = new Form1();
+			frm1.TopLevel = false;
+			frm1.Dock = DockStyle.Fill;
+			panel1.Controls.Add(frm1);
+			frm1.FormBorderStyle = FormBorderStyle.None;
+			frm1.Show();
+		}
 
         private void Inicio_Load(object sender, EventArgs e) {
 

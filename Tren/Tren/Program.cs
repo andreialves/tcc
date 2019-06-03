@@ -9,6 +9,7 @@ using Tren.Views;
 
 namespace Tren {
     class Program {
+		[STAThread]
         static void Main(string[] args) {
 			/*try {
 				CentralTratamento ct = new CentralTratamento(1000, 600, 400, 2000, 1200, 400, 6000, 12000);
