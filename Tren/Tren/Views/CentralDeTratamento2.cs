@@ -13,5 +13,9 @@ namespace Tren.Views {
 		public CentralDeTratamento2() {
 			InitializeComponent();
 		}
-	}
+
+        private void CentralDeTratamento2_Load(object sender, EventArgs e) {
+
+        }
+    }
 }
