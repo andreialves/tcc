@@ -23,15 +23,20 @@ namespace Tren.Views {
         }
 
         private void metroButton1_Click(object sender, EventArgs e) {
-            
-        }
+			SelecaoSeqColView seqCol = new SelecaoSeqColView();
+			seqCol.TopLevel = false;
+			seqCol.Dock = DockStyle.Fill;
+			Parent.Controls.Add(seqCol);
+			seqCol.Show();
+			Close();
+		}
 
         private void metroButton2_Click(object sender, EventArgs e) {
-			CentralDeTratamento1View central1 = new CentralDeTratamento1View();
-			central1.TopLevel = false;
-			central1.Dock = DockStyle.Fill;
-			Parent.Controls.Add(central1);
-			central1.Show();
+			SelecaoSeqIndView seqInd = new SelecaoSeqIndView();
+			seqInd.TopLevel = false;
+			seqInd.Dock = DockStyle.Fill;
+			Parent.Controls.Add(seqInd);
+			seqInd.Show();
 			Close();
 		}
     }

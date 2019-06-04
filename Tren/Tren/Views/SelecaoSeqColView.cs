@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Tren.Views {
-	public partial class SelecaoSeq1View : Form {
-		public SelecaoSeq1View() {
+	public partial class SelecaoSeqColView : Form {
+		public SelecaoSeqColView() {
 			InitializeComponent();
 		}
 
@@ -19,7 +19,12 @@ namespace Tren.Views {
 		}
 
 		private void bt_central2_voltar_Click(object sender, EventArgs e) {
-			
+			PrincipalView principal = new PrincipalView();
+			principal.TopLevel = false;
+			principal.Dock = DockStyle.Fill;
+			Parent.Controls.Add(principal);
+			principal.Show();
+			Close();
 		}
 	}
 }

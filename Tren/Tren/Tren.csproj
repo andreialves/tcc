@@ -128,11 +128,17 @@
     <Compile Include="Views\PrincipalView.Designer.cs">
       <DependentUpon>PrincipalView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\SelecaoSeq1View.cs">
+    <Compile Include="Views\SelecaoSeqColView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\SelecaoSeq1View.Designer.cs">
-      <DependentUpon>SelecaoSeq1View.cs</DependentUpon>
+    <Compile Include="Views\SelecaoSeqColView.Designer.cs">
+      <DependentUpon>SelecaoSeqColView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelecaoSeqIndView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SelecaoSeqIndView.Designer.cs">
+      <DependentUpon>SelecaoSeqIndView.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -176,8 +182,11 @@
     <EmbeddedResource Include="Views\PrincipalView.resx">
       <DependentUpon>PrincipalView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\SelecaoSeq1View.resx">
-      <DependentUpon>SelecaoSeq1View.cs</DependentUpon>
+    <EmbeddedResource Include="Views\SelecaoSeqColView.resx">
+      <DependentUpon>SelecaoSeqColView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SelecaoSeqIndView.resx">
+      <DependentUpon>SelecaoSeqIndView.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
