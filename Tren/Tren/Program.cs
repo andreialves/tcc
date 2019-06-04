@@ -23,7 +23,7 @@ namespace Tren {
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Inicio());
+            Application.Run(new InicioView());
 
             //Console.WriteLine("Fim do programa!");
 

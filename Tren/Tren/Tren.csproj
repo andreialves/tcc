@@ -79,23 +79,23 @@
     <Compile Include="Classes\CalhaParshall.cs" />
     <Compile Include="Classes\Desarenador.cs" />
     <Compile Include="Classes\Grade.cs" />
-    <Compile Include="Views\CaixaSAO.cs">
+    <Compile Include="Views\CaixaSAOView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\CaixaSAO.Designer.cs">
-      <DependentUpon>CaixaSAO.cs</DependentUpon>
+    <Compile Include="Views\CaixaSAOView.Designer.cs">
+      <DependentUpon>CaixaSAOView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\CentralDeTratamento1.cs">
+    <Compile Include="Views\CentralDeTratamento1View.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\CentralDeTratamento1.Designer.cs">
-      <DependentUpon>CentralDeTratamento1.cs</DependentUpon>
+    <Compile Include="Views\CentralDeTratamento1View.Designer.cs">
+      <DependentUpon>CentralDeTratamento1View.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\CentralDeTratamento2.cs">
+    <Compile Include="Views\CentralDeTratamento2View.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\CentralDeTratamento2.Designer.cs">
-      <DependentUpon>CentralDeTratamento2.cs</DependentUpon>
+    <Compile Include="Views\CentralDeTratamento2View.Designer.cs">
+      <DependentUpon>CentralDeTratamento2View.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\DesarenadorView.cs">
       <SubType>Form</SubType>
@@ -109,11 +109,11 @@
     <Compile Include="Views\GradeView.Designer.cs">
       <DependentUpon>GradeView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Inicio.cs">
+    <Compile Include="Views\InicioView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Inicio.Designer.cs">
-      <DependentUpon>Inicio.cs</DependentUpon>
+    <Compile Include="Views\InicioView.Designer.cs">
+      <DependentUpon>InicioView.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Sequencia.cs" />
     <Compile Include="Classes\SequenciaPreliminar.cs" />
@@ -122,17 +122,17 @@
     <Compile Include="Classes\UnidadeSecundaria.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\Principal.cs">
+    <Compile Include="Views\PrincipalView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Principal.Designer.cs">
-      <DependentUpon>Principal.cs</DependentUpon>
+    <Compile Include="Views\PrincipalView.Designer.cs">
+      <DependentUpon>PrincipalView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\SequenciaPreliminar.cs">
+    <Compile Include="Views\SelecaoSeq1View.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\SequenciaPreliminar.Designer.cs">
-      <DependentUpon>SequenciaPreliminar.cs</DependentUpon>
+    <Compile Include="Views\SelecaoSeq1View.Designer.cs">
+      <DependentUpon>SelecaoSeq1View.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -155,14 +155,14 @@
     <Content Include="MetroFramework.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CaixaSAO.resx">
-      <DependentUpon>CaixaSAO.cs</DependentUpon>
+    <EmbeddedResource Include="Views\CaixaSAOView.resx">
+      <DependentUpon>CaixaSAOView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\CentralDeTratamento1.resx">
-      <DependentUpon>CentralDeTratamento1.cs</DependentUpon>
+    <EmbeddedResource Include="Views\CentralDeTratamento1View.resx">
+      <DependentUpon>CentralDeTratamento1View.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\CentralDeTratamento2.resx">
-      <DependentUpon>CentralDeTratamento2.cs</DependentUpon>
+    <EmbeddedResource Include="Views\CentralDeTratamento2View.resx">
+      <DependentUpon>CentralDeTratamento2View.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DesarenadorView.resx">
       <DependentUpon>DesarenadorView.cs</DependentUpon>
@@ -170,14 +170,14 @@
     <EmbeddedResource Include="Views\GradeView.resx">
       <DependentUpon>GradeView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Inicio.resx">
-      <DependentUpon>Inicio.cs</DependentUpon>
+    <EmbeddedResource Include="Views\InicioView.resx">
+      <DependentUpon>InicioView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Principal.resx">
-      <DependentUpon>Principal.cs</DependentUpon>
+    <EmbeddedResource Include="Views\PrincipalView.resx">
+      <DependentUpon>PrincipalView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\SequenciaPreliminar.resx">
-      <DependentUpon>SequenciaPreliminar.cs</DependentUpon>
+    <EmbeddedResource Include="Views\SelecaoSeq1View.resx">
+      <DependentUpon>SelecaoSeq1View.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

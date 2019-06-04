@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Tren.Views {
-	public partial class CentralDeTratamento1 : Form {
-		public CentralDeTratamento1() {
+	public partial class CentralDeTratamento1View : Form {
+		public CentralDeTratamento1View() {
 			InitializeComponent();
 		}
 
 		private void bt_central1_avancar_Click(object sender, EventArgs e) {
 			// usar pilas para memorizar a sequencia escolhida e poder voltar a vontade
-			CaixaSAO caixaSAO = new CaixaSAO();
+			CaixaSAOView caixaSAO = new CaixaSAOView();
 			caixaSAO.TopLevel = false;
 			caixaSAO.Dock = DockStyle.Fill;
 			Parent.Controls.Add(caixaSAO);
@@ -25,7 +25,7 @@ namespace Tren.Views {
 		}
 
 		private void bt_central2_voltar_Click(object sender, EventArgs e) {
-			Principal principal = new Principal();
+			PrincipalView principal = new PrincipalView();
 			principal.TopLevel = false;
 			principal.Dock = DockStyle.Fill;
 			Parent.Controls.Add(principal);

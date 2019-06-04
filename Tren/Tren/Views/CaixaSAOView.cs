@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Tren.Views {
-	public partial class CaixaSAO : Form {
-		public CaixaSAO() {
+	public partial class CaixaSAOView : Form {
+		public CaixaSAOView() {
 			InitializeComponent();
 		}
 
@@ -24,7 +24,7 @@ namespace Tren.Views {
 		}
 
 		private void bt_central2_voltar_Click(object sender, EventArgs e) {
-			CentralDeTratamento1 central1 = new CentralDeTratamento1();
+			CentralDeTratamento1View central1 = new CentralDeTratamento1View();
 			central1.TopLevel = false;
 			central1.Dock = DockStyle.Fill;
 			Parent.Controls.Add(central1);

@@ -10,10 +10,10 @@ using System.Windows.Forms;
 using MetroFramework.Forms;
 
 namespace Tren.Views {
-    public partial class Inicio : MetroForm {
-        public Inicio() {
+    public partial class InicioView : MetroForm {
+        public InicioView() {
 			InitializeComponent();
-            Principal principal = new Principal();
+            PrincipalView principal = new PrincipalView();
             principal.TopLevel = false;
             principal.Dock = DockStyle.Fill;
             mainPanel.Controls.Add(principal);

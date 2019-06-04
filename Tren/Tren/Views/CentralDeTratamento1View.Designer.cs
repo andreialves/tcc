@@ -1,5 +1,5 @@
 ﻿namespace Tren.Views {
-	partial class CentralDeTratamento1 {
+	partial class CentralDeTratamento1View {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>

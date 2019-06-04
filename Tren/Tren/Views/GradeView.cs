@@ -28,7 +28,7 @@ namespace Tren.Views {
         }
 
 		private void bt_grade_voltar_Click(object sender, EventArgs e) {
-			CaixaSAO caixaSAO = new CaixaSAO();
+			CaixaSAOView caixaSAO = new CaixaSAOView();
 			caixaSAO.TopLevel = false;
 			caixaSAO.Dock = DockStyle.Fill;
 			Parent.Controls.Add(caixaSAO);

@@ -1,5 +1,5 @@
 ﻿namespace Tren.Views {
-	partial class SequenciaPreliminar {
+	partial class SelecaoSeq1View {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>

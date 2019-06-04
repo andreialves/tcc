@@ -1,5 +1,5 @@
 ﻿namespace Tren.Views {
-    partial class Principal {
+    partial class PrincipalView {
         /// <summary>
         /// Required designer variable.
         /// </summary>

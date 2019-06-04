@@ -1,5 +1,5 @@
 ﻿namespace Tren.Views {
-    partial class Inicio {
+    partial class InicioView {
         /// <summary>
         /// Required designer variable.
         /// </summary>

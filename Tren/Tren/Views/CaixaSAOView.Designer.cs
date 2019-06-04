@@ -1,5 +1,5 @@
 ﻿namespace Tren.Views {
-	partial class CaixaSAO {
+	partial class CaixaSAOView {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
