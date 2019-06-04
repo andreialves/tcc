@@ -224,18 +224,18 @@
 			this.metroLabel1.AutoSize = true;
 			this.metroLabel1.Location = new System.Drawing.Point(439, 308);
 			this.metroLabel1.Name = "metroLabel1";
-			this.metroLabel1.Size = new System.Drawing.Size(145, 19);
+			this.metroLabel1.Size = new System.Drawing.Size(153, 19);
 			this.metroLabel1.TabIndex = 41;
-			this.metroLabel1.Text = "Vazão Infiltração Futura";
+			this.metroLabel1.Text = "Vazão  Doméstica Futura";
 			// 
 			// metroLabel2
 			// 
 			this.metroLabel2.AutoSize = true;
 			this.metroLabel2.Location = new System.Drawing.Point(439, 257);
 			this.metroLabel2.Name = "metroLabel2";
-			this.metroLabel2.Size = new System.Drawing.Size(104, 19);
+			this.metroLabel2.Size = new System.Drawing.Size(108, 19);
 			this.metroLabel2.TabIndex = 40;
-			this.metroLabel2.Text = "Vazão Infiltração";
+			this.metroLabel2.Text = "Vazão Doméstica";
 			// 
 			// bt_central2_voltar
 			// 
@@ -331,9 +331,9 @@
 			this.metroLabel12.AutoSize = true;
 			this.metroLabel12.Location = new System.Drawing.Point(744, 104);
 			this.metroLabel12.Name = "metroLabel12";
-			this.metroLabel12.Size = new System.Drawing.Size(37, 19);
+			this.metroLabel12.Size = new System.Drawing.Size(58, 19);
 			this.metroLabel12.TabIndex = 50;
-			this.metroLabel12.Text = "QPC";
+			this.metroLabel12.Text = "L/(s*Km)";
 			// 
 			// CentralDeTratamento2
 			// 
