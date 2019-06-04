@@ -30,6 +30,8 @@
 			this.lb_SeqPreliminarTitulo = new MetroFramework.Controls.MetroLabel();
 			this.bt_central2_voltar = new MetroFramework.Controls.MetroButton();
 			this.bt_central1_avancar = new MetroFramework.Controls.MetroButton();
+			this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+			this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
 			this.SuspendLayout();
 			// 
 			// txb_hMax
@@ -93,12 +95,32 @@
 			this.bt_central1_avancar.Text = "Avançar";
 			this.bt_central1_avancar.Click += new System.EventHandler(this.bt_central1_avancar_Click);
 			// 
+			// metroLabel1
+			// 
+			this.metroLabel1.AutoSize = true;
+			this.metroLabel1.Location = new System.Drawing.Point(644, 239);
+			this.metroLabel1.Name = "metroLabel1";
+			this.metroLabel1.Size = new System.Drawing.Size(50, 19);
+			this.metroLabel1.TabIndex = 48;
+			this.metroLabel1.Text = "metros";
+			// 
+			// metroLabel2
+			// 
+			this.metroLabel2.AutoSize = true;
+			this.metroLabel2.Location = new System.Drawing.Point(644, 158);
+			this.metroLabel2.Name = "metroLabel2";
+			this.metroLabel2.Size = new System.Drawing.Size(50, 19);
+			this.metroLabel2.TabIndex = 47;
+			this.metroLabel2.Text = "metros";
+			// 
 			// SequenciaPreliminar
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.metroLabel1);
+			this.Controls.Add(this.metroLabel2);
 			this.Controls.Add(this.bt_central2_voltar);
 			this.Controls.Add(this.bt_central1_avancar);
 			this.Controls.Add(this.lb_SeqPreliminarTitulo);
@@ -124,5 +146,7 @@
 		private MetroFramework.Controls.MetroLabel lb_SeqPreliminarTitulo;
 		private MetroFramework.Controls.MetroButton bt_central2_voltar;
 		private MetroFramework.Controls.MetroButton bt_central1_avancar;
+		private MetroFramework.Controls.MetroLabel metroLabel1;
+		private MetroFramework.Controls.MetroLabel metroLabel2;
 	}
 }

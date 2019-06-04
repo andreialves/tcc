@@ -15,11 +15,12 @@ namespace Tren.Views {
 		}
 
 		private void bt_central1_avancar_Click(object sender, EventArgs e) {
-			SequenciaPreliminar preliminar = new SequenciaPreliminar();
-			preliminar.TopLevel = false;
-			preliminar.Dock = DockStyle.Fill;
-			Parent.Controls.Add(preliminar);
-			preliminar.Show();
+			// usar pilas para memorizar a sequencia escolhida e poder voltar a vontade
+			CaixaSAO caixaSAO = new CaixaSAO();
+			caixaSAO.TopLevel = false;
+			caixaSAO.Dock = DockStyle.Fill;
+			Parent.Controls.Add(caixaSAO);
+			caixaSAO.Show();
 			Close();
 		}
 

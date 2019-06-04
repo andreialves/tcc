@@ -32,6 +32,8 @@
 			this.lb_viscosidadeABS = new MetroFramework.Controls.MetroLabel();
 			this.txb_densidadeOleo = new MetroFramework.Controls.MetroTextBox();
 			this.lb_densidadeOleo = new MetroFramework.Controls.MetroLabel();
+			this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+			this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
 			this.SuspendLayout();
 			// 
 			// bt_central2_voltar
@@ -111,12 +113,32 @@
 			this.lb_densidadeOleo.TabIndex = 54;
 			this.lb_densidadeOleo.Text = "Densidade Óleo";
 			// 
+			// metroLabel1
+			// 
+			this.metroLabel1.AutoSize = true;
+			this.metroLabel1.Location = new System.Drawing.Point(644, 201);
+			this.metroLabel1.Name = "metroLabel1";
+			this.metroLabel1.Size = new System.Drawing.Size(45, 19);
+			this.metroLabel1.TabIndex = 58;
+			this.metroLabel1.Text = "g/cm³";
+			// 
+			// metroLabel3
+			// 
+			this.metroLabel3.AutoSize = true;
+			this.metroLabel3.Location = new System.Drawing.Point(644, 134);
+			this.metroLabel3.Name = "metroLabel3";
+			this.metroLabel3.Size = new System.Drawing.Size(59, 19);
+			this.metroLabel3.TabIndex = 56;
+			this.metroLabel3.Text = "g/(cm*s)";
+			// 
 			// CaixaSAO
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.metroLabel1);
+			this.Controls.Add(this.metroLabel3);
 			this.Controls.Add(this.txb_densidadeOleo);
 			this.Controls.Add(this.lb_densidadeOleo);
 			this.Controls.Add(this.bt_central2_voltar);
@@ -146,5 +168,7 @@
 		private MetroFramework.Controls.MetroLabel lb_viscosidadeABS;
 		private MetroFramework.Controls.MetroTextBox txb_densidadeOleo;
 		private MetroFramework.Controls.MetroLabel lb_densidadeOleo;
+		private MetroFramework.Controls.MetroLabel metroLabel1;
+		private MetroFramework.Controls.MetroLabel metroLabel3;
 	}
 }

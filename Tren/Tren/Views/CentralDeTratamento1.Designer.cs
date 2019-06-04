@@ -42,6 +42,14 @@
 			this.lb_centralTitulo = new MetroFramework.Controls.MetroLabel();
 			this.bt_central1_avancar = new MetroFramework.Controls.MetroButton();
 			this.bt_central2_voltar = new MetroFramework.Controls.MetroButton();
+			this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+			this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+			this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+			this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+			this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+			this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+			this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
+			this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
 			this.SuspendLayout();
 			// 
 			// lb_vazaoMax
@@ -185,7 +193,7 @@
 			// 
 			// bt_central1_avancar
 			// 
-			this.bt_central1_avancar.Location = new System.Drawing.Point(450, 393);
+			this.bt_central1_avancar.Location = new System.Drawing.Point(453, 393);
 			this.bt_central1_avancar.Name = "bt_central1_avancar";
 			this.bt_central1_avancar.Size = new System.Drawing.Size(237, 45);
 			this.bt_central1_avancar.TabIndex = 17;
@@ -194,12 +202,84 @@
 			// 
 			// bt_central2_voltar
 			// 
-			this.bt_central2_voltar.Location = new System.Drawing.Point(107, 393);
+			this.bt_central2_voltar.Location = new System.Drawing.Point(110, 393);
 			this.bt_central2_voltar.Name = "bt_central2_voltar";
 			this.bt_central2_voltar.Size = new System.Drawing.Size(237, 45);
 			this.bt_central2_voltar.TabIndex = 18;
 			this.bt_central2_voltar.Text = "Voltar";
 			this.bt_central2_voltar.Click += new System.EventHandler(this.bt_central2_voltar_Click);
+			// 
+			// metroLabel1
+			// 
+			this.metroLabel1.AutoSize = true;
+			this.metroLabel1.Location = new System.Drawing.Point(647, 325);
+			this.metroLabel1.Name = "metroLabel1";
+			this.metroLabel1.Size = new System.Drawing.Size(54, 19);
+			this.metroLabel1.TabIndex = 26;
+			this.metroLabel1.Text = "pessoas";
+			// 
+			// metroLabel2
+			// 
+			this.metroLabel2.AutoSize = true;
+			this.metroLabel2.Location = new System.Drawing.Point(647, 290);
+			this.metroLabel2.Name = "metroLabel2";
+			this.metroLabel2.Size = new System.Drawing.Size(54, 19);
+			this.metroLabel2.TabIndex = 25;
+			this.metroLabel2.Text = "pessoas";
+			// 
+			// metroLabel3
+			// 
+			this.metroLabel3.AutoSize = true;
+			this.metroLabel3.Location = new System.Drawing.Point(647, 254);
+			this.metroLabel3.Name = "metroLabel3";
+			this.metroLabel3.Size = new System.Drawing.Size(25, 19);
+			this.metroLabel3.TabIndex = 24;
+			this.metroLabel3.Text = "L/s";
+			// 
+			// metroLabel4
+			// 
+			this.metroLabel4.AutoSize = true;
+			this.metroLabel4.Location = new System.Drawing.Point(647, 219);
+			this.metroLabel4.Name = "metroLabel4";
+			this.metroLabel4.Size = new System.Drawing.Size(25, 19);
+			this.metroLabel4.TabIndex = 23;
+			this.metroLabel4.Text = "L/s";
+			// 
+			// metroLabel5
+			// 
+			this.metroLabel5.AutoSize = true;
+			this.metroLabel5.Location = new System.Drawing.Point(647, 184);
+			this.metroLabel5.Name = "metroLabel5";
+			this.metroLabel5.Size = new System.Drawing.Size(25, 19);
+			this.metroLabel5.TabIndex = 22;
+			this.metroLabel5.Text = "L/s";
+			// 
+			// metroLabel6
+			// 
+			this.metroLabel6.AutoSize = true;
+			this.metroLabel6.Location = new System.Drawing.Point(647, 148);
+			this.metroLabel6.Name = "metroLabel6";
+			this.metroLabel6.Size = new System.Drawing.Size(25, 19);
+			this.metroLabel6.TabIndex = 21;
+			this.metroLabel6.Text = "L/s";
+			// 
+			// metroLabel7
+			// 
+			this.metroLabel7.AutoSize = true;
+			this.metroLabel7.Location = new System.Drawing.Point(647, 113);
+			this.metroLabel7.Name = "metroLabel7";
+			this.metroLabel7.Size = new System.Drawing.Size(25, 19);
+			this.metroLabel7.TabIndex = 20;
+			this.metroLabel7.Text = "L/s";
+			// 
+			// metroLabel8
+			// 
+			this.metroLabel8.AutoSize = true;
+			this.metroLabel8.Location = new System.Drawing.Point(647, 77);
+			this.metroLabel8.Name = "metroLabel8";
+			this.metroLabel8.Size = new System.Drawing.Size(25, 19);
+			this.metroLabel8.TabIndex = 19;
+			this.metroLabel8.Text = "L/s";
 			// 
 			// CentralDeTratamento1
 			// 
@@ -207,6 +287,14 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.metroLabel1);
+			this.Controls.Add(this.metroLabel2);
+			this.Controls.Add(this.metroLabel3);
+			this.Controls.Add(this.metroLabel4);
+			this.Controls.Add(this.metroLabel5);
+			this.Controls.Add(this.metroLabel6);
+			this.Controls.Add(this.metroLabel7);
+			this.Controls.Add(this.metroLabel8);
 			this.Controls.Add(this.bt_central2_voltar);
 			this.Controls.Add(this.bt_central1_avancar);
 			this.Controls.Add(this.lb_centralTitulo);
@@ -256,5 +344,13 @@
 		private MetroFramework.Controls.MetroLabel lb_centralTitulo;
 		private MetroFramework.Controls.MetroButton bt_central1_avancar;
 		private MetroFramework.Controls.MetroButton bt_central2_voltar;
+		private MetroFramework.Controls.MetroLabel metroLabel1;
+		private MetroFramework.Controls.MetroLabel metroLabel2;
+		private MetroFramework.Controls.MetroLabel metroLabel3;
+		private MetroFramework.Controls.MetroLabel metroLabel4;
+		private MetroFramework.Controls.MetroLabel metroLabel5;
+		private MetroFramework.Controls.MetroLabel metroLabel6;
+		private MetroFramework.Controls.MetroLabel metroLabel7;
+		private MetroFramework.Controls.MetroLabel metroLabel8;
 	}
 }
