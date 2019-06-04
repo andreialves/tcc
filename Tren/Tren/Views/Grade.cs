@@ -30,5 +30,9 @@ namespace Tren.Views {
 			caixaSAO.Show();
 			Close();
 		}
-	}
+
+        private void Grade_Load(object sender, EventArgs e) {
+
+        }
+    }
 }
