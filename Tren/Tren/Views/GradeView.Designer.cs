@@ -1,5 +1,5 @@
 ﻿namespace Tren.Views {
-    partial class Grade {
+    partial class GradeView {
         /// <summary>
         /// Required designer variable.
         /// </summary>

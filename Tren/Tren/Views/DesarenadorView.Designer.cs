@@ -1,5 +1,5 @@
 ﻿namespace Tren.Views {
-    partial class Desarenador {
+    partial class DesarenadorView {
         /// <summary>
         /// Required designer variable.
         /// </summary>

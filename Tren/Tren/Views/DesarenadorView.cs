@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Tren.Views {
-    public partial class Desarenador : Form {
-        public Desarenador() {
+    public partial class DesarenadorView : Form {
+        public DesarenadorView() {
             InitializeComponent();
         }
     }

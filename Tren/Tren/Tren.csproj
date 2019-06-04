@@ -97,17 +97,17 @@
     <Compile Include="Views\CentralDeTratamento2.Designer.cs">
       <DependentUpon>CentralDeTratamento2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Desarenador.cs">
+    <Compile Include="Views\DesarenadorView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Desarenador.Designer.cs">
-      <DependentUpon>Desarenador.cs</DependentUpon>
+    <Compile Include="Views\DesarenadorView.Designer.cs">
+      <DependentUpon>DesarenadorView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Grade.cs">
+    <Compile Include="Views\GradeView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Grade.Designer.cs">
-      <DependentUpon>Grade.cs</DependentUpon>
+    <Compile Include="Views\GradeView.Designer.cs">
+      <DependentUpon>GradeView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Inicio.cs">
       <SubType>Form</SubType>
@@ -164,11 +164,11 @@
     <EmbeddedResource Include="Views\CentralDeTratamento2.resx">
       <DependentUpon>CentralDeTratamento2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Desarenador.resx">
-      <DependentUpon>Desarenador.cs</DependentUpon>
+    <EmbeddedResource Include="Views\DesarenadorView.resx">
+      <DependentUpon>DesarenadorView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Grade.resx">
-      <DependentUpon>Grade.cs</DependentUpon>
+    <EmbeddedResource Include="Views\GradeView.resx">
+      <DependentUpon>GradeView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>

@@ -15,7 +15,7 @@ namespace Tren.Views {
 		}
 
 		private void bt_central1_avancar_Click(object sender, EventArgs e) {
-			Grade grade = new Grade();
+			GradeView grade = new GradeView();
 			grade.TopLevel = false;
 			grade.Dock = DockStyle.Fill;
 			Parent.Controls.Add(grade);

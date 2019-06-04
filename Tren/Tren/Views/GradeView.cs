@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Tren.Views {
-    public partial class Grade : Form {
-        public Grade() {
+    public partial class GradeView : Form {
+        public GradeView() {
             InitializeComponent();
         }
 
@@ -19,8 +19,13 @@ namespace Tren.Views {
         }
 
 		private void bt_grade_avancar_Click(object sender, EventArgs e) {
-
-		}
+            DesarenadorView d = new DesarenadorView();
+            d.TopLevel = false;
+            d.Dock = DockStyle.Fill;
+            Parent.Controls.Add(d);
+            d.Show();
+            Close();
+        }
 
 		private void bt_grade_voltar_Click(object sender, EventArgs e) {
 			CaixaSAO caixaSAO = new CaixaSAO();
@@ -32,7 +37,7 @@ namespace Tren.Views {
 		}
 
         private void Grade_Load(object sender, EventArgs e) {
-
+           
         }
     }
 }
