@@ -35,7 +35,7 @@ namespace Tren.Classes
         private double? comprimentoGrade = null;
 
 
-        public Grade(int espessura, int espacamento, int tipo, int tipoLimpeza, SequenciaPreliminar sp) : base(sp) {
+        public Grade(double espessura, double espacamento, int tipo, int tipoLimpeza, SequenciaPreliminar sp) : base(sp) {
             espessuraGrade = espessura;
             espacamentoGrade = espacamento;
             if (tipo < 1 || tipo > 3) {
