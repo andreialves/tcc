@@ -27,13 +27,21 @@ namespace Tren.Views {
 			string populacao = txb_populacao.Text;
 			string populacaoFut = txb_populacaoFut.Text;
 
+			Dictionary<string, string> dados = new Dictionary<string, string>();
+			dados["vazaoMax"] = vazaoMax;
+			dados["vazaoMed"] = vazaoMed;
+			dados["vazaoMin"] = vazaoMin;
+			dados["vazaoMaxFut"] = vazaoMaxFut;
+			dados["vazaoMedFut"] = vazaoMedFut;
+			dados["vazaoMinFut"] = vazaoMinFut;
+			dados["populacao"] = populacao;
+			dados["populacaoFut"] = populacaoFut;
 
-
-			CaixaSAOView caixaSAO = new CaixaSAOView();
-			caixaSAO.TopLevel = false;
-			caixaSAO.Dock = DockStyle.Fill;
-			Parent.Controls.Add(caixaSAO);
-			caixaSAO.Show();
+			GradeView grade = new GradeView(dados);
+			grade.TopLevel = false;
+			grade.Dock = DockStyle.Fill;
+			Parent.Controls.Add(grade);
+			grade.Show();
 			Close();
 		}
 

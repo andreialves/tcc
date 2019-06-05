@@ -10,8 +10,10 @@ using System.Windows.Forms;
 
 namespace Tren.Views {
 	public partial class CaixaSAOView : View {
-		public CaixaSAOView() {
+		Dictionary<string, string> dados;
+		public CaixaSAOView(Dictionary<string, string> d) {
 			InitializeComponent();
+			dados = d;
 		}
 
 		private void bt_central1_avancar_Click(object sender, EventArgs e) {
@@ -20,12 +22,12 @@ namespace Tren.Views {
 			string dens = txb_densidadeOleo.Text;
 			string turb = txb_turbulencia.Text;
 
-			GradeView grade = new GradeView();
-			grade.TopLevel = false;
-			grade.Dock = DockStyle.Fill;
-			Parent.Controls.Add(grade);
-			grade.Show();
-			Close();
+			dados["viscosidadeABS"] = visc;
+			dados["densidadeOleo"] = dens;
+			dados["turbulencia"] = turb;
+
+			foreach (var d in dados)
+				Console.WriteLine(d.ToString());
 		}
 
 		private void bt_central2_voltar_Click(object sender, EventArgs e) {

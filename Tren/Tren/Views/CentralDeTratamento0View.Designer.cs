@@ -46,6 +46,7 @@
 			this.bt_central0_sim.Size = new System.Drawing.Size(237, 45);
 			this.bt_central0_sim.TabIndex = 48;
 			this.bt_central0_sim.Text = "Sim";
+			this.bt_central0_sim.Click += new System.EventHandler(this.bt_central0_sim_Click);
 			// 
 			// bt_central0_nao
 			// 
@@ -54,8 +55,9 @@
 			this.bt_central0_nao.Size = new System.Drawing.Size(237, 45);
 			this.bt_central0_nao.TabIndex = 47;
 			this.bt_central0_nao.Text = "Não";
+			this.bt_central0_nao.Click += new System.EventHandler(this.bt_central0_nao_Click);
 			// 
-			// CentralDeTratamento0
+			// CentralDeTratamento0View
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -63,7 +65,7 @@
 			this.Controls.Add(this.bt_central0_sim);
 			this.Controls.Add(this.bt_central0_nao);
 			this.Controls.Add(this.lb_CentralEscolhaTitulo);
-			this.Name = "CentralDeTratamento0";
+			this.Name = "CentralDeTratamento0View";
 			this.Text = "CentralDeTratamento0";
 			this.ResumeLayout(false);
 			this.PerformLayout();

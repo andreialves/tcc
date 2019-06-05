@@ -15,21 +15,21 @@ namespace Tren.Views {
 		}
 
 		private void bt_SelecaoSeqInd_avancar_Click(object sender, EventArgs e) {
-			CaixaSAOView caixa = new CaixaSAOView();
+			/*CaixaSAOView caixa = new CaixaSAOView();
 			caixa.TopLevel = false;
 			caixa.Dock = DockStyle.Fill;
 			Parent.Controls.Add(caixa);
 			caixa.Show();
-			Close();
+			Close();*/
 		}
 
 		private void bt_SelecaoSeqInd_voltar_Click(object sender, EventArgs e) {
-			PrincipalView principal = new PrincipalView();
+			/*PrincipalView principal = new PrincipalView();
 			principal.TopLevel = false;
 			principal.Dock = DockStyle.Fill;
 			Parent.Controls.Add(principal);
 			principal.Show();
-			Close();
+			Close();*/
 		}
 	}
 }
