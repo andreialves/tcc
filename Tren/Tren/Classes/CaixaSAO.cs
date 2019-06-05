@@ -21,7 +21,7 @@ namespace Tren.Classes {
 		private double tempoRes;
 
 
-		public CaixaSAO(double visc, double dens, double turb, SequenciaPreliminar cp) : base(cp){
+		public CaixaSAO(double visc, double dens, double turb, SequenciaPreliminar sp) : base(sp){
 			viscosidadeABS = visc;
 			densidadeOleo = dens;
 			turbulencia = turb;

@@ -44,7 +44,7 @@ namespace Tren.Views {
 				sp.adicionar(gr);
 				Desarenador ds = new Desarenador(velocidadeEfluente, taxaAreiaDiaria, sp);
 				sp.adicionar(ds);
-				CaixaSAO cs = new CaixaSAO(1.0, 0.8, 1.37, sp);
+				CaixaSAO cs = new CaixaSAO(viscosidadeABS, densidadeOleo, turbulencia, sp);
 				sp.adicionar(cs);
 			} catch (Exception e) {
 				Console.WriteLine(e.Message);

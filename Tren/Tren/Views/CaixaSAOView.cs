@@ -28,6 +28,13 @@ namespace Tren.Views {
 
 			foreach (var d in dados)
 				Console.WriteLine(d.ToString());
+
+			CalculoViabilidadeView calculo = new CalculoViabilidadeView(dados);
+			calculo.TopLevel = false;
+			calculo.Dock = DockStyle.Fill;
+			Parent.Controls.Add(calculo);
+			calculo.Show();
+			Close();
 		}
 
 		private void bt_central2_voltar_Click(object sender, EventArgs e) {
