@@ -15,7 +15,12 @@ namespace Tren.Views {
 		}
 
 		private void bt_SelecaoSeqInd_avancar_Click(object sender, EventArgs e) {
-
+			CaixaSAOView caixa = new CaixaSAOView();
+			caixa.TopLevel = false;
+			caixa.Dock = DockStyle.Fill;
+			Parent.Controls.Add(caixa);
+			caixa.Show();
+			Close();
 		}
 
 		private void bt_SelecaoSeqInd_voltar_Click(object sender, EventArgs e) {

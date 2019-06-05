@@ -19,7 +19,20 @@ namespace Tren.Views {
         }
 
 		private void bt_grade_avancar_Click(object sender, EventArgs e) {
-            DesarenadorView d = new DesarenadorView();
+			// Recupera valores do textBox
+			string tipoGrade = cb_tipoGrade.Text;
+			bool limpezaMec = metroRadioButton1.Checked;
+			bool limpezaMan = metroRadioButton2.Checked;
+			string espessura = txb_espessura.Text;
+			string espacamento = txb_espacamento.Text;
+			int tipoLimpeza = 0;
+			if (limpezaMec)
+				tipoLimpeza = 1;
+			else if (limpezaMan)
+				tipoLimpeza = 2;
+
+
+			DesarenadorView d = new DesarenadorView();
             d.TopLevel = false;
             d.Dock = DockStyle.Fill;
             Parent.Controls.Add(d);

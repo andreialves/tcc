@@ -13,5 +13,11 @@ namespace Tren.Views {
         public DesarenadorView() {
             InitializeComponent();
         }
-    }
+
+		private void bt_grade_avancar_Click(object sender, EventArgs e) {
+			// Recupera valores do textBox
+			string veloc = txb_velocodade.Text;
+			string taxaAreia = txb_taxaAreia.Text;
+		}
+	}
 }

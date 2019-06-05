@@ -15,6 +15,11 @@ namespace Tren.Views {
 		}
 
 		private void bt_central1_avancar_Click(object sender, EventArgs e) {
+			// Recupera valores do textBox
+			string visc = txb_viscosidadeABS.Text;
+			string dens = txb_densidadeOleo.Text;
+			string turb = txb_turbulencia.Text;
+
 			GradeView grade = new GradeView();
 			grade.TopLevel = false;
 			grade.Dock = DockStyle.Fill;

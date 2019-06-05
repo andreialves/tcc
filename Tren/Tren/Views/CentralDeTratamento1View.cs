@@ -15,7 +15,20 @@ namespace Tren.Views {
 		}
 
 		private void bt_central1_avancar_Click(object sender, EventArgs e) {
-			// usar pilas para memorizar a sequencia escolhida e poder voltar a vontade
+			// usar pilhas para memorizar a sequencia escolhida e poder voltar a vontade
+
+			// Recupera valores do textBox
+			string vazaoMax = txb_vazaoMax.Text;
+			string vazaoMed = txb_vazaoMed.Text;
+			string vazaoMin = txb_vazaoMin.Text;
+			string vazaoMaxFut = txb_vazaoMaxFut.Text;
+			string vazaoMedFut = txb_vazaoMedFut.Text;
+			string vazaoMinFut = txb_vazaoMinFut.Text;
+			string populacao = txb_populacao.Text;
+			string populacaoFut = txb_populacaoFut.Text;
+
+
+
 			CaixaSAOView caixaSAO = new CaixaSAOView();
 			caixaSAO.TopLevel = false;
 			caixaSAO.Dock = DockStyle.Fill;
