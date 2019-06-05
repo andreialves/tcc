@@ -19,5 +19,6 @@ namespace Tren.Views {
 			string veloc = txb_velocodade.Text;
 			string taxaAreia = txb_taxaAreia.Text;
 		}
-	}
+        
+    }
 }
