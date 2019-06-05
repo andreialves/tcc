@@ -16,7 +16,7 @@ namespace Tren.Views {
 
 		private void bt_central1_avancar_Click(object sender, EventArgs e) {
 			/*List<View> sequencia = new List<View>();
-			sequencia.Add(new CentralDeTratamento0View());
+			sequencia.Add(new CentralDeTratamento0View(sequencia));
 			sequencia.Add(new CaixaSAOView());
 			sequencia.Add(new GradeView());
 			sequencia.Add(new DesarenadorView());
@@ -33,6 +33,13 @@ namespace Tren.Views {
 
 			sequencia[it].Show();
 			Hide();*/
+
+			CentralDeTratamento0View central0 = new CentralDeTratamento0View();
+			central0.TopLevel = false;
+			central0.Dock = DockStyle.Fill;
+			Parent.Controls.Add(central0);
+			central0.Show();
+			Close();
 		}
 
 		private void bt_central2_voltar_Click(object sender, EventArgs e) {

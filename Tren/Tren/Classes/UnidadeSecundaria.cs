@@ -10,7 +10,7 @@ namespace Tren.Classes
 		private SequenciaSecundaria pertenceASeq;
 
 
-		UnidadeSecundaria(SequenciaSecundaria ss) {
+		public UnidadeSecundaria(SequenciaSecundaria ss) {
 			pertenceASeq = ss;
 		}
 

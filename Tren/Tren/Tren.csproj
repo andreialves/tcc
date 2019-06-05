@@ -79,6 +79,7 @@
     <Compile Include="Classes\CalhaParshall.cs" />
     <Compile Include="Classes\Desarenador.cs" />
     <Compile Include="Classes\Grade.cs" />
+    <Compile Include="Classes\LagoaFacultativa.cs" />
     <Compile Include="Views\CaixaSAOView.cs">
       <SubType>Form</SubType>
     </Compile>

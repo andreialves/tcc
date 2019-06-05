@@ -30,7 +30,7 @@
 			this.bt_grade_voltar = new MetroFramework.Controls.MetroButton();
 			this.bt_grade_avancar = new MetroFramework.Controls.MetroButton();
 			this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-			this.txb_velocodade = new MetroFramework.Controls.MetroTextBox();
+			this.txb_velocidade = new MetroFramework.Controls.MetroTextBox();
 			this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
 			this.SuspendLayout();
 			// 
@@ -96,12 +96,12 @@
 			this.metroLabel1.TabIndex = 75;
 			this.metroLabel1.Text = "Taxa de Areia Diária";
 			// 
-			// txb_velocodade
+			// txb_velocidade
 			// 
-			this.txb_velocodade.Location = new System.Drawing.Point(383, 117);
-			this.txb_velocodade.Name = "txb_velocodade";
-			this.txb_velocodade.Size = new System.Drawing.Size(238, 23);
-			this.txb_velocodade.TabIndex = 76;
+			this.txb_velocidade.Location = new System.Drawing.Point(383, 117);
+			this.txb_velocidade.Name = "txb_velocidade";
+			this.txb_velocidade.Size = new System.Drawing.Size(238, 23);
+			this.txb_velocidade.TabIndex = 76;
 			// 
 			// metroLabel5
 			// 
@@ -119,7 +119,7 @@
 			this.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.metroLabel5);
-			this.Controls.Add(this.txb_velocodade);
+			this.Controls.Add(this.txb_velocidade);
 			this.Controls.Add(this.metroLabel1);
 			this.Controls.Add(this.lb_centralTitulo);
 			this.Controls.Add(this.metroLabel2);
@@ -127,7 +127,6 @@
 			this.Controls.Add(this.lb_taxaInfiltracaoFut);
 			this.Controls.Add(this.bt_grade_voltar);
 			this.Controls.Add(this.bt_grade_avancar);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "DesarenadorView";
 			this.Text = "Desarenador";
 			this.ResumeLayout(false);
@@ -144,7 +143,7 @@
         private MetroFramework.Controls.MetroButton bt_grade_voltar;
         private MetroFramework.Controls.MetroButton bt_grade_avancar;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroTextBox txb_velocodade;
+        private MetroFramework.Controls.MetroTextBox txb_velocidade;
         private MetroFramework.Controls.MetroLabel metroLabel5;
     }
 }
