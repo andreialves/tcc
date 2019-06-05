@@ -87,6 +87,12 @@
     <Compile Include="Views\CaixaSAOView.Designer.cs">
       <DependentUpon>CaixaSAOView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\CalculoViabilidadeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CalculoViabilidadeView.Designer.cs">
+      <DependentUpon>CalculoViabilidadeView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CentralDeTratamento0View.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Views\CaixaSAOView.resx">
       <DependentUpon>CaixaSAOView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CalculoViabilidadeView.resx">
+      <DependentUpon>CalculoViabilidadeView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CentralDeTratamento0View.resx">
       <DependentUpon>CentralDeTratamento0View.cs</DependentUpon>
