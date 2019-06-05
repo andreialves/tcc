@@ -102,20 +102,7 @@ namespace Tren.Classes {
             alturaGeradaAreiaDia = (volDiarioAreiaRetido / 1000) * areaSuperficial;
             frequenciaLimpeza = Convert.ToInt32(Math.Round((Convert.ToDouble(0.2 * alturaGeradaAreiaDia) + 0.5), MidpointRounding.ToEven));
         }
-
-        public void imprime() {
-            Console.WriteLine(larguraDesarenador);
-            Console.WriteLine(velocidadeEfluente);
-            Console.WriteLine(comprimentoDesarenador);
-            Console.WriteLine(areaSuperficial);
-            Console.WriteLine("Altura m");
-            Console.WriteLine("Altura M");
-            Console.WriteLine(velocidadeTeste);
-            Console.WriteLine(taxaAplicacaoSueprficial);
-            Console.WriteLine(alturaGeradaAreiaDia);
-            Console.WriteLine(frequenciaLimpeza);
-        }
-
+        
         /**
          * 
          * Função para verificar se a velocidade informada é menor que o recomendado pela norma
@@ -128,6 +115,34 @@ namespace Tren.Classes {
             vh = getPertenceASeq.getCentral.getVazaoMinFut / 1000 / area;
 
             return vh > 4;
+        }
+
+        public double? Largura {
+            get{ return larguraDesarenador; }
+        }
+
+        public double? Velocidade {
+            get { return velocidadeEfluente; }
+        }
+
+        public double? Comprimento {
+            get { return comprimentoDesarenador; }
+        }
+
+        public double? AreaSuperficial {
+            get { return areaSuperficial; }
+        }
+
+        public double? TaxaAplicacao {
+            get { return taxaAplicacaoSueprficial; }
+        }
+
+        public double? AlturaAreia {
+            get { return alturaGeradaAreiaDia; }
+        }
+
+        public int? IntervaloLimpeza {
+            get { return frequenciaLimpeza; }
         }
 
     }
