@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Tren.Views {
-	public partial class CaixaSAOView : Form {
+	public partial class CaixaSAOView : View {
 		public CaixaSAOView() {
 			InitializeComponent();
 		}

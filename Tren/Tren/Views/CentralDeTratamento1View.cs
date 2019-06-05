@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Tren.Views {
-	public partial class CentralDeTratamento1View : Form {
+	public partial class CentralDeTratamento1View : View {
 		public CentralDeTratamento1View() {
 			InitializeComponent();
 		}

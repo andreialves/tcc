@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Tren.Views {
-    public partial class GradeView : Form {
+    public partial class GradeView : View {
         public GradeView() {
             InitializeComponent();
         }

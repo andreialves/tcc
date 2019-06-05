@@ -85,6 +85,12 @@
     <Compile Include="Views\CaixaSAOView.Designer.cs">
       <DependentUpon>CaixaSAOView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\CentralDeTratamento0View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CentralDeTratamento0View.Designer.cs">
+      <DependentUpon>CentralDeTratamento0View.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CentralDeTratamento1View.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,12 @@
     <Compile Include="Views\SelecaoSeqIndView.Designer.cs">
       <DependentUpon>SelecaoSeqIndView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\View.Designer.cs">
+      <DependentUpon>View.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -163,6 +175,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Views\CaixaSAOView.resx">
       <DependentUpon>CaixaSAOView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CentralDeTratamento0View.resx">
+      <DependentUpon>CentralDeTratamento0View.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CentralDeTratamento1View.resx">
       <DependentUpon>CentralDeTratamento1View.cs</DependentUpon>

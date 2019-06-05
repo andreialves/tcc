@@ -15,7 +15,24 @@ namespace Tren.Views {
 		}
 
 		private void bt_central1_avancar_Click(object sender, EventArgs e) {
+			/*List<View> sequencia = new List<View>();
+			sequencia.Add(new CentralDeTratamento0View());
+			sequencia.Add(new CaixaSAOView());
+			sequencia.Add(new GradeView());
+			sequencia.Add(new DesarenadorView());
+
+			foreach (View v in sequencia) {
+				v.TopLevel = false;
+				v.Dock = DockStyle.Fill;
+				Parent.Controls.Add(v);
+			}
+
+			int it = 0;
+			// criar estrutura q vai usada para comunicação entre telas
 			
+
+			sequencia[it].Show();
+			Hide();*/
 		}
 
 		private void bt_central2_voltar_Click(object sender, EventArgs e) {

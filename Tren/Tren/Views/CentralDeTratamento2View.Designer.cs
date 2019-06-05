@@ -375,9 +375,7 @@
 			this.Controls.Add(this.lb_extensaoRede);
 			this.Controls.Add(this.txb_qpc);
 			this.Controls.Add(this.lb_qpc);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "CentralDeTratamento2View";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Central De Tratamento";
 			this.ResumeLayout(false);
 			this.PerformLayout();
