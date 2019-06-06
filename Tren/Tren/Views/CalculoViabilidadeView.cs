@@ -41,13 +41,42 @@ namespace Tren.Views {
 				CalhaParshall cp = new CalhaParshall(sp);
 				sp.adicionar(cp);
 				Grade gr = new Grade(espessura, espacamento, tipoGrade, tipoLimpeza, sp);
-				sp.adicionar(gr);
+                gr.CalculoEficiencia();
+                gr.CalculaAreaUtil();
+                gr.CalculaAreaUtilLinha();
+                gr.CalculaSecaoCanal();
+                gr.CalculaLarguraCanal();
+                gr.CalculaSecaoCanalLinha();
+                gr.CalculaVelocidadeLinha();
+                gr.CalculaVelAproxMax();
+                gr.CalculaVelAproxMin();
+                gr.CalculaPerdaCarga();
+                gr.CalculaPerdaCargaTotal();
+                gr.CalculaBarras();
+                gr.CalculaCorrecaoEspaco();
+                gr.CalculaDiferencaEspaco();
+                gr.CalculaComprimento();
+                sp.adicionar(gr);
+
 				Desarenador ds = new Desarenador(velocidadeEfluente, taxaAreiaDiaria, sp);
+                ds.CalculaLarguraDesarenador();
+                ds.CalculaAreaSecao();
+                if (!ds.VerificaVH()) {
+                    ds.corrigeVelocidade(velocidadeEfluente);   
+                }
+                ds.CalculaComprimento();
+                ds.calculaAreaSuperficial();
+                ds.CalculaTAS();
+                if (!ds.VerificaTAS()) {
+                    ds.corrigeVelocidade(velocidadeEfluente);
+                }
+                ds.calculaFrequenciaLimpeza();
+                
 				sp.adicionar(ds);
 				CaixaSAO cs = new CaixaSAO(viscosidadeABS, densidadeOleo, turbulencia, sp);
 				sp.adicionar(cs);
 			} catch (Exception e) {
-				Console.WriteLine(e.Message);
+                MessageBox.Show(e.Message);
 			}
 		}
 	}
