@@ -26,13 +26,13 @@
 			this.lb_SelecaoSeqColTitulo = new MetroFramework.Controls.MetroLabel();
 			this.bt_central2_voltar = new MetroFramework.Controls.MetroButton();
 			this.bt_central1_avancar = new MetroFramework.Controls.MetroButton();
-			this.metroCheckBox2 = new MetroFramework.Controls.MetroCheckBox();
-			this.metroCheckBox3 = new MetroFramework.Controls.MetroCheckBox();
-			this.metroCheckBox4 = new MetroFramework.Controls.MetroCheckBox();
-			this.metroCheckBox5 = new MetroFramework.Controls.MetroCheckBox();
-			this.metroCheckBox6 = new MetroFramework.Controls.MetroCheckBox();
-			this.metroCheckBox7 = new MetroFramework.Controls.MetroCheckBox();
-			this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
+			this.cbx_PLaLfLm = new MetroFramework.Controls.MetroCheckBox();
+			this.cbx_PRuW = new MetroFramework.Controls.MetroCheckBox();
+			this.cbx_PRuLf = new MetroFramework.Controls.MetroCheckBox();
+			this.cbx_PLf = new MetroFramework.Controls.MetroCheckBox();
+			this.cbx_PRuLfLm = new MetroFramework.Controls.MetroCheckBox();
+			this.cbx_PRu = new MetroFramework.Controls.MetroCheckBox();
+			this.cbx_PLaLf = new MetroFramework.Controls.MetroCheckBox();
 			this.SuspendLayout();
 			// 
 			// lb_SelecaoSeqColTitulo
@@ -64,75 +64,75 @@
 			this.bt_central1_avancar.Text = "Avançar";
 			this.bt_central1_avancar.Click += new System.EventHandler(this.bt_central1_avancar_Click);
 			// 
-			// metroCheckBox2
+			// cbx_PLaLfLm
 			// 
-			this.metroCheckBox2.FontSize = MetroFramework.MetroLinkSize.Medium;
-			this.metroCheckBox2.Location = new System.Drawing.Point(181, 113);
-			this.metroCheckBox2.Name = "metroCheckBox2";
-			this.metroCheckBox2.Size = new System.Drawing.Size(463, 33);
-			this.metroCheckBox2.TabIndex = 49;
-			this.metroCheckBox2.Text = "Preliminar + Lagoa Anaeróbia + Lagoa Facultativa + Lagoa Anaeróbia";
-			this.metroCheckBox2.UseVisualStyleBackColor = true;
+			this.cbx_PLaLfLm.FontSize = MetroFramework.MetroLinkSize.Medium;
+			this.cbx_PLaLfLm.Location = new System.Drawing.Point(174, 113);
+			this.cbx_PLaLfLm.Name = "cbx_PLaLfLm";
+			this.cbx_PLaLfLm.Size = new System.Drawing.Size(479, 33);
+			this.cbx_PLaLfLm.TabIndex = 49;
+			this.cbx_PLaLfLm.Text = "Preliminar + Lagoa Anaeróbia + Lagoa Facultativa + Lagoa de Maturação";
+			this.cbx_PLaLfLm.UseVisualStyleBackColor = true;
 			// 
-			// metroCheckBox3
+			// cbx_PRuW
 			// 
-			this.metroCheckBox3.FontSize = MetroFramework.MetroLinkSize.Medium;
-			this.metroCheckBox3.Location = new System.Drawing.Point(181, 152);
-			this.metroCheckBox3.Name = "metroCheckBox3";
-			this.metroCheckBox3.Size = new System.Drawing.Size(463, 33);
-			this.metroCheckBox3.TabIndex = 50;
-			this.metroCheckBox3.Text = "Preliminar + Reator UASB + Wetland";
-			this.metroCheckBox3.UseVisualStyleBackColor = true;
+			this.cbx_PRuW.FontSize = MetroFramework.MetroLinkSize.Medium;
+			this.cbx_PRuW.Location = new System.Drawing.Point(174, 152);
+			this.cbx_PRuW.Name = "cbx_PRuW";
+			this.cbx_PRuW.Size = new System.Drawing.Size(479, 33);
+			this.cbx_PRuW.TabIndex = 50;
+			this.cbx_PRuW.Text = "Preliminar + Reator UASB + Wetland";
+			this.cbx_PRuW.UseVisualStyleBackColor = true;
 			// 
-			// metroCheckBox4
+			// cbx_PRuLf
 			// 
-			this.metroCheckBox4.FontSize = MetroFramework.MetroLinkSize.Medium;
-			this.metroCheckBox4.Location = new System.Drawing.Point(181, 191);
-			this.metroCheckBox4.Name = "metroCheckBox4";
-			this.metroCheckBox4.Size = new System.Drawing.Size(463, 33);
-			this.metroCheckBox4.TabIndex = 51;
-			this.metroCheckBox4.Text = "Preliminar + Reator UASB + Lagoa Facultativa";
-			this.metroCheckBox4.UseVisualStyleBackColor = true;
+			this.cbx_PRuLf.FontSize = MetroFramework.MetroLinkSize.Medium;
+			this.cbx_PRuLf.Location = new System.Drawing.Point(174, 191);
+			this.cbx_PRuLf.Name = "cbx_PRuLf";
+			this.cbx_PRuLf.Size = new System.Drawing.Size(479, 33);
+			this.cbx_PRuLf.TabIndex = 51;
+			this.cbx_PRuLf.Text = "Preliminar + Reator UASB + Lagoa Facultativa";
+			this.cbx_PRuLf.UseVisualStyleBackColor = true;
 			// 
-			// metroCheckBox5
+			// cbx_PLf
 			// 
-			this.metroCheckBox5.FontSize = MetroFramework.MetroLinkSize.Medium;
-			this.metroCheckBox5.Location = new System.Drawing.Point(181, 230);
-			this.metroCheckBox5.Name = "metroCheckBox5";
-			this.metroCheckBox5.Size = new System.Drawing.Size(463, 33);
-			this.metroCheckBox5.TabIndex = 52;
-			this.metroCheckBox5.Text = "Preliminar + Lagoa Facultativa";
-			this.metroCheckBox5.UseVisualStyleBackColor = true;
+			this.cbx_PLf.FontSize = MetroFramework.MetroLinkSize.Medium;
+			this.cbx_PLf.Location = new System.Drawing.Point(174, 230);
+			this.cbx_PLf.Name = "cbx_PLf";
+			this.cbx_PLf.Size = new System.Drawing.Size(479, 33);
+			this.cbx_PLf.TabIndex = 52;
+			this.cbx_PLf.Text = "Preliminar + Lagoa Facultativa";
+			this.cbx_PLf.UseVisualStyleBackColor = true;
 			// 
-			// metroCheckBox6
+			// cbx_PRuLfLm
 			// 
-			this.metroCheckBox6.FontSize = MetroFramework.MetroLinkSize.Medium;
-			this.metroCheckBox6.Location = new System.Drawing.Point(181, 269);
-			this.metroCheckBox6.Name = "metroCheckBox6";
-			this.metroCheckBox6.Size = new System.Drawing.Size(463, 33);
-			this.metroCheckBox6.TabIndex = 53;
-			this.metroCheckBox6.Text = "Preliminar + Reator UASB + Lagoa Facultativa + Lagoa de Maturação";
-			this.metroCheckBox6.UseVisualStyleBackColor = true;
+			this.cbx_PRuLfLm.FontSize = MetroFramework.MetroLinkSize.Medium;
+			this.cbx_PRuLfLm.Location = new System.Drawing.Point(174, 269);
+			this.cbx_PRuLfLm.Name = "cbx_PRuLfLm";
+			this.cbx_PRuLfLm.Size = new System.Drawing.Size(479, 33);
+			this.cbx_PRuLfLm.TabIndex = 53;
+			this.cbx_PRuLfLm.Text = "Preliminar + Reator UASB + Lagoa Facultativa + Lagoa de Maturação";
+			this.cbx_PRuLfLm.UseVisualStyleBackColor = true;
 			// 
-			// metroCheckBox7
+			// cbx_PRu
 			// 
-			this.metroCheckBox7.FontSize = MetroFramework.MetroLinkSize.Medium;
-			this.metroCheckBox7.Location = new System.Drawing.Point(181, 308);
-			this.metroCheckBox7.Name = "metroCheckBox7";
-			this.metroCheckBox7.Size = new System.Drawing.Size(463, 33);
-			this.metroCheckBox7.TabIndex = 54;
-			this.metroCheckBox7.Text = "Preliminar + Reator UASB";
-			this.metroCheckBox7.UseVisualStyleBackColor = true;
+			this.cbx_PRu.FontSize = MetroFramework.MetroLinkSize.Medium;
+			this.cbx_PRu.Location = new System.Drawing.Point(174, 308);
+			this.cbx_PRu.Name = "cbx_PRu";
+			this.cbx_PRu.Size = new System.Drawing.Size(479, 33);
+			this.cbx_PRu.TabIndex = 54;
+			this.cbx_PRu.Text = "Preliminar + Reator UASB";
+			this.cbx_PRu.UseVisualStyleBackColor = true;
 			// 
-			// metroCheckBox1
+			// cbx_PLaLf
 			// 
-			this.metroCheckBox1.FontSize = MetroFramework.MetroLinkSize.Medium;
-			this.metroCheckBox1.Location = new System.Drawing.Point(181, 74);
-			this.metroCheckBox1.Name = "metroCheckBox1";
-			this.metroCheckBox1.Size = new System.Drawing.Size(463, 33);
-			this.metroCheckBox1.TabIndex = 55;
-			this.metroCheckBox1.Text = "Preliminar + Lagoa Anaeróbia + Lagoa Facultativa";
-			this.metroCheckBox1.UseVisualStyleBackColor = true;
+			this.cbx_PLaLf.FontSize = MetroFramework.MetroLinkSize.Medium;
+			this.cbx_PLaLf.Location = new System.Drawing.Point(174, 74);
+			this.cbx_PLaLf.Name = "cbx_PLaLf";
+			this.cbx_PLaLf.Size = new System.Drawing.Size(479, 33);
+			this.cbx_PLaLf.TabIndex = 55;
+			this.cbx_PLaLf.Text = "Preliminar + Lagoa Anaeróbia + Lagoa Facultativa";
+			this.cbx_PLaLf.UseVisualStyleBackColor = true;
 			// 
 			// SelecaoSeqColView
 			// 
@@ -140,19 +140,17 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.metroCheckBox1);
-			this.Controls.Add(this.metroCheckBox7);
-			this.Controls.Add(this.metroCheckBox6);
-			this.Controls.Add(this.metroCheckBox5);
-			this.Controls.Add(this.metroCheckBox4);
-			this.Controls.Add(this.metroCheckBox3);
-			this.Controls.Add(this.metroCheckBox2);
+			this.Controls.Add(this.cbx_PLaLf);
+			this.Controls.Add(this.cbx_PRu);
+			this.Controls.Add(this.cbx_PRuLfLm);
+			this.Controls.Add(this.cbx_PLf);
+			this.Controls.Add(this.cbx_PRuLf);
+			this.Controls.Add(this.cbx_PRuW);
+			this.Controls.Add(this.cbx_PLaLfLm);
 			this.Controls.Add(this.bt_central2_voltar);
 			this.Controls.Add(this.bt_central1_avancar);
 			this.Controls.Add(this.lb_SelecaoSeqColTitulo);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "SelecaoSeqColView";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Sequencia Preliminar";
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -163,12 +161,12 @@
 		private MetroFramework.Controls.MetroLabel lb_SelecaoSeqColTitulo;
 		private MetroFramework.Controls.MetroButton bt_central2_voltar;
 		private MetroFramework.Controls.MetroButton bt_central1_avancar;
-		private MetroFramework.Controls.MetroCheckBox metroCheckBox2;
-		private MetroFramework.Controls.MetroCheckBox metroCheckBox3;
-		private MetroFramework.Controls.MetroCheckBox metroCheckBox4;
-		private MetroFramework.Controls.MetroCheckBox metroCheckBox5;
-		private MetroFramework.Controls.MetroCheckBox metroCheckBox6;
-		private MetroFramework.Controls.MetroCheckBox metroCheckBox7;
-		private MetroFramework.Controls.MetroCheckBox metroCheckBox1;
+		private MetroFramework.Controls.MetroCheckBox cbx_PLaLfLm;
+		private MetroFramework.Controls.MetroCheckBox cbx_PRuW;
+		private MetroFramework.Controls.MetroCheckBox cbx_PRuLf;
+		private MetroFramework.Controls.MetroCheckBox cbx_PLf;
+		private MetroFramework.Controls.MetroCheckBox cbx_PRuLfLm;
+		private MetroFramework.Controls.MetroCheckBox cbx_PRu;
+		private MetroFramework.Controls.MetroCheckBox cbx_PLaLf;
 	}
 }

@@ -12,7 +12,7 @@ namespace Tren.Views {
     public partial class DesarenadorView : View {
 		Dictionary<string, string> dados;
 
-		public DesarenadorView(Dictionary<string, string> d) {
+		public DesarenadorView(Dictionary<string, string> d, InicioView pai) : base(pai) {
             InitializeComponent();
 			dados = d;
         }
@@ -22,16 +22,19 @@ namespace Tren.Views {
 			string veloc = txb_velocidade.Text;
 			string taxaAreia = txb_taxaAreia.Text;
 
+			if (veloc == "" || taxaAreia == "") {
+				return;
+			}
+
 			dados["velocidadeEfluente"] = veloc;
 			dados["taxaAreiaDiaria"] = taxaAreia;
 
-			CaixaSAOView caixaSAO = new CaixaSAOView(dados);
-			caixaSAO.TopLevel = false;
-			caixaSAO.Dock = DockStyle.Fill;
-			Parent.Controls.Add(caixaSAO);
-			caixaSAO.Show();
+			Pai.avancaView();
 			Close();
 		}
-        
-    }
+
+		private void bt_grade_voltar_Click(object sender, EventArgs e) {
+			Pai.voltaView();
+		}
+	}
 }

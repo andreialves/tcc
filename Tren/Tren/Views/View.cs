@@ -10,8 +10,22 @@ using System.Windows.Forms;
 
 namespace Tren.Views {
 	public partial class View : Form {
+		private InicioView pai;
+
 		public View() {
 			InitializeComponent();
+		}
+
+		public View(InicioView v) {
+			InitializeComponent();
+
+			pai = v;
+		}
+
+		public InicioView Pai {
+			get {
+				return pai;
+			}
 		}
 	}
 }

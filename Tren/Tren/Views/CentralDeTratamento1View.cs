@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Tren.Views {
 	public partial class CentralDeTratamento1View : View {
-		public CentralDeTratamento1View() {
+		public CentralDeTratamento1View(InicioView pai) :base(pai) {
 			InitializeComponent();
 		}
 
@@ -27,6 +27,12 @@ namespace Tren.Views {
 			string populacao = txb_populacao.Text;
 			string populacaoFut = txb_populacaoFut.Text;
 
+			if (vazaoMax == "" || vazaoMed == "" || vazaoMin == "" ||
+				vazaoMaxFut == "" || vazaoMedFut == "" || vazaoMinFut == "" ||
+				populacao == "" || populacaoFut == "") {
+				return;
+			}
+
 			Dictionary<string, string> dados = new Dictionary<string, string>();
 			dados["vazaoMax"] = vazaoMax;
 			dados["vazaoMed"] = vazaoMed;
@@ -37,20 +43,12 @@ namespace Tren.Views {
 			dados["populacao"] = populacao;
 			dados["populacaoFut"] = populacaoFut;
 
-			GradeView grade = new GradeView(dados);
-			grade.TopLevel = false;
-			grade.Dock = DockStyle.Fill;
-			Parent.Controls.Add(grade);
-			grade.Show();
+			Pai.avancaView();
 			Close();
 		}
 
 		private void bt_central2_voltar_Click(object sender, EventArgs e) {
-			PrincipalView principal = new PrincipalView();
-			principal.TopLevel = false;
-			principal.Dock = DockStyle.Fill;
-			Parent.Controls.Add(principal);
-			principal.Show();
+			Pai.voltaView();
 			Close();
 		}
 	}

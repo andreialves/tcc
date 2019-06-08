@@ -77,6 +77,7 @@
 			this.bt_grade_voltar.Size = new System.Drawing.Size(237, 45);
 			this.bt_grade_voltar.TabIndex = 67;
 			this.bt_grade_voltar.Text = "Voltar";
+			this.bt_grade_voltar.Click += new System.EventHandler(this.bt_grade_voltar_Click);
 			// 
 			// bt_grade_avancar
 			// 

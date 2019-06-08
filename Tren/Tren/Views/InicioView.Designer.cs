@@ -33,7 +33,6 @@
 			this.mainPanel.Name = "mainPanel";
 			this.mainPanel.Size = new System.Drawing.Size(800, 450);
 			this.mainPanel.TabIndex = 0;
-			this.mainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
 			// 
 			// Inicio
 			// 
@@ -45,7 +44,6 @@
 			this.Name = "Inicio";
 			this.Style = MetroFramework.MetroColorStyle.Green;
 			this.Text = "TREN";
-			this.Load += new System.EventHandler(this.Inicio_Load);
 			this.ResumeLayout(false);
 
         }

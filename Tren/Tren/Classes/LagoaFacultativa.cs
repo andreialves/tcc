@@ -55,5 +55,15 @@ namespace Tren.Classes {
 				return dboSaida;
 			}
 		}
+		public double getCargaMax {
+			get {
+				return cargaMax;
+			}
+		}
+		public double getCargaAfluente {
+			get {
+				return cargaAfluente;
+			}
+		}
 	}
 }

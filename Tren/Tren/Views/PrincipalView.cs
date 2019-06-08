@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Tren.Views {
-    public partial class PrincipalView : Form {
-        public PrincipalView() {
-            InitializeComponent();
-        }
+    public partial class PrincipalView : View {
+		public PrincipalView(InicioView pai) : base(pai) {
+			InitializeComponent();
+		}
 
-        private void Principal_Load(object sender, EventArgs e) {
+		private void Principal_Load(object sender, EventArgs e) {
 
         }
 
@@ -23,7 +23,7 @@ namespace Tren.Views {
         }
 
         private void metroButton1_Click(object sender, EventArgs e) {
-			SelecaoSeqColView seqCol = new SelecaoSeqColView();
+			SelecaoSeqColView seqCol = new SelecaoSeqColView(Pai);
 			seqCol.TopLevel = false;
 			seqCol.Dock = DockStyle.Fill;
 			Parent.Controls.Add(seqCol);
@@ -32,7 +32,7 @@ namespace Tren.Views {
 		}
 
         private void metroButton2_Click(object sender, EventArgs e) {
-			SelecaoSeqIndView seqInd = new SelecaoSeqIndView();
+			SelecaoSeqIndView seqInd = new SelecaoSeqIndView(Pai);
 			seqInd.TopLevel = false;
 			seqInd.Dock = DockStyle.Fill;
 			Parent.Controls.Add(seqInd);

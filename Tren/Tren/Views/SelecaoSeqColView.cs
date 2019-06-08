@@ -9,41 +9,33 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Tren.Views {
-	public partial class SelecaoSeqColView : Form {
-		public SelecaoSeqColView() {
+	public partial class SelecaoSeqColView : View {
+		public SelecaoSeqColView(InicioView pai) : base(pai) {
 			InitializeComponent();
 		}
 
 		private void bt_central1_avancar_Click(object sender, EventArgs e) {
-			/*List<View> sequencia = new List<View>();
-			sequencia.Add(new CentralDeTratamento0View(sequencia));
-			sequencia.Add(new CaixaSAOView());
-			sequencia.Add(new GradeView());
-			sequencia.Add(new DesarenadorView());
+			Pai.limpaLista();
+			Pai.AddView(this, "Selecao");
+			Dictionary<string, string> dados = new Dictionary<string, string>();
 
-			foreach (View v in sequencia) {
-				v.TopLevel = false;
-				v.Dock = DockStyle.Fill;
-				Parent.Controls.Add(v);
+			if (cbx_PLf.Checked) {
+				Pai.AddView(new CentralDeTratamento0View(Pai), "Central0");
+				Pai.AddView(new CaixaSAOView(dados, Pai), "CaixaSAO");
+				Pai.AddView(new GradeView(dados, Pai), "Grade");
+				Pai.AddView(new DesarenadorView(dados, Pai), "Desarenador");
+				Pai.AddView(new CalculoViabilidadeView(dados, Pai), "Calculo");
 			}
 
-			int it = 0;
-			// criar estrutura q vai usada para comunicação entre telas
+			if (Pai.NumViews == 1)
+				return;
 			
-
-			sequencia[it].Show();
-			Hide();*/
-
-			CentralDeTratamento0View central0 = new CentralDeTratamento0View();
-			central0.TopLevel = false;
-			central0.Dock = DockStyle.Fill;
-			Parent.Controls.Add(central0);
-			central0.Show();
+			Pai.avancaView();
 			Close();
 		}
 
 		private void bt_central2_voltar_Click(object sender, EventArgs e) {
-			PrincipalView principal = new PrincipalView();
+			PrincipalView principal = new PrincipalView(Pai);
 			principal.TopLevel = false;
 			principal.Dock = DockStyle.Fill;
 			Parent.Controls.Add(principal);

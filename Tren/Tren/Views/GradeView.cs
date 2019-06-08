@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace Tren.Views {
     public partial class GradeView : View {
 		Dictionary<string, string> dados;
-		public GradeView(Dictionary<string, string> d) {
+		public GradeView(Dictionary<string, string> d, InicioView pai) : base(pai) {
             InitializeComponent();
 			dados = d;
         }
@@ -42,26 +42,22 @@ namespace Tren.Views {
 			else if (limpezaMan)
 				tipoLimpeza = 2;
 
+			if (tipoG == 0 || tipoLimpeza == 0 || espessura == "" || espacamento == "") {
+				return;
+			}
+
 			dados["tipoGrade"] = Convert.ToString(tipoG);
 			dados["tipoLimpeza"] = Convert.ToString(tipoLimpeza);
 			dados["espessura"] = espessura;
 			dados["espacamento"] = espacamento;
 
-			DesarenadorView d = new DesarenadorView(dados);
-            d.TopLevel = false;
-            d.Dock = DockStyle.Fill;
-            Parent.Controls.Add(d);
-            d.Show();
+			Pai.avancaView();
             Close();
         }
 
 		private void bt_grade_voltar_Click(object sender, EventArgs e) {
-			/*CaixaSAOView caixaSAO = new CaixaSAOView();
-			caixaSAO.TopLevel = false;
-			caixaSAO.Dock = DockStyle.Fill;
-			Parent.Controls.Add(caixaSAO);
-			caixaSAO.Show();
-			Close();*/
+			Pai.voltaView();
+			Close();
 		}
 
         private void Grade_Load(object sender, EventArgs e) {

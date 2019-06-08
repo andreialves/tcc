@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Tren.Views {
 	public partial class CentralDeTratamento2View : View {
-		public CentralDeTratamento2View() {
+		public CentralDeTratamento2View(InicioView pai) : base(pai) {
 			InitializeComponent();
 		}
 
@@ -31,6 +31,19 @@ namespace Tren.Views {
 			string vazaoDomestica = txb_vazaoDomestica.Text;
 			string vazaoDomesticaFut = txb_vazaoDomesticaFut.Text;
 
+			if (populacao == "" || populacaoFut == "" || qpc == "" || extensao == "" ||
+				taxaInfiltracao == "" || taxaInfiltracaoFut == "" || vazaoInfiltracao == "" ||
+				vazaoInfiltracaoFut == "" || vazaoDomestica == "" || vazaoDomesticaFut == "") {
+				return;
+			}
+
+			Pai.avancaView();
+			Close();
+		}
+
+		private void bt_central2_voltar_Click(object sender, EventArgs e) {
+			Pai.voltaView();
+			Close();
 		}
 	}
 }

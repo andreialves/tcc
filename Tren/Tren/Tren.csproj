@@ -136,6 +136,12 @@
     <Compile Include="Classes\UnidadeSecundaria.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\LagoaFacultativaView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LagoaFacultativaView.Designer.cs">
+      <DependentUpon>LagoaFacultativaView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\PrincipalView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\InicioView.resx">
       <DependentUpon>InicioView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LagoaFacultativaView.resx">
+      <DependentUpon>LagoaFacultativaView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PrincipalView.resx">
       <DependentUpon>PrincipalView.cs</DependentUpon>

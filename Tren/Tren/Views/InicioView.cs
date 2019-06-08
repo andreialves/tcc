@@ -11,9 +11,18 @@ using MetroFramework.Forms;
 
 namespace Tren.Views {
     public partial class InicioView : MetroForm {
-        public InicioView() {
+		private List<View> listaViews;
+		private List<string> nomeViews;
+		private int it;
+
+		public InicioView() {
 			InitializeComponent();
-            PrincipalView principal = new PrincipalView();
+
+			listaViews = new List<View>();
+			nomeViews = new List<string>();
+			it = 0;
+
+			PrincipalView principal = new PrincipalView(this);
             principal.TopLevel = false;
             principal.Dock = DockStyle.Fill;
             mainPanel.Controls.Add(principal);
@@ -21,16 +30,47 @@ namespace Tren.Views {
 			
 		}
 
-        private void Inicio_Load(object sender, EventArgs e) {
+		public void avancaView() {
+			it++;
+			ViewAtual.Show();
+		}
 
-        }
+		public void voltaView() {
+			it--;
+			ViewAtual.Show();
+		}
 
-        private void panel1_Paint(object sender, PaintEventArgs e) {
+		private View ViewAtual {
+			get {
+				if (it >= listaViews.Count)
+					throw new Exception("InicioView::CurrentView - iterador inválido");
 
-        }
+				return listaViews[it];
+			}
+		}
 
-        private void metroPanel1_Paint(object sender, PaintEventArgs e) {
+		public int NumViews {
+			get {
+				return listaViews.Count;
+			}
+		}
 
-        }
+		public void limpaLista() {
+			listaViews.Clear();
+			nomeViews.Clear();
+			it = 0;
+		}
+
+		public void AddView(View view, string nome) {
+			if (nomeViews.Contains(nome)) {
+				return;
+			}
+			view.TopLevel = false;
+			view.Dock = DockStyle.Fill;
+			mainPanel.Controls.Add(view);
+
+			listaViews.Add(view);
+			nomeViews.Add(nome);
+		}
     }
 }
