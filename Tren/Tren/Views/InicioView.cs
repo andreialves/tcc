@@ -42,7 +42,7 @@ namespace Tren.Views {
 
 		private View ViewAtual {
 			get {
-				if (it >= listaViews.Count)
+				if (it < 0 || it >= listaViews.Count)
 					throw new Exception("InicioView::CurrentView - iterador inválido");
 
 				return listaViews[it];
@@ -57,7 +57,8 @@ namespace Tren.Views {
 
 		public void limpaLista() {
 			foreach (View v in listaViews)
-				v.Close();
+				if(v != listaViews[0])
+					v.Close();
 			listaViews.Clear();
 			nomeViews.Clear();
 			it = 0;
