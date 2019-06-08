@@ -28,7 +28,12 @@ namespace Tren.Views {
 			dados["tempMesFrio"] = tempMesFrio;
 
 			Pai.avancaView();
-			Close();
+			Hide();
+		}
+
+		private void bt_lagoFacul_voltar_Click(object sender, EventArgs e) {
+			Pai.voltaView();
+			Hide();
 		}
 	}
 }

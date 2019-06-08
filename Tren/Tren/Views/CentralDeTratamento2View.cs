@@ -10,8 +10,11 @@ using System.Windows.Forms;
 
 namespace Tren.Views {
 	public partial class CentralDeTratamento2View : View {
-		public CentralDeTratamento2View(InicioView pai) : base(pai) {
+		Dictionary<string, string> dados;
+
+		public CentralDeTratamento2View(Dictionary<string, string> d, InicioView pai) : base(pai) {
 			InitializeComponent();
+			dados = d;
 		}
 
         private void CentralDeTratamento2_Load(object sender, EventArgs e) {
@@ -38,12 +41,12 @@ namespace Tren.Views {
 			}
 
 			Pai.avancaView();
-			Close();
+			Hide();
 		}
 
 		private void bt_central2_voltar_Click(object sender, EventArgs e) {
 			Pai.voltaView();
-			Close();
+			Hide();
 		}
 	}
 }

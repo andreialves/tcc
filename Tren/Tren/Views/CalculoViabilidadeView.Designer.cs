@@ -24,6 +24,7 @@
 		/// </summary>
 		private void InitializeComponent() {
 			this.lb_calculoViabilidadeTitulo = new MetroFramework.Controls.MetroLabel();
+			this.bt_calculoRealizar = new MetroFramework.Controls.MetroButton();
 			this.SuspendLayout();
 			// 
 			// lb_calculoViabilidadeTitulo
@@ -37,11 +38,21 @@
 			this.lb_calculoViabilidadeTitulo.TabIndex = 52;
 			this.lb_calculoViabilidadeTitulo.Text = "Exibir PDF";
 			// 
+			// bt_calculoRealizar
+			// 
+			this.bt_calculoRealizar.Location = new System.Drawing.Point(282, 203);
+			this.bt_calculoRealizar.Name = "bt_calculoRealizar";
+			this.bt_calculoRealizar.Size = new System.Drawing.Size(237, 45);
+			this.bt_calculoRealizar.TabIndex = 3;
+			this.bt_calculoRealizar.Text = "Realizar Cálculos";
+			this.bt_calculoRealizar.Click += new System.EventHandler(this.bt_calculoRealizar_Click);
+			// 
 			// CalculoViabilidadeView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.bt_calculoRealizar);
 			this.Controls.Add(this.lb_calculoViabilidadeTitulo);
 			this.Name = "CalculoViabilidadeView";
 			this.Text = "CalculoEstudoView";
@@ -53,5 +64,6 @@
 		#endregion
 
 		private MetroFramework.Controls.MetroLabel lb_calculoViabilidadeTitulo;
+		private MetroFramework.Controls.MetroButton bt_calculoRealizar;
 	}
 }

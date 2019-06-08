@@ -20,10 +20,11 @@ namespace Tren.Views {
 			Dictionary<string, string> dados = new Dictionary<string, string>();
 
 			if (cbx_PLf.Checked) {
-				Pai.AddView(new CentralDeTratamento0View(Pai), "Central0");
+				Pai.AddView(new CentralDeTratamento0View(dados, Pai), "Central0");
 				Pai.AddView(new CaixaSAOView(dados, Pai), "CaixaSAO");
 				Pai.AddView(new GradeView(dados, Pai), "Grade");
 				Pai.AddView(new DesarenadorView(dados, Pai), "Desarenador");
+				Pai.AddView(new LagoaFacultativaView(dados, Pai), "LagoaFacultativa");
 				Pai.AddView(new CalculoViabilidadeView(dados, Pai), "Calculo");
 			}
 
@@ -31,7 +32,7 @@ namespace Tren.Views {
 				return;
 			
 			Pai.avancaView();
-			Close();
+			Hide();
 		}
 
 		private void bt_central2_voltar_Click(object sender, EventArgs e) {

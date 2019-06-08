@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Tren.Views {
-	public partial class SelecaoSeqIndView : Padrao {
-		public SelecaoSeqIndView() {
+	public partial class SelecaoSeqIndView : View {
+		public SelecaoSeqIndView(InicioView pai) : base(pai) {
 			InitializeComponent();
 		}
 
 		private void bt_SelecaoSeqInd_avancar_Click(object sender, EventArgs e) {
-			/*Pai.limpaLista();
+			Pai.limpaLista();
 			Pai.AddView(this, "Selecao");
 			Dictionary<string, string> dados = new Dictionary<string, string>();
 
@@ -25,19 +25,19 @@ namespace Tren.Views {
 			}
 
 			if (Pai.NumViews == 1)
-				return;*/
+				return;
 
-			//Pai.avancaView();
-			//Close();
+			Pai.avancaView();
+			Hide();
 		}
 
 		private void bt_SelecaoSeqInd_voltar_Click(object sender, EventArgs e) {
-			/*PrincipalView principal = new PrincipalView(Pai);
+			PrincipalView principal = new PrincipalView(Pai);
 			principal.TopLevel = false;
 			principal.Dock = DockStyle.Fill;
 			Parent.Controls.Add(principal);
 			principal.Show();
-			Close();*/
+			Close();
 		}
 	}
 }

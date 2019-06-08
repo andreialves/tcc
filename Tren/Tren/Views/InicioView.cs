@@ -56,6 +56,8 @@ namespace Tren.Views {
 		}
 
 		public void limpaLista() {
+			foreach (View v in listaViews)
+				v.Close();
 			listaViews.Clear();
 			nomeViews.Clear();
 			it = 0;

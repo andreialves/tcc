@@ -102,6 +102,7 @@
 			this.bt_lagoFacul_voltar.Size = new System.Drawing.Size(237, 45);
 			this.bt_lagoFacul_voltar.TabIndex = 67;
 			this.bt_lagoFacul_voltar.Text = "Voltar";
+			this.bt_lagoFacul_voltar.Click += new System.EventHandler(this.bt_lagoFacul_voltar_Click);
 			// 
 			// bt_lagoaFacul_avancar
 			// 

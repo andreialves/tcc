@@ -52,12 +52,12 @@ namespace Tren.Views {
 			dados["espacamento"] = espacamento;
 
 			Pai.avancaView();
-            Close();
+            Hide();
         }
 
 		private void bt_grade_voltar_Click(object sender, EventArgs e) {
 			Pai.voltaView();
-			Close();
+			Hide();
 		}
 
         private void Grade_Load(object sender, EventArgs e) {

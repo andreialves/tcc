@@ -30,11 +30,12 @@ namespace Tren.Views {
 			dados["taxaAreiaDiaria"] = taxaAreia;
 
 			Pai.avancaView();
-			Close();
+			Hide();
 		}
 
 		private void bt_grade_voltar_Click(object sender, EventArgs e) {
 			Pai.voltaView();
+			Hide();
 		}
 	}
 }

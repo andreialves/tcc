@@ -34,12 +34,12 @@ namespace Tren.Views {
 
 
 			Pai.avancaView();
-			Close();
+			Hide();
 		}
 
 		private void bt_central2_voltar_Click(object sender, EventArgs e) {
 			Pai.voltaView();
-			Close();
+			Hide();
 		}
 	}
 }

@@ -15,7 +15,9 @@ namespace Tren.Views {
 		public CalculoViabilidadeView(Dictionary<string, string> d, InicioView pai) : base(pai) {
 			InitializeComponent();
 			dados = d;
+		}
 
+		private void bt_calculoRealizar_Click(object sender, EventArgs e) {
 			foreach (var dado in dados)
 				Console.WriteLine(dado.ToString());
 
@@ -48,36 +50,36 @@ namespace Tren.Views {
 				sp.adicionar(cp);
 
 				Grade gr = new Grade(espessura, espacamento, tipoGrade, tipoLimpeza, sp);
-                gr.CalculoEficiencia();
-                gr.CalculaAreaUtil();
-                gr.CalculaAreaUtilLinha();
-                gr.CalculaSecaoCanal();
-                gr.CalculaLarguraCanal();
-                gr.CalculaSecaoCanalLinha();
-                gr.CalculaVelocidadeLinha();
-                gr.CalculaVelAproxMax();
-                gr.CalculaVelAproxMin();
-                gr.CalculaPerdaCarga();
-                gr.CalculaPerdaCargaTotal();
-                gr.CalculaBarras();
-                gr.CalculaCorrecaoEspaco();
-                gr.CalculaDiferencaEspaco();
-                gr.CalculaComprimento();
-                sp.adicionar(gr);
+				gr.CalculoEficiencia();
+				gr.CalculaAreaUtil();
+				gr.CalculaAreaUtilLinha();
+				gr.CalculaSecaoCanal();
+				gr.CalculaLarguraCanal();
+				gr.CalculaSecaoCanalLinha();
+				gr.CalculaVelocidadeLinha();
+				gr.CalculaVelAproxMax();
+				gr.CalculaVelAproxMin();
+				gr.CalculaPerdaCarga();
+				gr.CalculaPerdaCargaTotal();
+				gr.CalculaBarras();
+				gr.CalculaCorrecaoEspaco();
+				gr.CalculaDiferencaEspaco();
+				gr.CalculaComprimento();
+				sp.adicionar(gr);
 
 				Desarenador ds = new Desarenador(velocidadeEfluente, taxaAreiaDiaria, sp);
-                ds.CalculaLarguraDesarenador();
-                ds.CalculaAreaSecao();
-                if (!ds.VerificaVH()) {
-                    ds.corrigeVelocidade(velocidadeEfluente);   
-                }
-                ds.CalculaComprimento();
-                ds.calculaAreaSuperficial();
-                ds.CalculaTAS();
-                if (!ds.VerificaTAS()) {
-                    ds.corrigeVelocidade(velocidadeEfluente);
-                }
-                ds.calculaFrequenciaLimpeza();
+				ds.CalculaLarguraDesarenador();
+				ds.CalculaAreaSecao();
+				if (!ds.VerificaVH()) {
+					ds.corrigeVelocidade(velocidadeEfluente);
+				}
+				ds.CalculaComprimento();
+				ds.calculaAreaSuperficial();
+				ds.CalculaTAS();
+				if (!ds.VerificaTAS()) {
+					ds.corrigeVelocidade(velocidadeEfluente);
+				}
+				ds.calculaFrequenciaLimpeza();
 				sp.adicionar(ds);
 
 				//CaixaSAO cs = new CaixaSAO(viscosidadeABS, densidadeOleo, turbulencia, sp);
@@ -100,7 +102,7 @@ namespace Tren.Views {
 				Console.WriteLine("hMin " + cp.getPertenceASeq.gethMin);
 				Console.WriteLine("hMax " + cp.getPertenceASeq.gethMax);
 
-				
+
 
 				Console.WriteLine("______Lagoa Facultativa______");
 				Console.WriteLine("Carga Max" + lf.getCargaMax);
@@ -109,8 +111,8 @@ namespace Tren.Views {
 				Console.WriteLine("Volume" + lf.getVolume);
 				Console.WriteLine("tempo Det" + lf.getTempoDetencao);
 
-			} catch (Exception e) {
-                MessageBox.Show(e.Message);
+			} catch (Exception erro) {
+				MessageBox.Show(erro.Message);
 			}
 		}
 	}

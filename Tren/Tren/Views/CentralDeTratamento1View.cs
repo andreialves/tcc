@@ -10,8 +10,11 @@ using System.Windows.Forms;
 
 namespace Tren.Views {
 	public partial class CentralDeTratamento1View : View {
-		public CentralDeTratamento1View(InicioView pai) :base(pai) {
+		Dictionary<string, string> dados;
+
+		public CentralDeTratamento1View(Dictionary<string, string> d, InicioView pai) :base(pai) {
 			InitializeComponent();
+			dados = d;
 		}
 
 		private void bt_central1_avancar_Click(object sender, EventArgs e) {
@@ -32,8 +35,7 @@ namespace Tren.Views {
 				populacao == "" || populacaoFut == "") {
 				return;
 			}
-
-			Dictionary<string, string> dados = new Dictionary<string, string>();
+			
 			dados["vazaoMax"] = vazaoMax;
 			dados["vazaoMed"] = vazaoMed;
 			dados["vazaoMin"] = vazaoMin;
@@ -44,12 +46,12 @@ namespace Tren.Views {
 			dados["populacaoFut"] = populacaoFut;
 
 			Pai.avancaView();
-			Close();
+			Hide();
 		}
 
 		private void bt_central2_voltar_Click(object sender, EventArgs e) {
 			Pai.voltaView();
-			Close();
+			Hide();
 		}
 	}
 }
