@@ -17,7 +17,7 @@ namespace Tren.Views {
 			dados = d;
 		}
 
-		private void bt_calculoRealizar_Click(object sender, EventArgs e) {
+		private void bt_realizarCalculo_Click(object sender, EventArgs e) {
 			foreach (var dado in dados)
 				Console.WriteLine(dado.ToString());
 
@@ -114,6 +114,11 @@ namespace Tren.Views {
 			} catch (Exception erro) {
 				MessageBox.Show(erro.Message);
 			}
+		}
+
+		private void bt_final_voltar_Click(object sender, EventArgs e) {
+			Pai.voltaView();
+			Hide();
 		}
 	}
 }
