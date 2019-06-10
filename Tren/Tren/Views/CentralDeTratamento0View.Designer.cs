@@ -44,7 +44,7 @@
 			this.bt_central0_sim.Location = new System.Drawing.Point(110, 393);
 			this.bt_central0_sim.Name = "bt_central0_sim";
 			this.bt_central0_sim.Size = new System.Drawing.Size(237, 45);
-			this.bt_central0_sim.TabIndex = 48;
+			this.bt_central0_sim.TabIndex = 1;
 			this.bt_central0_sim.Text = "Sim";
 			this.bt_central0_sim.Click += new System.EventHandler(this.bt_central0_sim_Click);
 			// 
@@ -53,7 +53,7 @@
 			this.bt_central0_nao.Location = new System.Drawing.Point(453, 393);
 			this.bt_central0_nao.Name = "bt_central0_nao";
 			this.bt_central0_nao.Size = new System.Drawing.Size(237, 45);
-			this.bt_central0_nao.TabIndex = 47;
+			this.bt_central0_nao.TabIndex = 2;
 			this.bt_central0_nao.Text = "Não";
 			this.bt_central0_nao.Click += new System.EventHandler(this.bt_central0_nao_Click);
 			// 

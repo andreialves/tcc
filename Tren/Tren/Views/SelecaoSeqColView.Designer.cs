@@ -51,7 +51,7 @@
 			this.bt_central2_voltar.Location = new System.Drawing.Point(110, 393);
 			this.bt_central2_voltar.Name = "bt_central2_voltar";
 			this.bt_central2_voltar.Size = new System.Drawing.Size(237, 45);
-			this.bt_central2_voltar.TabIndex = 46;
+			this.bt_central2_voltar.TabIndex = 9;
 			this.bt_central2_voltar.Text = "Voltar";
 			this.bt_central2_voltar.Click += new System.EventHandler(this.bt_central2_voltar_Click);
 			// 
@@ -60,7 +60,7 @@
 			this.bt_central1_avancar.Location = new System.Drawing.Point(453, 393);
 			this.bt_central1_avancar.Name = "bt_central1_avancar";
 			this.bt_central1_avancar.Size = new System.Drawing.Size(237, 45);
-			this.bt_central1_avancar.TabIndex = 45;
+			this.bt_central1_avancar.TabIndex = 8;
 			this.bt_central1_avancar.Text = "Avançar";
 			this.bt_central1_avancar.Click += new System.EventHandler(this.bt_central1_avancar_Click);
 			// 
@@ -70,7 +70,7 @@
 			this.cbx_PLaLfLm.Location = new System.Drawing.Point(174, 113);
 			this.cbx_PLaLfLm.Name = "cbx_PLaLfLm";
 			this.cbx_PLaLfLm.Size = new System.Drawing.Size(479, 33);
-			this.cbx_PLaLfLm.TabIndex = 49;
+			this.cbx_PLaLfLm.TabIndex = 2;
 			this.cbx_PLaLfLm.Text = "Preliminar + Lagoa Anaeróbia + Lagoa Facultativa + Lagoa de Maturação";
 			this.cbx_PLaLfLm.UseVisualStyleBackColor = true;
 			// 
@@ -80,7 +80,7 @@
 			this.cbx_PRuW.Location = new System.Drawing.Point(174, 152);
 			this.cbx_PRuW.Name = "cbx_PRuW";
 			this.cbx_PRuW.Size = new System.Drawing.Size(479, 33);
-			this.cbx_PRuW.TabIndex = 50;
+			this.cbx_PRuW.TabIndex = 3;
 			this.cbx_PRuW.Text = "Preliminar + Reator UASB + Wetland";
 			this.cbx_PRuW.UseVisualStyleBackColor = true;
 			// 
@@ -90,7 +90,7 @@
 			this.cbx_PRuLf.Location = new System.Drawing.Point(174, 191);
 			this.cbx_PRuLf.Name = "cbx_PRuLf";
 			this.cbx_PRuLf.Size = new System.Drawing.Size(479, 33);
-			this.cbx_PRuLf.TabIndex = 51;
+			this.cbx_PRuLf.TabIndex = 4;
 			this.cbx_PRuLf.Text = "Preliminar + Reator UASB + Lagoa Facultativa";
 			this.cbx_PRuLf.UseVisualStyleBackColor = true;
 			// 
@@ -100,7 +100,7 @@
 			this.cbx_PLf.Location = new System.Drawing.Point(174, 230);
 			this.cbx_PLf.Name = "cbx_PLf";
 			this.cbx_PLf.Size = new System.Drawing.Size(479, 33);
-			this.cbx_PLf.TabIndex = 52;
+			this.cbx_PLf.TabIndex = 5;
 			this.cbx_PLf.Text = "Preliminar + Lagoa Facultativa";
 			this.cbx_PLf.UseVisualStyleBackColor = true;
 			// 
@@ -110,7 +110,7 @@
 			this.cbx_PRuLfLm.Location = new System.Drawing.Point(174, 269);
 			this.cbx_PRuLfLm.Name = "cbx_PRuLfLm";
 			this.cbx_PRuLfLm.Size = new System.Drawing.Size(479, 33);
-			this.cbx_PRuLfLm.TabIndex = 53;
+			this.cbx_PRuLfLm.TabIndex = 6;
 			this.cbx_PRuLfLm.Text = "Preliminar + Reator UASB + Lagoa Facultativa + Lagoa de Maturação";
 			this.cbx_PRuLfLm.UseVisualStyleBackColor = true;
 			// 
@@ -120,7 +120,7 @@
 			this.cbx_PRu.Location = new System.Drawing.Point(174, 308);
 			this.cbx_PRu.Name = "cbx_PRu";
 			this.cbx_PRu.Size = new System.Drawing.Size(479, 33);
-			this.cbx_PRu.TabIndex = 54;
+			this.cbx_PRu.TabIndex = 7;
 			this.cbx_PRu.Text = "Preliminar + Reator UASB";
 			this.cbx_PRu.UseVisualStyleBackColor = true;
 			// 
@@ -130,7 +130,7 @@
 			this.cbx_PLaLf.Location = new System.Drawing.Point(174, 74);
 			this.cbx_PLaLf.Name = "cbx_PLaLf";
 			this.cbx_PLaLf.Size = new System.Drawing.Size(479, 33);
-			this.cbx_PLaLf.TabIndex = 55;
+			this.cbx_PLaLf.TabIndex = 1;
 			this.cbx_PLaLf.Text = "Preliminar + Lagoa Anaeróbia + Lagoa Facultativa";
 			this.cbx_PLaLf.UseVisualStyleBackColor = true;
 			// 

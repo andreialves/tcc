@@ -41,7 +41,7 @@
 			this.bt_central2_voltar.Location = new System.Drawing.Point(110, 393);
 			this.bt_central2_voltar.Name = "bt_central2_voltar";
 			this.bt_central2_voltar.Size = new System.Drawing.Size(237, 45);
-			this.bt_central2_voltar.TabIndex = 53;
+			this.bt_central2_voltar.TabIndex = 5;
 			this.bt_central2_voltar.Text = "Voltar";
 			this.bt_central2_voltar.Click += new System.EventHandler(this.bt_central2_voltar_Click);
 			// 
@@ -50,7 +50,7 @@
 			this.bt_central1_avancar.Location = new System.Drawing.Point(453, 393);
 			this.bt_central1_avancar.Name = "bt_central1_avancar";
 			this.bt_central1_avancar.Size = new System.Drawing.Size(237, 45);
-			this.bt_central1_avancar.TabIndex = 52;
+			this.bt_central1_avancar.TabIndex = 4;
 			this.bt_central1_avancar.Text = "Avançar";
 			this.bt_central1_avancar.Click += new System.EventHandler(this.bt_central1_avancar_Click);
 			// 
@@ -70,7 +70,7 @@
 			this.txb_turbulencia.Location = new System.Drawing.Point(400, 267);
 			this.txb_turbulencia.Name = "txb_turbulencia";
 			this.txb_turbulencia.Size = new System.Drawing.Size(238, 23);
-			this.txb_turbulencia.TabIndex = 50;
+			this.txb_turbulencia.TabIndex = 3;
 			// 
 			// lb_turbulência
 			// 
@@ -86,7 +86,7 @@
 			this.txb_viscosidadeABS.Location = new System.Drawing.Point(400, 130);
 			this.txb_viscosidadeABS.Name = "txb_viscosidadeABS";
 			this.txb_viscosidadeABS.Size = new System.Drawing.Size(238, 23);
-			this.txb_viscosidadeABS.TabIndex = 48;
+			this.txb_viscosidadeABS.TabIndex = 1;
 			// 
 			// lb_viscosidadeABS
 			// 
@@ -102,7 +102,7 @@
 			this.txb_densidadeOleo.Location = new System.Drawing.Point(400, 197);
 			this.txb_densidadeOleo.Name = "txb_densidadeOleo";
 			this.txb_densidadeOleo.Size = new System.Drawing.Size(238, 23);
-			this.txb_densidadeOleo.TabIndex = 55;
+			this.txb_densidadeOleo.TabIndex = 2;
 			// 
 			// lb_densidadeOleo
 			// 
@@ -131,7 +131,7 @@
 			this.metroLabel3.TabIndex = 56;
 			this.metroLabel3.Text = "g/(cm*s)";
 			// 
-			// CaixaSAO
+			// CaixaSAOView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -148,9 +148,7 @@
 			this.Controls.Add(this.lb_turbulência);
 			this.Controls.Add(this.txb_viscosidadeABS);
 			this.Controls.Add(this.lb_viscosidadeABS);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-			this.Name = "CaixaSAO";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			this.Name = "CaixaSAOView";
 			this.Text = "CaixaSAO";
 			this.ResumeLayout(false);
 			this.PerformLayout();

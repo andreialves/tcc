@@ -57,7 +57,7 @@
 			this.txb_tempMesFrio.Location = new System.Drawing.Point(360, 236);
 			this.txb_tempMesFrio.Name = "txb_tempMesFrio";
 			this.txb_tempMesFrio.Size = new System.Drawing.Size(238, 23);
-			this.txb_tempMesFrio.TabIndex = 63;
+			this.txb_tempMesFrio.TabIndex = 1;
 			// 
 			// lb_tempMesFrio
 			// 
@@ -84,7 +84,7 @@
 			this.txb_dboEntrada.Location = new System.Drawing.Point(360, 169);
 			this.txb_dboEntrada.Name = "txb_dboEntrada";
 			this.txb_dboEntrada.Size = new System.Drawing.Size(238, 23);
-			this.txb_dboEntrada.TabIndex = 60;
+			this.txb_dboEntrada.TabIndex = 0;
 			// 
 			// lb_dbo
 			// 
@@ -100,7 +100,7 @@
 			this.bt_lagoFacul_voltar.Location = new System.Drawing.Point(110, 393);
 			this.bt_lagoFacul_voltar.Name = "bt_lagoFacul_voltar";
 			this.bt_lagoFacul_voltar.Size = new System.Drawing.Size(237, 45);
-			this.bt_lagoFacul_voltar.TabIndex = 67;
+			this.bt_lagoFacul_voltar.TabIndex = 3;
 			this.bt_lagoFacul_voltar.Text = "Voltar";
 			this.bt_lagoFacul_voltar.Click += new System.EventHandler(this.bt_lagoFacul_voltar_Click);
 			// 
@@ -109,7 +109,7 @@
 			this.bt_lagoaFacul_avancar.Location = new System.Drawing.Point(453, 393);
 			this.bt_lagoaFacul_avancar.Name = "bt_lagoaFacul_avancar";
 			this.bt_lagoaFacul_avancar.Size = new System.Drawing.Size(237, 45);
-			this.bt_lagoaFacul_avancar.TabIndex = 66;
+			this.bt_lagoaFacul_avancar.TabIndex = 2;
 			this.bt_lagoaFacul_avancar.Text = "Avançar";
 			this.bt_lagoaFacul_avancar.Click += new System.EventHandler(this.bt_lagoaFacul_avancar_Click);
 			// 

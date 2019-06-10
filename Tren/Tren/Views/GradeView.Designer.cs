@@ -58,7 +58,7 @@
 			this.bt_grade_voltar.Location = new System.Drawing.Point(110, 393);
 			this.bt_grade_voltar.Name = "bt_grade_voltar";
 			this.bt_grade_voltar.Size = new System.Drawing.Size(237, 45);
-			this.bt_grade_voltar.TabIndex = 5;
+			this.bt_grade_voltar.TabIndex = 6;
 			this.bt_grade_voltar.Text = "Voltar";
 			this.bt_grade_voltar.Click += new System.EventHandler(this.bt_grade_voltar_Click);
 			// 
@@ -67,7 +67,7 @@
 			this.bt_grade_avancar.Location = new System.Drawing.Point(453, 393);
 			this.bt_grade_avancar.Name = "bt_grade_avancar";
 			this.bt_grade_avancar.Size = new System.Drawing.Size(237, 45);
-			this.bt_grade_avancar.TabIndex = 6;
+			this.bt_grade_avancar.TabIndex = 5;
 			this.bt_grade_avancar.Text = "Avançar";
 			this.bt_grade_avancar.Click += new System.EventHandler(this.bt_grade_avancar_Click);
 			// 
@@ -194,9 +194,7 @@
 			this.Controls.Add(this.bt_grade_voltar);
 			this.Controls.Add(this.bt_grade_avancar);
 			this.Controls.Add(this.cb_tipoGrade);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "GradeView";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Grade";
 			this.Load += new System.EventHandler(this.Grade_Load);
 			this.ResumeLayout(false);

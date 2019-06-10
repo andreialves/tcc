@@ -54,7 +54,7 @@
 			this.bt_final_voltar.Location = new System.Drawing.Point(110, 393);
 			this.bt_final_voltar.Name = "bt_final_voltar";
 			this.bt_final_voltar.Size = new System.Drawing.Size(237, 45);
-			this.bt_final_voltar.TabIndex = 53;
+			this.bt_final_voltar.TabIndex = 4;
 			this.bt_final_voltar.Text = "Voltar";
 			this.bt_final_voltar.Click += new System.EventHandler(this.bt_final_voltar_Click);
 			// 

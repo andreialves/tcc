@@ -63,7 +63,7 @@
 			this.bt_central1_avancar.Location = new System.Drawing.Point(453, 393);
 			this.bt_central1_avancar.Name = "bt_central1_avancar";
 			this.bt_central1_avancar.Size = new System.Drawing.Size(237, 45);
-			this.bt_central1_avancar.TabIndex = 35;
+			this.bt_central1_avancar.TabIndex = 30;
 			this.bt_central1_avancar.Text = "Avançar";
 			this.bt_central1_avancar.Click += new System.EventHandler(this.bt_central1_avancar_Click);
 			// 
@@ -83,35 +83,35 @@
 			this.txb_vazaoInfiltracaoFut.Location = new System.Drawing.Point(612, 202);
 			this.txb_vazaoInfiltracaoFut.Name = "txb_vazaoInfiltracaoFut";
 			this.txb_vazaoInfiltracaoFut.Size = new System.Drawing.Size(126, 23);
-			this.txb_vazaoInfiltracaoFut.TabIndex = 31;
+			this.txb_vazaoInfiltracaoFut.TabIndex = 8;
 			// 
 			// txb_vazaoInfiltracao
 			// 
 			this.txb_vazaoInfiltracao.Location = new System.Drawing.Point(612, 150);
 			this.txb_vazaoInfiltracao.Name = "txb_vazaoInfiltracao";
 			this.txb_vazaoInfiltracao.Size = new System.Drawing.Size(126, 23);
-			this.txb_vazaoInfiltracao.TabIndex = 30;
+			this.txb_vazaoInfiltracao.TabIndex = 7;
 			// 
 			// txb_taxaInfiltracaoFut
 			// 
 			this.txb_taxaInfiltracaoFut.Location = new System.Drawing.Point(612, 96);
 			this.txb_taxaInfiltracaoFut.Name = "txb_taxaInfiltracaoFut";
 			this.txb_taxaInfiltracaoFut.Size = new System.Drawing.Size(126, 23);
-			this.txb_taxaInfiltracaoFut.TabIndex = 29;
+			this.txb_taxaInfiltracaoFut.TabIndex = 6;
 			// 
 			// txb_taxaInfiltracao
 			// 
 			this.txb_taxaInfiltracao.Location = new System.Drawing.Point(180, 304);
 			this.txb_taxaInfiltracao.Name = "txb_taxaInfiltracao";
 			this.txb_taxaInfiltracao.Size = new System.Drawing.Size(126, 23);
-			this.txb_taxaInfiltracao.TabIndex = 28;
+			this.txb_taxaInfiltracao.TabIndex = 5;
 			// 
 			// txb_extensaoRede
 			// 
 			this.txb_extensaoRede.Location = new System.Drawing.Point(180, 253);
 			this.txb_extensaoRede.Name = "txb_extensaoRede";
 			this.txb_extensaoRede.Size = new System.Drawing.Size(126, 23);
-			this.txb_extensaoRede.TabIndex = 27;
+			this.txb_extensaoRede.TabIndex = 4;
 			// 
 			// lb_vazaoMinFut
 			// 
@@ -163,7 +163,7 @@
 			this.txb_qpc.Location = new System.Drawing.Point(180, 202);
 			this.txb_qpc.Name = "txb_qpc";
 			this.txb_qpc.Size = new System.Drawing.Size(126, 23);
-			this.txb_qpc.TabIndex = 19;
+			this.txb_qpc.TabIndex = 3;
 			// 
 			// lb_qpc
 			// 
@@ -179,14 +179,14 @@
 			this.txb_populacaoFut.Location = new System.Drawing.Point(180, 150);
 			this.txb_populacaoFut.Name = "txb_populacaoFut";
 			this.txb_populacaoFut.Size = new System.Drawing.Size(126, 23);
-			this.txb_populacaoFut.TabIndex = 39;
+			this.txb_populacaoFut.TabIndex = 2;
 			// 
 			// txb_populacao
 			// 
 			this.txb_populacao.Location = new System.Drawing.Point(180, 100);
 			this.txb_populacao.Name = "txb_populacao";
 			this.txb_populacao.Size = new System.Drawing.Size(126, 23);
-			this.txb_populacao.TabIndex = 38;
+			this.txb_populacao.TabIndex = 1;
 			// 
 			// lb_populacaoFut
 			// 
@@ -211,14 +211,14 @@
 			this.txb_vazaoDomesticaFut.Location = new System.Drawing.Point(612, 304);
 			this.txb_vazaoDomesticaFut.Name = "txb_vazaoDomesticaFut";
 			this.txb_vazaoDomesticaFut.Size = new System.Drawing.Size(126, 23);
-			this.txb_vazaoDomesticaFut.TabIndex = 43;
+			this.txb_vazaoDomesticaFut.TabIndex = 10;
 			// 
 			// txb_vazaoDomestica
 			// 
 			this.txb_vazaoDomestica.Location = new System.Drawing.Point(612, 253);
 			this.txb_vazaoDomestica.Name = "txb_vazaoDomestica";
 			this.txb_vazaoDomestica.Size = new System.Drawing.Size(126, 23);
-			this.txb_vazaoDomestica.TabIndex = 42;
+			this.txb_vazaoDomestica.TabIndex = 9;
 			// 
 			// metroLabel1
 			// 
@@ -243,7 +243,7 @@
 			this.bt_central2_voltar.Location = new System.Drawing.Point(110, 393);
 			this.bt_central2_voltar.Name = "bt_central2_voltar";
 			this.bt_central2_voltar.Size = new System.Drawing.Size(237, 45);
-			this.bt_central2_voltar.TabIndex = 44;
+			this.bt_central2_voltar.TabIndex = 31;
 			this.bt_central2_voltar.Text = "Voltar";
 			this.bt_central2_voltar.Click += new System.EventHandler(this.bt_central2_voltar_Click);
 			// 

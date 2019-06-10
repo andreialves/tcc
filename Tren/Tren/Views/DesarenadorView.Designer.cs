@@ -59,7 +59,7 @@
 			this.txb_taxaAreia.Location = new System.Drawing.Point(383, 191);
 			this.txb_taxaAreia.Name = "txb_taxaAreia";
 			this.txb_taxaAreia.Size = new System.Drawing.Size(238, 23);
-			this.txb_taxaAreia.TabIndex = 69;
+			this.txb_taxaAreia.TabIndex = 2;
 			// 
 			// lb_taxaInfiltracaoFut
 			// 
@@ -75,7 +75,7 @@
 			this.bt_grade_voltar.Location = new System.Drawing.Point(110, 395);
 			this.bt_grade_voltar.Name = "bt_grade_voltar";
 			this.bt_grade_voltar.Size = new System.Drawing.Size(237, 45);
-			this.bt_grade_voltar.TabIndex = 67;
+			this.bt_grade_voltar.TabIndex = 31;
 			this.bt_grade_voltar.Text = "Voltar";
 			this.bt_grade_voltar.Click += new System.EventHandler(this.bt_grade_voltar_Click);
 			// 
@@ -84,7 +84,7 @@
 			this.bt_grade_avancar.Location = new System.Drawing.Point(453, 395);
 			this.bt_grade_avancar.Name = "bt_grade_avancar";
 			this.bt_grade_avancar.Size = new System.Drawing.Size(237, 45);
-			this.bt_grade_avancar.TabIndex = 66;
+			this.bt_grade_avancar.TabIndex = 30;
 			this.bt_grade_avancar.Text = "Avançar";
 			this.bt_grade_avancar.Click += new System.EventHandler(this.bt_grade_avancar_Click);
 			// 
@@ -102,7 +102,7 @@
 			this.txb_velocidade.Location = new System.Drawing.Point(383, 117);
 			this.txb_velocidade.Name = "txb_velocidade";
 			this.txb_velocidade.Size = new System.Drawing.Size(238, 23);
-			this.txb_velocidade.TabIndex = 76;
+			this.txb_velocidade.TabIndex = 1;
 			// 
 			// metroLabel5
 			// 
