@@ -34,7 +34,7 @@
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(800, 450);
             this.webBrowser1.TabIndex = 0;
-            this.webBrowser1.Url = new System.Uri("C:\\Users\\Andrei Alves\\Documents\\GitHub\\tcc\\Tren\\Tren\\bin\\Debug\\Relatorio.pdf", System.UriKind.Absolute);
+            this.webBrowser1.Url = new System.Uri("\\Relatorio.pdf", System.UriKind.Relative);
             // 
             // PDFView
             // 
