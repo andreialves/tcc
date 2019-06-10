@@ -84,6 +84,7 @@
 			this.txb_vazaoInfiltracaoFut.Name = "txb_vazaoInfiltracaoFut";
 			this.txb_vazaoInfiltracaoFut.Size = new System.Drawing.Size(126, 23);
 			this.txb_vazaoInfiltracaoFut.TabIndex = 8;
+			this.txb_vazaoInfiltracaoFut.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// txb_vazaoInfiltracao
 			// 
@@ -91,6 +92,7 @@
 			this.txb_vazaoInfiltracao.Name = "txb_vazaoInfiltracao";
 			this.txb_vazaoInfiltracao.Size = new System.Drawing.Size(126, 23);
 			this.txb_vazaoInfiltracao.TabIndex = 7;
+			this.txb_vazaoInfiltracao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// txb_taxaInfiltracaoFut
 			// 
@@ -98,6 +100,7 @@
 			this.txb_taxaInfiltracaoFut.Name = "txb_taxaInfiltracaoFut";
 			this.txb_taxaInfiltracaoFut.Size = new System.Drawing.Size(126, 23);
 			this.txb_taxaInfiltracaoFut.TabIndex = 6;
+			this.txb_taxaInfiltracaoFut.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// txb_taxaInfiltracao
 			// 
@@ -105,6 +108,7 @@
 			this.txb_taxaInfiltracao.Name = "txb_taxaInfiltracao";
 			this.txb_taxaInfiltracao.Size = new System.Drawing.Size(126, 23);
 			this.txb_taxaInfiltracao.TabIndex = 5;
+			this.txb_taxaInfiltracao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// txb_extensaoRede
 			// 
@@ -112,6 +116,7 @@
 			this.txb_extensaoRede.Name = "txb_extensaoRede";
 			this.txb_extensaoRede.Size = new System.Drawing.Size(126, 23);
 			this.txb_extensaoRede.TabIndex = 4;
+			this.txb_extensaoRede.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// lb_vazaoMinFut
 			// 
@@ -164,6 +169,7 @@
 			this.txb_qpc.Name = "txb_qpc";
 			this.txb_qpc.Size = new System.Drawing.Size(126, 23);
 			this.txb_qpc.TabIndex = 3;
+			this.txb_qpc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// lb_qpc
 			// 
@@ -180,6 +186,7 @@
 			this.txb_populacaoFut.Name = "txb_populacaoFut";
 			this.txb_populacaoFut.Size = new System.Drawing.Size(126, 23);
 			this.txb_populacaoFut.TabIndex = 2;
+			this.txb_populacaoFut.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// txb_populacao
 			// 
@@ -187,6 +194,7 @@
 			this.txb_populacao.Name = "txb_populacao";
 			this.txb_populacao.Size = new System.Drawing.Size(126, 23);
 			this.txb_populacao.TabIndex = 1;
+			this.txb_populacao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// lb_populacaoFut
 			// 
@@ -212,6 +220,7 @@
 			this.txb_vazaoDomesticaFut.Name = "txb_vazaoDomesticaFut";
 			this.txb_vazaoDomesticaFut.Size = new System.Drawing.Size(126, 23);
 			this.txb_vazaoDomesticaFut.TabIndex = 10;
+			this.txb_vazaoDomesticaFut.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// txb_vazaoDomestica
 			// 
@@ -219,6 +228,7 @@
 			this.txb_vazaoDomestica.Name = "txb_vazaoDomestica";
 			this.txb_vazaoDomestica.Size = new System.Drawing.Size(126, 23);
 			this.txb_vazaoDomestica.TabIndex = 9;
+			this.txb_vazaoDomestica.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// metroLabel1
 			// 

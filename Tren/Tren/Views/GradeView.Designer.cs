@@ -41,6 +41,7 @@
 			// 
 			// cb_tipoGrade
 			// 
+			this.cb_tipoGrade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cb_tipoGrade.FormattingEnabled = true;
 			this.cb_tipoGrade.Items.AddRange(new object[] {
             "Grossa",
@@ -95,6 +96,7 @@
 			this.txb_espessura.Name = "txb_espessura";
 			this.txb_espessura.Size = new System.Drawing.Size(238, 23);
 			this.txb_espessura.TabIndex = 3;
+			this.txb_espessura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// metroLabel2
 			// 
@@ -120,6 +122,7 @@
 			this.txb_espacamento.Name = "txb_espacamento";
 			this.txb_espacamento.Size = new System.Drawing.Size(238, 23);
 			this.txb_espacamento.TabIndex = 4;
+			this.txb_espacamento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// metroLabel4
 			// 

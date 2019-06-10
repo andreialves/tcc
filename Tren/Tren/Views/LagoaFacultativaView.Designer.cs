@@ -58,6 +58,7 @@
 			this.txb_tempMesFrio.Name = "txb_tempMesFrio";
 			this.txb_tempMesFrio.Size = new System.Drawing.Size(238, 23);
 			this.txb_tempMesFrio.TabIndex = 1;
+			this.txb_tempMesFrio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// lb_tempMesFrio
 			// 
@@ -85,6 +86,7 @@
 			this.txb_dboEntrada.Name = "txb_dboEntrada";
 			this.txb_dboEntrada.Size = new System.Drawing.Size(238, 23);
 			this.txb_dboEntrada.TabIndex = 0;
+			this.txb_dboEntrada.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// lb_dbo
 			// 

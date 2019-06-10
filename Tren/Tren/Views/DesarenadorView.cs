@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetroFramework.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,6 +37,16 @@ namespace Tren.Views {
 		private void bt_grade_voltar_Click(object sender, EventArgs e) {
 			Pai.voltaView();
 			Hide();
+		}
+
+		private void txb_numeros(object sender, KeyPressEventArgs e) {
+			if (Char.IsDigit(e.KeyChar) || e.KeyChar == '\b' || e.KeyChar == ',') {
+				if (e.KeyChar == ',' && ((MetroTextBox)sender).Text.Contains(','))
+					e.Handled = true; // não processa tecla apertada
+				return; // processa a tecla apertada
+			}
+
+			e.Handled = true; // não processa tecla apertada
 		}
 	}
 }

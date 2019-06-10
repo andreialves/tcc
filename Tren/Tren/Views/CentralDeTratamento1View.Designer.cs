@@ -67,6 +67,7 @@
 			this.txb_vazaoMax.Name = "txb_vazaoMax";
 			this.txb_vazaoMax.Size = new System.Drawing.Size(137, 23);
 			this.txb_vazaoMax.TabIndex = 1;
+			this.txb_vazaoMax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// lb_vazaoMed
 			// 
@@ -137,6 +138,7 @@
 			this.txb_vazaoMed.Name = "txb_vazaoMed";
 			this.txb_vazaoMed.Size = new System.Drawing.Size(137, 23);
 			this.txb_vazaoMed.TabIndex = 2;
+			this.txb_vazaoMed.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// txb_vazaoMin
 			// 
@@ -144,6 +146,7 @@
 			this.txb_vazaoMin.Name = "txb_vazaoMin";
 			this.txb_vazaoMin.Size = new System.Drawing.Size(137, 23);
 			this.txb_vazaoMin.TabIndex = 3;
+			this.txb_vazaoMin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// txb_vazaoMaxFut
 			// 
@@ -151,6 +154,7 @@
 			this.txb_vazaoMaxFut.Name = "txb_vazaoMaxFut";
 			this.txb_vazaoMaxFut.Size = new System.Drawing.Size(137, 23);
 			this.txb_vazaoMaxFut.TabIndex = 4;
+			this.txb_vazaoMaxFut.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// txb_vazaoMedFut
 			// 
@@ -158,6 +162,7 @@
 			this.txb_vazaoMedFut.Name = "txb_vazaoMedFut";
 			this.txb_vazaoMedFut.Size = new System.Drawing.Size(137, 23);
 			this.txb_vazaoMedFut.TabIndex = 5;
+			this.txb_vazaoMedFut.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// txb_vazaoMinFut
 			// 
@@ -165,6 +170,7 @@
 			this.txb_vazaoMinFut.Name = "txb_vazaoMinFut";
 			this.txb_vazaoMinFut.Size = new System.Drawing.Size(137, 23);
 			this.txb_vazaoMinFut.TabIndex = 6;
+			this.txb_vazaoMinFut.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// txb_populacao
 			// 
@@ -172,6 +178,7 @@
 			this.txb_populacao.Name = "txb_populacao";
 			this.txb_populacao.Size = new System.Drawing.Size(137, 23);
 			this.txb_populacao.TabIndex = 7;
+			this.txb_populacao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// txb_populacaoFut
 			// 
@@ -179,6 +186,7 @@
 			this.txb_populacaoFut.Name = "txb_populacaoFut";
 			this.txb_populacaoFut.Size = new System.Drawing.Size(137, 23);
 			this.txb_populacaoFut.TabIndex = 8;
+			this.txb_populacaoFut.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// lb_centralTitulo
 			// 

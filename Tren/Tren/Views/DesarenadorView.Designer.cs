@@ -60,6 +60,7 @@
 			this.txb_taxaAreia.Name = "txb_taxaAreia";
 			this.txb_taxaAreia.Size = new System.Drawing.Size(238, 23);
 			this.txb_taxaAreia.TabIndex = 2;
+			this.txb_taxaAreia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// lb_taxaInfiltracaoFut
 			// 
@@ -103,15 +104,16 @@
 			this.txb_velocidade.Name = "txb_velocidade";
 			this.txb_velocidade.Size = new System.Drawing.Size(238, 23);
 			this.txb_velocidade.TabIndex = 1;
+			this.txb_velocidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// metroLabel5
 			// 
 			this.metroLabel5.AutoSize = true;
 			this.metroLabel5.Location = new System.Drawing.Point(627, 117);
 			this.metroLabel5.Name = "metroLabel5";
-			this.metroLabel5.Size = new System.Drawing.Size(88, 19);
+			this.metroLabel5.Size = new System.Drawing.Size(94, 19);
 			this.metroLabel5.TabIndex = 77;
-			this.metroLabel5.Text = "[0.2 , 0.4] m/s";
+			this.metroLabel5.Text = "[0,2 ... 0,4] m/s";
 			// 
 			// DesarenadorView
 			// 

@@ -71,6 +71,7 @@
 			this.txb_turbulencia.Name = "txb_turbulencia";
 			this.txb_turbulencia.Size = new System.Drawing.Size(238, 23);
 			this.txb_turbulencia.TabIndex = 3;
+			this.txb_turbulencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// lb_turbulência
 			// 
@@ -87,6 +88,7 @@
 			this.txb_viscosidadeABS.Name = "txb_viscosidadeABS";
 			this.txb_viscosidadeABS.Size = new System.Drawing.Size(238, 23);
 			this.txb_viscosidadeABS.TabIndex = 1;
+			this.txb_viscosidadeABS.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// lb_viscosidadeABS
 			// 
@@ -103,6 +105,7 @@
 			this.txb_densidadeOleo.Name = "txb_densidadeOleo";
 			this.txb_densidadeOleo.Size = new System.Drawing.Size(238, 23);
 			this.txb_densidadeOleo.TabIndex = 2;
+			this.txb_densidadeOleo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
 			// 
 			// lb_densidadeOleo
 			// 
