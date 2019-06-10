@@ -38,11 +38,11 @@ namespace Tren.Classes {
 					}
 			}
 
-			HMin = Math.Round(Math.Pow(vazaoMinFut / (1000 * k), 1/n), 2);
-			HMax = Math.Round(Math.Pow(vazaoMaxFut / (1000 * k), 1/n), 2);
-			desnivel = Math.Round((vazaoMaxFut*HMin - vazaoMinFut*HMax) / (vazaoMaxFut - vazaoMinFut), 2);
-			getPertenceASeq.gethMin = Math.Round(HMin - desnivel, 2);
-			getPertenceASeq.gethMax = Math.Round(HMax - desnivel, 2);
+			HMin = Math.Pow(vazaoMin / (1000 * k), 1/n);
+			HMax = Math.Pow(vazaoMaxFut / (1000 * k), 1/n);
+			desnivel = (vazaoMaxFut*HMin - vazaoMin*HMax) / (vazaoMaxFut - vazaoMin);
+			getPertenceASeq.gethMin = HMin - desnivel;
+			getPertenceASeq.gethMax = HMax - desnivel;
 		}
 
 		private void carregaTabela() {

@@ -35,11 +35,13 @@ namespace Tren.Views {
 			double espacamento = double.Parse(dados["espacamento"]);
 			double velocidadeEfluente = double.Parse(dados["velocidadeEfluente"]);
 			double taxaAreiaDiaria = double.Parse(dados["taxaAreiaDiaria"]);
-			double viscosidadeABS = double.Parse(dados["viscosidadeABS"]);
-			double densidadeOleo = double.Parse(dados["densidadeOleo"]);
-			double turbulencia = double.Parse(dados["turbulencia"]);
+			//double viscosidadeABS = double.Parse(dados["viscosidadeABS"]);
+			//double densidadeOleo = double.Parse(dados["densidadeOleo"]);
+			//double turbulencia = double.Parse(dados["turbulencia"]);
 			double dboEntrada = double.Parse(dados["dboEntrada"]);
 			double tempMesFrio = double.Parse(dados["tempMesFrio"]);
+
+			Console.WriteLine("velocidade " + velocidadeEfluente);
 
 			try {
 				CentralTratamento ct = new CentralTratamento(vazaoMax, vazaoMed, vazaoMin, vazaoMaxFut, vazaoMedFut, vazaoMinFut, populacao, populacaoFut);
@@ -90,10 +92,35 @@ namespace Tren.Views {
 				LagoaFacultativa lf = new LagoaFacultativa(dboEntrada, tempMesFrio, ss);
 				ss.adicionarEmSerie(lf);
 
-				Console.WriteLine("______Grade______:");
-				Console.WriteLine("");
+				Console.WriteLine("\n\n______Grade______:");
+				Console.WriteLine("vazao maxFut " + gr.getPertenceASeq.getCentral.getVazaoMaxFut);
+				Console.WriteLine("vazao minFut " + gr.getPertenceASeq.getCentral.getVazaoMinFut);
+				Console.WriteLine("hMax " + gr.getPertenceASeq.gethMax);
+				Console.WriteLine("hMin " + gr.getPertenceASeq.gethMin);
+				Console.WriteLine("sessao Canal min " + gr.SecaoCanalMin);
+				Console.WriteLine("sessao Canal max " + gr.SecaoCanalMax);
+				Console.WriteLine("area util max " + gr.AreaUtilMax);
+				Console.WriteLine("area util min " + gr.AreaUtilMin);
+				Console.WriteLine("v " + gr.VelocidadeInformada);
+				Console.WriteLine("v' " + gr.VelocidadeLinha);
+				Console.WriteLine("velocidade max " + gr.VelocidadeAproximacaoMax);
+				Console.WriteLine("velocidade min " + gr.VelocidadeAproximacaoMin);
+				Console.WriteLine("altura grade limpa " + "n achei");
+				Console.WriteLine("altura grade obst " + "n achei");
 
-				Console.WriteLine("______Calha Parshall______:");
+
+				Console.WriteLine("\n\n______Desarenador______:");
+				Console.WriteLine("largura " + ds.Largura);
+				Console.WriteLine("comprimennto " + ds.Comprimento);
+				Console.WriteLine("velocidade " + ds.Velocidade);
+				Console.WriteLine("hMax " + ds.getPertenceASeq.gethMax);
+				Console.WriteLine("hMin " + ds.getPertenceASeq.gethMin);
+				Console.WriteLine("tas " + ds.TaxaAplicacao);
+				Console.WriteLine("altura por dia " + ds.AlturaAreia);
+				Console.WriteLine("intervalo limpeza " + ds.IntervaloLimpeza);
+
+
+				Console.WriteLine("\n\n______Calha Parshall______:");
 				Console.WriteLine("w " + cp.getW);
 				Console.WriteLine("n " + cp.getN);
 				Console.WriteLine("k " + cp.getK);
@@ -104,12 +131,13 @@ namespace Tren.Views {
 
 
 
-				Console.WriteLine("______Lagoa Facultativa______");
-				Console.WriteLine("Carga Max" + lf.getCargaMax);
-				Console.WriteLine("Carga Aflue" + lf.getCargaAfluente);
-				Console.WriteLine("Area" + lf.getArea);
-				Console.WriteLine("Volume" + lf.getVolume);
-				Console.WriteLine("tempo Det" + lf.getTempoDetencao);
+				Console.WriteLine("\n\n______Lagoa Facultativa______");
+				Console.WriteLine("Carga Max " + lf.getCargaMax);
+				Console.WriteLine("Carga Aflue " + lf.getCargaAfluente);
+				Console.WriteLine("Area " + lf.getArea);
+				Console.WriteLine("Volume " + lf.getVolume);
+				Console.WriteLine("tempo Det " + lf.getTempoDetencao);
+				Console.WriteLine("dbo saida " + lf.getTempoDetencao);
 
 			} catch (Exception erro) {
 				MessageBox.Show(erro.Message);

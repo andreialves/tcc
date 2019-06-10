@@ -23,10 +23,10 @@ namespace Tren.Classes {
 			altura = 2;
 
 			cargaMax = 350 * Math.Pow(1.107 - 0.002 * tempMesFrio, tempMesFrio - 25);
-			cargaAfluente = getPertenceASeq.getCentral.getVazaoMedFut * dboEntrada / 1000;
-			area = cargaAfluente / cargaMax * 1000;
+			cargaAfluente = getPertenceASeq.getCentral.getVazaoMedFut * 86.4 * dboEntrada / 1000;
+			area = cargaAfluente / cargaMax * 10000;
 			volume = area * altura;
-			tempoDetHidraulica = volume / getPertenceASeq.getCentral.getVazaoMedFut;
+			tempoDetHidraulica = volume / (getPertenceASeq.getCentral.getVazaoMedFut * 86.4);
 			dboSaida = 0.2 * dboEntrada;
 		}
 

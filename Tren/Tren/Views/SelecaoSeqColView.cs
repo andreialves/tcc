@@ -21,11 +21,14 @@ namespace Tren.Views {
 
 			if (cbx_PLf.Checked) {
 				Pai.AddView(new CentralDeTratamento0View(dados, Pai), "Central0");
-				Pai.AddView(new CaixaSAOView(dados, Pai), "CaixaSAO");
 				Pai.AddView(new GradeView(dados, Pai), "Grade");
 				Pai.AddView(new DesarenadorView(dados, Pai), "Desarenador");
 				Pai.AddView(new LagoaFacultativaView(dados, Pai), "LagoaFacultativa");
 				Pai.AddView(new CalculoViabilidadeView(dados, Pai), "Calculo");
+			}
+
+			if (cbx_PLaLf.Checked) {
+				Pai.AddView(new DesarenadorView(dados, Pai), "Desarenador");
 			}
 
 			if (Pai.NumViews == 1)
