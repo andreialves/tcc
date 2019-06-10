@@ -48,6 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
     </Reference>
@@ -142,6 +145,12 @@
     <Compile Include="Views\LagoaFacultativaView.Designer.cs">
       <DependentUpon>LagoaFacultativaView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\PDFView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PDFView.Designer.cs">
+      <DependentUpon>PDFView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\PrincipalView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LagoaFacultativaView.resx">
       <DependentUpon>LagoaFacultativaView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PDFView.resx">
+      <DependentUpon>PDFView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PrincipalView.resx">
       <DependentUpon>PrincipalView.cs</DependentUpon>

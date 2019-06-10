@@ -9,6 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tren.Classes;
 
+using System.IO;
+
+using iTextSharp;//E A BIBLIOTECA ITEXTSHARP E SUAS EXTENÇÕES
+using iTextSharp.text;//ESTENSAO 1 (TEXT)
+using iTextSharp.text.pdf;//ESTENSAO 2 (PDF)
+
 namespace Tren.Views {
 	public partial class CalculoViabilidadeView : View {
 		Dictionary<string, string> dados;
@@ -139,6 +145,74 @@ namespace Tren.Views {
 				Console.WriteLine("tempo Det " + lf.getTempoDetencao);
 				Console.WriteLine("dbo saida " + lf.getTempoDetencao);
 
+                ///////////////////////////////////////////// Criação do pdf
+                ///
+
+                Document relatorio = new Document(PageSize.A4);
+                relatorio.SetMargins(40, 40, 40, 40);
+                relatorio.AddCreationDate();
+
+                string caminho = AppDomain.CurrentDomain.BaseDirectory + @"\Relatorio.pdf";
+
+                PdfWriter writer = PdfWriter.GetInstance(relatorio, new FileStream(caminho, FileMode.Create));
+
+                relatorio.Open();
+
+                PdfPTable dadoss = new PdfPTable(9);
+                iTextSharp.text.Font fonte = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 9);
+
+                Paragraph result = new Paragraph("Resultados", FontFactory.GetFont(BaseFont.TIMES_BOLD, 20));
+                Paragraph dado = new Paragraph("Dados", FontFactory.GetFont(BaseFont.TIMES_BOLD, 20));
+                result.Alignment = Element.ALIGN_CENTER;
+                dado.Alignment = Element.ALIGN_CENTER;
+
+                Paragraph[] col = new Paragraph[8];
+
+                col[0] = new Paragraph("Qmín, L/s", fonte);
+                col[1] = new Paragraph("Qmáx, L/s", fonte);
+                col[2] = new Paragraph("Qméd, L/s", fonte);
+                col[3] = new Paragraph("Qmín 20 anos, L/s", fonte);
+                col[4] = new Paragraph("Qmáx 20 anos, L/s", fonte);
+                col[5] = new Paragraph("Qméd 20 anos, L/s", fonte);
+                col[6] = new Paragraph("Pop atual", fonte);
+                col[7] = new Paragraph("Pop 20 anos", fonte);
+
+
+                Paragraph[] lin = new Paragraph[8];
+
+                lin[0] = new Paragraph(Convert.ToString(ct.getVazaoMin), fonte);
+                lin[1] = new Paragraph(Convert.ToString(ct.getVazaoMax), fonte);
+                lin[2] = new Paragraph(Convert.ToString(ct.getVazaoMed), fonte);
+                lin[3] = new Paragraph(Convert.ToString(ct.getVazaoMinFut), fonte);
+                lin[4] = new Paragraph(Convert.ToString(ct.getVazaoMaxFut), fonte);
+                lin[5] = new Paragraph(Convert.ToString(ct.getVazaoMedFut), fonte);
+                lin[6] = new Paragraph(Convert.ToString(ct.getPopulacao), fonte);
+                lin[7] = new Paragraph(Convert.ToString(ct.getPopulacaoFut), fonte);
+
+                PdfPCell[] cel = new PdfPCell[8];
+
+                for(int i = 0; i < 8; i++) {
+                    cel[i].AddElement(col[i]);
+                    dadoss.AddCell(cel[i]);
+                }
+                for(int i = 0; i < 8; i++) {
+                    cel[i].AddElement(lin[i]);
+                    dadoss.AddCell(cel[i]);
+                }
+                
+
+                relatorio.Add(result);
+                relatorio.Add(dado);
+                relatorio.Add(dadoss);
+
+                relatorio.Close();
+
+                //////////////////////////////Final do gerador de pdf
+
+
+                PDFView n = new PDFView();
+                n.Show();
+
 			} catch (Exception erro) {
 				MessageBox.Show(erro.Message);
 			}
@@ -148,5 +222,6 @@ namespace Tren.Views {
 			Pai.voltaView();
 			Hide();
 		}
-	}
+
+    }
 }

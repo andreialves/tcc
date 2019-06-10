@@ -88,7 +88,7 @@ namespace Tren.Classes
 
         public void CalculaAreaUtilLinha() {
             if (velocidade != null) {
-                areaUtilMin = (getPertenceASeq.getCentral.getVazaoMinFut / 1000) / velocidade;
+                areaUtilMin = (getPertenceASeq.getCentral.getVazaoMin / 1000) / velocidade;
             } else {
                 throw new Exception("Tipo de Limpeza não informada");
             }
@@ -126,8 +126,8 @@ namespace Tren.Classes
         }
 
         public void CalculaVelocidadeLinha() {
-            if (areaUtilMin != null && getPertenceASeq.getCentral.getVazaoMinFut != null) {
-                velocidadeLinha = getPertenceASeq.getCentral.getVazaoMinFut / areaUtilMin;
+            if (areaUtilMin != null && getPertenceASeq.getCentral.getVazaoMin != null) {
+                velocidadeLinha = getPertenceASeq.getCentral.getVazaoMin / areaUtilMin;
             } else {
                 throw new Exception("Au' ou Vazão não foram calculados.");
             }
@@ -142,8 +142,8 @@ namespace Tren.Classes
         }
 
         public void CalculaVelAproxMin() {
-            if (eficienciaGrade != null && areaUtilMin != null && getPertenceASeq.getCentral.getVazaoMinFut != null) {
-                velocidadeAproxMin = getPertenceASeq.getCentral.getVazaoMinFut / 1000 * eficienciaGrade / areaUtilMin;
+            if (eficienciaGrade != null && areaUtilMin != null && getPertenceASeq.getCentral.getVazaoMin != null) {
+                velocidadeAproxMin = getPertenceASeq.getCentral.getVazaoMin / 1000 * eficienciaGrade / areaUtilMin;
             } else {
                 throw new Exception("Eficiencia, Au' ou Vazão não foram calculados.");
             }
