@@ -44,7 +44,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.webBrowser1);
             this.Name = "PDFView";
-            this.Text = "PDFView";
+            this.Text = "TREN - Resultados";
             this.ResumeLayout(false);
 
         }

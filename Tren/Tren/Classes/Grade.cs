@@ -151,11 +151,11 @@ namespace Tren.Classes
 
         public void CalculaPerdaCarga() {
             if (velocidade != null && velocidadeAproxMax != null && velocidadeAproxMin != null && velocidadeLinha != null) {
-                perdaCargaMax = 1.43 * ((velocidade * velocidade) - (velocidadeAproxMax * velocidadeAproxMax)) / 2 * 9.81;
-                perdaCargaMin = 1.43 * ((velocidadeLinha * velocidadeLinha) - (velocidadeAproxMin * velocidadeAproxMin)) / 2 * 9.81;
+                perdaCargaMax = (1.43 * (Math.Pow(Convert.ToDouble(Convert.ToString(velocidade)), 2) - Math.Pow(Convert.ToDouble(Convert.ToString(velocidadeAproxMax)), 2))) / (2 * 9.81);
+                perdaCargaMin = (1.43 * (Math.Pow(Convert.ToDouble(Convert.ToString(velocidadeLinha)), 2) - Math.Pow(Convert.ToDouble(Convert.ToString(velocidadeAproxMin)), 2))) / (2 * 9.81);
 
-                perdaCargaMaxObs = 1.43 * ((4 * velocidade * velocidade) - (velocidadeAproxMax * velocidadeAproxMax)) / 2 * 9.81;
-                perdaCargaMinObs = 1.43 * ((4 * velocidadeLinha * velocidadeLinha) - (velocidadeAproxMin * velocidadeAproxMin)) / 2 * 9.81;
+                perdaCargaMaxObs = (1.43 * (Math.Pow(Convert.ToDouble(Convert.ToString(2*velocidade)), 2) - Math.Pow(Convert.ToDouble(Convert.ToString(velocidadeAproxMax)), 2))) / (2 * 9.81);
+                perdaCargaMinObs = (1.43 * (Math.Pow(Convert.ToDouble(Convert.ToString(2*velocidadeLinha)), 2) - Math.Pow(Convert.ToDouble(Convert.ToString(velocidadeAproxMin)), 2))) / (2 * 9.81);
             } else {
                 throw new Exception("Velocidades não calculadas.");
             }

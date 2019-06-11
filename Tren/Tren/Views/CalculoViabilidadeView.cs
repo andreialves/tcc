@@ -111,8 +111,10 @@ namespace Tren.Views {
 				Console.WriteLine("v' " + gr.VelocidadeLinha);
 				Console.WriteLine("velocidade max " + gr.VelocidadeAproximacaoMax);
 				Console.WriteLine("velocidade min " + gr.VelocidadeAproximacaoMin);
-				Console.WriteLine("altura grade limpa " + "n achei");
-				Console.WriteLine("altura grade obst " + "n achei");
+				Console.WriteLine("hf, max " + gr.PerdaCargaMax);
+				Console.WriteLine("hf, min " + gr.PerdaCargaMin);
+                Console.WriteLine("hf, max obs " + gr.PerdaCargaMaxObs);
+                Console.WriteLine("hf, min obs " + gr.PerdaCargaMinObs);
 
 
 				Console.WriteLine("\n\n______Desarenador______:");
@@ -162,7 +164,7 @@ namespace Tren.Views {
                 iTextSharp.text.Font fonte = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 9);
 
                 Paragraph result = new Paragraph("Resultados", FontFactory.GetFont(BaseFont.TIMES_BOLD, 20));
-                Paragraph dado = new Paragraph("Dados", FontFactory.GetFont(BaseFont.TIMES_BOLD, 20));
+                Paragraph dado = new Paragraph("Dados", FontFactory.GetFont(BaseFont.TIMES_BOLD, 16));
                 result.Alignment = Element.ALIGN_CENTER;
                 dado.Alignment = Element.ALIGN_CENTER;
 
@@ -189,16 +191,12 @@ namespace Tren.Views {
                 lin[6] = new Paragraph(Convert.ToString(ct.getPopulacao), fonte);
                 lin[7] = new Paragraph(Convert.ToString(ct.getPopulacaoFut), fonte);
 
-<<<<<<< HEAD
                 var cel = new PdfPCell[8];
                 var cel2 = new PdfPCell[8];
-                for(int i = 0; i < 8; i++) {
-                    cel[i] = new PdfPCell();
-=======
-                PdfPCell[] cel = new PdfPCell[8];
-				
+                
+
 				for (int i = 0; i < 8; i++) {
->>>>>>> b68ad2c015a8c2362dd862fc76987fea702b6432
+                    cel[i] = new PdfPCell();
                     cel[i].AddElement(col[i]);
                     dadoss.AddCell(cel[i]);
                 }
@@ -207,14 +205,11 @@ namespace Tren.Views {
                     cel2[i].AddElement(lin[i]);
                     dadoss.AddCell(cel2[i]);
                 }
-<<<<<<< HEAD
-                var d = new PdfPCell();
-=======
->>>>>>> b68ad2c015a8c2362dd862fc76987fea702b6432
 
-				
+                var d = new PdfPCell();
 				relatorio.Add(result);
                 relatorio.Add(dado);
+                relatorio.Add(new Paragraph());
                 relatorio.Add(dadoss);
 
                 relatorio.Close();
