@@ -166,7 +166,7 @@ namespace Tren.Views {
                 result.Alignment = Element.ALIGN_CENTER;
                 dado.Alignment = Element.ALIGN_CENTER;
 
-                Paragraph[] col = new Paragraph[8];
+				Paragraph[] col = new Paragraph[8];
 
                 col[0] = new Paragraph("Qmín, L/s", fonte);
                 col[1] = new Paragraph("Qmáx, L/s", fonte);
@@ -190,8 +190,8 @@ namespace Tren.Views {
                 lin[7] = new Paragraph(Convert.ToString(ct.getPopulacaoFut), fonte);
 
                 PdfPCell[] cel = new PdfPCell[8];
-
-                for(int i = 0; i < 8; i++) {
+				
+				for (int i = 0; i < 8; i++) {
                     cel[i].AddElement(col[i]);
                     dadoss.AddCell(cel[i]);
                 }
@@ -199,18 +199,18 @@ namespace Tren.Views {
                     cel[i].AddElement(lin[i]);
                     dadoss.AddCell(cel[i]);
                 }
-                
 
-                relatorio.Add(result);
+				
+				relatorio.Add(result);
                 relatorio.Add(dado);
                 relatorio.Add(dadoss);
 
                 relatorio.Close();
 
-                //////////////////////////////Final do gerador de pdf
+				//////////////////////////////Final do gerador de pdf
+				
 
-
-                PDFView n = new PDFView();
+				PDFView n = new PDFView();
                 n.Show();
 
 			} catch (Exception erro) {
