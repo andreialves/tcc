@@ -12,6 +12,11 @@ namespace Tren.Views {
     public partial class PDFView : Form {
         public PDFView() {
             InitializeComponent();
+            this.webBrowser1.Navigate(string.Format( @"file://{0}\Relatorio.pdf", Application.StartupPath));
+        }
+
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e) {
+           
         }
     }
 }

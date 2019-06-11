@@ -158,7 +158,7 @@ namespace Tren.Views {
 
                 relatorio.Open();
 
-                PdfPTable dadoss = new PdfPTable(9);
+                PdfPTable dadoss = new PdfPTable(8);
                 iTextSharp.text.Font fonte = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 9);
 
                 Paragraph result = new Paragraph("Resultados", FontFactory.GetFont(BaseFont.TIMES_BOLD, 20));
@@ -189,17 +189,19 @@ namespace Tren.Views {
                 lin[6] = new Paragraph(Convert.ToString(ct.getPopulacao), fonte);
                 lin[7] = new Paragraph(Convert.ToString(ct.getPopulacaoFut), fonte);
 
-                PdfPCell[] cel = new PdfPCell[8];
-
+                var cel = new PdfPCell[8];
+                var cel2 = new PdfPCell[8];
                 for(int i = 0; i < 8; i++) {
+                    cel[i] = new PdfPCell();
                     cel[i].AddElement(col[i]);
                     dadoss.AddCell(cel[i]);
                 }
                 for(int i = 0; i < 8; i++) {
-                    cel[i].AddElement(lin[i]);
-                    dadoss.AddCell(cel[i]);
+                    cel2[i] = new PdfPCell();
+                    cel2[i].AddElement(lin[i]);
+                    dadoss.AddCell(cel2[i]);
                 }
-                
+                var d = new PdfPCell();
 
                 relatorio.Add(result);
                 relatorio.Add(dado);
