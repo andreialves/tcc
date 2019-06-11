@@ -189,16 +189,11 @@ namespace Tren.Views {
                 lin[6] = new Paragraph(Convert.ToString(ct.getPopulacao), fonte);
                 lin[7] = new Paragraph(Convert.ToString(ct.getPopulacaoFut), fonte);
 
-<<<<<<< HEAD
+
                 var cel = new PdfPCell[8];
                 var cel2 = new PdfPCell[8];
-                for(int i = 0; i < 8; i++) {
-                    cel[i] = new PdfPCell();
-=======
-                PdfPCell[] cel = new PdfPCell[8];
-				
 				for (int i = 0; i < 8; i++) {
->>>>>>> b68ad2c015a8c2362dd862fc76987fea702b6432
+					cel[i] = new PdfPCell();
                     cel[i].AddElement(col[i]);
                     dadoss.AddCell(cel[i]);
                 }
@@ -207,10 +202,8 @@ namespace Tren.Views {
                     cel2[i].AddElement(lin[i]);
                     dadoss.AddCell(cel2[i]);
                 }
-<<<<<<< HEAD
+
                 var d = new PdfPCell();
-=======
->>>>>>> b68ad2c015a8c2362dd862fc76987fea702b6432
 
 				
 				relatorio.Add(result);
