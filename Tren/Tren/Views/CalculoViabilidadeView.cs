@@ -161,10 +161,22 @@ namespace Tren.Views {
                 relatorio.Open();
 
                 PdfPTable dadoss = new PdfPTable(8);
-                iTextSharp.text.Font fonte = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 9);
+				//iTextSharp.text.Font fonte = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 9);
 
-                Paragraph result = new Paragraph("Resultados", FontFactory.GetFont(BaseFont.TIMES_BOLD, 20));
-                Paragraph dado = new Paragraph("Dados", FontFactory.GetFont(BaseFont.TIMES_BOLD, 16));
+				////////////////////////////
+				//var fontPath = Environment.GetEnvironmentVariable("SystemRoot") + "\\fonts\\tahoma.ttf";
+				var fontName = "Arial";
+				if (!FontFactory.IsRegistered(fontName)) {
+					var fontPath = Environment.GetEnvironmentVariable("SystemRoot") + "\\fonts\\arial.ttf";
+					FontFactory.Register(fontPath);
+				}
+				iTextSharp.text.Font fonte = FontFactory.GetFont(fontName, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+				// n entendi mt bem q q ta acontecendo com essas funçoes ainda, mas ta funcionando
+				/////////////////////////////
+
+
+				Paragraph result = new Paragraph("Resultados", FontFactory.GetFont(fontName, 20));
+                Paragraph dado = new Paragraph("Dados", FontFactory.GetFont(fontName, 16));
                 result.Alignment = Element.ALIGN_CENTER;
                 dado.Alignment = Element.ALIGN_CENTER;
 
