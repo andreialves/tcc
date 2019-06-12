@@ -127,7 +127,7 @@ namespace Tren.Classes
 
         public void CalculaVelocidadeLinha() {
             if (areaUtilMin != null && getPertenceASeq.getCentral.getVazaoMin != null) {
-                velocidadeLinha = getPertenceASeq.getCentral.getVazaoMin / areaUtilMin;
+                velocidadeLinha = getPertenceASeq.getCentral.getVazaoMin / 1000 / areaUtilMin;
             } else {
                 throw new Exception("Au' ou Vazão não foram calculados.");
             }
