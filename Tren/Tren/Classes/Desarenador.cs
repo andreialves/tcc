@@ -100,7 +100,7 @@ namespace Tren.Classes {
         public void calculaFrequenciaLimpeza() {
             volDiarioAreiaRetido = taxaAreiaDiaria * (getPertenceASeq.getCentral.getVazaoMedFut / 1000) * 86400;
             alturaGeradaAreiaDia = (volDiarioAreiaRetido / 1000) / areaSuperficial;
-            frequenciaLimpeza = int.Parse(Convert.ToString(Math.Round(Convert.ToDouble(0.2 * alturaGeradaAreiaDia) + 0.5, MidpointRounding.ToEven)));
+            frequenciaLimpeza = int.Parse(Convert.ToString(Math.Round(Convert.ToDouble(0.2 * alturaGeradaAreiaDia), MidpointRounding.ToEven)));
         }
         
         /**
@@ -145,5 +145,12 @@ namespace Tren.Classes {
             get { return frequenciaLimpeza; }
         }
 
+        public double? AreaSecao {
+            get { return areaSecaoDesarenador; }
+        }
+        
+        public double? VolumeDiario {
+            get { return volDiarioAreiaRetido; }
+        }
     }
 }

@@ -172,7 +172,7 @@ namespace Tren.Classes
         public void CalculaBarras() {
             if (larguraCanalMax != null) {
                 double? b = (larguraCanalMax - espacamentoGrade) / (espacamentoGrade + espessuraGrade);
-                numeroBarras = int.Parse(Convert.ToString(Math.Round(Convert.ToDouble(b + 0.5), MidpointRounding.ToEven)));
+                numeroBarras = int.Parse(Convert.ToString(Math.Round(Convert.ToDouble(b), MidpointRounding.ToEven)));
                 numeroEspacamentos = numeroBarras + 1;
             } else {
                 throw new Exception("Largura do Canal não calculada.");
@@ -291,6 +291,22 @@ namespace Tren.Classes
                 return numeroEspacamentos;
             }
         }
+        public double? Espacamento {
+            get{
+                return espacamentoGrade;
+            }
+        }
+        public double? Espessura {
+            get {
+                return espessuraGrade;
+            }
+        }
+
+        public double? Eficiencia {
+            get {
+                return eficienciaGrade;
+            }
+        }
 
         public double? CorrecaoEspacamento {
             get {
@@ -307,6 +323,18 @@ namespace Tren.Classes
         public double? Comprimento {
             get {
                 return comprimentoGrade;
+            }
+        }
+
+        public double? LarguraMax {
+            get {
+                return larguraCanalMax;
+            }
+        }
+
+        public double? LarguraMin {
+            get {
+                return larguraCanalMin;
             }
         }
 
