@@ -33,11 +33,11 @@
 			this.lb_CentralEscolhaTitulo.AutoSize = true;
 			this.lb_CentralEscolhaTitulo.FontSize = MetroFramework.MetroLabelSize.Tall;
 			this.lb_CentralEscolhaTitulo.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-			this.lb_CentralEscolhaTitulo.Location = new System.Drawing.Point(230, 188);
+			this.lb_CentralEscolhaTitulo.Location = new System.Drawing.Point(210, 191);
 			this.lb_CentralEscolhaTitulo.Name = "lb_CentralEscolhaTitulo";
-			this.lb_CentralEscolhaTitulo.Size = new System.Drawing.Size(329, 25);
+			this.lb_CentralEscolhaTitulo.Size = new System.Drawing.Size(396, 25);
 			this.lb_CentralEscolhaTitulo.TabIndex = 36;
-			this.lb_CentralEscolhaTitulo.Text = "Já tem os dados de vazão calculados?";
+			this.lb_CentralEscolhaTitulo.Text = "Possui os dados de vazão atuais e de projeto?";
 			// 
 			// bt_central0_sim
 			// 

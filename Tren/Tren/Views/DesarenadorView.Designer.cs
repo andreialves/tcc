@@ -48,7 +48,7 @@
 			// metroLabel2
 			// 
 			this.metroLabel2.AutoSize = true;
-			this.metroLabel2.Location = new System.Drawing.Point(627, 191);
+			this.metroLabel2.Location = new System.Drawing.Point(589, 229);
 			this.metroLabel2.Name = "metroLabel2";
 			this.metroLabel2.Size = new System.Drawing.Size(107, 19);
 			this.metroLabel2.TabIndex = 70;
@@ -56,7 +56,7 @@
 			// 
 			// txb_taxaAreia
 			// 
-			this.txb_taxaAreia.Location = new System.Drawing.Point(383, 191);
+			this.txb_taxaAreia.Location = new System.Drawing.Point(345, 229);
 			this.txb_taxaAreia.Name = "txb_taxaAreia";
 			this.txb_taxaAreia.Size = new System.Drawing.Size(238, 23);
 			this.txb_taxaAreia.TabIndex = 2;
@@ -65,7 +65,7 @@
 			// lb_taxaInfiltracaoFut
 			// 
 			this.lb_taxaInfiltracaoFut.AutoSize = true;
-			this.lb_taxaInfiltracaoFut.Location = new System.Drawing.Point(160, 117);
+			this.lb_taxaInfiltracaoFut.Location = new System.Drawing.Point(122, 155);
 			this.lb_taxaInfiltracaoFut.Name = "lb_taxaInfiltracaoFut";
 			this.lb_taxaInfiltracaoFut.Size = new System.Drawing.Size(156, 19);
 			this.lb_taxaInfiltracaoFut.TabIndex = 68;
@@ -92,7 +92,7 @@
 			// metroLabel1
 			// 
 			this.metroLabel1.AutoSize = true;
-			this.metroLabel1.Location = new System.Drawing.Point(160, 191);
+			this.metroLabel1.Location = new System.Drawing.Point(122, 229);
 			this.metroLabel1.Name = "metroLabel1";
 			this.metroLabel1.Size = new System.Drawing.Size(126, 19);
 			this.metroLabel1.TabIndex = 75;
@@ -100,7 +100,7 @@
 			// 
 			// txb_velocidade
 			// 
-			this.txb_velocidade.Location = new System.Drawing.Point(383, 117);
+			this.txb_velocidade.Location = new System.Drawing.Point(345, 155);
 			this.txb_velocidade.Name = "txb_velocidade";
 			this.txb_velocidade.Size = new System.Drawing.Size(238, 23);
 			this.txb_velocidade.TabIndex = 1;
@@ -109,7 +109,7 @@
 			// metroLabel5
 			// 
 			this.metroLabel5.AutoSize = true;
-			this.metroLabel5.Location = new System.Drawing.Point(627, 117);
+			this.metroLabel5.Location = new System.Drawing.Point(589, 155);
 			this.metroLabel5.Name = "metroLabel5";
 			this.metroLabel5.Size = new System.Drawing.Size(94, 19);
 			this.metroLabel5.TabIndex = 77;
