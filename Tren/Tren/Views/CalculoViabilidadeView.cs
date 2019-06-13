@@ -62,7 +62,9 @@ namespace Tren.Views {
 				gr.CalculaAreaUtil();
 				gr.CalculaAreaUtilLinha();
 				gr.CalculaSecaoCanal();
+                gr.CalculaSecaoCanalLinha();
 				gr.CalculaLarguraCanal();
+                gr.CalculaLarguraCanalLinha();
 				gr.CalculaSecaoCanalLinha();
 				gr.CalculaVelocidadeLinha();
 				gr.CalculaVelAproxMax();
@@ -115,6 +117,17 @@ namespace Tren.Views {
 				Console.WriteLine("hf, min " + gr.PerdaCargaMin);
                 Console.WriteLine("hf, max obs " + gr.PerdaCargaMaxObs);
                 Console.WriteLine("hf, min obs " + gr.PerdaCargaMinObs);
+                Console.WriteLine("hu " + gr.PerdaCargaTotal);
+                Console.WriteLine("espaçamento " + gr.Espacamento);
+                Console.WriteLine("espessura " + gr.Espessura);
+                Console.WriteLine("eficienci " + gr.Eficiencia);
+                Console.WriteLine("comprimento " + gr.Comprimento);
+                Console.WriteLine("largura qmax " + gr.LarguraMax);
+                Console.WriteLine("largura qmin " + gr.LarguraMin);
+                Console.WriteLine("num barras" + (gr.NumEspacamento - 1));
+                Console.WriteLine("num espacamento " + gr.NumEspacamento);
+                Console.WriteLine("correção " + gr.CorrecaoEspacamento);
+
 
 
 				Console.WriteLine("\n\n______Desarenador______:");
@@ -126,7 +139,10 @@ namespace Tren.Views {
 				Console.WriteLine("tas " + ds.TaxaAplicacao);
 				Console.WriteLine("altura por dia " + ds.AlturaAreia);
 				Console.WriteLine("intervalo limpeza " + ds.IntervaloLimpeza);
-
+                Console.WriteLine("area superficial " + ds.AreaSuperficial);
+                Console.WriteLine("altura areia " + ds.AlturaAreia);
+                Console.WriteLine("volume areia " + ds.VolumeDiario);
+                
 
 				Console.WriteLine("\n\n______Calha Parshall______:");
 				Console.WriteLine("w " + cp.getW);
