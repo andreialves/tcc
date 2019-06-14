@@ -21,6 +21,7 @@ namespace Tren.Views {
 
 			if (cbx_PLf.Checked) {
 				Pai.AddView(new CentralDeTratamento0View(dados, Pai), "Central0");
+				Pai.AddView(new View(Pai), "CentralX");
 				Pai.AddView(new GradeView(dados, Pai), "Grade");
 				Pai.AddView(new DesarenadorView(dados, Pai), "Desarenador");
 				Pai.AddView(new LagoaFacultativaView(dados, Pai), "LagoaFacultativa");

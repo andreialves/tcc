@@ -84,6 +84,17 @@
     <Compile Include="Classes\Grade.cs" />
     <Compile Include="Classes\LagoaFacultativa.cs" />
     <Compile Include="Classes\LagoaMaturacao.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BoasVindasView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BoasVindasView.Designer.cs">
+      <DependentUpon>BoasVindasView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CaixaSAOView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,9 +204,20 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Imagens\1.png" />
+    <Content Include="Imagens\2.png" />
+    <Content Include="Imagens\3.png" />
+    <Content Include="Imagens\4.png" />
     <Content Include="MetroFramework.txt" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\BoasVindasView.resx">
+      <DependentUpon>BoasVindasView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\CaixaSAOView.resx">
       <DependentUpon>CaixaSAOView.cs</DependentUpon>
     </EmbeddedResource>
@@ -236,5 +258,6 @@
       <DependentUpon>SelecaoSeqIndView.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

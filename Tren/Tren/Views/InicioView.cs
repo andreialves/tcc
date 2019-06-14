@@ -22,11 +22,11 @@ namespace Tren.Views {
 			nomeViews = new List<string>();
 			it = 0;
 
-			PrincipalView principal = new PrincipalView(this);
-            principal.TopLevel = false;
-            principal.Dock = DockStyle.Fill;
-            mainPanel.Controls.Add(principal);
-            principal.Show();
+			BoasVindasView boasVindas = new BoasVindasView(this);
+            boasVindas.TopLevel = false;
+            boasVindas.Dock = DockStyle.Fill;
+            mainPanel.Controls.Add(boasVindas);
+            boasVindas.Show();
 			
 		}
 
@@ -57,8 +57,10 @@ namespace Tren.Views {
 
 		public void limpaLista() {
 			foreach (View v in listaViews)
-				if(v != listaViews[0])
+				if (v != listaViews[0]) {
+					mainPanel.Controls.Remove(v);
 					v.Close();
+				}
 			listaViews.Clear();
 			nomeViews.Clear();
 			it = 0;
@@ -66,7 +68,10 @@ namespace Tren.Views {
 
 		public void AddView(View view, string nome) {
 			if (nomeViews.Contains(nome)) {
-				return;
+				int idx = nomeViews.IndexOf(nome);
+				mainPanel.Controls.Remove(listaViews[idx]);
+				listaViews[idx].Close();
+				listaViews[idx] = view;
 			}
 			view.TopLevel = false;
 			view.Dock = DockStyle.Fill;

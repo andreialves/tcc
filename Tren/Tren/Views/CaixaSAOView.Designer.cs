@@ -159,8 +159,6 @@
 		}
 
 		#endregion
-
-		private MetroFramework.Controls.MetroButton bt_central2_voltar;
 		private MetroFramework.Controls.MetroButton bt_central1_avancar;
 		private MetroFramework.Controls.MetroLabel lb_SeqPreliminarTitulo;
 		private MetroFramework.Controls.MetroTextBox txb_turbulencia;
@@ -171,5 +169,6 @@
 		private MetroFramework.Controls.MetroLabel lb_densidadeOleo;
 		private MetroFramework.Controls.MetroLabel metroLabel1;
 		private MetroFramework.Controls.MetroLabel metroLabel3;
+		private MetroFramework.Controls.MetroButton bt_central2_voltar;
 	}
 }

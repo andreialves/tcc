@@ -18,20 +18,19 @@ namespace Tren.Views {
 		}
 
 		private void bt_central0_sim_Click(object sender, EventArgs e) {
-			CentralDeTratamento1View central1 = new CentralDeTratamento1View(dados, Pai);
-			central1.TopLevel = false;
-			central1.Dock = DockStyle.Fill;
-			Parent.Controls.Add(central1);
-			central1.Show();
+			Pai.AddView(new CentralDeTratamento1View(dados, Pai), "CentralX");
+			Pai.avancaView();
 			Hide();
 		}
 
 		private void bt_central0_nao_Click(object sender, EventArgs e) {
-			CentralDeTratamento2View central2 = new CentralDeTratamento2View(dados, Pai);
-			central2.TopLevel = false;
-			central2.Dock = DockStyle.Fill;
-			Parent.Controls.Add(central2);
-			central2.Show();
+			Pai.AddView(new CentralDeTratamento2View(dados, Pai), "CentralX");
+			Pai.avancaView();
+			Hide();
+		}
+
+		private void bt_central0_voltar_Click(object sender, EventArgs e) {
+			Pai.voltaView();
 			Hide();
 		}
 	}

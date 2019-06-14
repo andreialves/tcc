@@ -14,6 +14,7 @@ namespace Tren.Views {
 
 		public View() {
 			InitializeComponent();
+			pai = null;
 		}
 
 		public View(InicioView v) {
