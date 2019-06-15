@@ -21,28 +21,19 @@ namespace Tren.Classes {
 		private double tempoRes;
 
 
+		public CaixaSAO(SequenciaPreliminar sp) : base(sp) {
+			carregaTabela();
+		}
+
 		public CaixaSAO(double visc, double dens, double turb, SequenciaPreliminar sp) : base(sp){
+			carregaTabela();
+			setDados(visc, dens, turb);
+		}
+
+		public void setDados(double visc, double dens, double turb) {
 			viscosidadeABS = visc;
 			densidadeOleo = dens;
 			turbulencia = turb;
-
-			carregaTabela();
-			for (int i = 0; i < tabelaVF.GetLength(0); i++)
-				if (tabelaVF[i, 1] == turbulencia) {
-					vHvV = tabelaVF[i, 0];
-					break;
-				}
-			if (vHvV == 0)
-				throw new System.ArgumentException("CaixaSAO::CaixaSAO - parametro com valor invalido", "turbulencia");
-
-			vVertical = 980 * (0.015 * 0.015) * (0.999 - densidadeOleo) / (18 * viscosidadeABS);
-			vHorizontal = vHvV / vVertical;
-			areaTransv = getPertenceASeq.getCentral.getVazaoMaxFut * 100 / vHorizontal;
-			largura = Math.Sqrt(areaTransv / 0.3);
-			profundidade = 0.3 * largura;
-			comprimento = turbulencia * vHvV * profundidade;
-			volume = comprimento * largura * profundidade;
-			tempoRes = volume / (getPertenceASeq.getCentral.getVazaoMaxFut * 60);
 		}
 
 		private void carregaTabela() {
@@ -61,6 +52,26 @@ namespace Tren.Classes {
 				;
 			}
 		}
+
+		public void calcula() {
+			for (int i = 0; i < tabelaVF.GetLength(0); i++)
+				if (tabelaVF[i, 1] == turbulencia) {
+					vHvV = tabelaVF[i, 0];
+					break;
+				}
+			if (vHvV == 0)
+				throw new System.ArgumentException("CaixaSAO::CaixaSAO - parametro com valor invalido", "turbulencia");
+
+			vVertical = 980 * (0.015 * 0.015) * (0.999 - densidadeOleo) / (18 * viscosidadeABS);
+			vHorizontal = vHvV / vVertical;
+			areaTransv = getPertenceASeq.getCentral.getVazaoMaxFut * 100 / vHorizontal;
+			largura = Math.Sqrt(areaTransv / 0.3);
+			profundidade = 0.3 * largura;
+			comprimento = turbulencia * vHvV * profundidade;
+			volume = comprimento * largura * profundidade;
+			tempoRes = volume / (getPertenceASeq.getCentral.getVazaoMaxFut * 60);
+		}
+	
 
 		public double getVHorizontal {
 			get {

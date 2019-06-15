@@ -16,10 +16,21 @@ namespace Tren.Classes {
 		double tempoDetHidraulica;
 		double dboSaida;
 
+
+		public LagoaFacultativa(SequenciaSecundaria ss) : base(ss) {
+
+		}
+
 		public LagoaFacultativa(double dbo, double temp, SequenciaSecundaria ss) : base(ss){
+			setDados(dbo, temp);
+		}
+
+		public void setDados(double dbo, double temp) {
 			dboEntrada = dbo;
 			tempMesFrio = temp;
+		}
 
+		public void calcula() {
 			altura = 2;
 
 			cargaMax = 350 * Math.Pow(1.107 - 0.002 * tempMesFrio, tempMesFrio - 25);

@@ -20,29 +20,6 @@ namespace Tren.Classes {
 		public CalhaParshall(SequenciaPreliminar sp) : base(sp)	{
 			// carrega tabelaCalhas
 			carregaTabela();
-
-			//calcula valores dos atributos
-			IFormatProvider prov = CultureInfo.InvariantCulture;
-			double menorInt = 100000;
-			double vazaoMin = getPertenceASeq.getCentral.getVazaoMin;
-			double vazaoMaxFut = getPertenceASeq.getCentral.getVazaoMaxFut;
-			double vazaoMinFut = getPertenceASeq.getCentral.getVazaoMinFut;
-
-			foreach (Dictionary<string, string> d in tabelaCalhas) {
-				if (double.Parse(d["vMin"], prov) <= vazaoMin && double.Parse(d["vMax"], prov) >= vazaoMaxFut)
-					if (double.Parse(d["vMax"], prov) - double.Parse(d["vMin"], prov) < menorInt) {
-						menorInt = double.Parse(d["vMax"], prov) - double.Parse(d["vMin"], prov);
-						mm = int.Parse(d["mm"]);
-						n = double.Parse(d["n"], prov);
-						k = double.Parse(d["k"], prov);
-					}
-			}
-
-			HMin = Math.Pow(vazaoMin / (1000 * k), 1/n);
-			HMax = Math.Pow(vazaoMaxFut / (1000 * k), 1/n);
-			desnivel = (vazaoMaxFut*HMin - vazaoMin*HMax) / (vazaoMaxFut - vazaoMin);
-			getPertenceASeq.gethMin = HMin - desnivel;
-			getPertenceASeq.gethMax = HMax - desnivel;
 		}
 
 		private void carregaTabela() {
@@ -66,6 +43,30 @@ namespace Tren.Classes {
 ;			}
 		}
 
+		public void calcula() {
+			IFormatProvider prov = CultureInfo.InvariantCulture;
+			double menorInt = 100000;
+			double vazaoMin = getPertenceASeq.getCentral.getVazaoMin;
+			double vazaoMaxFut = getPertenceASeq.getCentral.getVazaoMaxFut;
+			double vazaoMinFut = getPertenceASeq.getCentral.getVazaoMinFut;
+
+			foreach (Dictionary<string, string> d in tabelaCalhas) {
+				if (double.Parse(d["vMin"], prov) <= vazaoMin && double.Parse(d["vMax"], prov) >= vazaoMaxFut)
+					if (double.Parse(d["vMax"], prov) - double.Parse(d["vMin"], prov) < menorInt) {
+						menorInt = double.Parse(d["vMax"], prov) - double.Parse(d["vMin"], prov);
+						mm = int.Parse(d["mm"]);
+						n = double.Parse(d["n"], prov);
+						k = double.Parse(d["k"], prov);
+					}
+			}
+
+			HMin = Math.Pow(vazaoMin / (1000 * k), 1 / n);
+			HMax = Math.Pow(vazaoMaxFut / (1000 * k), 1 / n);
+			desnivel = (vazaoMaxFut * HMin - vazaoMin * HMax) / (vazaoMaxFut - vazaoMin);
+			getPertenceASeq.gethMin = HMin - desnivel;
+			getPertenceASeq.gethMax = HMax - desnivel;
+		}
+
 		public double getW {
 			get { return mm; }
 		}
@@ -81,5 +82,10 @@ namespace Tren.Classes {
 		public double getHMin {
 			get { return HMin; } 
 }
+		public double getDesnivel {
+			get {
+				return desnivel;
+			}
+		}
 	}
 }

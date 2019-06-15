@@ -29,6 +29,10 @@ namespace Tren.Classes {
 		private double vazaoDomesticaFut;
 
 
+		public CentralTratamento() {
+			sequencia = new List<Sequencia>();
+		}
+
 		public CentralTratamento(double vMax, double vMed, double vMin,
 								double vMaxFut, double vMedFut, double vMinFut, int pop, int popFut) {
 			sequencia = new List<Sequencia>();
@@ -54,7 +58,32 @@ namespace Tren.Classes {
 			extensaoRedeFut = extensaoFut;
 			taxaInfiltracao = taxaInf;
 			taxaInfiltracaoFut = taxaInfFut;
+		}
 
+		public void setDados(double vMax, double vMed, double vMin,
+							double vMaxFut, double vMedFut, double vMinFut, int pop, int popFut) {
+			vazaoMax = vMax;
+			vazaoMed = vMed;
+			vazaoMin = vMin;
+			vazaoMaxFut = vMaxFut;
+			vazaoMedFut = vMedFut;
+			vazaoMinFut = vMinFut;
+			populacao = pop;
+			populacaoFut = popFut;
+		}
+
+		public void setDados(int pop, int popFut, double QPC,
+							double extensao, double extensaoFut, double taxaInf, double taxaInfFut) {
+			populacao = pop;
+			populacaoFut = popFut;
+			qpc = QPC;
+			extensaoRede = extensao;
+			extensaoRedeFut = extensaoFut;
+			taxaInfiltracao = taxaInf;
+			taxaInfiltracaoFut = taxaInfFut;
+		}
+
+		public void calcula() {
 			calculaVazaoDomestica();
 			calculaVazaoDomesticaFut();
 			calculaVazaoInfiltracao();
@@ -67,38 +96,38 @@ namespace Tren.Classes {
 			sequencia.Add(seq);
 		}
 
-		public void calculaVazaoDomestica(){
+		private void calculaVazaoDomestica(){
 			vazaoDomestica = (populacao * qpc * 0.8) / 86400;
 		}
 
-		public void calculaVazaoDomesticaFut(){
+		private void calculaVazaoDomesticaFut(){
 			vazaoDomesticaFut = (populacaoFut * qpc * 0.8) / 86400;
 		}
 
-		public void calculaVazaoInfiltracao(){
+		private void calculaVazaoInfiltracao(){
 			vazaoInfiltracao = extensaoRede * taxaInfiltracao;
 		}
 
-		public void calculaVazaoInfiltracaoFut(){
+		private void calculaVazaoInfiltracaoFut(){
 			vazaoInfiltracaoFut = extensaoRedeFut * taxaInfiltracaoFut;
 		}
 
-		public void calculaVazao(){
+		private void calculaVazao(){
 			try{
-				vazaoMed = Math.Round(vazaoDomestica + vazaoInfiltracao, 2);
-				vazaoMax = Math.Round((1.2 * 1.5 * vazaoDomestica) + vazaoInfiltracao, 2);
-				vazaoMin = Math.Round((0.5 * vazaoDomestica) + vazaoInfiltracao, 2);
+				vazaoMed = vazaoDomestica + vazaoInfiltracao;
+				vazaoMax = (1.2 * 1.5 * vazaoDomestica) + vazaoInfiltracao;
+				vazaoMin = (0.5 * vazaoDomestica) + vazaoInfiltracao;
 			}
 			catch (Exception){
 				Console.WriteLine("Vazoes Domesticas e de Infiltracao não calculadas");
 			}
 		}
 
-		public void calculaVazaoFut(){
+		private void calculaVazaoFut(){
 			try{
-				vazaoMedFut = Math.Round(vazaoDomesticaFut + vazaoInfiltracaoFut, 2);
-				vazaoMaxFut = Math.Round((1.2 * 1.5 * vazaoDomesticaFut) + vazaoInfiltracaoFut, 2);
-				vazaoMinFut = Math.Round((0.5 * vazaoDomesticaFut) + vazaoInfiltracaoFut, 2);
+				vazaoMedFut = vazaoDomesticaFut + vazaoInfiltracaoFut;
+				vazaoMaxFut = (1.2 * 1.5 * vazaoDomesticaFut) + vazaoInfiltracaoFut;
+				vazaoMinFut = (0.5 * vazaoDomesticaFut) + vazaoInfiltracaoFut;
 
 			}
 			catch (Exception){
