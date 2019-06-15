@@ -33,7 +33,23 @@ namespace Tren.Classes {
             }
         }
 
+        public Desarenador(SequenciaPreliminar sp) : base(sp) {
 
+        }
+        public double? VelocidadeEfluente {
+            set {
+                if (value > 0.4 || value < 0.2)
+                    throw new Exception("Velocidade Fora do Intervalo.");
+                else
+                    velocidadeEfluente = value;
+            }
+        }
+
+        public double? TaxaAreiaDiaria {
+            set {
+                taxaAreiaDiaria = value;
+            }
+        }
         // Calcula a largura do desarenador
         public void CalculaLarguraDesarenador() {
 

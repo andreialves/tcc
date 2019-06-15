@@ -72,10 +72,53 @@ namespace Tren.Classes
             }
         }
 
+        public Grade(SequenciaPreliminar sp) : base(sp) {
+            try {
+                string[] linhas = System.IO.File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + @"\Tabelas Tren\grades.tren");
+                tabelaGrade = new Dictionary<string, string>[linhas.Length];
+
+                for (int i = 0; i < linhas.Length; i++) {
+                    string[] aux = linhas[i].Split(' ');
+
+                    tabelaGrade[i] = new Dictionary<string, string>();
+                    tabelaGrade[i]["espMin"] = aux[0];
+                    tabelaGrade[i]["espMax"] = aux[1];
+                    tabelaGrade[i]["espMin"] = aux[2];
+                    tabelaGrade[i]["espMax"] = aux[3];
+                    tabelaGrade[i]["matMin"] = aux[4];
+                    tabelaGrade[i]["matMax"] = aux[5];
+                }
+            } catch (Exception e) {
+                // Tratar excessão de tentativa de acessar o arquivo
+            }
+        }
+        
         public void CalculoEficiencia() {
 
             eficienciaGrade = espacamentoGrade / (espacamentoGrade + espessuraGrade);
 
+        }
+
+        public int? TipoGrade {
+            set {
+                if(value > 3 || value < 1) {
+                    throw new Exception("Tipo de grade informado não cadastrado.");
+                } else {
+                    tipoGrade = value;
+                }
+            }
+        }
+
+        public int? TipoLimpeza {
+            set {
+                if (value != 1 && value != 2) {
+                    throw new Exception("Tipo de limpeza diferente dos existentes.");
+                } else {
+                    tipoLimpeza = value;
+                    if (value == 1) velocidade = 1.2;
+                    else velocidade = 0.8;
+                }
+            }
         }
 
         public void CalculaAreaUtil() {
@@ -295,10 +338,16 @@ namespace Tren.Classes
             get{
                 return espacamentoGrade;
             }
+            set {
+                espacamentoGrade = value;
+            }
         }
         public double? Espessura {
             get {
                 return espessuraGrade;
+            }
+            set {
+                espessuraGrade = value;
             }
         }
 
