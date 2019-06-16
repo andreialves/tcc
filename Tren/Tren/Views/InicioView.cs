@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Tren.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,15 +10,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Forms;
 
+
 namespace Tren.Views {
     public partial class InicioView : MetroForm {
 		private List<View> listaViews;
 		private List<string> nomeViews;
+		private List<CentralTratamento> centrais;
 		private int it;
 
 		public InicioView() {
 			InitializeComponent();
 
+			centrais = new List<CentralTratamento>();
 			listaViews = new List<View>();
 			nomeViews = new List<string>();
 			it = 0;
@@ -79,6 +83,12 @@ namespace Tren.Views {
 
 			listaViews.Add(view);
 			nomeViews.Add(nome);
+		}
+
+		public List<CentralTratamento> Centrais {
+			get {
+				return centrais;
+			}
 		}
     }
 }

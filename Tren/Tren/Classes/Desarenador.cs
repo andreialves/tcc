@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Globalization;
 
 namespace Tren.Classes {
-    class Desarenador : UnidadePreliminar {
+    public class Desarenador : UnidadePreliminar {
         IFormatProvider format = CultureInfo.InvariantCulture;
 
         private double? velocidadeEfluente = null;

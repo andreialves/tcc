@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tren.Classes
 {
-    class UnidadePreliminar {
+    public class UnidadePreliminar {
 		private SequenciaPreliminar pertenceASeq;
 
 

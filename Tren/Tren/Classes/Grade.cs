@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tren.Classes
 {
-    class Grade : UnidadePreliminar {
+    public class Grade : UnidadePreliminar {
         private IDictionary<string, string>[] tabelaGrade;
         private int? tipoGrade = null; // 1 = grossa; 2 = média; 3 = fina.
         private double? espessuraGrade = null;

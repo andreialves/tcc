@@ -8,7 +8,7 @@ using System.IO;
 
 
 namespace Tren.Classes {
-	class CalhaParshall : UnidadePreliminar	{
+	public class CalhaParshall : UnidadePreliminar	{
 		private IDictionary<string, string> [] tabelaCalhas; // | mm | polegadas | vazaoMin | vazaoMax | n | k |
 		private int mm;
 		private double n;

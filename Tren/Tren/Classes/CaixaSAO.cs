@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Tren.Classes {
-	class CaixaSAO : UnidadePreliminar {
+	public class CaixaSAO : UnidadePreliminar {
 		private double viscosidadeABS;
 		private double densidadeOleo;
 		private double turbulencia;

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Tren.Classes {
-	class SequenciaSecundaria : Sequencia {
+	public class SequenciaSecundaria : Sequencia {
 		private List<List<UnidadeSecundaria>> sequenciaSecundaria;
 
 		public SequenciaSecundaria(CentralTratamento ct) : base(ct)	{

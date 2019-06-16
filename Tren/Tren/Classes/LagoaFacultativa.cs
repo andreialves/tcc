@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Tren.Classes {
-	class LagoaFacultativa : UnidadeSecundaria{
+	public class LagoaFacultativa : UnidadeSecundaria{
 		double dboEntrada;
 		double tempMesFrio;
 		double cargaMax;

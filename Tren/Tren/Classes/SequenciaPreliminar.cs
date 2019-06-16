@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 
 namespace Tren.Classes {
-	class SequenciaPreliminar : Sequencia {
+	public class SequenciaPreliminar : Sequencia {
 		private List<UnidadePreliminar> sequenciaPreliminar;
 
 		private double? hMin = null;

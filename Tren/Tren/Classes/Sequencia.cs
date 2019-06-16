@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tren.Classes
 {
-    class Sequencia{
+    public class Sequencia{
 		private CentralTratamento pertenceACent;
 
 		public Sequencia(CentralTratamento ct) {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Tren.Classes {
-    class LagoaMaturacao : UnidadeSecundaria {
+    public class LagoaMaturacao : UnidadeSecundaria {
         private double? coliformesIniciais = null;
         private double? temperaturaLiquido = null;
         private double? volume = null;

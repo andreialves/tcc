@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 
 namespace Tren.Classes {
-    class CentralTratamento {
+    public class CentralTratamento {
         private List<Sequencia> sequencia;
 
 		private double vazaoMax;
