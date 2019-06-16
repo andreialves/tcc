@@ -56,6 +56,15 @@ namespace Tren.Views {
 
 			foreach (var c in Pai.Centrais) {
 				c.setDados(VMax, VMed, VMin, VMaxF, VMedF, VMinF, pop, popF);
+				foreach (var s in c.getSequencia) {
+					if (s.GetType() == typeof(SequenciaPreliminar)) {
+						foreach (var u in ((SequenciaPreliminar)s).getSeqPreliminar) {
+							if (u.GetType() == typeof(CalhaParshall)) {
+								((CalhaParshall)u).calcula();
+							}
+						}
+					}
+				}
 			}
 
 			Pai.avancaView();

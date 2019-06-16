@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tren.Classes;
 
 namespace Tren.Views {
     public partial class DesarenadorView : View {
@@ -29,6 +30,36 @@ namespace Tren.Views {
 
 			dados["velocidadeEfluente"] = veloc;
 			dados["taxaAreiaDiaria"] = taxaAreia;
+
+			double velocidade = double.Parse(veloc);
+			double txAreia = double.Parse(taxaAreia);
+
+			foreach (var c in Pai.Centrais) {
+				foreach (var s in c.getSequencia) {
+					if (s.GetType() == typeof(SequenciaPreliminar)) {
+						foreach (var u in ((SequenciaPreliminar)s).getSeqPreliminar) {
+							if (u.GetType() == typeof(Desarenador)) {
+								Desarenador ds = ((Desarenador)u);
+								ds.VelocidadeEfluente = velocidade;
+								ds.TaxaAreiaDiaria = txAreia;
+								// Calcular todos os atributos
+								ds.CalculaLarguraDesarenador();
+								ds.CalculaAreaSecao();
+								if (!ds.VerificaVH()) {
+									ds.corrigeVelocidade(velocidade);
+								}
+								ds.CalculaComprimento();
+								ds.calculaAreaSuperficial();
+								ds.CalculaTAS();
+								if (!ds.VerificaTAS()) {
+									ds.corrigeVelocidade(velocidade);
+								}
+								ds.calculaFrequenciaLimpeza();
+							}
+						}
+					}
+				}
+			}
 
 			Pai.avancaView();
 			Hide();

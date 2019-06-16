@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tren.Classes;
 
 namespace Tren.Views {
 	public partial class CaixaSAOView : View {
@@ -33,6 +34,22 @@ namespace Tren.Views {
 			dados["densidadeOleo"] = dens;
 			dados["turbulencia"] = turb;
 
+			double viscosidade = double.Parse(visc);
+			double densidade = double.Parse(dens);
+			double turbulencia = double.Parse(turb);
+
+			foreach (var c in Pai.Centrais) {
+				foreach (var s in c.getSequencia) {
+					if (s.GetType() == typeof(SequenciaPreliminar)) {
+						foreach (var u in ((SequenciaPreliminar)s).getSeqPreliminar) {
+							if (u.GetType() == typeof(CaixaSAO)) {
+								((CaixaSAO)u).setDados(viscosidade, densidade, turbulencia);
+								((CaixaSAO)u).calcula();
+							}
+						}
+					}
+				}
+			}
 
 			Pai.avancaView();
 			Hide();

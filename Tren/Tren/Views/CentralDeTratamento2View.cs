@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tren.Classes;
 
 namespace Tren.Views {
 	public partial class CentralDeTratamento2View : View {
@@ -31,10 +32,9 @@ namespace Tren.Views {
 			string extensaoFut = txb_extensaoFut.Text;
 			string taxaInfiltracao = txb_taxaInfiltracao.Text;
 			string taxaInfiltracaoFut = txb_taxaInfiltracaoFut.Text;
-			string vazaoInfiltracao = txb_extensaoFut.Text;
 
 			if (populacao == "" || populacaoFut == "" || qpc == "" || extensao == "" || extensaoFut == "" ||
-				taxaInfiltracao == "" || taxaInfiltracaoFut == "" || vazaoInfiltracao == "") {
+				taxaInfiltracao == "" || taxaInfiltracaoFut == "") {
 				return;
 			}
 
@@ -45,10 +45,19 @@ namespace Tren.Views {
 			double extFut = double.Parse(extensaoFut);
 			double txInf = double.Parse(taxaInfiltracao);
 			double txInfFut = double.Parse(taxaInfiltracaoFut);
-			double vzInf = double.Parse(vazaoInfiltracao);
 			
 			foreach (var c in Pai.Centrais) {
 				c.setDados(pop, popFut, QPC, ext, extFut, txInf, txInfFut);
+				c.calcula();
+				foreach (var s in c.getSequencia) {
+					if (s.GetType() == typeof(SequenciaPreliminar)) {
+						foreach (var u in ((SequenciaPreliminar)s).getSeqPreliminar) {
+							if (u.GetType() == typeof(CalhaParshall)) {
+								((CalhaParshall)u).calcula();
+							}
+						}
+					}
+				}
 			}
 
 			Pai.avancaView();

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tren.Classes;
 
 namespace Tren.Views {
 	public partial class LagoaFacultativaView : View {
@@ -27,6 +28,24 @@ namespace Tren.Views {
 
 			dados["dboEntrada"] = dboEntrada;
 			dados["tempMesFrio"] = tempMesFrio;
+
+			double dbo = double.Parse(dboEntrada);
+			double temp = double.Parse(tempMesFrio);
+
+			foreach (var c in Pai.Centrais) {
+				foreach (var s in c.getSequencia) {
+					if (s.GetType() == typeof(SequenciaSecundaria)) {
+						foreach (var l in ((SequenciaSecundaria)s).getSeqSecundaria) {
+							foreach (var u in l) {
+								if (u.GetType() == typeof(LagoaFacultativa)) {
+									((LagoaFacultativa)u).setDados(dbo, temp);
+									((LagoaFacultativa)u).calcula();
+								}
+							}
+						}
+					}
+				}
+			}
 
 			Pai.avancaView();
 			Hide();

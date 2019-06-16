@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tren.Classes;
 
 namespace Tren.Views {
     public partial class GradeView : View {
@@ -47,10 +48,47 @@ namespace Tren.Views {
 				return;
 			}
 
-			dados["tipoGrade"] = Convert.ToString(tipoG);
-			dados["tipoLimpeza"] = Convert.ToString(tipoLimpeza);
+			dados["tipoGrade"] = tipoG.ToString();
+			dados["tipoLimpeza"] = tipoLimpeza.ToString();
 			dados["espessura"] = espessura;
 			dados["espacamento"] = espacamento;
+
+			double espes = double.Parse(espessura);
+			double espac = double.Parse(espacamento);
+
+			foreach (var c in Pai.Centrais) {
+				foreach (var s in c.getSequencia) {
+					if (s.GetType() == typeof(SequenciaPreliminar)) {
+						foreach (var u in ((SequenciaPreliminar)s).getSeqPreliminar) {
+							if (u.GetType() == typeof(Grade)) {
+								Grade gr = (Grade)u;
+								gr.TipoGrade = tipoG;
+								gr.TipoLimpeza = tipoLimpeza;
+								gr.Espessura = espes;
+								gr.Espacamento = espac;
+								// calcula valores
+								gr.CalculoEficiencia();
+								gr.CalculaAreaUtil();
+								gr.CalculaAreaUtilLinha();
+								gr.CalculaSecaoCanal();
+								gr.CalculaSecaoCanalLinha();
+								gr.CalculaLarguraCanal();
+								gr.CalculaLarguraCanalLinha();
+								gr.CalculaSecaoCanalLinha();
+								gr.CalculaVelocidadeLinha();
+								gr.CalculaVelAproxMax();
+								gr.CalculaVelAproxMin();
+								gr.CalculaPerdaCarga();
+								gr.CalculaPerdaCargaTotal();
+								gr.CalculaBarras();
+								gr.CalculaCorrecaoEspaco();
+								gr.CalculaDiferencaEspaco();
+								gr.CalculaComprimento();
+							}
+						}
+					}
+				}
+			}
 
 			Pai.avancaView();
             Hide();

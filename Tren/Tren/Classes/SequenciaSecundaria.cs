@@ -23,5 +23,11 @@ namespace Tren.Classes {
 			else
 				throw new System.ArgumentException("Parametro com valor invalido", "pos");
 		}
+
+		public List<List<UnidadeSecundaria>> getSeqSecundaria {
+			get {
+				return sequenciaSecundaria;
+			}
+		}
 	}
 }

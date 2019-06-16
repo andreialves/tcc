@@ -24,10 +24,18 @@ namespace Tren.Views {
 		}
 
 		private void bt_realizarCalculo_Click(object sender, EventArgs e) {
-			foreach (var dado in dados)
-				Console.WriteLine(dado.ToString());
+			foreach (var c in Pai.Centrais) {
+				c.imprime();
+				foreach (var s in c.getSequencia) {
+					//
+				}
+			}
 
-			double vazaoMax = double.Parse(dados["vazaoMax"]);
+
+			//foreach (var dado in dados)
+			//	Console.WriteLine(dado.ToString());
+
+			/*double vazaoMax = double.Parse(dados["vazaoMax"]);
 			double vazaoMed = double.Parse(dados["vazaoMed"]);
 			double vazaoMin = double.Parse(dados["vazaoMin"]);
 			double vazaoMaxFut = double.Parse(dados["vazaoMaxFut"]);
@@ -48,8 +56,8 @@ namespace Tren.Views {
 			double tempMesFrio = double.Parse(dados["tempMesFrio"]);
 
 			Console.WriteLine("velocidade " + velocidadeEfluente);
-
-			try {
+			*/
+			try {/*
 				CentralTratamento ct = new CentralTratamento(vazaoMax, vazaoMed, vazaoMin, vazaoMaxFut, vazaoMedFut, vazaoMinFut, populacao, populacaoFut);
 				SequenciaPreliminar sp = new SequenciaPreliminar(ct);
 				ct.adicionar(sp);
@@ -99,6 +107,9 @@ namespace Tren.Views {
 				ct.adicionar(ss);
 				LagoaFacultativa lf = new LagoaFacultativa(dboEntrada, tempMesFrio, ss);
 				ss.adicionarEmSerie(lf);
+				*/
+
+				Grade gr = (Grade)(((SequenciaPreliminar)(Pai.Centrais[0].getSequencia[0])).getSeqPreliminar[2]);
 
 				Console.WriteLine("\n\n______Grade______:");
 				Console.WriteLine("vazao maxFut " + gr.getPertenceASeq.getCentral.getVazaoMaxFut);
@@ -129,6 +140,7 @@ namespace Tren.Views {
                 Console.WriteLine("correção " + gr.CorrecaoEspacamento);
 
 
+				Desarenador ds = (Desarenador)(((SequenciaPreliminar)(Pai.Centrais[0].getSequencia[0])).getSeqPreliminar[1]);
 
 				Console.WriteLine("\n\n______Desarenador______:");
 				Console.WriteLine("largura " + ds.Largura);
@@ -142,7 +154,9 @@ namespace Tren.Views {
                 Console.WriteLine("area superficial " + ds.AreaSuperficial);
                 Console.WriteLine("altura areia " + ds.AlturaAreia);
                 Console.WriteLine("volume areia " + ds.VolumeDiario);
-                
+
+
+				CalhaParshall cp = (CalhaParshall)(((SequenciaPreliminar)(Pai.Centrais[0].getSequencia[0])).getSeqPreliminar[0]);
 
 				Console.WriteLine("\n\n______Calha Parshall______:");
 				Console.WriteLine("w " + cp.getW);
@@ -154,6 +168,7 @@ namespace Tren.Views {
 				Console.WriteLine("hMax " + cp.getPertenceASeq.gethMax);
 
 
+				LagoaFacultativa lf = (LagoaFacultativa)(((SequenciaSecundaria)(Pai.Centrais[0].getSequencia[1])).getSeqSecundaria[0][0]);
 
 				Console.WriteLine("\n\n______Lagoa Facultativa______");
 				Console.WriteLine("Carga Max " + lf.getCargaMax);
@@ -162,10 +177,11 @@ namespace Tren.Views {
 				Console.WriteLine("Volume " + lf.getVolume);
 				Console.WriteLine("tempo Det " + lf.getTempoDetencao);
 				Console.WriteLine("dbo saida " + lf.getTempoDetencao);
+				
 
                 ///////////////////////////////////////////// Criação do pdf
                 ///
-
+				/*
                 Document relatorio = new Document(PageSize.A4);
                 relatorio.SetMargins(40, 40, 40, 40);
                 relatorio.AddCreationDate();
@@ -246,7 +262,7 @@ namespace Tren.Views {
 
 				PDFView n = new PDFView();
                 n.Show();
-
+				*/
 			} catch (Exception erro) {
 				MessageBox.Show(erro.Message);
 			}

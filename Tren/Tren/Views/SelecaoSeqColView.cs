@@ -56,6 +56,7 @@ namespace Tren.Views {
 			if (cbx_PLaLf.Checked) {
 				// Adiciona telas necessárias para coletar os dados da sequencia P + LA + LF
 				Pai.AddView(new DesarenadorView(dados, Pai), "Desarenador");
+				Pai.AddView(new CalculoViabilidadeView(dados, Pai), "Calculo");
 			}
 
 			// Verifica se alguma sequencia foi selecionada
