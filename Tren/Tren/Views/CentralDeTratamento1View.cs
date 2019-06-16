@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tren.Classes;
 
 namespace Tren.Views {
 	public partial class CentralDeTratamento1View : View {
@@ -19,8 +20,6 @@ namespace Tren.Views {
 		}
 
 		private void bt_central1_avancar_Click(object sender, EventArgs e) {
-			// usar pilhas para memorizar a sequencia escolhida e poder voltar a vontade
-
 			// Recupera valores do textBox
 			string vazaoMax = txb_vazaoMax.Text;
 			string vazaoMed = txb_vazaoMed.Text;
@@ -45,6 +44,19 @@ namespace Tren.Views {
 			dados["vazaoMinFut"] = vazaoMinFut;
 			dados["populacao"] = populacao;
 			dados["populacaoFut"] = populacaoFut;
+
+			double VMax = double.Parse(vazaoMax);
+			double VMed = double.Parse(vazaoMed);
+			double VMin = double.Parse(vazaoMin);
+			double VMaxF = double.Parse(vazaoMaxFut);
+			double VMedF = double.Parse(vazaoMedFut);
+			double VMinF = double.Parse(vazaoMinFut);
+			int pop = int.Parse(populacao);
+			int popF = int.Parse(populacaoFut);
+
+			foreach (var c in Pai.Centrais) {
+				c.setDados(VMax, VMed, VMin, VMaxF, VMedF, VMinF, pop, popF);
+			}
 
 			Pai.avancaView();
 			Hide();

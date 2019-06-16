@@ -28,17 +28,27 @@ namespace Tren.Views {
 			string populacaoFut = txb_populacaoFut.Text;
 			string qpc = txb_qpc.Text;
 			string extensao = txb_extensaoRede.Text;
+			string extensaoFut = txb_extensaoFut.Text;
 			string taxaInfiltracao = txb_taxaInfiltracao.Text;
 			string taxaInfiltracaoFut = txb_taxaInfiltracaoFut.Text;
-			string vazaoInfiltracao = txb_vazaoInfiltracao.Text;
-			string vazaoInfiltracaoFut = txb_vazaoInfiltracaoFut.Text;
-			string vazaoDomestica = txb_vazaoDomestica.Text;
-			string vazaoDomesticaFut = txb_vazaoDomesticaFut.Text;
+			string vazaoInfiltracao = txb_extensaoFut.Text;
 
-			if (populacao == "" || populacaoFut == "" || qpc == "" || extensao == "" ||
-				taxaInfiltracao == "" || taxaInfiltracaoFut == "" || vazaoInfiltracao == "" ||
-				vazaoInfiltracaoFut == "" || vazaoDomestica == "" || vazaoDomesticaFut == "") {
+			if (populacao == "" || populacaoFut == "" || qpc == "" || extensao == "" || extensaoFut == "" ||
+				taxaInfiltracao == "" || taxaInfiltracaoFut == "" || vazaoInfiltracao == "") {
 				return;
+			}
+
+			int pop = int.Parse(populacao);
+			int popFut = int.Parse(populacaoFut);
+			double QPC = double.Parse(qpc);
+			double ext = double.Parse(extensao);
+			double extFut = double.Parse(extensaoFut);
+			double txInf = double.Parse(taxaInfiltracao);
+			double txInfFut = double.Parse(taxaInfiltracaoFut);
+			double vzInf = double.Parse(vazaoInfiltracao);
+			
+			foreach (var c in Pai.Centrais) {
+				c.setDados(pop, popFut, QPC, ext, extFut, txInf, txInfFut);
 			}
 
 			Pai.avancaView();
