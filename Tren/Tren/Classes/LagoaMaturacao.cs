@@ -15,7 +15,7 @@ namespace Tren.Classes {
         private double? largura = null;
         private double? comprimento = null;
         private double? kbt = null;
-        private double? d = null;
+        private const double d =  5 / (-0.261 + (0.254 * 5) + (1.014 * 25));
         private double? a = null;
         private double? coliformesFinais = null;
         private double? eficienciaRemocaoColiMax = null;
@@ -51,6 +51,99 @@ namespace Tren.Classes {
                 throw new Exception("Area superficial não calculada.");
             } else {
                 areaSuperficialTotal = 3 * areaSuperficial;
+            }
+        }
+
+        public void CalculaAreaTotalRequerida() {
+            if (areaSuperficialTotal == null) {
+                throw new Exception("Area superficial total não calculada.");
+            } else {
+                areaRequerida = (areaSuperficialTotal * 1.25) / 1000;
+            }
+        }
+
+        public void CalculaDimensoesLagoa() {
+            if (areaSuperficial == null) {
+                throw new Exception("Area superficial não calculada.");
+            } else {
+                largura = Math.Sqrt(Convert.ToDouble(areaSuperficial / 5));
+                comprimento = areaSuperficial / largura;
+            }
+        }
+
+        public void CalculaKBT() {
+            kbt = 0.55 * (Math.Pow(1.07, Convert.ToDouble(temperaturaLiquido - 20)));
+        }
+
+        public void CalculaA() {
+            if (kbt == null) {
+                CalculaKBT();
+            }
+            a = (1 + (4 * kbt * 4 * 3 * d));
+        }
+
+        public void CalculaConcentracaoColiformes() {
+            if (a == null) {
+                CalculaA();
+            }
+            coliformesFinais = coliformesIniciais * (4 * a * Math.Pow(Math.E, 1 / (2 * d))
+                / (((Math.Pow(Convert.ToDouble(1 + a), 2)) * Math.Pow(Math.E, Convert.ToDouble(a / (2 * d)))) -
+                (Math.Pow(Convert.ToDouble(1 - a), 2) * Math.Pow(Math.E, Convert.ToDouble(-a / (2 * d))))
+                ));
+        }
+
+        public void CalculaEficiencia() {
+            if (coliformesFinais == null) {
+                CalculaConcentracaoColiformes();
+            }
+            eficienciaRemocaoColiMax = ((coliformesIniciais - coliformesFinais) / coliformesIniciais) * 100;
+        }
+
+        public double? Volume {
+            get {
+                return volume;
+            }
+        }
+
+        public double? AreaSuperficial {
+            get {
+                return areaSuperficial;
+            }
+        }
+        
+        public double? AreaSuperficialTotal {
+            get {
+                return areaSuperficialTotal;
+            }
+        }
+
+        public double? AreaRequerida {
+            get {
+                return areaRequerida;
+            }
+        }
+
+        public double? Largura {
+            get {
+                return largura;
+            }
+        }
+
+        public double? Comprimento {
+            get {
+                return comprimento;
+            }
+        }
+
+        public double? ConcentracaoColiformesFinais {
+            get {
+                return coliformesFinais;
+            }
+        }
+
+        public double? Eficiencia {
+            get {
+                return eficienciaRemocaoColiMax;
             }
         }
     }

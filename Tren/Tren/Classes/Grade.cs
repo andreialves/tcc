@@ -194,11 +194,11 @@ namespace Tren.Classes
 
         public void CalculaPerdaCarga() {
             if (velocidade != null && velocidadeAproxMax != null && velocidadeAproxMin != null && velocidadeLinha != null) {
-                perdaCargaMax = (1.43 * (Math.Pow(Convert.ToDouble(Convert.ToString(velocidade)), 2) - Math.Pow(Convert.ToDouble(Convert.ToString(velocidadeAproxMax)), 2))) / (2 * 9.81);
-                perdaCargaMin = (1.43 * (Math.Pow(Convert.ToDouble(Convert.ToString(velocidadeLinha)), 2) - Math.Pow(Convert.ToDouble(Convert.ToString(velocidadeAproxMin)), 2))) / (2 * 9.81);
+                perdaCargaMax = (1.43 * (Math.Pow(Convert.ToDouble(velocidade), 2) - Math.Pow(Convert.ToDouble(velocidadeAproxMax), 2))) / (2 * 9.81);
+                perdaCargaMin = (1.43 * (Math.Pow(Convert.ToDouble(velocidadeLinha), 2) - Math.Pow(Convert.ToDouble(velocidadeAproxMin), 2))) / (2 * 9.81);
 
-                perdaCargaMaxObs = (1.43 * (Math.Pow(Convert.ToDouble(Convert.ToString(2*velocidade)), 2) - Math.Pow(Convert.ToDouble(Convert.ToString(velocidadeAproxMax)), 2))) / (2 * 9.81);
-                perdaCargaMinObs = (1.43 * (Math.Pow(Convert.ToDouble(Convert.ToString(2*velocidadeLinha)), 2) - Math.Pow(Convert.ToDouble(Convert.ToString(velocidadeAproxMin)), 2))) / (2 * 9.81);
+                perdaCargaMaxObs = (1.43 * (Math.Pow(Convert.ToDouble(2*velocidade), 2) - Math.Pow(Convert.ToDouble(velocidadeAproxMax), 2))) / (2 * 9.81);
+                perdaCargaMinObs = (1.43 * (Math.Pow(Convert.ToDouble(2*velocidadeLinha), 2) - Math.Pow(Convert.ToDouble(velocidadeAproxMin), 2))) / (2 * 9.81);
             } else {
                 throw new Exception("Velocidades não calculadas.");
             }
@@ -215,8 +215,9 @@ namespace Tren.Classes
         public void CalculaBarras() {
             if (larguraCanalMax != null) {
                 double? b = (larguraCanalMax - espacamentoGrade) / (espacamentoGrade + espessuraGrade);
-                numeroBarras = int.Parse(Convert.ToString(Math.Round(Convert.ToDouble(b), MidpointRounding.ToEven)));
+                numeroBarras = Convert.ToInt32(Math.Round(Convert.ToDouble(b), MidpointRounding.ToEven));
                 numeroEspacamentos = numeroBarras + 1;
+                Console.WriteLine("Andrei teste " + numeroBarras + " " + numeroEspacamentos);
             } else {
                 throw new Exception("Largura do Canal não calculada.");
             }
