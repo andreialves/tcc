@@ -13,7 +13,7 @@ namespace Tren.Classes {
 		private double volume;
 		private double tempoDetHidraulica;
 		private double altura;
-		private double areaTotal;
+		private double area;
 		private double largura;
 		private double dboSaida;
 		private double lodoPessoa;
@@ -66,20 +66,17 @@ namespace Tren.Classes {
 		}
 
 		private void calculaArea() {
-			areaTotal = volume / altura;
-			if (areaTotal < 2000) {
+			area = volume / altura;
+			if (area < 2000) {
 				qtdLagoas = 1;
 			} else {
 				qtdLagoas = 2;
+				area = area / 2;
 			}
 		}
 
 		private void calculaLargura() {
-			if (qtdLagoas == 1) {
-				largura = Math.Pow(areaTotal, 0.5);
-			} else {
-				largura = Math.Pow(areaTotal/2, 0.5);
-			}
+			largura = Math.Pow(area, 0.5);
 		}
 
 		private void calculaDBOSaida() {
@@ -95,7 +92,7 @@ namespace Tren.Classes {
 		}
 
 		private void calculaEspessura() {
-			espessura = lodoAno / areaTotal;
+			espessura = lodoAno / area;
 		}
 
 		private void calculaEspessuraFut() {
@@ -114,7 +111,7 @@ namespace Tren.Classes {
 		}
 		public double getArea {
 			get {
-				return areaTotal;
+				return area;
 			}
 		}
 		public double getLargura {
