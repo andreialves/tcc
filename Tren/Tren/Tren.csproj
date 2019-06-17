@@ -82,6 +82,7 @@
     <Compile Include="Classes\CalhaParshall.cs" />
     <Compile Include="Classes\Desarenador.cs" />
     <Compile Include="Classes\Grade.cs" />
+    <Compile Include="Classes\LagoaAnaerobia.cs" />
     <Compile Include="Classes\LagoaFacultativa.cs" />
     <Compile Include="Classes\LagoaMaturacao.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
