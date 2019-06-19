@@ -20,6 +20,8 @@ namespace Tren.Classes {
         private double? coliformesFinais = null;
         private double? eficienciaRemocaoColiMax = null;
 
+        public LagoaMaturacao(SequenciaSecundaria ss) : base(ss) { }
+
         public LagoaMaturacao(double coliformesIniciais, double temperaturaLiquido, SequenciaSecundaria ss) : base(ss) {
             this.coliformesIniciais = coliformesIniciais;
             this.temperaturaLiquido = temperaturaLiquido;
