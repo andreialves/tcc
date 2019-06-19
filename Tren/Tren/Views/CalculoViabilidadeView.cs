@@ -176,7 +176,7 @@ namespace Tren.Views {
 				Console.WriteLine("Area " + lf.getArea);
 				Console.WriteLine("Volume " + lf.getVolume);
 				Console.WriteLine("tempo Det " + lf.getTempoDetencao);
-				Console.WriteLine("dbo saida " + lf.getTempoDetencao);
+				Console.WriteLine("dbo saida " + lf.getDBOSaida);
 				
 
                 ///////////////////////////////////////////// Criação do pdf

@@ -20,6 +20,41 @@ namespace Tren.Views {
 			Pai.AddView(this, "Selecao");
 			Dictionary<string, string> dados = new Dictionary<string, string>();
 
+			// Configurando Sequencia de Unidades da Central P + LA + LF
+			if (cbx_PLaLf.Checked) {
+				// Adiciona telas necessárias para coletar os dados da sequencia P + LA + LF
+				Pai.AddView(new CentralDeTratamento0View(dados, Pai), "Central0");
+				Pai.AddView(new View(Pai), "CentralX");
+				Pai.AddView(new GradeView(dados, Pai), "Grade");
+				Pai.AddView(new DesarenadorView(dados, Pai), "Desarenador");
+				Pai.AddView(new LagoaAnaerobiaView(Pai), "LagoaAnaerobia");
+				Pai.AddView(new LagoaFacultativaView(dados, Pai), "LagoaFacultativa");
+				Pai.AddView(new CalculoViabilidadeView(dados, Pai), "Calculo");
+
+				// Cria central que representa essa sequencia de unidades
+				CentralTratamento central = new CentralTratamento();
+				SequenciaPreliminar seqP = new SequenciaPreliminar(central);
+				central.adicionar(seqP);
+
+				CalhaParshall calha = new CalhaParshall(seqP);
+				Desarenador des = new Desarenador(seqP);
+				Grade grd = new Grade(seqP);
+				seqP.adicionar(calha);
+				seqP.adicionar(des);
+				seqP.adicionar(grd);
+
+				SequenciaSecundaria seqS = new SequenciaSecundaria(central);
+				central.adicionar(seqS);
+
+				LagoaAnaerobia lagoaA = new LagoaAnaerobia(seqS);
+				LagoaFacultativa lagoaF = new LagoaFacultativa(seqS);
+				seqS.adicionarEmSerie(lagoaF);
+				seqS.adicionarEmSerie(lagoaA);
+
+				// Adiciona Sequencia à lista de sequencias a serem comparadas
+				Pai.Centrais.Add(central);
+			}
+
 			// Configurando Sequencia de Unidades da Central P + LF
 			if (cbx_PLf.Checked) {
 				// Adiciona telas necessárias para coletar os dados da sequencia P + LF
@@ -50,13 +85,6 @@ namespace Tren.Views {
 
 				// Adiciona Sequencia à lista de sequencias a serem comparadas
 				Pai.Centrais.Add(central);
-			}
-
-			// Configurando Sequencia de Unidades da Central P + LA + LF
-			if (cbx_PLaLf.Checked) {
-				// Adiciona telas necessárias para coletar os dados da sequencia P + LA + LF
-				Pai.AddView(new DesarenadorView(dados, Pai), "Desarenador");
-				Pai.AddView(new CalculoViabilidadeView(dados, Pai), "Calculo");
 			}
 
 			// Verifica se alguma sequencia foi selecionada
