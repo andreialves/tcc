@@ -55,7 +55,7 @@ namespace Tren.Classes {
 		}
 
 		private void calculaTempoDetHidraulica() {
-			tempoDetHidraulica = volume / getPertenceASeq.getCentral.getVazaoMedFut;
+			tempoDetHidraulica = volume / (getPertenceASeq.getCentral.getVazaoMedFut * 86.4);
 			if (tempoDetHidraulica < 3 || tempoDetHidraulica > 6) {
 				throw new Exception("LagoaAnaerobia::calculaTempoDetHidraulica - TempoDetHidraulica inválido");
 			}
@@ -137,6 +137,12 @@ namespace Tren.Classes {
 		public double getEspessuraFut {
 			get {
 				return espessuraFut;
+			}
+		}
+
+		public double DebugTDet {
+			get {
+				return tempoDetHidraulica;
 			}
 		}
 	}
