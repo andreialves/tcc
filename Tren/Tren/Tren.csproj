@@ -91,6 +91,7 @@
     <Compile Include="Classes\LagoaAnaerobia.cs" />
     <Compile Include="Classes\LagoaFacultativa.cs" />
     <Compile Include="Classes\LagoaMaturacao.cs" />
+    <Compile Include="Classes\TanqueSeptico.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
