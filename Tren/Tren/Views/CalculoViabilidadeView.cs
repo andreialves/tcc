@@ -180,8 +180,7 @@ namespace Tren.Views {
 				
 
                 ///////////////////////////////////////////// Criação do pdf
-                ///
-				/*
+				
                 Document relatorio = new Document(PageSize.A4);
                 relatorio.SetMargins(40, 40, 40, 40);
                 relatorio.AddCreationDate();
@@ -193,18 +192,13 @@ namespace Tren.Views {
                 relatorio.Open();
 
                 PdfPTable dadoss = new PdfPTable(8);
-				//iTextSharp.text.Font fonte = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 9);
-
-				////////////////////////////
-				//var fontPath = Environment.GetEnvironmentVariable("SystemRoot") + "\\fonts\\tahoma.ttf";
+				
 				var fontName = "Arial";
 				if (!FontFactory.IsRegistered(fontName)) {
 					var fontPath = Environment.GetEnvironmentVariable("SystemRoot") + "\\fonts\\arial.ttf";
 					FontFactory.Register(fontPath);
 				}
 				iTextSharp.text.Font fonte = FontFactory.GetFont(fontName, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
-				// n entendi mt bem q q ta acontecendo com essas funçoes ainda, mas ta funcionando
-				/////////////////////////////
 
 
 				Paragraph result = new Paragraph("Resultados", FontFactory.GetFont(fontName, 20));
@@ -262,7 +256,7 @@ namespace Tren.Views {
 
 				PDFView n = new PDFView();
                 n.Show();
-				*/
+				
 			} catch (Exception erro) {
 				MessageBox.Show(erro.Message);
 			}
