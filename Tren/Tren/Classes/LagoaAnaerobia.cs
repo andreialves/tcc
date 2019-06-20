@@ -15,7 +15,6 @@ namespace Tren.Classes {
 		private double altura;
 		private double area;
 		private double largura;
-		private double dboSaida;
 		private double lodoPessoa;
 		private double lodoAno;
 		private double espessura;

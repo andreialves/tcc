@@ -1,5 +1,5 @@
 ﻿namespace Tren.Views {
-	partial class LagoaFacultativaView {
+	partial class LagoaFacultativaView1 {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -74,7 +74,7 @@
 			this.lb_LagFaculTitulo.AutoSize = true;
 			this.lb_LagFaculTitulo.FontSize = MetroFramework.MetroLabelSize.Tall;
 			this.lb_LagFaculTitulo.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-			this.lb_LagFaculTitulo.Location = new System.Drawing.Point(289, 9);
+			this.lb_LagFaculTitulo.Location = new System.Drawing.Point(295, 9);
 			this.lb_LagFaculTitulo.Name = "lb_LagFaculTitulo";
 			this.lb_LagFaculTitulo.Size = new System.Drawing.Size(161, 25);
 			this.lb_LagFaculTitulo.TabIndex = 61;
@@ -115,7 +115,7 @@
 			this.bt_lagoaFacul_avancar.Text = "Avançar";
 			this.bt_lagoaFacul_avancar.Click += new System.EventHandler(this.bt_lagoaFacul_avancar_Click);
 			// 
-			// LagoaFacultativaView
+			// LagoaFacultativaView1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -129,7 +129,7 @@
 			this.Controls.Add(this.lb_LagFaculTitulo);
 			this.Controls.Add(this.txb_dboEntrada);
 			this.Controls.Add(this.lb_dbo);
-			this.Name = "LagoaFacultativaView";
+			this.Name = "LagoaFacultativaView1";
 			this.Text = "LagoaFacultativa";
 			this.ResumeLayout(false);
 			this.PerformLayout();

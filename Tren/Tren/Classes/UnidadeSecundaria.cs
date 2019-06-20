@@ -6,17 +6,23 @@ using System.Threading.Tasks;
 
 namespace Tren.Classes
 {
-	public class UnidadeSecundaria	{
+	public class UnidadeSecundaria {
 		private SequenciaSecundaria pertenceASeq;
+
+		protected double dboSaida;
 
 
 		public UnidadeSecundaria(SequenciaSecundaria ss) {
 			pertenceASeq = ss;
 		}
 
-		public SequenciaSecundaria getPertenceASeq
-		{
+		public SequenciaSecundaria getPertenceASeq {
 			get { return pertenceASeq; }
+		}
+		public double getDBOSaida{
+			get {
+				return dboSaida;
+			}
 		}
 	}
 }

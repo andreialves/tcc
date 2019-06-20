@@ -14,7 +14,6 @@ namespace Tren.Classes {
 		double altura;
 		double volume;
 		double tempoDetHidraulica;
-		double dboSaida;
 
 
 		public LagoaFacultativa(SequenciaSecundaria ss) : base(ss) {
@@ -59,11 +58,6 @@ namespace Tren.Classes {
 		public double getDBOEntrada {
 			get {
 				return dboEntrada;
-			}
-		}
-		public double getDBOSaida {
-			get {
-				return dboSaida;
 			}
 		}
 		public double getCargaMax {

@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -46,6 +46,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
@@ -157,11 +163,17 @@
     <Compile Include="Views\LagoaAnaerobiaView.Designer.cs">
       <DependentUpon>LagoaAnaerobiaView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\LagoaFacultativaView.cs">
+    <Compile Include="Views\LagoaFacultativaView1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\LagoaFacultativaView.Designer.cs">
-      <DependentUpon>LagoaFacultativaView.cs</DependentUpon>
+    <Compile Include="Views\LagoaFacultativaView1.Designer.cs">
+      <DependentUpon>LagoaFacultativaView1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LagoaFacultativaView2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LagoaFacultativaView2.Designer.cs">
+      <DependentUpon>LagoaFacultativaView2.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\PDFView.cs">
       <SubType>Form</SubType>
@@ -252,8 +264,11 @@
     <EmbeddedResource Include="Views\LagoaAnaerobiaView.resx">
       <DependentUpon>LagoaAnaerobiaView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\LagoaFacultativaView.resx">
-      <DependentUpon>LagoaFacultativaView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\LagoaFacultativaView1.resx">
+      <DependentUpon>LagoaFacultativaView1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LagoaFacultativaView2.resx">
+      <DependentUpon>LagoaFacultativaView2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PDFView.resx">
       <DependentUpon>PDFView.cs</DependentUpon>

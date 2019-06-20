@@ -28,7 +28,7 @@ namespace Tren.Views {
 				Pai.AddView(new GradeView(dados, Pai), "Grade");
 				Pai.AddView(new DesarenadorView(dados, Pai), "Desarenador");
 				Pai.AddView(new LagoaAnaerobiaView(Pai), "LagoaAnaerobia");
-				Pai.AddView(new LagoaFacultativaView(dados, Pai), "LagoaFacultativa");
+				Pai.AddView(new LagoaFacultativaView2(Pai), "LagoaFacultativa");
 				Pai.AddView(new CalculoViabilidadeView(dados, Pai), "Calculo");
 
 				// Cria central que representa essa sequencia de unidades
@@ -48,8 +48,8 @@ namespace Tren.Views {
 
 				LagoaAnaerobia lagoaA = new LagoaAnaerobia(seqS);
 				LagoaFacultativa lagoaF = new LagoaFacultativa(seqS);
-				seqS.adicionarEmSerie(lagoaF);
 				seqS.adicionarEmSerie(lagoaA);
+				seqS.adicionarEmSerie(lagoaF);
 
 				// Adiciona Sequencia à lista de sequencias a serem comparadas
 				Pai.Centrais.Add(central);
@@ -62,7 +62,7 @@ namespace Tren.Views {
 				Pai.AddView(new View(Pai), "CentralX");
 				Pai.AddView(new GradeView(dados, Pai), "Grade");
 				Pai.AddView(new DesarenadorView(dados, Pai), "Desarenador");
-				Pai.AddView(new LagoaFacultativaView(dados, Pai), "LagoaFacultativa");
+				Pai.AddView(new LagoaFacultativaView1(dados, Pai), "LagoaFacultativa");
 				Pai.AddView(new CalculoViabilidadeView(dados, Pai), "Calculo");
 
 				// Cria central que representa essa sequencia de unidades

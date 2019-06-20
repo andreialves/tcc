@@ -11,36 +11,34 @@ using System.Windows.Forms;
 using Tren.Classes;
 
 namespace Tren.Views {
-	public partial class LagoaFacultativaView : View {
-		Dictionary<string, string> dados;
-		public LagoaFacultativaView(Dictionary<string, string> d, InicioView pai) : base(pai) {
+	public partial class LagoaFacultativaView2 : View {
+		public LagoaFacultativaView2(InicioView pai) : base(pai) {
 			InitializeComponent();
-			dados = d;
 		}
 
 		private void bt_lagoaFacul_avancar_Click(object sender, EventArgs e) {
-			string dboEntrada = txb_dboEntrada.Text;
 			string tempMesFrio = txb_tempMesFrio.Text;
 
-			if (dboEntrada == "" || tempMesFrio == "") {
+			if (tempMesFrio == "") {
 				return;
 			}
-
-			dados["dboEntrada"] = dboEntrada;
-			dados["tempMesFrio"] = tempMesFrio;
-
-			double dbo = double.Parse(dboEntrada);
+			
 			double temp = double.Parse(tempMesFrio);
 
 			foreach (var c in Pai.Centrais) {
 				foreach (var s in c.getSequencia) {
 					if (s.GetType() == typeof(SequenciaSecundaria)) {
+						UnidadeSecundaria unidadeAnt = null;
 						foreach (var l in ((SequenciaSecundaria)s).getSeqSecundaria) {
 							foreach (var u in l) {
 								if (u.GetType() == typeof(LagoaFacultativa)) {
+									if (unidadeAnt == null)
+										throw new Exception("LagoaFacultativaView2::bt_lagoaFacul_avancar_Click - Uso de view inadequado");
+									double dbo = unidadeAnt.getDBOSaida;
 									((LagoaFacultativa)u).setDados(dbo, temp);
 									((LagoaFacultativa)u).calcula();
 								}
+								unidadeAnt = u;
 							}
 						}
 					}
