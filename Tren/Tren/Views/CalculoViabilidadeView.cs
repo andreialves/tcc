@@ -180,7 +180,7 @@ namespace Tren.Views {
 				
 
                 ///////////////////////////////////////////// Criação do pdf
-				
+				/*
                 Document relatorio = new Document(PageSize.A4);
                 relatorio.SetMargins(40, 40, 40, 40);
                 relatorio.AddCreationDate();
@@ -252,7 +252,7 @@ namespace Tren.Views {
                 relatorio.Close();
 
 				//////////////////////////////Final do gerador de pdf
-				
+				*/
 
 				PDFView n = new PDFView();
                 n.Show();

@@ -11,69 +11,70 @@ using System.Windows.Forms;
 using Tren.Classes;
 
 namespace Tren.Views {
-    public partial class LagoaMaturacaoView : View {
-        Dictionary<string, string> dados;
+	public partial class LagoaMaturacaoView : View {
+		Dictionary<string, string> dados;
 
-        public LagoaMaturacaoView(Dictionary<string, string> d, InicioView pai) : base(pai){
-            InitializeComponent();
-            dados = d;
-        }
-        private void LagoaMaturacaoView_Load(object sender, EventArgs e) {
+		public LagoaMaturacaoView(Dictionary<string, string> d, InicioView pai) : base(pai) {
+			InitializeComponent();
+			dados = d;
+		}
+		private void LagoaMaturacaoView_Load(object sender, EventArgs e) {
 
-        }
+		}
 
-        private void bt_lagoMaturacao_voltar_Click(object sender, EventArgs e) {
-            Pai.voltaView();
-            Hide();
-        }
+		private void bt_lagoMaturacao_voltar_Click(object sender, EventArgs e) {
+			Pai.voltaView();
+			Hide();
+		}
 
-        private void bt_lagoaMaturacao_avancar_Click(object sender, EventArgs e) {
-            string coliformesInicias = this.coliformesInicias.Text, temperaturaLiquido = this.temperaturaLiquido.Text;
-            if (coliformesInicias == "") {
-                return;
-            }
-            if (temperaturaLiquido == "") {
-                temperaturaLiquido = "20,0";
-            }
-            dados["coliformesInicias"] = coliformesInicias;
-            dados["temperaturaLiquido"] = temperaturaLiquido;
+		private void bt_lagoaMaturacao_avancar_Click(object sender, EventArgs e) {
+			string coliformesInicias = this.coliformesInicias.Text, temperaturaLiquido = this.temperaturaLiquido.Text;
+			if (coliformesInicias == "") {
+				return;
+			}
+			if (temperaturaLiquido == "") {
+				temperaturaLiquido = "20,0";
+			}
+			dados["coliformesInicias"] = coliformesInicias;
+			dados["temperaturaLiquido"] = temperaturaLiquido;
 
-            double col = double.Parse(coliformesInicias);
-            double temp = double.Parse(temperaturaLiquido);
+			double col = double.Parse(coliformesInicias);
+			double temp = double.Parse(temperaturaLiquido);
 
-            foreach (var c in Pai.Centrais) {
-                foreach(var s in c.getSequencia) {
-                    if (s.GetType() == typeof(SequenciaSecundaria)) {
-                        foreach (var l in ((SequenciaSecundaria)s).getSeqSecundaria) {
-                            foreach (var u in l) {
-                                if (u.GetType() == typeof(LagoaFacultativa)) {
-                                    LagoaMaturacao lm = ((LagoaMaturacao)u);
-                                    lm.ColiformesInicias = col;
-                                    lm.TemperaturaLiquido = temp;
-                                    lm.CalculaVolume();
-                                    lm.CalculaAreaSuperficial();
-                                    lm.CalculaAreaSuperficialTotal();
-                                    lm.CalculaAreaTotalRequerida();
-                                    lm.CalculaDimensoesLagoa();
-                                    lm.CalculaKBT();
-                                    lm.CalculaA();
-                                    lm.CalculaConcentracaoColiformes();
-                                    lm.CalculaEficiencia();
-                                }
-                            }
-                        }
-                }
-            }
-        }
+			foreach (var c in Pai.Centrais) {
+				foreach (var s in c.getSequencia) {
+					if (s.GetType() == typeof(SequenciaSecundaria)) {
+						foreach (var l in ((SequenciaSecundaria)s).getSeqSecundaria) {
+							foreach (var u in l) {
+								if (u.GetType() == typeof(LagoaFacultativa)) {
+									LagoaMaturacao lm = ((LagoaMaturacao)u);
+									lm.ColiformesInicias = col;
+									lm.TemperaturaLiquido = temp;
+									lm.CalculaVolume();
+									lm.CalculaAreaSuperficial();
+									lm.CalculaAreaSuperficialTotal();
+									lm.CalculaAreaTotalRequerida();
+									lm.CalculaDimensoesLagoa();
+									lm.CalculaKBT();
+									lm.CalculaA();
+									lm.CalculaConcentracaoColiformes();
+									lm.CalculaEficiencia();
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 
-        private void txb_numeros(object sender, KeyPressEventArgs e) {
-            if (Char.IsDigit(e.KeyChar) || e.KeyChar == '\b' || e.KeyChar == ',') {
-                if (e.KeyChar == ',' && ((MetroTextBox)sender).Text.Contains(','))
-                    e.Handled = true; // não processa tecla apertada
-                return; // processa a tecla apertada
-            }
+		private void txb_numeros(object sender, KeyPressEventArgs e) {
+			if (Char.IsDigit(e.KeyChar) || e.KeyChar == '\b' || e.KeyChar == ',') {
+				if (e.KeyChar == ',' && ((MetroTextBox)sender).Text.Contains(','))
+					e.Handled = true; // não processa tecla apertada
+				return; // processa a tecla apertada
+			}
 
-            e.Handled = true; // não processa tecla apertada
-        }
-    }
+			e.Handled = true; // não processa tecla apertada
+		}
+	}
 }
