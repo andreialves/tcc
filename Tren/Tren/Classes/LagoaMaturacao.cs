@@ -148,5 +148,23 @@ namespace Tren.Classes {
                 return eficienciaRemocaoColiMax;
             }
         }
+
+        public double? ColiformesInicias {
+            set {
+                coliformesIniciais = value;
+            }
+            get {
+                return coliformesIniciais;
+            }
+        }
+
+        public double? TemperaturaLiquido {
+            set {
+                temperaturaLiquido = value;
+            }
+            get {
+                return temperaturaLiquido;
+            }
+        }
     }
 }

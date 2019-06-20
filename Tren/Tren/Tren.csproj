@@ -176,6 +176,12 @@
     <Compile Include="Views\LagoaFacultativaView2.Designer.cs">
       <DependentUpon>LagoaFacultativaView2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\LagoaMaturacaoView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LagoaMaturacaoView.Designer.cs">
+      <DependentUpon>LagoaMaturacaoView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\PDFView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LagoaFacultativaView2.resx">
       <DependentUpon>LagoaFacultativaView2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LagoaMaturacaoView.resx">
+      <DependentUpon>LagoaMaturacaoView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PDFView.resx">
       <DependentUpon>PDFView.cs</DependentUpon>
