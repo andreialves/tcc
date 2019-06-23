@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace Tren.Classes {
 	public class LagoaAnaerobia : UnidadeSecundaria {
 		private int qtdLagoas;
-		private double dboEntrada;
 		private double cargaAfluente;
 		private double taxaVolumetrica;
 		private double volume;
@@ -116,11 +115,6 @@ namespace Tren.Classes {
 		public double getLargura {
 			get {
 				return largura;
-			}
-		}
-		public double getDBOSaida {
-			get {
-				return dboSaida;
 			}
 		}
 		public double getLodoAnual {

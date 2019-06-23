@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{79182DBE-C1AB-42A6-8DC2-F056BAAF9F4F}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>Tren</RootNamespace>
     <AssemblyName>Tren</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -73,6 +73,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -230,10 +231,18 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Imagens\1.png" />
-    <Content Include="Imagens\2.png" />
-    <Content Include="Imagens\3.png" />
-    <Content Include="Imagens\4.png" />
+    <EmbeddedResource Include="Imagens\1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Imagens\2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Imagens\3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Imagens\4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="MetroFramework.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -291,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SelecaoSeqIndView.resx">
       <DependentUpon>SelecaoSeqIndView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\View.resx">
+      <DependentUpon>View.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

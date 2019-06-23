@@ -100,7 +100,7 @@ namespace Tren.Views {
 				Pai.AddView(new View(Pai), "CentralX");
 				Pai.AddView(new GradeView(dados, Pai), "Grade");
 				Pai.AddView(new DesarenadorView(dados, Pai), "Desarenador");
-				Pai.AddView(new LagoaFacultativaView1(dados, Pai), "LagoaFacultativa");
+				Pai.AddView(new LagoaFacultativaView2(Pai), "LagoaFacultativa");
 				Pai.AddView(new CalculoViabilidadeView(dados, Pai), "Calculo");
 
 				// Cria central que representa essa sequencia de unidades

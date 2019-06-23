@@ -9,6 +9,7 @@ namespace Tren.Classes
 	public class UnidadeSecundaria {
 		private SequenciaSecundaria pertenceASeq;
 
+		protected double dboEntrada;
 		protected double dboSaida;
 
 
@@ -22,6 +23,14 @@ namespace Tren.Classes
 		public double getDBOSaida{
 			get {
 				return dboSaida;
+			}
+		}
+		public double DBOEntrada {
+			get {
+				return dboEntrada;
+			}
+			set {
+				dboEntrada = value;
 			}
 		}
 	}

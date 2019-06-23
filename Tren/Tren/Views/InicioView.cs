@@ -71,15 +71,17 @@ namespace Tren.Views {
 		}
 
 		public void AddView(View view, string nome) {
+			view.TopLevel = false;
+			view.Dock = DockStyle.Fill;
+			mainPanel.Controls.Add(view);
+
 			if (nomeViews.Contains(nome)) {
 				int idx = nomeViews.IndexOf(nome);
 				mainPanel.Controls.Remove(listaViews[idx]);
 				listaViews[idx].Close();
 				listaViews[idx] = view;
+				return;
 			}
-			view.TopLevel = false;
-			view.Dock = DockStyle.Fill;
-			mainPanel.Controls.Add(view);
 
 			listaViews.Add(view);
 			nomeViews.Add(nome);

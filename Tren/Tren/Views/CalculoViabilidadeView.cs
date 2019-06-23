@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using Tren.Classes;
 
 using System.IO;
@@ -14,6 +15,7 @@ using System.IO;
 using iTextSharp;//E A BIBLIOTECA ITEXTSHARP E SUAS EXTENÇÕES
 using iTextSharp.text;//ESTENSAO 1 (TEXT)
 using iTextSharp.text.pdf;//ESTENSAO 2 (PDF)
+using Image = iTextSharp.text.Image;
 
 namespace Tren.Views {
 	public partial class CalculoViabilidadeView : View {
@@ -24,17 +26,6 @@ namespace Tren.Views {
 		}
 
 		private void bt_realizarCalculo_Click(object sender, EventArgs e) {
-			foreach (var c in Pai.Centrais) {
-				c.imprime();
-				foreach (var s in c.getSequencia) {
-					//
-				}
-			}
-
-
-			//foreach (var dado in dados)
-			//	Console.WriteLine(dado.ToString());
-
 			/*double vazaoMax = double.Parse(dados["vazaoMax"]);
 			double vazaoMed = double.Parse(dados["vazaoMed"]);
 			double vazaoMin = double.Parse(dados["vazaoMin"]);
@@ -57,131 +48,87 @@ namespace Tren.Views {
 
 			Console.WriteLine("velocidade " + velocidadeEfluente);
 			*/
-			try {/*
-				CentralTratamento ct = new CentralTratamento(vazaoMax, vazaoMed, vazaoMin, vazaoMaxFut, vazaoMedFut, vazaoMinFut, populacao, populacaoFut);
-				SequenciaPreliminar sp = new SequenciaPreliminar(ct);
-				ct.adicionar(sp);
-
-				CalhaParshall cp = new CalhaParshall(sp);
-				sp.adicionar(cp);
-
-				Grade gr = new Grade(espessura, espacamento, tipoGrade, tipoLimpeza, sp);
-				gr.CalculoEficiencia();
-				gr.CalculaAreaUtil();
-				gr.CalculaAreaUtilLinha();
-				gr.CalculaSecaoCanal();
-                gr.CalculaSecaoCanalLinha();
-				gr.CalculaLarguraCanal();
-                gr.CalculaLarguraCanalLinha();
-				gr.CalculaSecaoCanalLinha();
-				gr.CalculaVelocidadeLinha();
-				gr.CalculaVelAproxMax();
-				gr.CalculaVelAproxMin();
-				gr.CalculaPerdaCarga();
-				gr.CalculaPerdaCargaTotal();
-				gr.CalculaBarras();
-				gr.CalculaCorrecaoEspaco();
-				gr.CalculaDiferencaEspaco();
-				gr.CalculaComprimento();
-				sp.adicionar(gr);
-
-				Desarenador ds = new Desarenador(velocidadeEfluente, taxaAreiaDiaria, sp);
-				ds.CalculaLarguraDesarenador();
-				ds.CalculaAreaSecao();
-				if (!ds.VerificaVH()) {
-					ds.corrigeVelocidade(velocidadeEfluente);
-				}
-				ds.CalculaComprimento();
-				ds.calculaAreaSuperficial();
-				ds.CalculaTAS();
-				if (!ds.VerificaTAS()) {
-					ds.corrigeVelocidade(velocidadeEfluente);
-				}
-				ds.calculaFrequenciaLimpeza();
-				sp.adicionar(ds);
-
-				//CaixaSAO cs = new CaixaSAO(viscosidadeABS, densidadeOleo, turbulencia, sp);
-				//sp.adicionar(cs);
-
-				SequenciaSecundaria ss = new SequenciaSecundaria(ct);
-				ct.adicionar(ss);
-				LagoaFacultativa lf = new LagoaFacultativa(dboEntrada, tempMesFrio, ss);
-				ss.adicionarEmSerie(lf);
-				*/
-
+			try {
 				Grade gr = (Grade)(((SequenciaPreliminar)(Pai.Centrais[0].getSequencia[0])).getSeqPreliminar[2]);
+				{
 
-				Console.WriteLine("\n\n______Grade______:");
-				Console.WriteLine("vazao maxFut " + gr.getPertenceASeq.getCentral.getVazaoMaxFut);
-				Console.WriteLine("vazao minFut " + gr.getPertenceASeq.getCentral.getVazaoMinFut);
-				Console.WriteLine("hMax " + gr.getPertenceASeq.gethMax);
-				Console.WriteLine("hMin " + gr.getPertenceASeq.gethMin);
-				Console.WriteLine("sessao Canal min " + gr.SecaoCanalMin);
-				Console.WriteLine("sessao Canal max " + gr.SecaoCanalMax);
-				Console.WriteLine("area util max " + gr.AreaUtilMax);
-				Console.WriteLine("area util min " + gr.AreaUtilMin);
-				Console.WriteLine("v " + gr.VelocidadeInformada);
-				Console.WriteLine("v' " + gr.VelocidadeLinha);
-				Console.WriteLine("velocidade max " + gr.VelocidadeAproximacaoMax);
-				Console.WriteLine("velocidade min " + gr.VelocidadeAproximacaoMin);
-				Console.WriteLine("hf, max " + gr.PerdaCargaMax);
-				Console.WriteLine("hf, min " + gr.PerdaCargaMin);
-                Console.WriteLine("hf, max obs " + gr.PerdaCargaMaxObs);
-                Console.WriteLine("hf, min obs " + gr.PerdaCargaMinObs);
-                Console.WriteLine("hu " + gr.PerdaCargaTotal);
-                Console.WriteLine("espaçamento " + gr.Espacamento);
-                Console.WriteLine("espessura " + gr.Espessura);
-                Console.WriteLine("eficienci " + gr.Eficiencia);
-                Console.WriteLine("comprimento " + gr.Comprimento);
-                Console.WriteLine("largura qmax " + gr.LarguraMax);
-                Console.WriteLine("largura qmin " + gr.LarguraMin);
-                Console.WriteLine("num barras" + (gr.NumEspacamento - 1));
-                Console.WriteLine("num espacamento " + gr.NumEspacamento);
-                Console.WriteLine("correção " + gr.CorrecaoEspacamento);
-
+					Console.WriteLine("\n\n______Grade______:");
+					Console.WriteLine("vazao maxFut " + gr.getPertenceASeq.getCentral.getVazaoMaxFut);
+					Console.WriteLine("vazao minFut " + gr.getPertenceASeq.getCentral.getVazaoMinFut);
+					Console.WriteLine("hMax " + gr.getPertenceASeq.gethMax);
+					Console.WriteLine("hMin " + gr.getPertenceASeq.gethMin);
+					Console.WriteLine("sessao Canal min " + gr.SecaoCanalMin);
+					Console.WriteLine("sessao Canal max " + gr.SecaoCanalMax);
+					Console.WriteLine("area util max " + gr.AreaUtilMax);
+					Console.WriteLine("area util min " + gr.AreaUtilMin);
+					Console.WriteLine("v " + gr.VelocidadeInformada);
+					Console.WriteLine("v' " + gr.VelocidadeLinha);
+					Console.WriteLine("velocidade max " + gr.VelocidadeAproximacaoMax);
+					Console.WriteLine("velocidade min " + gr.VelocidadeAproximacaoMin);
+					Console.WriteLine("hf, max " + gr.PerdaCargaMax);
+					Console.WriteLine("hf, min " + gr.PerdaCargaMin);
+					Console.WriteLine("hf, max obs " + gr.PerdaCargaMaxObs);
+					Console.WriteLine("hf, min obs " + gr.PerdaCargaMinObs);
+					Console.WriteLine("hu " + gr.PerdaCargaTotal);
+					Console.WriteLine("espaçamento " + gr.Espacamento);
+					Console.WriteLine("espessura " + gr.Espessura);
+					Console.WriteLine("eficienci " + gr.Eficiencia);
+					Console.WriteLine("comprimento " + gr.Comprimento);
+					Console.WriteLine("largura qmax " + gr.LarguraMax);
+					Console.WriteLine("largura qmin " + gr.LarguraMin);
+					Console.WriteLine("num barras" + (gr.NumEspacamento - 1));
+					Console.WriteLine("num espacamento " + gr.NumEspacamento);
+					Console.WriteLine("correção " + gr.CorrecaoEspacamento);
+				}
 
 				Desarenador ds = (Desarenador)(((SequenciaPreliminar)(Pai.Centrais[0].getSequencia[0])).getSeqPreliminar[1]);
+				{
 
-				Console.WriteLine("\n\n______Desarenador______:");
-				Console.WriteLine("largura " + ds.Largura);
-				Console.WriteLine("comprimennto " + ds.Comprimento);
-				Console.WriteLine("velocidade " + ds.Velocidade);
-				Console.WriteLine("hMax " + ds.getPertenceASeq.gethMax);
-				Console.WriteLine("hMin " + ds.getPertenceASeq.gethMin);
-				Console.WriteLine("tas " + ds.TaxaAplicacao);
-				Console.WriteLine("altura por dia " + ds.AlturaAreia);
-				Console.WriteLine("intervalo limpeza " + ds.IntervaloLimpeza);
-                Console.WriteLine("area superficial " + ds.AreaSuperficial);
-                Console.WriteLine("altura areia " + ds.AlturaAreia);
-                Console.WriteLine("volume areia " + ds.VolumeDiario);
+					Console.WriteLine("\n\n______Desarenador______:");
+					Console.WriteLine("largura " + ds.Largura);
+					Console.WriteLine("comprimennto " + ds.Comprimento);
+					Console.WriteLine("velocidade " + ds.Velocidade);
+					Console.WriteLine("hMax " + ds.getPertenceASeq.gethMax);
+					Console.WriteLine("hMin " + ds.getPertenceASeq.gethMin);
+					Console.WriteLine("tas " + ds.TaxaAplicacao);
+					Console.WriteLine("altura por dia " + ds.AlturaAreia);
+					Console.WriteLine("intervalo limpeza " + ds.IntervaloLimpeza);
+					Console.WriteLine("area superficial " + ds.AreaSuperficial);
+					Console.WriteLine("altura areia " + ds.AlturaAreia);
+					Console.WriteLine("volume areia " + ds.VolumeDiario);
 
-
+				}
 				CalhaParshall cp = (CalhaParshall)(((SequenciaPreliminar)(Pai.Centrais[0].getSequencia[0])).getSeqPreliminar[0]);
+				{
 
-				Console.WriteLine("\n\n______Calha Parshall______:");
-				Console.WriteLine("w " + cp.getW);
-				Console.WriteLine("n " + cp.getN);
-				Console.WriteLine("k " + cp.getK);
-				Console.WriteLine("HMin " + cp.getHMin);
-				Console.WriteLine("HMax " + cp.getHMax);
-				Console.WriteLine("hMin " + cp.getPertenceASeq.gethMin);
-				Console.WriteLine("hMax " + cp.getPertenceASeq.gethMax);
+					Console.WriteLine("\n\n______Calha Parshall______:");
+					Console.WriteLine("w " + cp.getW);
+					Console.WriteLine("n " + cp.getN);
+					Console.WriteLine("k " + cp.getK);
+					Console.WriteLine("HMin " + cp.getHMin);
+					Console.WriteLine("HMax " + cp.getHMax);
+					Console.WriteLine("hMin " + cp.getPertenceASeq.gethMin);
+					Console.WriteLine("hMax " + cp.getPertenceASeq.gethMax);
+				}
 
+				LagoaFacultativa lf = (LagoaFacultativa)(((SequenciaSecundaria)(Pai.Centrais[0].getSequencia[1])).getSeqSecundaria[1][0]);
+				{
 
-				LagoaFacultativa lf = (LagoaFacultativa)(((SequenciaSecundaria)(Pai.Centrais[0].getSequencia[1])).getSeqSecundaria[0][0]);
+					Console.WriteLine("\n\n______Lagoa Facultativa______");
+					Console.WriteLine("Carga Max " + lf.getCargaMax);
+					Console.WriteLine("Carga Aflue " + lf.getCargaAfluente);
+					Console.WriteLine("Area " + lf.getArea);
+					Console.WriteLine("Volume " + lf.getVolume);
+					Console.WriteLine("tempo Det " + lf.getTempoDetencao);
+					Console.WriteLine("dbo saida " + lf.getDBOSaida);
+				}
 
-				Console.WriteLine("\n\n______Lagoa Facultativa______");
-				Console.WriteLine("Carga Max " + lf.getCargaMax);
-				Console.WriteLine("Carga Aflue " + lf.getCargaAfluente);
-				Console.WriteLine("Area " + lf.getArea);
-				Console.WriteLine("Volume " + lf.getVolume);
-				Console.WriteLine("tempo Det " + lf.getTempoDetencao);
-				Console.WriteLine("dbo saida " + lf.getDBOSaida);
+				LagoaAnaerobia la = (LagoaAnaerobia)(((SequenciaSecundaria)(Pai.Centrais[0].getSequencia[1])).getSeqSecundaria[0][0]);
+				LagoaMaturacao lm = (LagoaMaturacao)(((SequenciaSecundaria)(Pai.Centrais[1].getSequencia[1])).getSeqSecundaria[2][0]);
 				
+				///////////////////////////////////////////// Criação do pdf
 
-                ///////////////////////////////////////////// Criação do pdf
-				/*
-                Document relatorio = new Document(PageSize.A4);
+				Document relatorio = new Document(PageSize.A4);
                 relatorio.SetMargins(40, 40, 40, 40);
                 relatorio.AddCreationDate();
 
@@ -191,68 +138,794 @@ namespace Tren.Views {
 
                 relatorio.Open();
 
-                PdfPTable dadoss = new PdfPTable(8);
+                PdfPTable dadoss = new PdfPTable(9);
 				
 				var fontName = "Arial";
 				if (!FontFactory.IsRegistered(fontName)) {
 					var fontPath = Environment.GetEnvironmentVariable("SystemRoot") + "\\fonts\\arial.ttf";
 					FontFactory.Register(fontPath);
 				}
-				iTextSharp.text.Font fonte = FontFactory.GetFont(fontName, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+				iTextSharp.text.Font fonte = FontFactory.GetFont(fontName, 11);
+
+				// Logo Tren
+				Image image = Image.GetInstance(AppDomain.CurrentDomain.BaseDirectory + @"\Imagens\4.png");
+				image.Alignment = Image.ALIGN_CENTER;
+				image.ScalePercent(50f);
+				relatorio.Add(image);
 
 
-				Paragraph result = new Paragraph("Resultados", FontFactory.GetFont(fontName, 20));
-                Paragraph dado = new Paragraph("Dados", FontFactory.GetFont(fontName, 16));
-                result.Alignment = Element.ALIGN_CENTER;
-                dado.Alignment = Element.ALIGN_CENTER;
+				Paragraph result = new Paragraph("Resultados\n\n", FontFactory.GetFont(fontName, 18));
+				Paragraph dado = new Paragraph("Dados\n\n", FontFactory.GetFont(fontName, 14));
+				result.Alignment = Element.ALIGN_CENTER;
+				dado.Alignment = Element.ALIGN_CENTER;
+			
+				Paragraph[] labels = new Paragraph[9];
+				Paragraph[] lin = new Paragraph[9];
 
-				Paragraph[] col = new Paragraph[8];
-
-                col[0] = new Paragraph("Qmín, L/s", fonte);
-                col[1] = new Paragraph("Qmáx, L/s", fonte);
-                col[2] = new Paragraph("Qméd, L/s", fonte);
-                col[3] = new Paragraph("Qmín 20 anos, L/s", fonte);
-                col[4] = new Paragraph("Qmáx 20 anos, L/s", fonte);
-                col[5] = new Paragraph("Qméd 20 anos, L/s", fonte);
-                col[6] = new Paragraph("Pop atual", fonte);
-                col[7] = new Paragraph("Pop 20 anos", fonte);
-
-
-                Paragraph[] lin = new Paragraph[8];
-
-                lin[0] = new Paragraph(Convert.ToString(ct.getVazaoMin), fonte);
-                lin[1] = new Paragraph(Convert.ToString(ct.getVazaoMax), fonte);
-                lin[2] = new Paragraph(Convert.ToString(ct.getVazaoMed), fonte);
-                lin[3] = new Paragraph(Convert.ToString(ct.getVazaoMinFut), fonte);
-                lin[4] = new Paragraph(Convert.ToString(ct.getVazaoMaxFut), fonte);
-                lin[5] = new Paragraph(Convert.ToString(ct.getVazaoMedFut), fonte);
-                lin[6] = new Paragraph(Convert.ToString(ct.getPopulacao), fonte);
-                lin[7] = new Paragraph(Convert.ToString(ct.getPopulacaoFut), fonte);
+				// Dados iniciais
+				{
+					labels[0] = new Paragraph("Vazão Máxima (L/s)", fonte);
+					labels[1] = new Paragraph("Vazão Média (L/s)", fonte);
+					labels[2] = new Paragraph("Vazão Mínima (L/s)", fonte);
+					labels[3] = new Paragraph("Vazão Máxima Futura (L/s)", fonte);
+					labels[4] = new Paragraph("Vazão Média Futura (L/s)", fonte);
+					labels[5] = new Paragraph("Vazão Mínima Futura (L/s)", fonte);
+					labels[6] = new Paragraph("Pupulação", fonte);
+					labels[7] = new Paragraph("Popupação Futura", fonte);
+					labels[8] = new Paragraph("DBO (mg/L)", fonte);
 
 
-                var cel = new PdfPCell[8];
-                var cel2 = new PdfPCell[8];
-				for (int i = 0; i < 8; i++) {
-					cel[i] = new PdfPCell();
-                    cel[i].AddElement(col[i]);
-                    dadoss.AddCell(cel[i]);
-                }
-                for(int i = 0; i < 8; i++) {
-                    cel2[i] = new PdfPCell();
-                    cel2[i].AddElement(lin[i]);
-                    dadoss.AddCell(cel2[i]);
-                }
+					CentralTratamento ct = Pai.Centrais[0];
+					
+					lin[0] = new Paragraph(ct.getVazaoMax.ToString(), fonte);
+					lin[1] = new Paragraph(ct.getVazaoMed.ToString(), fonte);
+					lin[2] = new Paragraph(ct.getVazaoMin.ToString(), fonte);
+					lin[3] = new Paragraph(ct.getVazaoMaxFut.ToString(), fonte);
+					lin[4] = new Paragraph(ct.getVazaoMedFut.ToString(), fonte);
+					lin[5] = new Paragraph(ct.getVazaoMinFut.ToString(), fonte);
+					lin[6] = new Paragraph(ct.getPopulacao.ToString(), fonte);
+					lin[7] = new Paragraph(ct.getPopulacaoFut.ToString(), fonte);
+					lin[8] = new Paragraph(la.DBOEntrada.ToString(), fonte);
 
-                var d = new PdfPCell();
-				relatorio.Add(result);
-                relatorio.Add(dado);
-                relatorio.Add(new Paragraph());
-                relatorio.Add(dadoss);
 
-                relatorio.Close();
+					var cel = new PdfPCell[9];
+					var cel2 = new PdfPCell[9];
+					for (int i = 0; i < 9; i++) {
+						cel[i] = new PdfPCell();
+						cel[i].AddElement(labels[i]);
+						dadoss.AddCell(cel[i]);
+					}
+					for (int i = 0; i < 9; i++) {
+						cel2[i] = new PdfPCell();
+						cel2[i].AddElement(lin[i]);
+						dadoss.AddCell(cel2[i]);
+					}
+
+					var d = new PdfPCell();
+					relatorio.Add(result);
+					result = new Paragraph("Sequências: P + LF / P + LA + LF / P + LA + LF + LM\n\n", FontFactory.GetFont(fontName, 14));
+					result.Alignment = Element.ALIGN_CENTER;
+					relatorio.Add(result);
+					relatorio.Add(dado);
+					relatorio.Add(new Paragraph());
+					relatorio.Add(dadoss);
+				}
+				Paragraph titulo = new Paragraph("\n\nTratamento Preliminar\n", FontFactory.GetFont(fontName, 16));
+				titulo.Alignment = Element.ALIGN_CENTER;
+				relatorio.Add(titulo);
+
+				titulo = new Paragraph("\nGrades\n\n", FontFactory.GetFont(fontName, 14));
+				titulo.Alignment = Element.ALIGN_CENTER;
+				relatorio.Add(titulo);
+
+				PdfPTable tabela = new PdfPTable(7);
+				var cell = new PdfPCell[7];
+
+				// Tabela Grade 1
+				{
+
+					labels = new Paragraph[7];
+					labels[0] = new Paragraph(" ", fonte);
+					labels[1] = new Paragraph("Espaçamento (mm)", fonte);
+					labels[2] = new Paragraph("Espessura (mm)", fonte);
+					labels[3] = new Paragraph("Eficiência (%)", fonte);
+					labels[4] = new Paragraph("Velocidade Máxima (m/s)", fonte);
+					labels[5] = new Paragraph("Seção do Canal (m²)", fonte);
+					labels[6] = new Paragraph("Velocidade de aprox. (m/s)", fonte);
+					
+					for (int i = 0; i < 7; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(labels[i]);
+						tabela.AddCell(cell[i]);
+					}
+
+					lin = new Paragraph[7];
+					lin[0] = new Paragraph("Vazão Mínima", fonte);
+					lin[1] = new Paragraph(gr.Espacamento.ToString(), fonte);
+					lin[2] = new Paragraph(gr.Espessura.ToString(), fonte);
+					lin[3] = new Paragraph(gr.Eficiencia.ToString(), fonte);
+					lin[4] = new Paragraph(gr.VelocidadeLinha.ToString(), fonte);
+					lin[5] = new Paragraph(gr.SecaoCanalMax.ToString(), fonte);
+					lin[6] = new Paragraph(gr.VelocidadeAproximacaoMax.ToString(), fonte);
+
+					cell = new PdfPCell[7];
+					for (int i = 0; i < 7; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(lin[i]);
+						tabela.AddCell(cell[i]);
+					}
+
+					lin = new Paragraph[7];
+					lin[0] = new Paragraph("Vazão Máxima", fonte);
+					lin[1] = new Paragraph(gr.Espacamento.ToString(), fonte);
+					lin[2] = new Paragraph(gr.Espessura.ToString(), fonte);
+					lin[3] = new Paragraph(gr.Eficiencia.ToString(), fonte);
+					lin[4] = new Paragraph(gr.VelocidadeLinha.ToString(), fonte);
+					lin[5] = new Paragraph(gr.SecaoCanalMin.ToString(), fonte);
+					lin[6] = new Paragraph(gr.VelocidadeAproximacaoMin.ToString(), fonte);
+
+					cell = new PdfPCell[7];
+					for (int i = 0; i < 7; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(lin[i]);
+						tabela.AddCell(cell[i]);
+					}
+				}
+				relatorio.Add(tabela);
+				relatorio.Add(new Paragraph("\n"));
+				tabela = new PdfPTable(7);
+
+				// Tabela Grade 2
+				{
+
+					labels = new Paragraph[7];
+					labels[0] = new Paragraph(" ", fonte);
+					labels[1] = new Paragraph("Hf grade limpa (m)", fonte);
+					labels[2] = new Paragraph("Hf grade 50% suja (m)", fonte);
+					labels[3] = new Paragraph("Hmáx (m)", fonte);
+					labels[4] = new Paragraph("Hu (m)", fonte);
+					labels[5] = new Paragraph("Área Útil (m²)", fonte);
+					labels[6] = new Paragraph("Ângulo inclinação (°)", fonte);
+
+					cell = new PdfPCell[7];
+					for (int i = 0; i < 7; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(labels[i]);
+						tabela.AddCell(cell[i]);
+					}
+
+					lin = new Paragraph[7];
+					lin[0] = new Paragraph("Vazão Mínima", fonte);
+					lin[1] = new Paragraph(gr.PerdaCargaMin.ToString(), fonte);
+					lin[2] = new Paragraph(gr.PerdaCargaMinObs.ToString(), fonte);
+					lin[3] = new Paragraph(gr.getPertenceASeq.gethMax.ToString(), fonte);
+					lin[4] = new Paragraph(gr.PerdaCargaTotal.ToString(), fonte);
+					lin[5] = new Paragraph(gr.AreaUtilMin.ToString(), fonte);
+					lin[6] = new Paragraph("70", fonte);
+
+					cell = new PdfPCell[7];
+					for (int i = 0; i < 7; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(lin[i]);
+						tabela.AddCell(cell[i]);
+					}
+
+					lin = new Paragraph[7];
+					lin[0] = new Paragraph("Vazão Máxima", fonte);
+					lin[1] = new Paragraph(gr.PerdaCargaMax.ToString(), fonte);
+					lin[2] = new Paragraph(gr.PerdaCargaMaxObs.ToString(), fonte);
+					lin[3] = new Paragraph(gr.getPertenceASeq.gethMax.ToString(), fonte);
+					lin[4] = new Paragraph(gr.PerdaCargaTotal.ToString(), fonte);
+					lin[5] = new Paragraph(gr.AreaUtilMax.ToString(), fonte);
+					lin[6] = new Paragraph("70", fonte);
+
+					cell = new PdfPCell[7];
+					for (int i = 0; i < 7; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(lin[i]);
+						tabela.AddCell(cell[i]);
+					}
+				}
+				relatorio.Add(tabela);
+				relatorio.Add(new Paragraph("\n"));
+				tabela = new PdfPTable(7);
+
+				// Tabela Grade 3
+				{
+
+					labels = new Paragraph[7];
+					labels[0] = new Paragraph(" ", fonte);
+					labels[1] = new Paragraph("Comprimento (m)", fonte);
+					labels[2] = new Paragraph("Largura (m)", fonte);
+					labels[3] = new Paragraph("Número de barras", fonte);
+					labels[4] = new Paragraph("Número espaçamento", fonte);
+					labels[5] = new Paragraph("Correção (mm)", fonte);
+					labels[6] = new Paragraph("e (mm)", fonte);
+
+					cell = new PdfPCell[7];
+					for (int i = 0; i < 7; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(labels[i]);
+						tabela.AddCell(cell[i]);
+					}
+
+					lin = new Paragraph[7];
+					lin[0] = new Paragraph("Vazão Mínima", fonte);
+					lin[1] = new Paragraph(gr.Comprimento.ToString(), fonte);
+					lin[2] = new Paragraph(gr.LarguraMin.ToString(), fonte);
+					lin[3] = new Paragraph((gr.NumEspacamento - 1).ToString(), fonte);
+					lin[4] = new Paragraph(gr.NumEspacamento.ToString(), fonte);
+					lin[5] = new Paragraph(gr.CorrecaoEspacamento.ToString(), fonte);
+					lin[6] = new Paragraph("35", fonte);
+
+					cell = new PdfPCell[7];
+					for (int i = 0; i < 7; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(lin[i]);
+						tabela.AddCell(cell[i]);
+					}
+
+					lin = new Paragraph[7];
+					lin[0] = new Paragraph("Vazão Máxima", fonte);
+					lin[1] = new Paragraph(gr.Comprimento.ToString(), fonte);
+					lin[2] = new Paragraph(gr.LarguraMax.ToString(), fonte);
+					lin[3] = new Paragraph((gr.NumEspacamento - 1).ToString(), fonte);
+					lin[4] = new Paragraph(gr.NumEspacamento.ToString(), fonte);
+					lin[5] = new Paragraph(gr.CorrecaoEspacamento.ToString(), fonte);
+					lin[6] = new Paragraph("35", fonte);
+
+					cell = new PdfPCell[7];
+					for (int i = 0; i < 7; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(lin[i]);
+						tabela.AddCell(cell[i]);
+					}
+				}
+				relatorio.Add(tabela);
+				relatorio.Add(new Paragraph("\n"));
+
+				titulo = new Paragraph("\nCalha Parshall\n\n", FontFactory.GetFont(fontName, 14));
+				titulo.Alignment = Element.ALIGN_CENTER;
+				relatorio.Add(titulo);
+
+				tabela = new PdfPTable(5);
+
+				// Tabela Calha Parshall 1
+				{
+
+					labels = new Paragraph[5];
+					labels[0] = new Paragraph("W (pol)", fonte);
+					labels[1] = new Paragraph("W (mm)", fonte);
+					labels[2] = new Paragraph("N", fonte);
+					labels[3] = new Paragraph("K", fonte);
+					labels[4] = new Paragraph("Hmin (m)", fonte);
+
+					cell = new PdfPCell[5];
+					for (int i = 0; i < 5; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(labels[i]);
+						tabela.AddCell(cell[i]);
+					}
+
+					lin = new Paragraph[5];
+					lin[0] = new Paragraph(cp.getW.ToString(), fonte);
+					lin[1] = new Paragraph(cp.getW.ToString(), fonte);
+					lin[2] = new Paragraph(cp.getN.ToString(), fonte);
+					lin[3] = new Paragraph(cp.getK.ToString(), fonte);
+					lin[4] = new Paragraph(cp.getHMin.ToString(), fonte);
+
+					cell = new PdfPCell[5];
+					for (int i = 0; i < 5; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(lin[i]);
+						tabela.AddCell(cell[i]);
+					}
+				}
+				relatorio.Add(tabela);
+				relatorio.Add(new Paragraph("\n"));
+				tabela = new PdfPTable(4);
+
+				// Tabela Calha Parshall 2
+				{
+
+					labels = new Paragraph[4];
+					labels[0] = new Paragraph("Hmax (m)", fonte);
+					labels[1] = new Paragraph("Z (m)", fonte);
+					labels[2] = new Paragraph("hmin (m)", fonte);
+					labels[3] = new Paragraph("hmax (m)", fonte);
+
+					cell = new PdfPCell[4];
+					for (int i = 0; i < 4; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(labels[i]);
+						tabela.AddCell(cell[i]);
+					}
+
+					lin = new Paragraph[4];
+					lin[0] = new Paragraph(cp.getHMax.ToString(), fonte);
+					lin[1] = new Paragraph(cp.getDesnivel.ToString(), fonte);
+					lin[2] = new Paragraph(cp.getPertenceASeq.gethMin.ToString(), fonte);
+					lin[3] = new Paragraph(cp.getPertenceASeq.gethMax.ToString(), fonte);
+
+					cell = new PdfPCell[4];
+					for (int i = 0; i < 4; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(lin[i]);
+						tabela.AddCell(cell[i]);
+					}
+				}
+				relatorio.Add(tabela);
+				relatorio.Add(new Paragraph("\n"));
+
+				titulo = new Paragraph("\nDesarenador\n\n", FontFactory.GetFont(fontName, 14));
+				titulo.Alignment = Element.ALIGN_CENTER;
+				relatorio.Add(titulo);
+				
+
+				tabela = new PdfPTable(6);
+
+				// Tabela Desarenador 1
+				{
+
+					labels = new Paragraph[6];
+					labels[0] = new Paragraph("Vh (m/s)", fonte);
+					labels[1] = new Paragraph("Largura (m)", fonte);
+					labels[2] = new Paragraph("Comprimento (m)", fonte);
+					labels[3] = new Paragraph("hmax (m)", fonte);
+					labels[4] = new Paragraph("hmin (m)", fonte);
+					labels[5] = new Paragraph("Área Superficial (m²)", fonte);
+
+					cell = new PdfPCell[6];
+					for (int i = 0; i < 6; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(labels[i]);
+						tabela.AddCell(cell[i]);
+					}
+
+					lin = new Paragraph[6];
+					lin[0] = new Paragraph(ds.Velocidade.ToString(), fonte);
+					lin[1] = new Paragraph(ds.Largura.ToString(), fonte);
+					lin[2] = new Paragraph(ds.Comprimento.ToString(), fonte);
+					lin[3] = new Paragraph(cp.getPertenceASeq.gethMax.ToString(), fonte);
+					lin[4] = new Paragraph(cp.getPertenceASeq.gethMin.ToString(), fonte);
+					lin[5] = new Paragraph(ds.AreaSuperficial.ToString(), fonte);
+
+					cell = new PdfPCell[6];
+					for (int i = 0; i < 6; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(lin[i]);
+						tabela.AddCell(cell[i]);
+					}
+				}
+
+				relatorio.Add(tabela);
+				relatorio.Add(new Paragraph("\n"));
+				tabela = new PdfPTable(6);
+
+				// Tabela Desarenador 2
+				{
+
+					labels = new Paragraph[6];
+					labels[0] = new Paragraph("Área Transversal (m²)", fonte);
+					labels[1] = new Paragraph("TDH (s)", fonte);
+					labels[2] = new Paragraph("TAS (m²/(m³d))", fonte);
+					labels[3] = new Paragraph("Volume Areia (m³/dia)", fonte);
+					labels[4] = new Paragraph("Altura de Areia (m/dia)", fonte);
+					labels[5] = new Paragraph("Intervalo de Limpeza (dias)", fonte);
+
+					cell = new PdfPCell[6];
+					for (int i = 0; i < 6; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(labels[i]);
+						tabela.AddCell(cell[i]);
+					}
+
+					lin = new Paragraph[6];
+					lin[0] = new Paragraph(ds.AreaSecao.ToString(), fonte);
+					lin[1] = new Paragraph("tempo", fonte);
+					lin[2] = new Paragraph(ds.TaxaAplicacao.ToString(), fonte);
+					lin[3] = new Paragraph(ds.VolumeDiario.ToString(), fonte);
+					lin[4] = new Paragraph(ds.AlturaAreia.ToString(), fonte);
+					lin[5] = new Paragraph(ds.IntervaloLimpeza.ToString(), fonte);
+
+					cell = new PdfPCell[6];
+					for (int i = 0; i < 6; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(lin[i]);
+						tabela.AddCell(cell[i]);
+					}
+				}
+
+				relatorio.Add(tabela);
+				relatorio.Add(new Paragraph("\n"));
+
+				titulo = new Paragraph("\n\nTratamento Secundário\n\n", FontFactory.GetFont(fontName, 16));
+				titulo.Alignment = Element.ALIGN_CENTER;
+				relatorio.Add(titulo);
+
+				titulo = new Paragraph("P + LF\n", FontFactory.GetFont(fontName, 16));
+				titulo.Alignment = Element.ALIGN_CENTER;
+				relatorio.Add(titulo);
+
+				titulo = new Paragraph("\nLagoa Facultativa\n\n", FontFactory.GetFont(fontName, 14));
+				titulo.Alignment = Element.ALIGN_CENTER;
+				relatorio.Add(titulo);
+
+				tabela = new PdfPTable(6);
+
+				// Primeira Sequência
+				la = (LagoaAnaerobia)(((SequenciaSecundaria)(Pai.Centrais[0].getSequencia[1])).getSeqSecundaria[0][0]);
+				lf = (LagoaFacultativa)(((SequenciaSecundaria)(Pai.Centrais[0].getSequencia[1])).getSeqSecundaria[1][0]);
+				// Tabela Lagoa Facultativa
+				{
+
+					labels = new Paragraph[6];
+					labels[0] = new Paragraph("Cmax (KgDBO/ha*dia)", fonte);
+					labels[1] = new Paragraph("Ca (KgDBO/dia)", fonte);
+					labels[2] = new Paragraph("Área (m²)", fonte);
+					labels[3] = new Paragraph("Volume (m³)", fonte);
+					labels[4] = new Paragraph("Tempo de Detenção (dias)", fonte);
+					labels[5] = new Paragraph("DBO Saída (mg/L)", fonte);
+
+					cell = new PdfPCell[6];
+					for (int i = 0; i < 6; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(labels[i]);
+						tabela.AddCell(cell[i]);
+					}
+
+					lin = new Paragraph[6];
+					lin[0] = new Paragraph(lf.getCargaMax.ToString(), fonte);
+					lin[1] = new Paragraph(lf.getCargaAfluente.ToString(), fonte);
+					lin[2] = new Paragraph(lf.getArea.ToString(), fonte);
+					lin[3] = new Paragraph(lf.getVolume.ToString(), fonte);
+					lin[4] = new Paragraph(lf.getTempoDetencao.ToString(), fonte);
+					lin[5] = new Paragraph(lf.getDBOSaida.ToString(), fonte);
+
+					cell = new PdfPCell[6];
+					for (int i = 0; i < 6; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(lin[i]);
+						tabela.AddCell(cell[i]);
+					}
+				}
+
+				relatorio.Add(tabela);
+				relatorio.Add(new Paragraph("\n"));
+
+				titulo = new Paragraph("P + LA + LF\n", FontFactory.GetFont(fontName, 16));
+				titulo.Alignment = Element.ALIGN_CENTER;
+				relatorio.Add(titulo);
+
+				titulo = new Paragraph("\nLagoa Anaeróbia\n\n", FontFactory.GetFont(fontName, 14));
+				titulo.Alignment = Element.ALIGN_CENTER;
+				relatorio.Add(titulo);
+
+				tabela = new PdfPTable(8);
+
+				// Segunda Sequência
+				la = (LagoaAnaerobia)(((SequenciaSecundaria)(Pai.Centrais[1].getSequencia[1])).getSeqSecundaria[0][0]);
+				lf = (LagoaFacultativa)(((SequenciaSecundaria)(Pai.Centrais[1].getSequencia[1])).getSeqSecundaria[1][0]);
+				lm = (LagoaMaturacao)(((SequenciaSecundaria)(Pai.Centrais[1].getSequencia[1])).getSeqSecundaria[2][0]);
+				// Tabela Lagoa Anaeróbia
+				{
+
+					labels = new Paragraph[8];
+					labels[0] = new Paragraph("Número de lagoas)", fonte);
+					labels[1] = new Paragraph("Volume (m³)", fonte);
+					labels[2] = new Paragraph("Área (m²)", fonte);
+					labels[3] = new Paragraph("Largura (m)", fonte);
+					labels[4] = new Paragraph("DBO Saída (Mg/L)", fonte);
+					labels[5] = new Paragraph("Lodo anual (m³/ ano)", fonte);
+					labels[6] = new Paragraph("Espessura Anual(m / ano)", fonte);
+					labels[7] = new Paragraph("Espessura Futura (m/ano)", fonte);
+
+					cell = new PdfPCell[8];
+					for (int i = 0; i < 8; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(labels[i]);
+						tabela.AddCell(cell[i]);
+					}
+
+					lin = new Paragraph[8];
+					lin[0] = new Paragraph(la.getQtdLagoas.ToString(), fonte);
+					lin[1] = new Paragraph(la.getVolume.ToString(), fonte);
+					lin[2] = new Paragraph(la.getArea.ToString(), fonte);
+					lin[3] = new Paragraph(la.getLargura.ToString(), fonte);
+					lin[4] = new Paragraph(la.getDBOSaida.ToString(), fonte);
+					lin[5] = new Paragraph(la.getLodoAnual.ToString(), fonte);
+					lin[6] = new Paragraph(la.getEspessura.ToString(), fonte);
+					lin[7] = new Paragraph(la.getEspessuraFut.ToString(), fonte);
+
+					cell = new PdfPCell[8];
+					for (int i = 0; i < 8; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(lin[i]);
+						tabela.AddCell(cell[i]);
+					}
+				}
+
+				relatorio.Add(tabela);
+				relatorio.Add(new Paragraph("\n"));
+
+				titulo = new Paragraph("\nLagoa Facultativa\n\n", FontFactory.GetFont(fontName, 14));
+				titulo.Alignment = Element.ALIGN_CENTER;
+				relatorio.Add(titulo);
+
+				tabela = new PdfPTable(6);
+				
+				// Tabela Lagoa Facultativa
+				{
+
+					labels = new Paragraph[6];
+					labels[0] = new Paragraph("Cmax (KgDBO/ha*dia)", fonte);
+					labels[1] = new Paragraph("Ca (KgDBO/dia)", fonte);
+					labels[2] = new Paragraph("Área (m²)", fonte);
+					labels[3] = new Paragraph("Volume (m³)", fonte);
+					labels[4] = new Paragraph("Tempo de Detenção (dias)", fonte);
+					labels[5] = new Paragraph("DBO Saída (mg/L)", fonte);
+
+					cell = new PdfPCell[6];
+					for (int i = 0; i < 6; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(labels[i]);
+						tabela.AddCell(cell[i]);
+					}
+
+					lin = new Paragraph[6];
+					lin[0] = new Paragraph(lf.getCargaMax.ToString(), fonte);
+					lin[1] = new Paragraph(lf.getCargaAfluente.ToString(), fonte);
+					lin[2] = new Paragraph(lf.getArea.ToString(), fonte);
+					lin[3] = new Paragraph(lf.getVolume.ToString(), fonte);
+					lin[4] = new Paragraph(lf.getTempoDetencao.ToString(), fonte);
+					lin[5] = new Paragraph(lf.getDBOSaida.ToString(), fonte);
+
+					cell = new PdfPCell[6];
+					for (int i = 0; i < 6; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(lin[i]);
+						tabela.AddCell(cell[i]);
+					}
+				}
+
+				relatorio.Add(tabela);
+				relatorio.Add(new Paragraph("\n"));
+
+				titulo = new Paragraph("P + LA + LF + LM\n", FontFactory.GetFont(fontName, 16));
+				titulo.Alignment = Element.ALIGN_CENTER;
+				relatorio.Add(titulo);
+
+				tabela = new PdfPTable(8);
+
+				titulo = new Paragraph("\nLagoa Anaeróbia\n\n", FontFactory.GetFont(fontName, 14));
+				titulo.Alignment = Element.ALIGN_CENTER;
+				relatorio.Add(titulo);
+
+				// Terceira Sequência
+				lf = (LagoaFacultativa)(((SequenciaSecundaria)(Pai.Centrais[2].getSequencia[1])).getSeqSecundaria[0][0]);
+				// Tabela Lagoa Anaeróbia
+				{
+
+					labels = new Paragraph[8];
+					labels[0] = new Paragraph("Número de lagoas)", fonte);
+					labels[1] = new Paragraph("Volume (m³)", fonte);
+					labels[2] = new Paragraph("Área (m²)", fonte);
+					labels[3] = new Paragraph("Largura (m)", fonte);
+					labels[4] = new Paragraph("DBO Saída (Mg/L)", fonte);
+					labels[5] = new Paragraph("Lodo anual (m³/ ano)", fonte);
+					labels[6] = new Paragraph("Espessura Anual(m / ano)", fonte);
+					labels[7] = new Paragraph("Espessura Futura (m/ano)", fonte);
+
+					cell = new PdfPCell[8];
+					for (int i = 0; i < 8; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(labels[i]);
+						tabela.AddCell(cell[i]);
+					}
+
+					lin = new Paragraph[8];
+					lin[0] = new Paragraph(la.getQtdLagoas.ToString(), fonte);
+					lin[1] = new Paragraph(la.getVolume.ToString(), fonte);
+					lin[2] = new Paragraph(la.getArea.ToString(), fonte);
+					lin[3] = new Paragraph(la.getLargura.ToString(), fonte);
+					lin[4] = new Paragraph(la.getDBOSaida.ToString(), fonte);
+					lin[5] = new Paragraph(la.getLodoAnual.ToString(), fonte);
+					lin[6] = new Paragraph(la.getEspessura.ToString(), fonte);
+					lin[7] = new Paragraph(la.getEspessuraFut.ToString(), fonte);
+
+					cell = new PdfPCell[8];
+					for (int i = 0; i < 8; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(lin[i]);
+						tabela.AddCell(cell[i]);
+					}
+				}
+
+				relatorio.Add(tabela);
+				relatorio.Add(new Paragraph("\n"));
+
+				titulo = new Paragraph("\nLagoa Facultativa\n\n", FontFactory.GetFont(fontName, 14));
+				titulo.Alignment = Element.ALIGN_CENTER;
+				relatorio.Add(titulo);
+
+				tabela = new PdfPTable(6);
+
+				// Tabela Lagoa Facultativa
+				{
+
+					labels = new Paragraph[6];
+					labels[0] = new Paragraph("Cmax (KgDBO/ha*dia)", fonte);
+					labels[1] = new Paragraph("Ca (KgDBO/dia)", fonte);
+					labels[2] = new Paragraph("Área (m²)", fonte);
+					labels[3] = new Paragraph("Volume (m³)", fonte);
+					labels[4] = new Paragraph("Tempo de Detenção (dias)", fonte);
+					labels[5] = new Paragraph("DBO Saída (mg/L)", fonte);
+
+					cell = new PdfPCell[6];
+					for (int i = 0; i < 6; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(labels[i]);
+						tabela.AddCell(cell[i]);
+					}
+
+					lin = new Paragraph[6];
+					lin[0] = new Paragraph(lf.getCargaMax.ToString(), fonte);
+					lin[1] = new Paragraph(lf.getCargaAfluente.ToString(), fonte);
+					lin[2] = new Paragraph(lf.getArea.ToString(), fonte);
+					lin[3] = new Paragraph(lf.getVolume.ToString(), fonte);
+					lin[4] = new Paragraph(lf.getTempoDetencao.ToString(), fonte);
+					lin[5] = new Paragraph(lf.getDBOSaida.ToString(), fonte);
+
+					cell = new PdfPCell[6];
+					for (int i = 0; i < 6; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(lin[i]);
+						tabela.AddCell(cell[i]);
+					}
+				}
+
+				relatorio.Add(tabela);
+				relatorio.Add(new Paragraph("\n"));
+
+				tabela = new PdfPTable(8);
+
+				titulo = new Paragraph("\nLagoa de Maturação\n\n", FontFactory.GetFont(fontName, 14));
+				titulo.Alignment = Element.ALIGN_CENTER;
+				relatorio.Add(titulo);
+
+				// Tabela Lagoa de Maturação
+				{
+
+					labels = new Paragraph[8];
+					labels[0] = new Paragraph("Número de lagoas)", fonte);
+					labels[1] = new Paragraph("Volume (m³)", fonte);
+					labels[2] = new Paragraph("Área (m²)", fonte);
+					labels[3] = new Paragraph("Área Total(m²)", fonte);
+					labels[4] = new Paragraph("Largura (m)", fonte);
+					labels[5] = new Paragraph("Comprimento (m)", fonte);
+					labels[6] = new Paragraph("Concentração de Coliformes Saída (CF/100ml)", fonte);
+					labels[7] = new Paragraph("Eficiência do Sistema (%)", fonte);
+
+					cell = new PdfPCell[8];
+					for (int i = 0; i < 8; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(labels[i]);
+						tabela.AddCell(cell[i]);
+					}
+
+					lin = new Paragraph[8];
+					lin[0] = new Paragraph("3", fonte);
+					lin[1] = new Paragraph(lm.Volume.ToString(), fonte);
+					lin[2] = new Paragraph(lm.AreaSuperficial.ToString(), fonte);
+					lin[3] = new Paragraph(lm.AreaSuperficialTotal.ToString(), fonte);
+					lin[4] = new Paragraph(lm.Largura.ToString(), fonte);
+					lin[5] = new Paragraph(lm.Comprimento.ToString(), fonte);
+					lin[6] = new Paragraph(lm.ConcentracaoColiformesFinais.ToString(), fonte);
+					lin[7] = new Paragraph(lm.Eficiencia.ToString(), fonte);
+
+					cell = new PdfPCell[8];
+					for (int i = 0; i < 8; i++) {
+						cell[i] = new PdfPCell();
+						cell[i].AddElement(lin[i]);
+						tabela.AddCell(cell[i]);
+					}
+				}
+
+				relatorio.Add(tabela);
+				relatorio.Add(new Paragraph("\n"));
+
+				titulo = new Paragraph("\n\nGráficos Comparativos\n\n", FontFactory.GetFont(fontName, 16));
+				titulo.Alignment = Element.ALIGN_CENTER;
+				relatorio.Add(titulo);
+
+				string[] nome = { "P + LF", "P + LA + LF", "P + LA + LF + LM" };
+				double[] valor = { 10, 15, 20 };
+				// Grafico 1
+				Chart grafico = new Chart();
+				grafico.Titles.Add("Área (m²)");
+
+				grafico.ChartAreas.Add(new ChartArea());
+				grafico.ChartAreas[0].AxisX.Interval = 1;
+				grafico.Series.Add("serie");
+				grafico.Series["serie"].Points.AddXY("P + LF", 1000);
+				grafico.Series["serie"].Points.AddXY("P + LA + LF", 1500);
+				grafico.Series["serie"].Points.AddXY("P + LA + LF + LM", 1600);
+			
+				MemoryStream memoryStream = new MemoryStream();
+				grafico.SaveImage(memoryStream, ChartImageFormat.Png);
+				image = Image.GetInstance(memoryStream.GetBuffer());
+				image.Alignment = Image.ALIGN_CENTER;
+				image.ScalePercent(75f);
+				relatorio.Add(image);
+
+				relatorio.Add(new Paragraph("\n\n"));
+				// Grafico 2
+				{
+					grafico = new Chart();
+					grafico.Titles.Add("Volume (m³)");
+
+					grafico.ChartAreas.Add(new ChartArea());
+					grafico.ChartAreas[0].AxisX.Interval = 1;
+					grafico.Series.Add("serie");
+					grafico.Series["serie"].Points.AddXY("P + LF", 1000);
+					grafico.Series["serie"].Points.AddXY("P + LA + LF", 1500);
+					grafico.Series["serie"].Points.AddXY("P + LA + LF + LM", 1600);
+
+
+					memoryStream = new MemoryStream();
+					grafico.SaveImage(memoryStream, ChartImageFormat.Png);
+					image = Image.GetInstance(memoryStream.GetBuffer());
+					image.Alignment = Image.ALIGN_CENTER;
+					image.ScalePercent(75f);
+					relatorio.Add(image);
+				}
+
+				relatorio.Add(new Paragraph("\n\n"));
+				// Grafico 3
+				{
+					grafico = new Chart();
+					grafico.Titles.Add("TDH (dias)");
+
+					grafico.ChartAreas.Add(new ChartArea());
+					grafico.ChartAreas[0].AxisX.Interval = 1;
+					grafico.Series.Add("serie");
+					grafico.Series["serie"].Points.AddXY("P + LF", 30);
+					grafico.Series["serie"].Points.AddXY("P + LA + LF", 7);
+					grafico.Series["serie"].Points.AddXY("P + LA + LF + LM", 15);
+
+					memoryStream = new MemoryStream();
+					grafico.SaveImage(memoryStream, ChartImageFormat.Png);
+					image = Image.GetInstance(memoryStream.GetBuffer());
+					image.Alignment = Image.ALIGN_CENTER;
+					image.ScalePercent(75f);
+					relatorio.Add(image);
+				}
+
+				relatorio.Add(new Paragraph("\n\n"));
+				// Grafico 4
+				{
+					grafico = new Chart();
+					grafico.Titles.Add("Eficiência (%)");
+
+					grafico.ChartAreas.Add(new ChartArea());
+					grafico.ChartAreas[0].AxisX.Interval = 1;
+					grafico.Series.Add("serie");
+					grafico.Series["serie"].Points.AddXY("P + LF", 80);
+					grafico.Series["serie"].Points.AddXY("P + LA + LF", 90);
+					grafico.Series["serie"].Points.AddXY("P + LA + LF + LM", 90);
+
+					memoryStream = new MemoryStream();
+					grafico.SaveImage(memoryStream, ChartImageFormat.Png);
+					image = Image.GetInstance(memoryStream.GetBuffer());
+					image.Alignment = Image.ALIGN_CENTER;
+					image.ScalePercent(75f);
+					relatorio.Add(image);
+				}
+				
+				relatorio.Close();
 
 				//////////////////////////////Final do gerador de pdf
-				*/
+				
 
 				PDFView n = new PDFView();
                 n.Show();

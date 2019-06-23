@@ -32,10 +32,10 @@ namespace Tren.Views {
 						foreach (var l in ((SequenciaSecundaria)s).getSeqSecundaria) {
 							foreach (var u in l) {
 								if (u.GetType() == typeof(LagoaFacultativa)) {
-									if (unidadeAnt == null)
-										throw new Exception("LagoaFacultativaView2::bt_lagoaFacul_avancar_Click - Uso de view inadequado");
-									double dbo = unidadeAnt.getDBOSaida;
-									((LagoaFacultativa)u).setDados(dbo, temp);
+									if (unidadeAnt != null) {
+										double dbo = unidadeAnt.getDBOSaida;
+										((LagoaFacultativa)u).setDados(dbo, temp);
+									}
 									((LagoaFacultativa)u).calcula();
 								}
 								unidadeAnt = u;

@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Tren.Classes {
 	public class LagoaFacultativa : UnidadeSecundaria{
-		double dboEntrada;
 		double tempMesFrio;
 		double cargaMax;
 		double cargaAfluente;
@@ -53,11 +52,6 @@ namespace Tren.Classes {
 		public double getTempoDetencao {
 			get {
 				return tempoDetHidraulica;
-			}
-		}
-		public double getDBOEntrada {
-			get {
-				return dboEntrada;
 			}
 		}
 		public double getCargaMax {

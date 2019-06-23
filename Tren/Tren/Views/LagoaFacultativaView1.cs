@@ -35,17 +35,13 @@ namespace Tren.Views {
 			foreach (var c in Pai.Centrais) {
 				foreach (var s in c.getSequencia) {
 					if (s.GetType() == typeof(SequenciaSecundaria)) {
-						foreach (var l in ((SequenciaSecundaria)s).getSeqSecundaria) {
-							foreach (var u in l) {
-								if (u.GetType() == typeof(LagoaFacultativa)) {
-									((LagoaFacultativa)u).setDados(dbo, temp);
-									((LagoaFacultativa)u).calcula();
-								}
-							}
-						}
+						((SequenciaSecundaria)s).getSeqSecundaria[0][0].DBOEntrada = dbo;
+						break;
 					}
 				}
 			}
+
+
 
 			Pai.avancaView();
 			Hide();
