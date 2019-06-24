@@ -215,9 +215,9 @@ namespace Tren.Classes
         public void CalculaBarras() {
             if (larguraCanalMax != null) {
                 double? b = (larguraCanalMax - espacamentoGrade) / (espacamentoGrade + espessuraGrade);
-                numeroBarras = Convert.ToInt32(Math.Round(Convert.ToDouble(b), MidpointRounding.ToEven));
+                numeroBarras = int.Parse(Convert.ToString(Math.Round(Convert.ToDouble(b), MidpointRounding.ToEven)));
                 numeroEspacamentos = numeroBarras + 1;
-                Console.WriteLine("Andrei teste " + numeroBarras + " " + numeroEspacamentos);
+                Console.WriteLine("Andrei teste " + numeroBarras + " " + numeroEspacamentos + " o b" + Convert.ToDouble(b));
             } else {
                 throw new Exception("Largura do Canal não calculada.");
             }
