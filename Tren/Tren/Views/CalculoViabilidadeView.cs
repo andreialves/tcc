@@ -829,13 +829,13 @@ namespace Tren.Views {
 
 					lin = new Paragraph[8];
 					lin[0] = new Paragraph("3", fonte);
-					lin[1] = new Paragraph(lm.Volume.ToString(), fonte);
-					lin[2] = new Paragraph(lm.AreaSuperficial.ToString(), fonte);
-					lin[3] = new Paragraph(lm.AreaSuperficialTotal.ToString(), fonte);
-					lin[4] = new Paragraph(lm.Largura.ToString(), fonte);
-					lin[5] = new Paragraph(lm.Comprimento.ToString(), fonte);
-					lin[6] = new Paragraph(lm.ConcentracaoColiformesFinais.ToString(), fonte);
-					lin[7] = new Paragraph(lm.Eficiencia.ToString(), fonte);
+					lin[1] = new Paragraph(Math.Round(Convert.ToDouble(lm.Volume), 2).ToString(), fonte);
+					lin[2] = new Paragraph(Math.Round(Convert.ToDouble(lm.AreaSuperficial), 2).ToString(), fonte);
+					lin[3] = new Paragraph(Math.Round(Convert.ToDouble(lm.AreaSuperficialTotal), 2).ToString(), fonte);
+					lin[4] = new Paragraph(Math.Round(Convert.ToDouble(lm.Largura), 2).ToString(), fonte);
+					lin[5] = new Paragraph(Math.Round(Convert.ToDouble(lm.Comprimento), 2).ToString(), fonte);
+					lin[6] = new Paragraph(Math.Round(Convert.ToDouble(lm.ConcentracaoColiformesFinais), 2).ToString(), fonte);
+					lin[7] = new Paragraph(Math.Round(Convert.ToDouble(lm.Eficiencia), 2).ToString(), fonte);
 
 					cell = new PdfPCell[8];
 					for (int i = 0; i < 8; i++) {
