@@ -133,7 +133,7 @@ namespace Tren.Classes {
 			}
 		}
 
-		public double DebugTDet {
+		public double getTempoDetHidr {
 			get {
 				return tempoDetHidraulica;
 			}

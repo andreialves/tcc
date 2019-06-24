@@ -11,6 +11,7 @@ namespace Tren.Classes {
 	public class CalhaParshall : UnidadePreliminar	{
 		private IDictionary<string, string> [] tabelaCalhas; // | mm | polegadas | vazaoMin | vazaoMax | n | k |
 		private int mm;
+		private int pol;
 		private double n;
 		private double k;
 		private double HMin;
@@ -55,6 +56,7 @@ namespace Tren.Classes {
 					if (double.Parse(d["vMax"], prov) - double.Parse(d["vMin"], prov) < menorInt) {
 						menorInt = double.Parse(d["vMax"], prov) - double.Parse(d["vMin"], prov);
 						mm = int.Parse(d["mm"]);
+						pol = int.Parse(d["pol"]);
 						n = double.Parse(d["n"], prov);
 						k = double.Parse(d["k"], prov);
 					}
@@ -67,8 +69,13 @@ namespace Tren.Classes {
 			getPertenceASeq.gethMax = HMax - desnivel;
 		}
 
-		public double getW {
+		public int getWmm {
 			get { return mm; }
+		}
+		public int getWpol {
+			get {
+				return pol;
+			}
 		}
 		public double getN {
 			get { return n; }

@@ -46,7 +46,7 @@ namespace Tren.Views {
 					if (s.GetType() == typeof(SequenciaSecundaria)) {
 						foreach (var l in ((SequenciaSecundaria)s).getSeqSecundaria) {
 							foreach (var u in l) {
-								if (u.GetType() == typeof(LagoaFacultativa)) {
+								if (u.GetType() == typeof(LagoaMaturacao)) {
 									LagoaMaturacao lm = ((LagoaMaturacao)u);
 									lm.ColiformesInicias = col;
 									lm.TemperaturaLiquido = temp;
@@ -65,6 +65,9 @@ namespace Tren.Views {
 					}
 				}
 			}
+
+			Pai.avancaView();
+				Hide();
 		}
 
 		private void txb_numeros(object sender, KeyPressEventArgs e) {

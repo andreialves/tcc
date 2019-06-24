@@ -29,7 +29,6 @@ namespace Tren.Views {
 				Pai.AddView(new DesarenadorView(dados, Pai), "Desarenador");
 				Pai.AddView(new LagoaAnaerobiaView(Pai), "LagoaAnaerobia");
 				Pai.AddView(new LagoaFacultativaView2(Pai), "LagoaFacultativa");
-				Pai.AddView(new CalculoViabilidadeView(dados, Pai), "Calculo");
 
 				// Cria central que representa essa sequencia de unidades
 				CentralTratamento central = new CentralTratamento();
@@ -57,7 +56,7 @@ namespace Tren.Views {
 
 			// Configurando Sequencia de Unidades da Central P + LA + LF + LM
 			if (cbx_PLaLfLm.Checked) {
-				// Adiciona telas necessárias para coletar os dados da sequencia P + LA + LF
+				// Adiciona telas necessárias para coletar os dados da sequencia P + LA + LF + LM
 				Pai.AddView(new CentralDeTratamento0View(dados, Pai), "Central0");
 				Pai.AddView(new View(Pai), "CentralX");
 				Pai.AddView(new GradeView(dados, Pai), "Grade");
@@ -65,7 +64,6 @@ namespace Tren.Views {
 				Pai.AddView(new LagoaAnaerobiaView(Pai), "LagoaAnaerobia");
 				Pai.AddView(new LagoaFacultativaView2(Pai), "LagoaFacultativa");
 				Pai.AddView(new LagoaMaturacaoView(dados, Pai), "LagoaMaturacao");
-				Pai.AddView(new CalculoViabilidadeView(dados, Pai), "Calculo");
 
 				// Cria central que representa essa sequencia de unidades
 				CentralTratamento central = new CentralTratamento();
@@ -101,7 +99,6 @@ namespace Tren.Views {
 				Pai.AddView(new GradeView(dados, Pai), "Grade");
 				Pai.AddView(new DesarenadorView(dados, Pai), "Desarenador");
 				Pai.AddView(new LagoaFacultativaView2(Pai), "LagoaFacultativa");
-				Pai.AddView(new CalculoViabilidadeView(dados, Pai), "Calculo");
 
 				// Cria central que representa essa sequencia de unidades
 				CentralTratamento central = new CentralTratamento();
@@ -125,8 +122,11 @@ namespace Tren.Views {
 				Pai.Centrais.Add(central);
 			}
 
+
+			Pai.AddView(new CalculoViabilidadeView(dados, Pai), "Calculo");
+
 			// Verifica se alguma sequencia foi selecionada
-			if (Pai.NumViews == 1)
+			if (Pai.NumViews == 2)
 				return;
 			
 			Pai.avancaView();

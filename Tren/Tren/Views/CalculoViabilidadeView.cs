@@ -102,7 +102,7 @@ namespace Tren.Views {
 				{
 
 					Console.WriteLine("\n\n______Calha Parshall______:");
-					Console.WriteLine("w " + cp.getW);
+					Console.WriteLine("w " + cp.getWpol);
 					Console.WriteLine("n " + cp.getN);
 					Console.WriteLine("k " + cp.getK);
 					Console.WriteLine("HMin " + cp.getHMin);
@@ -129,7 +129,7 @@ namespace Tren.Views {
 				///////////////////////////////////////////// Criação do pdf
 
 				Document relatorio = new Document(PageSize.A4);
-                relatorio.SetMargins(40, 40, 40, 40);
+                relatorio.SetMargins(25, 25, 25, 25);
                 relatorio.AddCreationDate();
 
                 string caminho = AppDomain.CurrentDomain.BaseDirectory + @"\Relatorio.pdf";
@@ -150,7 +150,7 @@ namespace Tren.Views {
 				// Logo Tren
 				Image image = Image.GetInstance(AppDomain.CurrentDomain.BaseDirectory + @"\Imagens\4.png");
 				image.Alignment = Image.ALIGN_CENTER;
-				image.ScalePercent(50f);
+				image.ScalePercent(35f);
 				relatorio.Add(image);
 
 
@@ -177,15 +177,15 @@ namespace Tren.Views {
 
 					CentralTratamento ct = Pai.Centrais[0];
 					
-					lin[0] = new Paragraph(ct.getVazaoMax.ToString(), fonte);
-					lin[1] = new Paragraph(ct.getVazaoMed.ToString(), fonte);
-					lin[2] = new Paragraph(ct.getVazaoMin.ToString(), fonte);
-					lin[3] = new Paragraph(ct.getVazaoMaxFut.ToString(), fonte);
-					lin[4] = new Paragraph(ct.getVazaoMedFut.ToString(), fonte);
-					lin[5] = new Paragraph(ct.getVazaoMinFut.ToString(), fonte);
+					lin[0] = new Paragraph(Math.Round(ct.getVazaoMax, 2).ToString(), fonte);
+					lin[1] = new Paragraph(Math.Round(ct.getVazaoMed, 2).ToString(), fonte);
+					lin[2] = new Paragraph(Math.Round(ct.getVazaoMin, 2).ToString(), fonte);
+					lin[3] = new Paragraph(Math.Round(ct.getVazaoMaxFut, 2).ToString(), fonte);
+					lin[4] = new Paragraph(Math.Round(ct.getVazaoMedFut, 2).ToString(), fonte);
+					lin[5] = new Paragraph(Math.Round(ct.getVazaoMinFut, 2).ToString(), fonte);
 					lin[6] = new Paragraph(ct.getPopulacao.ToString(), fonte);
 					lin[7] = new Paragraph(ct.getPopulacaoFut.ToString(), fonte);
-					lin[8] = new Paragraph(la.DBOEntrada.ToString(), fonte);
+					lin[8] = new Paragraph(Math.Round(la.DBOEntrada, 2).ToString(), fonte);
 
 
 					var cel = new PdfPCell[9];
@@ -408,11 +408,11 @@ namespace Tren.Views {
 					}
 
 					lin = new Paragraph[5];
-					lin[0] = new Paragraph(cp.getW.ToString(), fonte);
-					lin[1] = new Paragraph(cp.getW.ToString(), fonte);
+					lin[0] = new Paragraph(cp.getWmm.ToString(), fonte);
+					lin[1] = new Paragraph(cp.getWpol.ToString(), fonte);
 					lin[2] = new Paragraph(cp.getN.ToString(), fonte);
 					lin[3] = new Paragraph(cp.getK.ToString(), fonte);
-					lin[4] = new Paragraph(cp.getHMin.ToString(), fonte);
+					lin[4] = new Paragraph(Math.Round(cp.getHMin, 2).ToString(), fonte);
 
 					cell = new PdfPCell[5];
 					for (int i = 0; i < 5; i++) {
@@ -442,10 +442,10 @@ namespace Tren.Views {
 					}
 
 					lin = new Paragraph[4];
-					lin[0] = new Paragraph(cp.getHMax.ToString(), fonte);
-					lin[1] = new Paragraph(cp.getDesnivel.ToString(), fonte);
-					lin[2] = new Paragraph(cp.getPertenceASeq.gethMin.ToString(), fonte);
-					lin[3] = new Paragraph(cp.getPertenceASeq.gethMax.ToString(), fonte);
+					lin[0] = new Paragraph(Math.Round(cp.getHMax, 2).ToString(), fonte);
+					lin[1] = new Paragraph(Math.Round(cp.getDesnivel, 2).ToString(), fonte);
+					lin[2] = new Paragraph(Math.Round((double)cp.getPertenceASeq.gethMin, 2).ToString(), fonte);
+					lin[3] = new Paragraph(Math.Round((double)cp.getPertenceASeq.gethMax, 2).ToString(), fonte);
 
 					cell = new PdfPCell[4];
 					for (int i = 0; i < 4; i++) {
@@ -554,8 +554,11 @@ namespace Tren.Views {
 				tabela = new PdfPTable(6);
 
 				// Primeira Sequência
-				la = (LagoaAnaerobia)(((SequenciaSecundaria)(Pai.Centrais[0].getSequencia[1])).getSeqSecundaria[0][0]);
-				lf = (LagoaFacultativa)(((SequenciaSecundaria)(Pai.Centrais[0].getSequencia[1])).getSeqSecundaria[1][0]);
+				lf = (LagoaFacultativa)(((SequenciaSecundaria)(Pai.Centrais[2].getSequencia[1])).getSeqSecundaria[0][0]);
+				double area1 = lf.getArea;
+				double volume1 = lf.getVolume;
+				double tdh1 = lf.getTempoDetencao;
+
 				// Tabela Lagoa Facultativa
 				{
 
@@ -575,12 +578,12 @@ namespace Tren.Views {
 					}
 
 					lin = new Paragraph[6];
-					lin[0] = new Paragraph(lf.getCargaMax.ToString(), fonte);
-					lin[1] = new Paragraph(lf.getCargaAfluente.ToString(), fonte);
-					lin[2] = new Paragraph(lf.getArea.ToString(), fonte);
-					lin[3] = new Paragraph(lf.getVolume.ToString(), fonte);
-					lin[4] = new Paragraph(lf.getTempoDetencao.ToString(), fonte);
-					lin[5] = new Paragraph(lf.getDBOSaida.ToString(), fonte);
+					lin[0] = new Paragraph(Math.Round(lf.getCargaMax, 2).ToString(), fonte);
+					lin[1] = new Paragraph(Math.Round(lf.getCargaAfluente, 2).ToString(), fonte);
+					lin[2] = new Paragraph(Math.Round(lf.getArea, 2).ToString(), fonte);
+					lin[3] = new Paragraph(Math.Round(lf.getVolume, 2).ToString(), fonte);
+					lin[4] = new Paragraph(Math.Round(lf.getTempoDetencao, 2).ToString(), fonte);
+					lin[5] = new Paragraph(Math.Round(lf.getDBOSaida, 2).ToString(), fonte);
 
 					cell = new PdfPCell[6];
 					for (int i = 0; i < 6; i++) {
@@ -601,44 +604,49 @@ namespace Tren.Views {
 				titulo.Alignment = Element.ALIGN_CENTER;
 				relatorio.Add(titulo);
 
-				tabela = new PdfPTable(8);
+				tabela = new PdfPTable(9);
 
 				// Segunda Sequência
-				la = (LagoaAnaerobia)(((SequenciaSecundaria)(Pai.Centrais[1].getSequencia[1])).getSeqSecundaria[0][0]);
-				lf = (LagoaFacultativa)(((SequenciaSecundaria)(Pai.Centrais[1].getSequencia[1])).getSeqSecundaria[1][0]);
-				lm = (LagoaMaturacao)(((SequenciaSecundaria)(Pai.Centrais[1].getSequencia[1])).getSeqSecundaria[2][0]);
+				la = (LagoaAnaerobia)(((SequenciaSecundaria)(Pai.Centrais[0].getSequencia[1])).getSeqSecundaria[0][0]);
+				lf = (LagoaFacultativa)(((SequenciaSecundaria)(Pai.Centrais[0].getSequencia[1])).getSeqSecundaria[1][0]);
+				double area2 = la.getArea + lf.getArea;
+				double volume2 = la.getVolume + lf.getVolume;
+				double tdh2 = la.getTempoDetHidr + lf.getTempoDetencao;
+
 				// Tabela Lagoa Anaeróbia
 				{
 
-					labels = new Paragraph[8];
+					labels = new Paragraph[9];
 					labels[0] = new Paragraph("Número de lagoas)", fonte);
-					labels[1] = new Paragraph("Volume (m³)", fonte);
-					labels[2] = new Paragraph("Área (m²)", fonte);
-					labels[3] = new Paragraph("Largura (m)", fonte);
-					labels[4] = new Paragraph("DBO Saída (Mg/L)", fonte);
-					labels[5] = new Paragraph("Lodo anual (m³/ ano)", fonte);
-					labels[6] = new Paragraph("Espessura Anual(m / ano)", fonte);
-					labels[7] = new Paragraph("Espessura Futura (m/ano)", fonte);
+					labels[1] = new Paragraph("TDH (dias)", fonte);
+					labels[2] = new Paragraph("Volume (m³)", fonte);
+					labels[3] = new Paragraph("Área (m²)", fonte);
+					labels[4] = new Paragraph("Comprimento e Largura (m)", fonte);
+					labels[5] = new Paragraph("DBO Saída (Mg/L)", fonte);
+					labels[6] = new Paragraph("Lodo anual (m³/ano)", fonte);
+					labels[7] = new Paragraph("Espessura Anual(m/ano)", fonte);
+					labels[8] = new Paragraph("Espessura Futura (m/ano)", fonte);
 
-					cell = new PdfPCell[8];
-					for (int i = 0; i < 8; i++) {
+					cell = new PdfPCell[9];
+					for (int i = 0; i < 9; i++) {
 						cell[i] = new PdfPCell();
 						cell[i].AddElement(labels[i]);
 						tabela.AddCell(cell[i]);
 					}
 
-					lin = new Paragraph[8];
+					lin = new Paragraph[9];
 					lin[0] = new Paragraph(la.getQtdLagoas.ToString(), fonte);
-					lin[1] = new Paragraph(la.getVolume.ToString(), fonte);
-					lin[2] = new Paragraph(la.getArea.ToString(), fonte);
-					lin[3] = new Paragraph(la.getLargura.ToString(), fonte);
-					lin[4] = new Paragraph(la.getDBOSaida.ToString(), fonte);
-					lin[5] = new Paragraph(la.getLodoAnual.ToString(), fonte);
-					lin[6] = new Paragraph(la.getEspessura.ToString(), fonte);
-					lin[7] = new Paragraph(la.getEspessuraFut.ToString(), fonte);
+					lin[1] = new Paragraph(Math.Round(la.getTempoDetHidr, 2).ToString(), fonte);
+					lin[2] = new Paragraph(Math.Round(la.getVolume, 2).ToString(), fonte);
+					lin[3] = new Paragraph(Math.Round(la.getArea, 2).ToString(), fonte);
+					lin[4] = new Paragraph(Math.Round(la.getLargura, 2).ToString(), fonte);
+					lin[5] = new Paragraph(Math.Round(la.getDBOSaida, 2).ToString(), fonte);
+					lin[6] = new Paragraph(Math.Round(la.getLodoAnual, 2).ToString(), fonte);
+					lin[7] = new Paragraph(Math.Round(la.getEspessura, 2).ToString(), fonte);
+					lin[8] = new Paragraph(Math.Round(la.getEspessuraFut, 2).ToString(), fonte);
 
-					cell = new PdfPCell[8];
-					for (int i = 0; i < 8; i++) {
+					cell = new PdfPCell[9];
+					for (int i = 0; i < 9; i++) {
 						cell[i] = new PdfPCell();
 						cell[i].AddElement(lin[i]);
 						tabela.AddCell(cell[i]);
@@ -673,12 +681,12 @@ namespace Tren.Views {
 					}
 
 					lin = new Paragraph[6];
-					lin[0] = new Paragraph(lf.getCargaMax.ToString(), fonte);
-					lin[1] = new Paragraph(lf.getCargaAfluente.ToString(), fonte);
-					lin[2] = new Paragraph(lf.getArea.ToString(), fonte);
-					lin[3] = new Paragraph(lf.getVolume.ToString(), fonte);
-					lin[4] = new Paragraph(lf.getTempoDetencao.ToString(), fonte);
-					lin[5] = new Paragraph(lf.getDBOSaida.ToString(), fonte);
+					lin[0] = new Paragraph(Math.Round(lf.getCargaMax, 2).ToString(), fonte);
+					lin[1] = new Paragraph(Math.Round(lf.getCargaAfluente, 2).ToString(), fonte);
+					lin[2] = new Paragraph(Math.Round(lf.getArea, 2).ToString(), fonte);
+					lin[3] = new Paragraph(Math.Round(lf.getVolume, 2).ToString(), fonte);
+					lin[4] = new Paragraph(Math.Round(lf.getTempoDetencao, 2).ToString(), fonte);
+					lin[5] = new Paragraph(Math.Round(lf.getDBOSaida, 2).ToString(), fonte);
 
 					cell = new PdfPCell[6];
 					for (int i = 0; i < 6; i++) {
@@ -695,46 +703,53 @@ namespace Tren.Views {
 				titulo.Alignment = Element.ALIGN_CENTER;
 				relatorio.Add(titulo);
 
-				tabela = new PdfPTable(8);
+				tabela = new PdfPTable(9);
 
 				titulo = new Paragraph("\nLagoa Anaeróbia\n\n", FontFactory.GetFont(fontName, 14));
 				titulo.Alignment = Element.ALIGN_CENTER;
 				relatorio.Add(titulo);
 
 				// Terceira Sequência
-				lf = (LagoaFacultativa)(((SequenciaSecundaria)(Pai.Centrais[2].getSequencia[1])).getSeqSecundaria[0][0]);
+				la = (LagoaAnaerobia)(((SequenciaSecundaria)(Pai.Centrais[1].getSequencia[1])).getSeqSecundaria[0][0]);
+				lf = (LagoaFacultativa)(((SequenciaSecundaria)(Pai.Centrais[1].getSequencia[1])).getSeqSecundaria[1][0]);
+				lm = (LagoaMaturacao)(((SequenciaSecundaria)(Pai.Centrais[1].getSequencia[1])).getSeqSecundaria[2][0]);
+				double area3 = la.getArea + lf.getArea + (double)lm.AreaSuperficialTotal;
+				double volume3 = la.getVolume + lf.getVolume + (double)lm.Volume;
+				double tdh3 = la.getTempoDetHidr + lf.getTempoDetencao ;
+
 				// Tabela Lagoa Anaeróbia
 				{
-
-					labels = new Paragraph[8];
+					labels = new Paragraph[9];
 					labels[0] = new Paragraph("Número de lagoas)", fonte);
-					labels[1] = new Paragraph("Volume (m³)", fonte);
-					labels[2] = new Paragraph("Área (m²)", fonte);
-					labels[3] = new Paragraph("Largura (m)", fonte);
-					labels[4] = new Paragraph("DBO Saída (Mg/L)", fonte);
-					labels[5] = new Paragraph("Lodo anual (m³/ ano)", fonte);
-					labels[6] = new Paragraph("Espessura Anual(m / ano)", fonte);
-					labels[7] = new Paragraph("Espessura Futura (m/ano)", fonte);
+					labels[1] = new Paragraph("TDH (dias)", fonte);
+					labels[2] = new Paragraph("Volume (m³)", fonte);
+					labels[3] = new Paragraph("Área (m²)", fonte);
+					labels[4] = new Paragraph("Comprimento e Largura (m)", fonte);
+					labels[5] = new Paragraph("DBO Saída (Mg/L)", fonte);
+					labels[6] = new Paragraph("Lodo anual (m³/ano)", fonte);
+					labels[7] = new Paragraph("Espessura Anual(m/ano)", fonte);
+					labels[8] = new Paragraph("Espessura Futura (m/ano)", fonte);
 
-					cell = new PdfPCell[8];
-					for (int i = 0; i < 8; i++) {
+					cell = new PdfPCell[9];
+					for (int i = 0; i < 9; i++) {
 						cell[i] = new PdfPCell();
 						cell[i].AddElement(labels[i]);
 						tabela.AddCell(cell[i]);
 					}
 
-					lin = new Paragraph[8];
+					lin = new Paragraph[9];
 					lin[0] = new Paragraph(la.getQtdLagoas.ToString(), fonte);
-					lin[1] = new Paragraph(la.getVolume.ToString(), fonte);
-					lin[2] = new Paragraph(la.getArea.ToString(), fonte);
-					lin[3] = new Paragraph(la.getLargura.ToString(), fonte);
-					lin[4] = new Paragraph(la.getDBOSaida.ToString(), fonte);
-					lin[5] = new Paragraph(la.getLodoAnual.ToString(), fonte);
-					lin[6] = new Paragraph(la.getEspessura.ToString(), fonte);
-					lin[7] = new Paragraph(la.getEspessuraFut.ToString(), fonte);
+					lin[1] = new Paragraph(Math.Round(la.getTempoDetHidr, 2).ToString(), fonte);
+					lin[2] = new Paragraph(Math.Round(la.getVolume, 2).ToString(), fonte);
+					lin[3] = new Paragraph(Math.Round(la.getArea, 2).ToString(), fonte);
+					lin[4] = new Paragraph(Math.Round(la.getLargura, 2).ToString(), fonte);
+					lin[5] = new Paragraph(Math.Round(la.getDBOSaida, 2).ToString(), fonte);
+					lin[6] = new Paragraph(Math.Round(la.getLodoAnual, 2).ToString(), fonte);
+					lin[7] = new Paragraph(Math.Round(la.getEspessura, 2).ToString(), fonte);
+					lin[8] = new Paragraph(Math.Round(la.getEspessuraFut, 2).ToString(), fonte);
 
-					cell = new PdfPCell[8];
-					for (int i = 0; i < 8; i++) {
+					cell = new PdfPCell[9];
+					for (int i = 0; i < 9; i++) {
 						cell[i] = new PdfPCell();
 						cell[i].AddElement(lin[i]);
 						tabela.AddCell(cell[i]);
@@ -769,12 +784,12 @@ namespace Tren.Views {
 					}
 
 					lin = new Paragraph[6];
-					lin[0] = new Paragraph(lf.getCargaMax.ToString(), fonte);
-					lin[1] = new Paragraph(lf.getCargaAfluente.ToString(), fonte);
-					lin[2] = new Paragraph(lf.getArea.ToString(), fonte);
-					lin[3] = new Paragraph(lf.getVolume.ToString(), fonte);
-					lin[4] = new Paragraph(lf.getTempoDetencao.ToString(), fonte);
-					lin[5] = new Paragraph(lf.getDBOSaida.ToString(), fonte);
+					lin[0] = new Paragraph(Math.Round(lf.getCargaMax, 2).ToString(), fonte);
+					lin[1] = new Paragraph(Math.Round(lf.getCargaAfluente, 2).ToString(), fonte);
+					lin[2] = new Paragraph(Math.Round(lf.getArea, 2).ToString(), fonte);
+					lin[3] = new Paragraph(Math.Round(lf.getVolume, 2).ToString(), fonte);
+					lin[4] = new Paragraph(Math.Round(lf.getTempoDetencao, 2).ToString(), fonte);
+					lin[5] = new Paragraph(Math.Round(lf.getDBOSaida, 2).ToString(), fonte);
 
 					cell = new PdfPCell[6];
 					for (int i = 0; i < 6; i++) {
@@ -795,11 +810,10 @@ namespace Tren.Views {
 
 				// Tabela Lagoa de Maturação
 				{
-
 					labels = new Paragraph[8];
 					labels[0] = new Paragraph("Número de lagoas)", fonte);
-					labels[1] = new Paragraph("Volume (m³)", fonte);
-					labels[2] = new Paragraph("Área (m²)", fonte);
+					labels[1] = new Paragraph("Volume Unitário (m³)", fonte);
+					labels[2] = new Paragraph("Área Unitária (m²)", fonte);
 					labels[3] = new Paragraph("Área Total(m²)", fonte);
 					labels[4] = new Paragraph("Largura (m)", fonte);
 					labels[5] = new Paragraph("Comprimento (m)", fonte);
@@ -847,9 +861,9 @@ namespace Tren.Views {
 				grafico.ChartAreas.Add(new ChartArea());
 				grafico.ChartAreas[0].AxisX.Interval = 1;
 				grafico.Series.Add("serie");
-				grafico.Series["serie"].Points.AddXY("P + LF", 1000);
-				grafico.Series["serie"].Points.AddXY("P + LA + LF", 1500);
-				grafico.Series["serie"].Points.AddXY("P + LA + LF + LM", 1600);
+				grafico.Series["serie"].Points.AddXY("P + LF", area1);
+				grafico.Series["serie"].Points.AddXY("P + LA + LF", area2);
+				grafico.Series["serie"].Points.AddXY("P + LA + LF + LM", area3);
 			
 				MemoryStream memoryStream = new MemoryStream();
 				grafico.SaveImage(memoryStream, ChartImageFormat.Png);
@@ -867,9 +881,9 @@ namespace Tren.Views {
 					grafico.ChartAreas.Add(new ChartArea());
 					grafico.ChartAreas[0].AxisX.Interval = 1;
 					grafico.Series.Add("serie");
-					grafico.Series["serie"].Points.AddXY("P + LF", 1000);
-					grafico.Series["serie"].Points.AddXY("P + LA + LF", 1500);
-					grafico.Series["serie"].Points.AddXY("P + LA + LF + LM", 1600);
+					grafico.Series["serie"].Points.AddXY("P + LF", volume1);
+					grafico.Series["serie"].Points.AddXY("P + LA + LF", volume2);
+					grafico.Series["serie"].Points.AddXY("P + LA + LF + LM", volume3);
 
 
 					memoryStream = new MemoryStream();
@@ -889,9 +903,9 @@ namespace Tren.Views {
 					grafico.ChartAreas.Add(new ChartArea());
 					grafico.ChartAreas[0].AxisX.Interval = 1;
 					grafico.Series.Add("serie");
-					grafico.Series["serie"].Points.AddXY("P + LF", 30);
-					grafico.Series["serie"].Points.AddXY("P + LA + LF", 7);
-					grafico.Series["serie"].Points.AddXY("P + LA + LF + LM", 15);
+					grafico.Series["serie"].Points.AddXY("P + LF", tdh1);
+					grafico.Series["serie"].Points.AddXY("P + LA + LF", tdh2);
+					grafico.Series["serie"].Points.AddXY("P + LA + LF + LM", tdh3);
 
 					memoryStream = new MemoryStream();
 					grafico.SaveImage(memoryStream, ChartImageFormat.Png);
