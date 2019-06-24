@@ -240,13 +240,13 @@ namespace Tren.Views {
 					}
 
 					lin = new Paragraph[7];
-					lin[0] = new Paragraph("Vazão Mínima", fonte);
-					lin[1] = new Paragraph(gr.Espacamento.ToString(), fonte);
-					lin[2] = new Paragraph(gr.Espessura.ToString(), fonte);
-					lin[3] = new Paragraph(gr.Eficiencia.ToString(), fonte);
-					lin[4] = new Paragraph(gr.VelocidadeLinha.ToString(), fonte);
-					lin[5] = new Paragraph(gr.SecaoCanalMax.ToString(), fonte);
-					lin[6] = new Paragraph(gr.VelocidadeAproximacaoMax.ToString(), fonte);
+					lin[0] = new Paragraph("Vazão Máxima", fonte);
+					lin[1] = new Paragraph(Math.Round(Convert.ToDouble(gr.Espacamento), 2).ToString(), fonte);
+					lin[2] = new Paragraph(Math.Round(Convert.ToDouble(gr.Espessura), 2).ToString(), fonte);
+					lin[3] = new Paragraph(Math.Round(Convert.ToDouble(gr.Eficiencia), 2).ToString(), fonte);
+					lin[4] = new Paragraph(Math.Round(Convert.ToDouble(gr.VelocidadeLinha), 2).ToString(), fonte);
+					lin[5] = new Paragraph(Math.Round(Convert.ToDouble(gr.SecaoCanalMax), 2).ToString(), fonte);
+					lin[6] = new Paragraph(Math.Round(Convert.ToDouble(gr.VelocidadeAproximacaoMax), 2).ToString(), fonte);
 
 					cell = new PdfPCell[7];
 					for (int i = 0; i < 7; i++) {
@@ -256,13 +256,13 @@ namespace Tren.Views {
 					}
 
 					lin = new Paragraph[7];
-					lin[0] = new Paragraph("Vazão Máxima", fonte);
-					lin[1] = new Paragraph(gr.Espacamento.ToString(), fonte);
-					lin[2] = new Paragraph(gr.Espessura.ToString(), fonte);
-					lin[3] = new Paragraph(gr.Eficiencia.ToString(), fonte);
-					lin[4] = new Paragraph(gr.VelocidadeLinha.ToString(), fonte);
-					lin[5] = new Paragraph(gr.SecaoCanalMin.ToString(), fonte);
-					lin[6] = new Paragraph(gr.VelocidadeAproximacaoMin.ToString(), fonte);
+					lin[0] = new Paragraph("Vazão Mínima", fonte);
+					lin[1] = new Paragraph(Math.Round(Convert.ToDouble(gr.Espacamento), 2).ToString(), fonte);
+					lin[2] = new Paragraph(Math.Round(Convert.ToDouble(gr.Espessura), 2).ToString(), fonte);
+					lin[3] = new Paragraph(Math.Round(Convert.ToDouble(gr.Eficiencia), 2).ToString(), fonte);
+					lin[4] = new Paragraph(Math.Round(Convert.ToDouble(gr.VelocidadeLinha), 2).ToString(), fonte);
+					lin[5] = new Paragraph(Math.Round(Convert.ToDouble(gr.SecaoCanalMin), 2).ToString(), fonte);
+					lin[6] = new Paragraph(Math.Round(Convert.ToDouble(gr.VelocidadeAproximacaoMin), 2).ToString(), fonte);
 
 					cell = new PdfPCell[7];
 					for (int i = 0; i < 7; i++) {
@@ -296,11 +296,11 @@ namespace Tren.Views {
 
 					lin = new Paragraph[7];
 					lin[0] = new Paragraph("Vazão Mínima", fonte);
-					lin[1] = new Paragraph(gr.PerdaCargaMin.ToString(), fonte);
-					lin[2] = new Paragraph(gr.PerdaCargaMinObs.ToString(), fonte);
-					lin[3] = new Paragraph(gr.getPertenceASeq.gethMax.ToString(), fonte);
-					lin[4] = new Paragraph(gr.PerdaCargaTotal.ToString(), fonte);
-					lin[5] = new Paragraph(gr.AreaUtilMin.ToString(), fonte);
+					lin[1] = new Paragraph(Math.Round(Convert.ToDouble(gr.PerdaCargaMin), 2).ToString(), fonte);
+					lin[2] = new Paragraph(Math.Round(Convert.ToDouble(gr.PerdaCargaMinObs), 2).ToString(), fonte);
+					lin[3] = new Paragraph(Math.Round(Convert.ToDouble(gr.getPertenceASeq.gethMax), 2).ToString(), fonte);
+					lin[4] = new Paragraph(Math.Round(Convert.ToDouble(gr.PerdaCargaTotal), 2).ToString(), fonte);
+					lin[5] = new Paragraph(Math.Round(Convert.ToDouble(gr.AreaUtilMin), 2).ToString(), fonte);
 					lin[6] = new Paragraph("70", fonte);
 
 					cell = new PdfPCell[7];
@@ -312,11 +312,11 @@ namespace Tren.Views {
 
 					lin = new Paragraph[7];
 					lin[0] = new Paragraph("Vazão Máxima", fonte);
-					lin[1] = new Paragraph(gr.PerdaCargaMax.ToString(), fonte);
-					lin[2] = new Paragraph(gr.PerdaCargaMaxObs.ToString(), fonte);
-					lin[3] = new Paragraph(gr.getPertenceASeq.gethMax.ToString(), fonte);
-					lin[4] = new Paragraph(gr.PerdaCargaTotal.ToString(), fonte);
-					lin[5] = new Paragraph(gr.AreaUtilMax.ToString(), fonte);
+					lin[1] = new Paragraph(Math.Round(Convert.ToDouble(gr.PerdaCargaMax), 2).ToString(), fonte);
+					lin[2] = new Paragraph(Math.Round(Convert.ToDouble(gr.PerdaCargaMaxObs), 2).ToString(), fonte);
+					lin[3] = new Paragraph(Math.Round(Convert.ToDouble(gr.getPertenceASeq.gethMax), 2).ToString(), fonte);
+					lin[4] = new Paragraph(Math.Round(Convert.ToDouble(gr.PerdaCargaTotal), 2).ToString(), fonte);
+					lin[5] = new Paragraph(Math.Round(Convert.ToDouble(gr.AreaUtilMax), 2).ToString(), fonte);
 					lin[6] = new Paragraph("70", fonte);
 
 					cell = new PdfPCell[7];
@@ -351,11 +351,11 @@ namespace Tren.Views {
 
 					lin = new Paragraph[7];
 					lin[0] = new Paragraph("Vazão Mínima", fonte);
-					lin[1] = new Paragraph(gr.Comprimento.ToString(), fonte);
-					lin[2] = new Paragraph(gr.LarguraMin.ToString(), fonte);
-					lin[3] = new Paragraph((gr.NumEspacamento - 1).ToString(), fonte);
-					lin[4] = new Paragraph(gr.NumEspacamento.ToString(), fonte);
-					lin[5] = new Paragraph(gr.CorrecaoEspacamento.ToString(), fonte);
+					lin[1] = new Paragraph(Math.Round(Convert.ToDouble(gr.Comprimento), 2).ToString(), fonte);
+					lin[2] = new Paragraph(Math.Round(Convert.ToDouble(gr.LarguraMin), 2).ToString(), fonte);
+					lin[3] = new Paragraph(Math.Round(Convert.ToDouble((gr.NumEspacamento - 1)), 2).ToString(), fonte);
+					lin[4] = new Paragraph(Math.Round(Convert.ToDouble(gr.NumEspacamento), 2).ToString(), fonte);
+					lin[5] = new Paragraph(Math.Round(Convert.ToDouble(gr.CorrecaoEspacamento), 2).ToString(), fonte);
 					lin[6] = new Paragraph("35", fonte);
 
 					cell = new PdfPCell[7];
@@ -367,11 +367,11 @@ namespace Tren.Views {
 
 					lin = new Paragraph[7];
 					lin[0] = new Paragraph("Vazão Máxima", fonte);
-					lin[1] = new Paragraph(gr.Comprimento.ToString(), fonte);
-					lin[2] = new Paragraph(gr.LarguraMax.ToString(), fonte);
-					lin[3] = new Paragraph((gr.NumEspacamento - 1).ToString(), fonte);
-					lin[4] = new Paragraph(gr.NumEspacamento.ToString(), fonte);
-					lin[5] = new Paragraph(gr.CorrecaoEspacamento.ToString(), fonte);
+					lin[1] = new Paragraph(Math.Round(Convert.ToDouble(gr.Comprimento), 2).ToString(), fonte);
+					lin[2] = new Paragraph(Math.Round(Convert.ToDouble(gr.LarguraMax), 2).ToString(), fonte);
+					lin[3] = new Paragraph(Math.Round(Convert.ToDouble((gr.NumEspacamento - 1)), 2).ToString(), fonte);
+					lin[4] = new Paragraph(Math.Round(Convert.ToDouble(gr.NumEspacamento), 2).ToString(), fonte);
+					lin[5] = new Paragraph(Math.Round(Convert.ToDouble(gr.CorrecaoEspacamento), 2).ToString(), fonte);
 					lin[6] = new Paragraph("35", fonte);
 
 					cell = new PdfPCell[7];
@@ -483,12 +483,12 @@ namespace Tren.Views {
 					}
 
 					lin = new Paragraph[6];
-					lin[0] = new Paragraph(ds.Velocidade.ToString(), fonte);
-					lin[1] = new Paragraph(ds.Largura.ToString(), fonte);
-					lin[2] = new Paragraph(ds.Comprimento.ToString(), fonte);
-					lin[3] = new Paragraph(cp.getPertenceASeq.gethMax.ToString(), fonte);
-					lin[4] = new Paragraph(cp.getPertenceASeq.gethMin.ToString(), fonte);
-					lin[5] = new Paragraph(ds.AreaSuperficial.ToString(), fonte);
+					lin[0] = new Paragraph(Math.Round(Convert.ToDouble(ds.Velocidade), 2).ToString(), fonte);
+					lin[1] = new Paragraph(Math.Round(Convert.ToDouble(ds.Largura), 2).ToString(), fonte);
+					lin[2] = new Paragraph(Math.Round(Convert.ToDouble(ds.Comprimento), 2).ToString(), fonte);
+					lin[3] = new Paragraph(Math.Round(Convert.ToDouble(cp.getPertenceASeq.gethMax), 2).ToString(), fonte);
+					lin[4] = new Paragraph(Math.Round(Convert.ToDouble(cp.getPertenceASeq.gethMin), 2).ToString(), fonte);
+					lin[5] = new Paragraph(Math.Round(Convert.ToDouble(ds.AreaSuperficial), 2).ToString(), fonte);
 
 					cell = new PdfPCell[6];
 					for (int i = 0; i < 6; i++) {
@@ -521,12 +521,12 @@ namespace Tren.Views {
 					}
 
 					lin = new Paragraph[6];
-					lin[0] = new Paragraph(ds.AreaSecao.ToString(), fonte);
+					lin[0] = new Paragraph(Math.Round(Convert.ToDouble(ds.AreaSecao), 2).ToString(), fonte);
 					lin[1] = new Paragraph("tempo", fonte);
-					lin[2] = new Paragraph(ds.TaxaAplicacao.ToString(), fonte);
-					lin[3] = new Paragraph(ds.VolumeDiario.ToString(), fonte);
-					lin[4] = new Paragraph(ds.AlturaAreia.ToString(), fonte);
-					lin[5] = new Paragraph(ds.IntervaloLimpeza.ToString(), fonte);
+					lin[2] = new Paragraph(Math.Round(Convert.ToDouble(ds.TaxaAplicacao), 2).ToString(), fonte);
+					lin[3] = new Paragraph(Math.Round(Convert.ToDouble(ds.VolumeDiario), 2).ToString(), fonte);
+					lin[4] = new Paragraph(Math.Round(Convert.ToDouble(ds.AlturaAreia), 2).ToString(), fonte);
+					lin[5] = new Paragraph(Math.Round(Convert.ToDouble(ds.IntervaloLimpeza), 2).ToString(), fonte);
 
 					cell = new PdfPCell[6];
 					for (int i = 0; i < 6; i++) {
