@@ -68,6 +68,7 @@ namespace Tren.Views {
 			listaViews.Clear();
 			nomeViews.Clear();
 			it = 0;
+			centrais.Clear();
 		}
 
 		public void AddView(View view, string nome) {

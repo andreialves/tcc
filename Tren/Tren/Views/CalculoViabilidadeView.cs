@@ -111,7 +111,7 @@ namespace Tren.Views {
 					Console.WriteLine("hMax " + cp.getPertenceASeq.gethMax);
 				}
 
-				LagoaFacultativa lf = (LagoaFacultativa)(((SequenciaSecundaria)(Pai.Centrais[0].getSequencia[1])).getSeqSecundaria[1][0]);
+				LagoaFacultativa lf = (LagoaFacultativa)(((SequenciaSecundaria)(Pai.Centrais[2].getSequencia[1])).getSeqSecundaria[0][0]);
 				{
 
 					Console.WriteLine("\n\n______Lagoa Facultativa______");
@@ -145,7 +145,7 @@ namespace Tren.Views {
 					var fontPath = Environment.GetEnvironmentVariable("SystemRoot") + "\\fonts\\arial.ttf";
 					FontFactory.Register(fontPath);
 				}
-				iTextSharp.text.Font fonte = FontFactory.GetFont(fontName, 11);
+				iTextSharp.text.Font fonte = FontFactory.GetFont(fontName, 10);
 
 				// Logo Tren
 				Image image = Image.GetInstance(AppDomain.CurrentDomain.BaseDirectory + @"\Imagens\4.png");
@@ -408,8 +408,8 @@ namespace Tren.Views {
 					}
 
 					lin = new Paragraph[5];
-					lin[0] = new Paragraph(cp.getWmm.ToString(), fonte);
-					lin[1] = new Paragraph(cp.getWpol.ToString(), fonte);
+					lin[0] = new Paragraph(cp.getWpol.ToString(), fonte);
+					lin[1] = new Paragraph(cp.getWmm.ToString(), fonte);
 					lin[2] = new Paragraph(cp.getN.ToString(), fonte);
 					lin[3] = new Paragraph(cp.getK.ToString(), fonte);
 					lin[4] = new Paragraph(Math.Round(cp.getHMin, 2).ToString(), fonte);
