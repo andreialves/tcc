@@ -853,7 +853,6 @@ namespace Tren.Views {
 				relatorio.Add(titulo);
 
 				string[] nome = { "P + LF", "P + LA + LF", "P + LA + LF + LM" };
-				double[] valor = { 10, 15, 20 };
 				// Grafico 1
 				Chart grafico = new Chart();
 				grafico.Titles.Add("Área (m²)");
