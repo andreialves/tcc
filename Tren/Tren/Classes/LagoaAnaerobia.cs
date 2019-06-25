@@ -70,6 +70,7 @@ namespace Tren.Classes {
 			} else {
 				qtdLagoas = 2;
 				area = area / 2;
+				volume = volume / 2;
 			}
 		}
 
@@ -86,7 +87,7 @@ namespace Tren.Classes {
 		}
 
 		private void calculaLodoAno() {
-			lodoAno = lodoPessoa * getPertenceASeq.getCentral.getPopulacaoFut;
+			lodoAno = lodoPessoa * getPertenceASeq.getCentral.getPopulacao;
 		}
 
 		private void calculaEspessura() {

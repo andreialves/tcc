@@ -500,36 +500,34 @@ namespace Tren.Views {
 
 				relatorio.Add(tabela);
 				relatorio.Add(new Paragraph("\n"));
-				tabela = new PdfPTable(6);
+				tabela = new PdfPTable(5);
 
 				// Tabela Desarenador 2
 				{
 
-					labels = new Paragraph[6];
+					labels = new Paragraph[5];
 					labels[0] = new Paragraph("Área Transversal (m²)", fonte);
-					labels[1] = new Paragraph("TDH (s)", fonte);
-					labels[2] = new Paragraph("TAS (m²/(m³d))", fonte);
-					labels[3] = new Paragraph("Volume Areia (m³/dia)", fonte);
-					labels[4] = new Paragraph("Altura de Areia (m/dia)", fonte);
-					labels[5] = new Paragraph("Intervalo de Limpeza (dias)", fonte);
+					labels[1] = new Paragraph("TAS (m²/(m³d))", fonte);
+					labels[2] = new Paragraph("Volume Areia (L/dia)", fonte);
+					labels[3] = new Paragraph("Altura de Areia (m/dia)", fonte);
+					labels[4] = new Paragraph("Intervalo de Limpeza (dias)", fonte);
 
-					cell = new PdfPCell[6];
-					for (int i = 0; i < 6; i++) {
+					cell = new PdfPCell[5];
+					for (int i = 0; i < 5; i++) {
 						cell[i] = new PdfPCell();
 						cell[i].AddElement(labels[i]);
 						tabela.AddCell(cell[i]);
 					}
 
-					lin = new Paragraph[6];
+					lin = new Paragraph[5];
 					lin[0] = new Paragraph(Math.Round(Convert.ToDouble(ds.AreaSecao), 2).ToString(), fonte);
-					lin[1] = new Paragraph("tempo", fonte);
-					lin[2] = new Paragraph(Math.Round(Convert.ToDouble(ds.TaxaAplicacao), 2).ToString(), fonte);
-					lin[3] = new Paragraph(Math.Round(Convert.ToDouble(ds.VolumeDiario), 2).ToString(), fonte);
-					lin[4] = new Paragraph(Math.Round(Convert.ToDouble(ds.AlturaAreia), 2).ToString(), fonte);
-					lin[5] = new Paragraph(Math.Round(Convert.ToDouble(ds.IntervaloLimpeza), 2).ToString(), fonte);
+					lin[1] = new Paragraph(Math.Round(Convert.ToDouble(ds.TaxaAplicacao), 2).ToString(), fonte);
+					lin[2] = new Paragraph(Math.Round(Convert.ToDouble(ds.VolumeDiario), 2).ToString(), fonte);
+					lin[3] = new Paragraph(Math.Round(Convert.ToDouble(ds.AlturaAreia), 2).ToString(), fonte);
+					lin[4] = new Paragraph(Math.Round(Convert.ToDouble(ds.IntervaloLimpeza), 2).ToString(), fonte);
 
-					cell = new PdfPCell[6];
-					for (int i = 0; i < 6; i++) {
+					cell = new PdfPCell[5];
+					for (int i = 0; i < 5; i++) {
 						cell[i] = new PdfPCell();
 						cell[i].AddElement(lin[i]);
 						tabela.AddCell(cell[i]);
@@ -609,8 +607,8 @@ namespace Tren.Views {
 				// Segunda Sequência
 				la = (LagoaAnaerobia)(((SequenciaSecundaria)(Pai.Centrais[0].getSequencia[1])).getSeqSecundaria[0][0]);
 				lf = (LagoaFacultativa)(((SequenciaSecundaria)(Pai.Centrais[0].getSequencia[1])).getSeqSecundaria[1][0]);
-				double area2 = la.getArea + lf.getArea;
-				double volume2 = la.getVolume + lf.getVolume;
+				double area2 = la.getQtdLagoas * la.getArea + lf.getArea;
+				double volume2 = la.getQtdLagoas *  la.getVolume + lf.getVolume;
 				double tdh2 = la.getTempoDetHidr + lf.getTempoDetencao;
 
 				// Tabela Lagoa Anaeróbia
@@ -619,9 +617,9 @@ namespace Tren.Views {
 					labels = new Paragraph[9];
 					labels[0] = new Paragraph("Número de lagoas)", fonte);
 					labels[1] = new Paragraph("TDH (dias)", fonte);
-					labels[2] = new Paragraph("Volume (m³)", fonte);
-					labels[3] = new Paragraph("Área (m²)", fonte);
-					labels[4] = new Paragraph("Comprimento e Largura (m)", fonte);
+					labels[2] = new Paragraph("Volume Unitário (m³)", fonte);
+					labels[3] = new Paragraph("Área Unitária (m²)", fonte);
+					labels[4] = new Paragraph("Comprimento e Largura Unitários (m)", fonte);
 					labels[5] = new Paragraph("DBO Saída (Mg/L)", fonte);
 					labels[6] = new Paragraph("Lodo anual (m³/ano)", fonte);
 					labels[7] = new Paragraph("Espessura Anual(m/ano)", fonte);
@@ -713,18 +711,18 @@ namespace Tren.Views {
 				la = (LagoaAnaerobia)(((SequenciaSecundaria)(Pai.Centrais[1].getSequencia[1])).getSeqSecundaria[0][0]);
 				lf = (LagoaFacultativa)(((SequenciaSecundaria)(Pai.Centrais[1].getSequencia[1])).getSeqSecundaria[1][0]);
 				lm = (LagoaMaturacao)(((SequenciaSecundaria)(Pai.Centrais[1].getSequencia[1])).getSeqSecundaria[2][0]);
-				double area3 = la.getArea + lf.getArea + (double)lm.AreaSuperficialTotal;
-				double volume3 = la.getVolume + lf.getVolume + (double)lm.Volume;
-				double tdh3 = la.getTempoDetHidr + lf.getTempoDetencao ;
+				double area3 = la.getQtdLagoas * la.getArea + lf.getArea + (double)lm.AreaSuperficialTotal;
+				double volume3 = la.getQtdLagoas * la.getVolume + lf.getVolume + (double)lm.Volume;
+				double tdh3 = la.getTempoDetHidr + lf.getTempoDetencao + 12;
 
 				// Tabela Lagoa Anaeróbia
 				{
 					labels = new Paragraph[9];
 					labels[0] = new Paragraph("Número de lagoas)", fonte);
 					labels[1] = new Paragraph("TDH (dias)", fonte);
-					labels[2] = new Paragraph("Volume (m³)", fonte);
-					labels[3] = new Paragraph("Área (m²)", fonte);
-					labels[4] = new Paragraph("Comprimento e Largura (m)", fonte);
+					labels[2] = new Paragraph("Volume Unitário (m³)", fonte);
+					labels[3] = new Paragraph("Área Unitária (m²)", fonte);
+					labels[4] = new Paragraph("Comprimento e Largura Unitários (m)", fonte);
 					labels[5] = new Paragraph("DBO Saída (Mg/L)", fonte);
 					labels[6] = new Paragraph("Lodo anual (m³/ano)", fonte);
 					labels[7] = new Paragraph("Espessura Anual(m/ano)", fonte);
@@ -835,7 +833,7 @@ namespace Tren.Views {
 					lin[4] = new Paragraph(Math.Round(Convert.ToDouble(lm.Largura), 2).ToString(), fonte);
 					lin[5] = new Paragraph(Math.Round(Convert.ToDouble(lm.Comprimento), 2).ToString(), fonte);
 					lin[6] = new Paragraph(Math.Round(Convert.ToDouble(lm.ConcentracaoColiformesFinais), 2).ToString(), fonte);
-					lin[7] = new Paragraph(Math.Round(Convert.ToDouble(lm.Eficiencia), 2).ToString(), fonte);
+					lin[7] = new Paragraph(Math.Round(Convert.ToDouble(lm.Eficiencia), 5).ToString(), fonte);
 
 					cell = new PdfPCell[8];
 					for (int i = 0; i < 8; i++) {

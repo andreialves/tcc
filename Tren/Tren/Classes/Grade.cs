@@ -206,7 +206,7 @@ namespace Tren.Classes
 
         public void CalculaPerdaCargaTotal() {
             if (perdaCargaMaxObs != null && getPertenceASeq.gethMax != null) {
-                perdaCargaTotal = perdaCargaMaxObs / getPertenceASeq.gethMax;
+                perdaCargaTotal = perdaCargaMaxObs + getPertenceASeq.gethMax;
             } else {
                 throw new Exception("Perda de Carga Obstruida não calculada.");
             }
@@ -214,7 +214,7 @@ namespace Tren.Classes
 
         public void CalculaBarras() {
             if (larguraCanalMax != null) {
-                double? b = (larguraCanalMax - espacamentoGrade) / (espacamentoGrade + espessuraGrade);
+                double? b = (larguraCanalMax * 1000 - espacamentoGrade) / (espacamentoGrade + espessuraGrade);
                 numeroBarras = int.Parse(Convert.ToString(Math.Round(Convert.ToDouble(b), MidpointRounding.ToEven)));
                 numeroEspacamentos = numeroBarras + 1;
                 Console.WriteLine("Andrei teste " + numeroBarras + " " + numeroEspacamentos + " o b" + Convert.ToDouble(b));
@@ -225,7 +225,7 @@ namespace Tren.Classes
 
         public void CalculaCorrecaoEspaco() {
             if (numeroBarras != null)
-                correcaoBarraLateral = (espacamentoGrade * numeroEspacamentos) + (espessuraGrade * numeroBarras) - larguraCanalMax;
+                correcaoBarraLateral = (espacamentoGrade * numeroEspacamentos) + (espessuraGrade * numeroBarras) - larguraCanalMax*1000;
             else
                 throw new Exception("Numero de Barras não calculado.");
         }

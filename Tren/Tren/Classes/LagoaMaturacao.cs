@@ -36,7 +36,7 @@ namespace Tren.Classes {
             if(getPertenceASeq.getCentral.getVazaoMedFut == null) {
                 throw new Exception("Vazão média futura não calculada.");
             } else {
-                volume = 4 * getPertenceASeq.getCentral.getVazaoMedFut;
+                volume = 4 * getPertenceASeq.getCentral.getVazaoMedFut * 86.4;
             }
         }
 
