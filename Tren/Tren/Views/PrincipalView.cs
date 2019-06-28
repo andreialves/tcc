@@ -12,7 +12,9 @@ namespace Tren.Views {
     public partial class PrincipalView : View {
 		public PrincipalView(InicioView pai) : base(pai) {
 			InitializeComponent();
-		}
+            this.webBrowser1.Navigate(string.Format(@"file://{0}\MaterialApoio.pdf", Application.StartupPath));
+
+        }
 
 		private void Principal_Load(object sender, EventArgs e) {
 

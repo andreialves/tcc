@@ -29,9 +29,13 @@ namespace Tren.Classes
         private double? perdaCargaMinObs = null;
         private double? perdaCargaTotal = null;
         private int? numeroBarras = null;
+        private int? numeroBarrasMin = null;
         private int? numeroEspacamentos = null;
+        private int? numeroEspacamentosMin = null;
         private double? correcaoBarraLateral = null;
+        private double? correcaoBarraLateralMin = null;
         private double? difRetLateral = null;
+        private double? difRetLateralMin = null;
         private double? comprimentoGrade = null;
 
 
@@ -213,25 +217,31 @@ namespace Tren.Classes
         }
 
         public void CalculaBarras() {
-            if (larguraCanalMax != null) {
+            if (larguraCanalMax != null || larguraCanalMin != null) {
                 double? b = (larguraCanalMax * 1000 - espacamentoGrade) / (espacamentoGrade + espessuraGrade);
-                numeroBarras = int.Parse(Convert.ToString(Math.Round(Convert.ToDouble(b), MidpointRounding.ToEven)));
+                numeroBarras = int.Parse(Convert.ToString(Math.Round(Convert.ToDouble(b) + 0.5, MidpointRounding.ToEven)));
                 numeroEspacamentos = numeroBarras + 1;
+
+                double? c = (larguraCanalMin * 1000 - espacamentoGrade) / (espacamentoGrade + espessuraGrade);
+                numeroBarrasMin = int.Parse(Convert.ToString(Math.Round(Convert.ToDouble(c) + 0.5, MidpointRounding.ToEven)));
                 Console.WriteLine("Andrei teste " + numeroBarras + " " + numeroEspacamentos + " o b" + Convert.ToDouble(b));
+                numeroEspacamentosMin = numeroBarras + 1;
             } else {
                 throw new Exception("Largura do Canal não calculada.");
             }
         }
 
         public void CalculaCorrecaoEspaco() {
-            if (numeroBarras != null)
-                correcaoBarraLateral = (espacamentoGrade * numeroEspacamentos) + (espessuraGrade * numeroBarras) - larguraCanalMax*1000;
-            else
+            if (numeroBarras != null || numeroBarrasMin != null) {
+                correcaoBarraLateral = (espacamentoGrade * numeroEspacamentos) + (espessuraGrade * numeroBarras) - larguraCanalMax * 1000;
+                correcaoBarraLateralMin = (espacamentoGrade * numeroEspacamentosMin) + (espessuraGrade * numeroBarrasMin) - larguraCanalMin * 1000;
+            } else
                 throw new Exception("Numero de Barras não calculado.");
         }
 
         public void CalculaDiferencaEspaco() {
-            if (correcaoBarraLateral != null) {
+            if (correcaoBarraLateral != null || correcaoBarraLateralMin != null) {
+                difRetLateralMin = (espacamentoGrade - correcaoBarraLateralMin) / 2;
                 difRetLateral = (espacamentoGrade - correcaoBarraLateral) / 2;
             } else {
                 throw new Exception("Correção dos espaços laterais não calculado.");
@@ -335,6 +345,12 @@ namespace Tren.Classes
                 return numeroEspacamentos;
             }
         }
+        
+        public int? NumEspacamentoMin {
+            get {
+                return numeroEspacamentosMin;
+            }
+        }
         public double? Espacamento {
             get{
                 return espacamentoGrade;
@@ -364,9 +380,21 @@ namespace Tren.Classes
             }
         }
 
+        public double? CorrecaoEspacamentoMin {
+            get {
+                return correcaoBarraLateralMin;
+            }
+        }
+
         public double? DiferencaEspacoLateral {
             get {
                 return difRetLateral;
+            }
+        }
+
+        public double? DiferencaEspacoLateralMin {
+            get {
+                return difRetLateralMin;
             }
         }
 
