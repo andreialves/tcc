@@ -285,7 +285,7 @@ namespace Tren.Views {
 					labels[0] = new Paragraph(" ", fonte);
 					labels[1] = new Paragraph("Hf grade limpa (m)", fonte);
 					labels[2] = new Paragraph("Hf grade 50% suja (m)", fonte);
-					labels[3] = new Paragraph("Hmáx (m)", fonte);
+					labels[3] = new Paragraph("hmáx (m)", fonte);
 					labels[4] = new Paragraph("Hu (m)", fonte);
 					labels[5] = new Paragraph("Área Útil (m²)", fonte);
 					labels[6] = new Paragraph("Ângulo inclinação (°)", fonte);
@@ -356,9 +356,9 @@ namespace Tren.Views {
 					lin[0] = new Paragraph("Vazão Mínima", fonte);
 					lin[1] = new Paragraph(Math.Round(Convert.ToDouble(gr.Comprimento), 2).ToString(), fonte);
 					lin[2] = new Paragraph(Math.Round(Convert.ToDouble(gr.LarguraMin), 2).ToString(), fonte);
-					lin[3] = new Paragraph(Math.Round(Convert.ToDouble((gr.NumEspacamento - 1)), 2).ToString(), fonte);
-					lin[4] = new Paragraph(Math.Round(Convert.ToDouble(gr.NumEspacamento), 2).ToString(), fonte);
-					lin[5] = new Paragraph(Math.Round(Convert.ToDouble(gr.CorrecaoEspacamento), 2).ToString(), fonte);
+					lin[3] = new Paragraph(Math.Round(Convert.ToDouble((gr.NumEspacamentoMin - 1)), 2).ToString(), fonte);
+					lin[4] = new Paragraph(Math.Round(Convert.ToDouble(gr.NumEspacamentoMin), 2).ToString(), fonte);
+					lin[5] = new Paragraph(Math.Round(Convert.ToDouble(gr.CorrecaoEspacamentoMin), 2).ToString(), fonte);
 					lin[6] = new Paragraph("35", fonte);
 
 					cell = new PdfPCell[7];

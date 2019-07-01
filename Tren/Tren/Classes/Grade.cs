@@ -119,8 +119,8 @@ namespace Tren.Classes
                     throw new Exception("Tipo de limpeza diferente dos existentes.");
                 } else {
                     tipoLimpeza = value;
-                    if (value == 1) velocidade = 1.2;
-                    else velocidade = 0.8;
+                    if (value == 1) velocidade = 0.8;
+                    else velocidade = 1.2;
                 }
             }
         }

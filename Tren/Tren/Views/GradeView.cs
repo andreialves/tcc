@@ -39,9 +39,9 @@ namespace Tren.Views {
 				tipoG = 3;
 
 			int tipoLimpeza = 0;
-			if (limpezaMec)
+			if (limpezaMan)
 				tipoLimpeza = 1;
-			else if (limpezaMan)
+			else if (limpezaMec)
 				tipoLimpeza = 2;
 
 			if (tipoG == 0 || tipoLimpeza == 0 || espessura == "" || espacamento == "") {
