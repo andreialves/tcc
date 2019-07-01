@@ -82,6 +82,7 @@ namespace Tren.Views {
                     Console.WriteLine("num espacamento min " + gr.NumEspacamento);
 					Console.WriteLine("correção " + gr.CorrecaoEspacamento);
                     Console.WriteLine("correção min " + gr.CorrecaoEspacamentoMin);
+                    Console.WriteLine("tipo limpeza " + gr.TipoLimpeza);
 				}
 
 				Desarenador ds = (Desarenador)(((SequenciaPreliminar)(Pai.Centrais[0].getSequencia[0])).getSeqPreliminar[1]);
@@ -304,7 +305,10 @@ namespace Tren.Views {
                     lin[3] = new Paragraph(Math.Round(Convert.ToDouble(gr.getPertenceASeq.gethMax), 2).ToString(), fonte);
                     lin[4] = new Paragraph(Math.Round(Convert.ToDouble(gr.PerdaCargaTotal), 2).ToString(), fonte);
                     lin[5] = new Paragraph(Math.Round(Convert.ToDouble(gr.AreaUtilMax), 2).ToString(), fonte);
-                    lin[6] = new Paragraph("70", fonte);
+                    if (gr.TipoLimpeza == 1)
+                        lin[6] = new Paragraph("70", fonte);
+                    else
+                        lin[6] = new Paragraph("60", fonte);
 
                     cell = new PdfPCell[7];
 					for (int i = 0; i < 7; i++) {
@@ -320,7 +324,10 @@ namespace Tren.Views {
                     lin[3] = new Paragraph(Math.Round(Convert.ToDouble(gr.getPertenceASeq.gethMax), 2).ToString(), fonte);
                     lin[4] = new Paragraph(Math.Round(Convert.ToDouble(gr.PerdaCargaTotal), 2).ToString(), fonte);
                     lin[5] = new Paragraph(Math.Round(Convert.ToDouble(gr.AreaUtilMin), 2).ToString(), fonte);
-                    lin[6] = new Paragraph("70", fonte);
+                    if (gr.TipoLimpeza == 1)
+                        lin[6] = new Paragraph("70", fonte);
+                    else
+                        lin[6] = new Paragraph("60", fonte);
 
                     cell = new PdfPCell[7];
 					for (int i = 0; i < 7; i++) {

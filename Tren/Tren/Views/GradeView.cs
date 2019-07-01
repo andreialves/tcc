@@ -40,9 +40,9 @@ namespace Tren.Views {
 
 			int tipoLimpeza = 0;
 			if (limpezaMan)
-				tipoLimpeza = 1;
-			else if (limpezaMec)
 				tipoLimpeza = 2;
+			else if (limpezaMec)
+				tipoLimpeza = 1;
 
 			if (tipoG == 0 || tipoLimpeza == 0 || espessura == "" || espacamento == "") {
 				return;

@@ -119,9 +119,12 @@ namespace Tren.Classes
                     throw new Exception("Tipo de limpeza diferente dos existentes.");
                 } else {
                     tipoLimpeza = value;
-                    if (value == 1) velocidade = 0.8;
-                    else velocidade = 1.2;
+                    if (value == 1) velocidade = 1.2;
+                    else velocidade = 0.8;
                 }
+            }
+            get {
+                return tipoLimpeza;
             }
         }
 
@@ -251,10 +254,10 @@ namespace Tren.Classes
             if (perdaCargaTotal != null) {
                 switch (tipoLimpeza) {
                     case 1:
-                        comprimentoGrade = Convert.ToDouble(perdaCargaTotal) / Math.Sin(a: Math.PI / 3);
+                        comprimentoGrade = Convert.ToDouble(perdaCargaTotal) / Math.Sin(a: 7 * Math.PI / 18);
                         break;
                     case 2:
-                        comprimentoGrade = Convert.ToDouble(perdaCargaTotal) / Math.Sin(a: 7 * Math.PI / 18);
+                        comprimentoGrade = Convert.ToDouble(perdaCargaTotal) / Math.Sin(a: Math.PI / 3);
                         break;
                     default:
                         throw new Exception("Tipo de Grade não selecionado.");
@@ -420,5 +423,6 @@ namespace Tren.Classes
                 return tabelaGrade;
             }
         }
+
     }
 }
