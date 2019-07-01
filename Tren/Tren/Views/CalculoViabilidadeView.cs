@@ -372,9 +372,9 @@ namespace Tren.Views {
 					lin[0] = new Paragraph("Vazão Máxima", fonte);
 					lin[1] = new Paragraph(Math.Round(Convert.ToDouble(gr.Comprimento), 2).ToString(), fonte);
 					lin[2] = new Paragraph(Math.Round(Convert.ToDouble(gr.LarguraMax), 2).ToString(), fonte);
-					lin[3] = new Paragraph(Math.Round(Convert.ToDouble((gr.NumEspacamentoMin - 1)), 2).ToString(), fonte);
-					lin[4] = new Paragraph(Math.Round(Convert.ToDouble(gr.NumEspacamentoMin), 2).ToString(), fonte);
-					lin[5] = new Paragraph(Math.Round(Convert.ToDouble(gr.CorrecaoEspacamentoMin), 2).ToString(), fonte);
+					lin[3] = new Paragraph(Math.Round(Convert.ToDouble((gr.NumEspacamento - 1)), 2).ToString(), fonte);
+					lin[4] = new Paragraph(Math.Round(Convert.ToDouble(gr.NumEspacamento), 2).ToString(), fonte);
+					lin[5] = new Paragraph(Math.Round(Convert.ToDouble(gr.CorrecaoEspacamento), 2).ToString(), fonte);
 					lin[6] = new Paragraph("35", fonte);
 
 					cell = new PdfPCell[7];
