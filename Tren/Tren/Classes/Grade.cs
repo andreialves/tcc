@@ -165,8 +165,8 @@ namespace Tren.Classes
         }
 
         public void CalculaLarguraCanalLinha() {
-            if (secaoCanalMin != null && getPertenceASeq.gethMax != null) {
-                larguraCanalMin = secaoCanalMin / getPertenceASeq.gethMax;
+            if (secaoCanalMin != null && getPertenceASeq.gethMin != null) {
+                larguraCanalMin = secaoCanalMin / getPertenceASeq.gethMin;
             } else {
                 throw new Exception("S' ou Altura mínima não calculadas.");
             }
@@ -219,12 +219,13 @@ namespace Tren.Classes
         public void CalculaBarras() {
             if (larguraCanalMax != null || larguraCanalMin != null) {
                 double? b = (larguraCanalMax * 1000 - espacamentoGrade) / (espacamentoGrade + espessuraGrade);
-                numeroBarras = int.Parse(Convert.ToString(Math.Round(Convert.ToDouble(b))));
+                numeroBarras = int.Parse(Convert.ToString(Math.Round(Convert.ToDouble(b) + 0.5, MidpointRounding.ToEven)));
                 numeroEspacamentos = numeroBarras + 1;
 
                 double? c = (larguraCanalMin * 1000 - espacamentoGrade) / (espacamentoGrade + espessuraGrade);
-                numeroBarrasMin = int.Parse(Convert.ToString(Math.Round(Convert.ToDouble(c))));
-                numeroEspacamentosMin = numeroBarrasMin + 1;
+                numeroBarrasMin = int.Parse(Convert.ToString(Math.Round(Convert.ToDouble(c) + 0.5, MidpointRounding.ToEven)));
+                Console.WriteLine("Andrei teste " + numeroBarras + " " + numeroEspacamentos + " o b" + Convert.ToDouble(b));
+                numeroEspacamentosMin = numeroBarras + 1;
             } else {
                 throw new Exception("Largura do Canal não calculada.");
             }
@@ -232,8 +233,8 @@ namespace Tren.Classes
 
         public void CalculaCorrecaoEspaco() {
             if (numeroBarras != null || numeroBarrasMin != null) {
-                correcaoBarraLateral = (espacamentoGrade * numeroEspacamentos) + (espessuraGrade * numeroBarras) - (larguraCanalMax * 1000);
-                correcaoBarraLateralMin = (espacamentoGrade * numeroEspacamentosMin) + (espessuraGrade * numeroBarrasMin) - (larguraCanalMin * 1000);
+                correcaoBarraLateral = (espacamentoGrade * numeroEspacamentos) + (espessuraGrade * numeroBarras) - larguraCanalMax * 1000;
+                correcaoBarraLateralMin = (espacamentoGrade * numeroEspacamentosMin) + (espessuraGrade * numeroBarrasMin) - larguraCanalMin * 1000;
             } else
                 throw new Exception("Numero de Barras não calculado.");
         }
