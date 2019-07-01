@@ -298,15 +298,15 @@ namespace Tren.Views {
 					}
 
 					lin = new Paragraph[7];
-					lin[0] = new Paragraph("Vazão Mínima", fonte);
-					lin[1] = new Paragraph(Math.Round(Convert.ToDouble(gr.PerdaCargaMin), 2).ToString(), fonte);
-					lin[2] = new Paragraph(Math.Round(Convert.ToDouble(gr.PerdaCargaMinObs), 2).ToString(), fonte);
-					lin[3] = new Paragraph(Math.Round(Convert.ToDouble(gr.getPertenceASeq.gethMax), 2).ToString(), fonte);
-					lin[4] = new Paragraph(Math.Round(Convert.ToDouble(gr.PerdaCargaTotal), 2).ToString(), fonte);
-					lin[5] = new Paragraph(Math.Round(Convert.ToDouble(gr.AreaUtilMin), 2).ToString(), fonte);
-					lin[6] = new Paragraph("70", fonte);
+                    lin[0] = new Paragraph("Vazão Máxima", fonte);
+                    lin[1] = new Paragraph(Math.Round(Convert.ToDouble(gr.PerdaCargaMax), 2).ToString(), fonte);
+                    lin[2] = new Paragraph(Math.Round(Convert.ToDouble(gr.PerdaCargaMaxObs), 2).ToString(), fonte);
+                    lin[3] = new Paragraph(Math.Round(Convert.ToDouble(gr.getPertenceASeq.gethMax), 2).ToString(), fonte);
+                    lin[4] = new Paragraph(Math.Round(Convert.ToDouble(gr.PerdaCargaTotal), 2).ToString(), fonte);
+                    lin[5] = new Paragraph(Math.Round(Convert.ToDouble(gr.AreaUtilMax), 2).ToString(), fonte);
+                    lin[6] = new Paragraph("70", fonte);
 
-					cell = new PdfPCell[7];
+                    cell = new PdfPCell[7];
 					for (int i = 0; i < 7; i++) {
 						cell[i] = new PdfPCell();
 						cell[i].AddElement(lin[i]);
@@ -314,15 +314,15 @@ namespace Tren.Views {
 					}
 
 					lin = new Paragraph[7];
-					lin[0] = new Paragraph("Vazão Máxima", fonte);
-					lin[1] = new Paragraph(Math.Round(Convert.ToDouble(gr.PerdaCargaMax), 2).ToString(), fonte);
-					lin[2] = new Paragraph(Math.Round(Convert.ToDouble(gr.PerdaCargaMaxObs), 2).ToString(), fonte);
-					lin[3] = new Paragraph(Math.Round(Convert.ToDouble(gr.getPertenceASeq.gethMax), 2).ToString(), fonte);
-					lin[4] = new Paragraph(Math.Round(Convert.ToDouble(gr.PerdaCargaTotal), 2).ToString(), fonte);
-					lin[5] = new Paragraph(Math.Round(Convert.ToDouble(gr.AreaUtilMax), 2).ToString(), fonte);
-					lin[6] = new Paragraph("70", fonte);
+                    lin[0] = new Paragraph("Vazão Mínima", fonte);
+                    lin[1] = new Paragraph(Math.Round(Convert.ToDouble(gr.PerdaCargaMin), 2).ToString(), fonte);
+                    lin[2] = new Paragraph(Math.Round(Convert.ToDouble(gr.PerdaCargaMinObs), 2).ToString(), fonte);
+                    lin[3] = new Paragraph(Math.Round(Convert.ToDouble(gr.getPertenceASeq.gethMax), 2).ToString(), fonte);
+                    lin[4] = new Paragraph(Math.Round(Convert.ToDouble(gr.PerdaCargaTotal), 2).ToString(), fonte);
+                    lin[5] = new Paragraph(Math.Round(Convert.ToDouble(gr.AreaUtilMin), 2).ToString(), fonte);
+                    lin[6] = new Paragraph("70", fonte);
 
-					cell = new PdfPCell[7];
+                    cell = new PdfPCell[7];
 					for (int i = 0; i < 7; i++) {
 						cell[i] = new PdfPCell();
 						cell[i].AddElement(lin[i]);
@@ -353,31 +353,31 @@ namespace Tren.Views {
 					}
 
 					lin = new Paragraph[7];
-					lin[0] = new Paragraph("Vazão Mínima", fonte);
-					lin[1] = new Paragraph(Math.Round(Convert.ToDouble(gr.Comprimento), 2).ToString(), fonte);
-					lin[2] = new Paragraph(Math.Round(Convert.ToDouble(gr.LarguraMin), 2).ToString(), fonte);
-					lin[3] = new Paragraph(Math.Round(Convert.ToDouble((gr.NumEspacamentoMin - 1)), 2).ToString(), fonte);
-					lin[4] = new Paragraph(Math.Round(Convert.ToDouble(gr.NumEspacamentoMin), 2).ToString(), fonte);
-					lin[5] = new Paragraph(Math.Round(Convert.ToDouble(gr.CorrecaoEspacamentoMin), 2).ToString(), fonte);
-					lin[6] = new Paragraph("35", fonte);
+                    lin[0] = new Paragraph("Vazão Máxima", fonte);
+                    lin[1] = new Paragraph(Math.Round(Convert.ToDouble(gr.Comprimento), 2).ToString(), fonte);
+                    lin[2] = new Paragraph(Math.Round(Convert.ToDouble(gr.LarguraMax), 2).ToString(), fonte);
+                    lin[3] = new Paragraph(Math.Round(Convert.ToDouble((gr.NumEspacamento - 1)), 2).ToString(), fonte);
+                    lin[4] = new Paragraph(Math.Round(Convert.ToDouble(gr.NumEspacamento), 2).ToString(), fonte);
+                    lin[5] = new Paragraph(Math.Round(Convert.ToDouble(gr.CorrecaoEspacamento), 2).ToString(), fonte);
+                    lin[6] = new Paragraph("35", fonte);
 
-					cell = new PdfPCell[7];
+                    cell = new PdfPCell[7];
 					for (int i = 0; i < 7; i++) {
 						cell[i] = new PdfPCell();
 						cell[i].AddElement(lin[i]);
 						tabela.AddCell(cell[i]);
 					}
 
-					lin = new Paragraph[7];
-					lin[0] = new Paragraph("Vazão Máxima", fonte);
-					lin[1] = new Paragraph(Math.Round(Convert.ToDouble(gr.Comprimento), 2).ToString(), fonte);
-					lin[2] = new Paragraph(Math.Round(Convert.ToDouble(gr.LarguraMax), 2).ToString(), fonte);
-					lin[3] = new Paragraph(Math.Round(Convert.ToDouble((gr.NumEspacamento - 1)), 2).ToString(), fonte);
-					lin[4] = new Paragraph(Math.Round(Convert.ToDouble(gr.NumEspacamento), 2).ToString(), fonte);
-					lin[5] = new Paragraph(Math.Round(Convert.ToDouble(gr.CorrecaoEspacamento), 2).ToString(), fonte);
-					lin[6] = new Paragraph("35", fonte);
+                    lin = new Paragraph[7];
+                    lin[0] = new Paragraph("Vazão Mínima", fonte);
+                    lin[1] = new Paragraph(Math.Round(Convert.ToDouble(gr.Comprimento), 2).ToString(), fonte);
+                    lin[2] = new Paragraph(Math.Round(Convert.ToDouble(gr.LarguraMin), 2).ToString(), fonte);
+                    lin[3] = new Paragraph(Math.Round(Convert.ToDouble((gr.NumEspacamentoMin - 1)), 2).ToString(), fonte);
+                    lin[4] = new Paragraph(Math.Round(Convert.ToDouble(gr.NumEspacamentoMin), 2).ToString(), fonte);
+                    lin[5] = new Paragraph(Math.Round(Convert.ToDouble(gr.CorrecaoEspacamentoMin), 2).ToString(), fonte);
+                    lin[6] = new Paragraph("35", fonte);
 
-					cell = new PdfPCell[7];
+                    cell = new PdfPCell[7];
 					for (int i = 0; i < 7; i++) {
 						cell[i] = new PdfPCell();
 						cell[i].AddElement(lin[i]);
