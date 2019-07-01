@@ -12,8 +12,8 @@ namespace Tren.Views {
     public partial class PrincipalView : View {
 		public PrincipalView(InicioView pai) : base(pai) {
 			InitializeComponent();
-            this.webBrowser1.Navigate(string.Format(@"file://{0}\MaterialApoio.pdf", Application.StartupPath));
-
+            this.webBrowser1.Navigate(string.Format(AppDomain.CurrentDomain.BaseDirectory + @"MaterialApoio.pdf"));
+            
         }
 
 		private void Principal_Load(object sender, EventArgs e) {
