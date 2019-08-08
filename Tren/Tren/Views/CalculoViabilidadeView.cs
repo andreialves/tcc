@@ -174,8 +174,8 @@ namespace Tren.Views {
 					labels[3] = new Paragraph("Vazão Máxima Futura (L/s)", fonte);
 					labels[4] = new Paragraph("Vazão Média Futura (L/s)", fonte);
 					labels[5] = new Paragraph("Vazão Mínima Futura (L/s)", fonte);
-					labels[6] = new Paragraph("Pupulação", fonte);
-					labels[7] = new Paragraph("Popupação Futura", fonte);
+					labels[6] = new Paragraph("Pup", fonte);
+					labels[7] = new Paragraph("Pop Fut", fonte);
 					labels[8] = new Paragraph("DBO (mg/L)", fonte);
 
 
@@ -230,12 +230,12 @@ namespace Tren.Views {
 
 					labels = new Paragraph[7];
 					labels[0] = new Paragraph(" ", fonte);
-					labels[1] = new Paragraph("Espaçamento (mm)", fonte);
+					labels[1] = new Paragraph("Esp (mm)", fonte);
 					labels[2] = new Paragraph("Espessura (mm)", fonte);
 					labels[3] = new Paragraph("Eficiência (%)", fonte);
 					labels[4] = new Paragraph("Velocidade Máxima (m/s)", fonte);
 					labels[5] = new Paragraph("Seção do Canal (m²)", fonte);
-					labels[6] = new Paragraph("Velocidade de aprox. (m/s)", fonte);
+					labels[6] = new Paragraph("Velocidade de Aprox (m/s)", fonte);
 					
 					for (int i = 0; i < 7; i++) {
 						cell[i] = new PdfPCell();
@@ -284,12 +284,12 @@ namespace Tren.Views {
 
 					labels = new Paragraph[7];
 					labels[0] = new Paragraph(" ", fonte);
-					labels[1] = new Paragraph("Hf grade limpa (m)", fonte);
-					labels[2] = new Paragraph("Hf grade 50% suja (m)", fonte);
+					labels[1] = new Paragraph("Hf Grade Limpa (m)", fonte);
+					labels[2] = new Paragraph("Hf Grade 50% Suja (m)", fonte);
 					labels[3] = new Paragraph("hmáx (m)", fonte);
 					labels[4] = new Paragraph("Hu (m)", fonte);
 					labels[5] = new Paragraph("Área Útil (m²)", fonte);
-					labels[6] = new Paragraph("Ângulo inclinação (°)", fonte);
+					labels[6] = new Paragraph("Ângulo Inclinação (°)", fonte);
 
 					cell = new PdfPCell[7];
 					for (int i = 0; i < 7; i++) {
@@ -345,10 +345,10 @@ namespace Tren.Views {
 
 					labels = new Paragraph[7];
 					labels[0] = new Paragraph(" ", fonte);
-					labels[1] = new Paragraph("Comprimento (m)", fonte);
+					labels[1] = new Paragraph("Comp (m)", fonte);
 					labels[2] = new Paragraph("Largura (m)", fonte);
-					labels[3] = new Paragraph("Número de barras", fonte);
-					labels[4] = new Paragraph("Número espaçamento", fonte);
+					labels[3] = new Paragraph("Número de Barras", fonte);
+					labels[4] = new Paragraph("Nº Esp", fonte);
 					labels[5] = new Paragraph("Correção (mm)", fonte);
 					labels[6] = new Paragraph("e (mm)", fonte);
 
@@ -625,15 +625,15 @@ namespace Tren.Views {
 				{
 
 					labels = new Paragraph[9];
-					labels[0] = new Paragraph("Número de lagoas)", fonte);
+					labels[0] = new Paragraph("Número de Lagoas)", fonte);
 					labels[1] = new Paragraph("TDH (dias)", fonte);
 					labels[2] = new Paragraph("Volume Unitário (m³)", fonte);
 					labels[3] = new Paragraph("Área Unitária (m²)", fonte);
-					labels[4] = new Paragraph("Comprimento e Largura Unitários (m)", fonte);
+					labels[4] = new Paragraph("Comp e Largura Unitários (m)", fonte);
 					labels[5] = new Paragraph("DBO Saída (Mg/L)", fonte);
-					labels[6] = new Paragraph("Lodo anual (m³/ano)", fonte);
-					labels[7] = new Paragraph("Espessura Anual(m/ano)", fonte);
-					labels[8] = new Paragraph("Espessura Futura (m/ano)", fonte);
+					labels[6] = new Paragraph("Lodo Anual (m³/ano)", fonte);
+					labels[7] = new Paragraph("Esp Anual (m/ano)", fonte);
+					labels[8] = new Paragraph("Esp Futura (m/ano)", fonte);
 
 					cell = new PdfPCell[9];
 					for (int i = 0; i < 9; i++) {
@@ -728,15 +728,15 @@ namespace Tren.Views {
 				// Tabela Lagoa Anaeróbia
 				{
 					labels = new Paragraph[9];
-					labels[0] = new Paragraph("Número de lagoas)", fonte);
+					labels[0] = new Paragraph("Número de Lagoas)", fonte);
 					labels[1] = new Paragraph("TDH (dias)", fonte);
 					labels[2] = new Paragraph("Volume Unitário (m³)", fonte);
 					labels[3] = new Paragraph("Área Unitária (m²)", fonte);
-					labels[4] = new Paragraph("Comprimento e Largura Unitários (m)", fonte);
+					labels[4] = new Paragraph("Comp e Largura Unitários (m)", fonte);
 					labels[5] = new Paragraph("DBO Saída (Mg/L)", fonte);
-					labels[6] = new Paragraph("Lodo anual (m³/ano)", fonte);
-					labels[7] = new Paragraph("Espessura Anual(m/ano)", fonte);
-					labels[8] = new Paragraph("Espessura Futura (m/ano)", fonte);
+					labels[6] = new Paragraph("Lodo Anual (m³/ano)", fonte);
+					labels[7] = new Paragraph("Esp Anual (m/ano)", fonte);
+					labels[8] = new Paragraph("Esp Futura (m/ano)", fonte);
 
 					cell = new PdfPCell[9];
 					for (int i = 0; i < 9; i++) {
@@ -819,13 +819,13 @@ namespace Tren.Views {
 				// Tabela Lagoa de Maturação
 				{
 					labels = new Paragraph[8];
-					labels[0] = new Paragraph("Número de lagoas)", fonte);
+					labels[0] = new Paragraph("Número de Lagoas)", fonte);
 					labels[1] = new Paragraph("Volume Unitário (m³)", fonte);
 					labels[2] = new Paragraph("Área Unitária (m²)", fonte);
 					labels[3] = new Paragraph("Área Total(m²)", fonte);
 					labels[4] = new Paragraph("Largura (m)", fonte);
-					labels[5] = new Paragraph("Comprimento (m)", fonte);
-					labels[6] = new Paragraph("Concentração de Coliformes Saída (CF/100ml)", fonte);
+					labels[5] = new Paragraph("Comp (m)", fonte);
+					labels[6] = new Paragraph("Conc de E.coli Saída (CF/100ml)", fonte);
 					labels[7] = new Paragraph("Eficiência do Sistema (%)", fonte);
 
 					cell = new PdfPCell[8];
