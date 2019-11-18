@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Tren.Interfaces;
 
 namespace Tren.Classes {
 	public class SequenciaPreliminar : Sequencia {
@@ -19,6 +19,10 @@ namespace Tren.Classes {
 
 		public void adicionar(UnidadePreliminar a) {
 			sequenciaPreliminar.Add(a);
+		}
+
+		public override void accept(Visitor v) {
+			v.visit(this);
 		}
 
 		public double? gethMin {

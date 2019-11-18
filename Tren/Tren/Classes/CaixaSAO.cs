@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tren.Interfaces;
 
 namespace Tren.Classes {
 	public class CaixaSAO : UnidadePreliminar {
@@ -71,7 +72,10 @@ namespace Tren.Classes {
 			volume = comprimento * largura * profundidade;
 			tempoRes = volume / (getPertenceASeq.getCentral.getVazaoMaxFut * 60);
 		}
-	
+
+		public override void accept(Visitor v) {
+			v.visit(this);
+		}
 
 		public double getVHorizontal {
 			get {

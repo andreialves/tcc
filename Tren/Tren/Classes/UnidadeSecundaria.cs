@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tren.Interfaces;
 
 namespace Tren.Classes
 {
-	public class UnidadeSecundaria {
+	public abstract class UnidadeSecundaria {
 		private SequenciaSecundaria pertenceASeq;
 
 		protected double dboEntrada;
@@ -16,6 +17,8 @@ namespace Tren.Classes
 		public UnidadeSecundaria(SequenciaSecundaria ss) {
 			pertenceASeq = ss;
 		}
+
+		public abstract void accept(Visitor v);
 
 		public SequenciaSecundaria getPertenceASeq {
 			get { return pertenceASeq; }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tren.Interfaces;
 
 namespace Tren.Classes {
     public class LagoaMaturacao : UnidadeSecundaria {
@@ -101,7 +102,11 @@ namespace Tren.Classes {
             eficienciaRemocaoColiMax = ((coliformesIniciais - coliformesFinais) / coliformesIniciais) * 100;
         }
 
-        public double? Volume {
+		public override void accept(Visitor v) {
+			v.visit(this);
+		}
+
+		public double? Volume {
             get {
                 return volume;
             }

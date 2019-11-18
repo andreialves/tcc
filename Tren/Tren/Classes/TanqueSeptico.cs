@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tren.Interfaces;
 
 namespace Tren.Classes {
     public class TanqueSeptico : UnidadeSecundaria{
@@ -33,5 +34,9 @@ namespace Tren.Classes {
         public TanqueSeptico(int tempoLimpeza, double temperaturaMesFrio, SequenciaSecundaria ss) : base(ss) {
 
         }
-    }
+
+		public override void accept(Visitor v) {
+			v.visit(this);
+		}
+	}
 }

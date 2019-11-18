@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tren.Interfaces;
 
 namespace Tren.Classes {
 	public class SequenciaSecundaria : Sequencia {
@@ -22,6 +23,10 @@ namespace Tren.Classes {
 				sequenciaSecundaria[pos].Add(us);
 			else
 				throw new System.ArgumentException("Parametro com valor invalido", "pos");
+		}
+
+		public override void accept(Visitor v) {
+			v.visit(this);
 		}
 
 		public List<List<UnidadeSecundaria>> getSeqSecundaria {

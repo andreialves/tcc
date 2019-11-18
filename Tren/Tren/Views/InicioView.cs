@@ -32,6 +32,7 @@ namespace Tren.Views {
             mainPanel.Controls.Add(boasVindas);
             boasVindas.Show();
 			
+			
 		}
 
 		public void avancaView() {

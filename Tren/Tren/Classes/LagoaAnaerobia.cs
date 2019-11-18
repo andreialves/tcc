@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tren.Interfaces;
 
 namespace Tren.Classes {
 	public class LagoaAnaerobia : UnidadeSecundaria {
@@ -96,6 +97,10 @@ namespace Tren.Classes {
 
 		private void calculaEspessuraFut() {
 			espessuraFut = espessura * 20;
+		}
+
+		public override void accept(Visitor v) {
+			v.visit(this);
 		}
 
 		public int getQtdLagoas {
