@@ -24,7 +24,7 @@ namespace Tren.Classes {
 
 		public VisitorPDF(Document doc) {
 			pdf = doc;
-			
+
 			if (!FontFactory.IsRegistered("Arial")) {
 				var fontPath = Environment.GetEnvironmentVariable("SystemRoot") + "\\fonts\\arial.ttf";
 				FontFactory.Register(fontPath);
@@ -51,7 +51,7 @@ namespace Tren.Classes {
 
 			// INICIO TABELA 1
 			PdfPTable tabela = new PdfPTable(5);
-			
+
 			Paragraph[] labels = new Paragraph[5];
 			labels[0] = new Paragraph("W (pol)", fonte);
 			labels[1] = new Paragraph("W (mm)", fonte);
@@ -79,15 +79,15 @@ namespace Tren.Classes {
 				cell[i].AddElement(lin[i]);
 				tabela.AddCell(cell[i]);
 			}
-			
+
 			pdf.Add(tabela);
 			// FIM TABELA 1
 
 			pdf.Add(new Paragraph("\n"));
-			
+
 			// INICIO TABELA 2
 			tabela = new PdfPTable(4);
-			
+
 			labels = new Paragraph[4];
 			labels[0] = new Paragraph("Hmax (m)", fonte);
 			labels[1] = new Paragraph("Z (m)", fonte);
@@ -379,7 +379,7 @@ namespace Tren.Classes {
 
 			pdf.Add(new Paragraph("\n"));
 		}
-		
+
 		public void visit(LagoaAnaerobia la) {
 			Paragraph titulo = new Paragraph("\nLagoa Anaeróbia\n\n", fonteTitulo);
 			titulo.Alignment = Element.ALIGN_CENTER;
@@ -598,7 +598,7 @@ namespace Tren.Classes {
 			pdf.Add(tabela);
 			// FIM TABELA
 
-			
+
 			graficoArea = new Chart();
 			graficoArea.Titles.Add("Área (m²)");
 			graficoArea.ChartAreas.Add(new ChartArea());
@@ -625,12 +625,12 @@ namespace Tren.Classes {
 
 			foiPreliminar = false;
 			cont = 1;
-			foreach(CentralTratamento c in listC) {
+			foreach (CentralTratamento c in listC) {
 				areaTotCentral = 0;
 				volumeTotCentral = 0;
 				tdhTotCentral = 0;
 				eficienciaTotCentral = 0;
-				foreach(Sequencia s in c.getSequencia)
+				foreach (Sequencia s in c.getSequencia)
 					s.accept(this);
 				cont++;
 			}
@@ -680,7 +680,7 @@ namespace Tren.Classes {
 
 			foiPreliminar = true;
 
-			foreach(UnidadePreliminar up in sp.getSeqPreliminar) {
+			foreach (UnidadePreliminar up in sp.getSeqPreliminar) {
 				up.accept(this);
 			}
 		}
