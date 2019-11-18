@@ -92,6 +92,7 @@
     <Compile Include="Classes\LagoaAnaerobia.cs" />
     <Compile Include="Classes\LagoaFacultativa.cs" />
     <Compile Include="Classes\LagoaMaturacao.cs" />
+    <Compile Include="Classes\ReatorUASB.cs" />
     <Compile Include="Classes\TanqueSeptico.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -183,6 +184,18 @@
     <Compile Include="Views\LagoaMaturacaoView.Designer.cs">
       <DependentUpon>LagoaMaturacaoView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\OcupantesPermanentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\OcupantesPermanentes.Designer.cs">
+      <DependentUpon>OcupantesPermanentes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OcupantesTemporarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\OcupantesTemporarios.Designer.cs">
+      <DependentUpon>OcupantesTemporarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\PDFView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +208,12 @@
     <Compile Include="Views\PrincipalView.Designer.cs">
       <DependentUpon>PrincipalView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ReatorUASBView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ReatorUASBView.Designer.cs">
+      <DependentUpon>ReatorUASBView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\SelecaoSeqColView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +225,12 @@
     </Compile>
     <Compile Include="Views\SelecaoSeqIndView.Designer.cs">
       <DependentUpon>SelecaoSeqIndView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TanqueSepticoView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TanqueSepticoView.Designer.cs">
+      <DependentUpon>TanqueSepticoView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\View.cs">
       <SubType>Form</SubType>
@@ -289,17 +314,29 @@
     <EmbeddedResource Include="Views\LagoaMaturacaoView.resx">
       <DependentUpon>LagoaMaturacaoView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\OcupantesPermanentes.resx">
+      <DependentUpon>OcupantesPermanentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OcupantesTemporarios.resx">
+      <DependentUpon>OcupantesTemporarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\PDFView.resx">
       <DependentUpon>PDFView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PrincipalView.resx">
       <DependentUpon>PrincipalView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ReatorUASBView.resx">
+      <DependentUpon>ReatorUASBView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\SelecaoSeqColView.resx">
       <DependentUpon>SelecaoSeqColView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SelecaoSeqIndView.resx">
       <DependentUpon>SelecaoSeqIndView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TanqueSepticoView.resx">
+      <DependentUpon>TanqueSepticoView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\View.resx">
       <DependentUpon>View.cs</DependentUpon>

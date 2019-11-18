@@ -41,7 +41,7 @@ namespace Tren.Classes {
 				}
 			} catch (Exception) {
 				throw new Exception("CalhaParshall::carregaTabela - Erro na leitura de tabelaCalhas");
-;			}
+			}
 		}
 
 		public void calcula() {
