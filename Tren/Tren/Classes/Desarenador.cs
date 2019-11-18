@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
+using Tren.Interfaces;
 
 namespace Tren.Classes {
     public class Desarenador : UnidadePreliminar {
@@ -133,7 +134,11 @@ namespace Tren.Classes {
             return vh > 4;
         }
 
-        public double? Largura {
+		public override void accept(Visitor v) {
+			v.visit(this);
+		}
+
+		public double? Largura {
             get{ return larguraDesarenador; }
         }
 

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
 using System.IO;
+using Tren.Interfaces;
 
 
 namespace Tren.Classes {
@@ -67,6 +68,10 @@ namespace Tren.Classes {
 			desnivel = (vazaoMaxFut * HMin - vazaoMin * HMax) / (vazaoMaxFut - vazaoMin);
 			getPertenceASeq.gethMin = HMin - desnivel;
 			getPertenceASeq.gethMax = HMax - desnivel;
+		}
+
+		public override void accept(Visitor v) {
+			v.visit(this);
 		}
 
 		public int getWmm {

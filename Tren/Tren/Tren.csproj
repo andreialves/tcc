@@ -92,8 +92,10 @@
     <Compile Include="Classes\LagoaAnaerobia.cs" />
     <Compile Include="Classes\LagoaFacultativa.cs" />
     <Compile Include="Classes\LagoaMaturacao.cs" />
-    <Compile Include="Classes\ReatorUASB.cs" />
     <Compile Include="Classes\TanqueSeptico.cs" />
+    <Compile Include="Interfaces\SequenciaInterface.cs" />
+    <Compile Include="Interfaces\UnidadePreliminarInterface.cs" />
+    <Compile Include="Interfaces\Visitor.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -208,12 +210,6 @@
     <Compile Include="Views\PrincipalView.Designer.cs">
       <DependentUpon>PrincipalView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ReatorUASBView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\ReatorUASBView.Designer.cs">
-      <DependentUpon>ReatorUASBView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\SelecaoSeqColView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -325,9 +321,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PrincipalView.resx">
       <DependentUpon>PrincipalView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\ReatorUASBView.resx">
-      <DependentUpon>ReatorUASBView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SelecaoSeqColView.resx">
       <DependentUpon>SelecaoSeqColView.cs</DependentUpon>

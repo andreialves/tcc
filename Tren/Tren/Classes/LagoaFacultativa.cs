@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tren.Interfaces;
 
 namespace Tren.Classes {
 	public class LagoaFacultativa : UnidadeSecundaria{
@@ -37,6 +38,10 @@ namespace Tren.Classes {
 			volume = area * altura;
 			tempoDetHidraulica = volume / (getPertenceASeq.getCentral.getVazaoMedFut * 86.4);
 			dboSaida = 0.2 * dboEntrada;
+		}
+
+		public override void accept(Visitor v) {
+			v.visit(this);
 		}
 
 		public double getArea {

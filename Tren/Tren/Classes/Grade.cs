@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tren.Interfaces;
 
 namespace Tren.Classes
 {
@@ -265,7 +266,11 @@ namespace Tren.Classes
             }
         }
 
-        public double? SecaoCanalMax {
+		public override void accept(Visitor v) {
+			v.visit(this);
+		}
+
+		public double? SecaoCanalMax {
             get {
                 return secaoCanalMax;
             }
