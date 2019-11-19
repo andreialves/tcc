@@ -212,6 +212,12 @@
     <Compile Include="Views\PrincipalView.Designer.cs">
       <DependentUpon>PrincipalView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\SecundariaDinamica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SecundariaDinamica.Designer.cs">
+      <DependentUpon>SecundariaDinamica.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\SelecaoSeqColView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -323,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PrincipalView.resx">
       <DependentUpon>PrincipalView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SecundariaDinamica.resx">
+      <DependentUpon>SecundariaDinamica.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SelecaoSeqColView.resx">
       <DependentUpon>SelecaoSeqColView.cs</DependentUpon>

@@ -586,7 +586,7 @@ namespace Tren.Classes {
             pdf.Add(tabela);
             // FIM TABELA
 
-            throw new NotImplementedException();
+			// colocar os valores de area, volume, tdh e eficiencia nas variaveis do grafico
         }
 
 		public void visit(List<CentralTratamento> listC) {
