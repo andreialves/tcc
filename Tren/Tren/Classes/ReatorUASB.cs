@@ -127,7 +127,7 @@ namespace Tren.Classes {
 
         public void converteMassaMetano() {
             try {
-                prodMassaLodo = cargaConvertidaMetano / fatorCorrecaoTemp;
+                conversaoMassaMetano = cargaConvertidaMetano / fatorCorrecaoTemp;
             } catch (Exception) {
                 throw new Exception("Reator UASB: Carga de DQO ou Fator de Correcao de Temperatura não calculado!");
             }
@@ -135,7 +135,7 @@ namespace Tren.Classes {
 
         public void calculaBiogas() {
             try {
-                producaoBiogas = prodMassaLodo / 0.7;
+                producaoBiogas = conversaoMassaMetano / 0.7;
             } catch (Exception) {
                 throw new Exception("Reator UASB: Conversão de Massa de Metano em Produção Volumetrica não realizada!");
             }
