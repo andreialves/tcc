@@ -586,7 +586,14 @@ namespace Tren.Classes {
             pdf.Add(tabela);
             // FIM TABELA
 
-			// colocar os valores de area, volume, tdh e eficiencia nas variaveis do grafico
+            // colocar os valores de area, volume, tdh e eficiencia nas variaveis do grafico
+
+            pdf.Add(new Paragraph("\n"));
+
+            areaTotCentral += (double)reatorUASB.AreaRequerida;
+            volumeTotCentral += (double)reatorUASB.VolumeTotal;
+            tdhTotCentral += ((double)reatorUASB.detencaoHidraulica/24);
+            eficienciaTotCentral += (100 - eficienciaTotCentral) * 0.65;
         }
 
 		public void visit(List<CentralTratamento> listC) {

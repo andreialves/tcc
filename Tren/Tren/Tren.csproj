@@ -212,6 +212,12 @@
     <Compile Include="Views\PrincipalView.Designer.cs">
       <DependentUpon>PrincipalView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ReatorUASBView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ReatorUASBView.Designer.cs">
+      <DependentUpon>ReatorUASBView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\SecundariaDinamica.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -329,6 +335,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PrincipalView.resx">
       <DependentUpon>PrincipalView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ReatorUASBView.resx">
+      <DependentUpon>ReatorUASBView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SecundariaDinamica.resx">
       <DependentUpon>SecundariaDinamica.cs</DependentUpon>

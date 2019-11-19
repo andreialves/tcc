@@ -122,6 +122,35 @@ namespace Tren.Views {
 				Pai.Centrais.Add(central);
 			}
 
+            if (cbx_PRu.Checked) {
+                // Adiciona telas necessárias para coletar os dados da sequencia P + LF
+                Pai.AddView(new CentralDeTratamento0View(dados, Pai), "Central0");
+                Pai.AddView(new View(Pai), "CentralX");
+                Pai.AddView(new GradeView(dados, Pai), "Grade");
+                Pai.AddView(new DesarenadorView(dados, Pai), "Desarenador");
+                Pai.AddView(new LagoaFacultativaView2(Pai), "LagoaFacultativa");
+                Pai.AddView(new ReatorUASBView(dados, Pai), "ReatorUasb");
+
+                // Cria central que representa essa sequencia de unidades
+                CentralTratamento central = new CentralTratamento();
+                SequenciaPreliminar seqP = new SequenciaPreliminar(central);
+                central.adicionar(seqP);
+
+                CalhaParshall calha = new CalhaParshall(seqP);
+                Desarenador des = new Desarenador(seqP);
+                Grade grd = new Grade(seqP);
+                seqP.adicionar(calha);
+                seqP.adicionar(des);
+                seqP.adicionar(grd);
+
+                SequenciaSecundaria seqS = new SequenciaSecundaria(central);
+                central.adicionar(seqS);
+
+                ReatorUASB reator = new ReatorUASB(seqS);
+                seqS.adicionarEmSerie(reator);
+                Pai.Centrais.Add(central);
+            }
+
 
 			Pai.AddView(new CalculoViabilidadeView(dados, Pai), "Calculo");
 

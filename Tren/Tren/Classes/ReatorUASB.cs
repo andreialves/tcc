@@ -13,7 +13,7 @@ namespace Tren.Classes {
         private double? sst = null;
         private double? tempMesFrio = null;
         private double? cargaDQODiaria = null;
-        private double? tempoDetHidraulica = null;
+        private int? tempoDetHidraulica = null;
         private double? volumeTotalReatores = null;
         private int? minimoReatores = null;
         private double? volumeUtilReator = null;
@@ -35,13 +35,23 @@ namespace Tren.Classes {
             this.dbo = dbo;
             this.dqo = dqo;
             this.tempMesFrio = tempMesFrio;
-            carregaTabela();
+
+            calculaTDH();
+
         }
 
+        public ReatorUASB (SequenciaSecundaria ss) : base(ss) {
 
-        public void carregaTabela() {
-            // Implementar as tabelas
         }
+
+        public void calculaTDH() {
+            try {
+                if (tempMesFrio < 18) { tempoDetHidraulica = 10; } else if (tempMesFrio < 22 && tempMesFrio >= 18) { tempoDetHidraulica = 8; } else if (tempMesFrio < 25 && tempMesFrio >= 22) { tempoDetHidraulica = 7; } else if (tempMesFrio >= 25) { tempoDetHidraulica = 6; }
+            } catch (Exception) {
+                throw new Exception("Reator UASB: Temperatura do Mês mais frio não informada!");
+            }
+        }
+
 
         public void calculaCargaDQO() {
             try {
@@ -51,9 +61,17 @@ namespace Tren.Classes {
             }
         }
 
+        public void calculaVolumeTotal() {
+            try {
+                volumeTotalReatores = (getPertenceASeq.getCentral.getVazaoMaxFut * tempoDetHidraulica) / 24;
+            }catch (Exception) {
+                throw new Exception("Reator UASB: Vazão máxima futura não foi calculada!");
+            }
+        }
+
         public void calculaReatores() {
             try {
-                minimoReatores = int.Parse(Convert.ToString(Math.Round(Convert.ToDouble(volumeTotalReatores / 2000))));
+                minimoReatores = int.Parse(Convert.ToString(Math.Round(Convert.ToDouble(volumeTotalReatores / 2000)+0.5)));
             } catch (Exception) {
                 throw new Exception("Reator UASB: Volume total dos reatores não foi calculada!");
             }
@@ -180,6 +198,36 @@ namespace Tren.Classes {
         public double? DqoFinal {
             get {
                 return dqoSai;
+            }
+        }
+
+        public int? detencaoHidraulica {
+            get {
+                return tempoDetHidraulica;
+            }
+        }
+
+        public double? dboSet {
+            set {
+                dbo = value;
+            }
+        }
+
+        public double? dqoSet {
+            set {
+                dqo = value;
+            }
+        }
+
+        public double? sstSet {
+            set {
+                sst = value;
+            }
+        }
+
+        public double? temp {
+            set {
+                tempMesFrio = value;
             }
         }
 
