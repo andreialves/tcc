@@ -29,6 +29,10 @@ namespace Tren.Views {
             if (vTipicoDQO) dqo = "100";
             if (vTipicoSST) sst = "180";
 
+            if ((!vTipicoDBO && dbo == "") || (!vTipicoDQO && dqo == "") || (!vTipicoSST && sst == "") || (temperatura =="")) return;
+           
+            
+
             dados["dbo"] = dbo;
             dados["dqo"] = dqo;
             dados["sst"] = sst;
