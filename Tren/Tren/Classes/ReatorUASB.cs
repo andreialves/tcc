@@ -20,7 +20,6 @@ namespace Tren.Classes {
         private double? areaTransversalReator = null;
         private double? areaTotal = null;
         private double? prodMassaLodo = null;
-        private double? dboEnt = null;
         private double? dqoEnt = null;
         private double? dboSai = null;
         private double? dqoSai = null;
@@ -111,10 +110,10 @@ namespace Tren.Classes {
 
         public void calculaEficienciaRemocao() {
             try {
-                dboEnt = (50 / (getPertenceASeq.getCentral.getVazaoMaxFut / getPertenceASeq.getCentral.getPopulacaoFut)) / 1000;
+                dboEntrada = (50 / (getPertenceASeq.getCentral.getVazaoMaxFut / getPertenceASeq.getCentral.getPopulacaoFut)) / 1000;
                 dqoEnt = (100 / (getPertenceASeq.getCentral.getVazaoMaxFut / getPertenceASeq.getCentral.getPopulacaoFut)) / 1000;
 
-                dboSai = (0.35 * dboEnt);
+                dboSaida = (0.35 * dboEntrada);
                 dqoSai = (0.30 * dqoEnt);
             } catch (Exception) {
                 throw new Exception("Reator UASB: População não informada!");
