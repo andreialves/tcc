@@ -19,5 +19,6 @@ namespace Tren.Interfaces {
 		void visit(List<CentralTratamento> listC);
 		void visit(SequenciaPreliminar sp);
 		void visit(SequenciaSecundaria ss);
-	}
+        void visit(ReatorUASB reatorUASB);
+    }
 }

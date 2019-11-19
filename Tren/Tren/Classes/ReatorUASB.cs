@@ -3,38 +3,188 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tren.Interfaces;
 
 namespace Tren.Classes {
-    class ReatorUASB : UnidadeSecundaria{
+    public class ReatorUASB : UnidadeSecundaria {
 
-        private double dbo;
-        private double dqo;
-        private double sst;
-        private double valorTipico;
-        private double tempMesFrio;
-        private double cargaDQODiaria;
-        private double tempoDetHidraulica;
-        private double volumeTotalReatores;
-        private int mimReatores;
-        private double volumeUtilReator;
-        private double areaTransversalReator;
-        private double areaTotal;
-        private double prodMassaLodo;
-        private double dboEntrada;
-        private double dqoEntrada;
-        private double dboSaida;
-        private double dqoSaida;
-        private double dqoEntradaAjustada;
-        private double dqoSaidaAjustada;
-        private double cargaConvertidaMetano;
-        private double fatorCorrecaoTemp;
-        private double conversaoMassaMetano;
-        private double producaoBioGas;
-        
-        ReatorUASB (SequenciaSecundaria us) : base(us) {
+        private double? dbo = null;
+        private double? dqo = null;
+        private double? sst = null;
+        private double? tempMesFrio = null;
+        private double? cargaDQODiaria = null;
+        private double? tempoDetHidraulica = null;
+        private double? volumeTotalReatores = null;
+        private int? minimoReatores = null;
+        private double? volumeUtilReator = null;
+        private double? areaTransversalReator = null;
+        private double? areaTotal = null;
+        private double? prodMassaLodo = null;
+        private double? dboEnt = null;
+        private double? dqoEnt = null;
+        private double? dboSai = null;
+        private double? dqoSai = null;
+        private double? dqoEntradaAjustada = null;
+        private double? dqoSaidaAjustada = null;
+        private double? cargaConvertidaMetano = null;
+        private double? fatorCorrecaoTemp = null;
+        private double? conversaoMassaMetano = null;
+        private double? producaoBiogas = null;
 
+        public ReatorUASB(double dbo, double dqo, double sst, double tempMesFrio, SequenciaSecundaria ss) : base(ss) {
+            this.dbo = dbo;
+            this.dqo = dqo;
+            this.tempMesFrio = tempMesFrio;
+            carregaTabela();
         }
 
 
+        public void carregaTabela() {
+            // Implementar as tabelas
+        }
+
+        public void calculaCargaDQO() {
+            try {
+                cargaDQODiaria = (100 * getPertenceASeq.getCentral.getPopulacaoFut) / 1000;
+            }catch (Exception) {
+                throw new Exception("Reator UASB: População não informada!");
+            }
+        }
+
+        public void calculaReatores() {
+            try {
+                minimoReatores = int.Parse(Convert.ToString(Math.Round(Convert.ToDouble(volumeTotalReatores / 2000))));
+            } catch (Exception) {
+                throw new Exception("Reator UASB: Volume total dos reatores não foi calculada!");
+            }
+        }
+
+        public void calculaVolumeUtil() {
+            try {
+                volumeUtilReator = volumeTotalReatores / minimoReatores;
+            } catch (Exception) {
+                throw new Exception("Reator UASB: Volume total ou número de retores não calculados!");
+            }
+        }
+
+        public void calculaAreaTransversal() {
+            try {
+                areaTransversalReator = volumeUtilReator / 5;
+            } catch (Exception) {
+                throw new Exception("Reator UASB: Volume útil dos reatores não calculado!");
+            }
+        }
+
+        public void calculaAreaTotal() {
+            try {
+                areaTotal = areaTransversalReator * minimoReatores;
+            } catch (Exception) {
+                throw new Exception("Reator UASB: Área Trasversal não calculada!");
+            }
+        }
+
+        public void calculaLodoGerado() {
+            try {
+                prodMassaLodo = (0.18 * cargaDQODiaria) / (1020 * 0.04);
+            } catch (Exception) {
+                throw new Exception("Reator UASB: Carga de DQO diária não calculada!");
+            }
+        }
+
+        public void calculaEficienciaRemocao() {
+            try {
+                dboEnt = (50 / (getPertenceASeq.getCentral.getVazaoMaxFut / getPertenceASeq.getCentral.getPopulacaoFut)) / 1000;
+                dqoEnt = (100 / (getPertenceASeq.getCentral.getVazaoMaxFut / getPertenceASeq.getCentral.getPopulacaoFut)) / 1000;
+
+                dboSai = (0.35 * dboEnt);
+                dqoSai = (0.30 * dqoEnt);
+            } catch (Exception) {
+                throw new Exception("Reator UASB: População não informada!");
+            }
+        }
+
+        public void ajustaDQO() {
+            try {
+                dqoEntradaAjustada = dqoEnt * 1000;
+                dqoSaidaAjustada = dqoSai * 1000;
+            } catch (Exception) {
+                throw new Exception("Reator UASB: DQO de entrada e de saída não calculados!");
+            }
+        }
+
+        public void calculaCargaDQOEstimado() {
+            try {
+                cargaConvertidaMetano = (getPertenceASeq.getCentral.getVazaoMed * (dqoEntradaAjustada - dqoSaidaAjustada))
+                                        - (0.11 * (getPertenceASeq.getCentral.getVazaoMed * dqoEntradaAjustada));
+            } catch (Exception) {
+                throw new Exception("Reator UASB: DQO não ajustado!");
+            }
+        }
+
+        public void calculaFatorCorrecao() {
+                fatorCorrecaoTemp = (60) / (0.08206 * (273 + tempMesFrio));
+        }
+
+        public void converteMassaMetano() {
+            try {
+                prodMassaLodo = cargaConvertidaMetano / fatorCorrecaoTemp;
+            } catch (Exception) {
+                throw new Exception("Reator UASB: Carga de DQO ou Fator de Correcao de Temperatura não calculado!");
+            }
+        }
+
+        public void calculaBiogas() {
+            try {
+                producaoBiogas = prodMassaLodo / 0.7;
+            } catch (Exception) {
+                throw new Exception("Reator UASB: Conversão de Massa de Metano em Produção Volumetrica não realizada!");
+            }
+        }
+
+        public double? VolumeTotal {
+            get {
+                return volumeTotalReatores;
+            }
+        }
+        
+        public double? AreaRequerida {
+            get {
+                return areaTotal;
+            }
+        }
+
+        public int? NumReatores {
+            get {
+                return minimoReatores;
+            }
+        }
+
+        public double? ProducaoLodo {
+            get {
+                return prodMassaLodo;
+            }
+        }
+
+        public double? ProducaoGas {
+            get {
+                return producaoBiogas;
+            }
+        }
+
+        public double? DboFinal {
+            get {
+                return dboSai;
+            }
+        }
+
+        public double? DqoFinal {
+            get {
+                return dqoSai;
+            }
+        }
+
+        public override void accept(Visitor v) {
+            v.visit(this);
+        }
     }
 }

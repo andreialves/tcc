@@ -540,6 +540,55 @@ namespace Tren.Classes {
 			throw new NotImplementedException();
 		}
 
+        public void visit(ReatorUASB reatorUASB) {
+
+            Paragraph titulo = new Paragraph("\nReator UASB\n\n", fonteTitulo);
+            titulo.Alignment = Element.ALIGN_CENTER;
+            pdf.Add(titulo);
+
+
+            // INICIO TABELA
+
+            PdfPTable tabela = new PdfPTable(7);
+            Paragraph[] labels = new Paragraph[7];
+            labels[0] = new Paragraph("Volume Total (m³)", fonte);
+            labels[1] = new Paragraph("Área requerida (m²)", fonte);
+            labels[2] = new Paragraph("Número de Reatores", fonte);
+            labels[3] = new Paragraph("Produção de Lodo (m³/d)", fonte);
+            labels[4] = new Paragraph("Produção de Gás(m³/d)", fonte);
+            labels[5] = new Paragraph("DBO Final (mg/L)", fonte);
+            labels[6] = new Paragraph("DQO Final (mg/L)", fonte);
+
+            PdfPCell[] cell = new PdfPCell[7];
+            for (int i = 0; i < 7; i++) {
+                cell[i] = new PdfPCell();
+                cell[i].AddElement(labels[i]);
+                tabela.AddCell(cell[i]);
+            }
+
+            Paragraph[] lin = new Paragraph[7];
+            lin[0] = new Paragraph(Math.Round(Convert.ToDouble(reatorUASB.VolumeTotal), 2).ToString(), fonte);
+            lin[1] = new Paragraph(Math.Round(Convert.ToDouble(reatorUASB.AreaRequerida), 2).ToString(), fonte);
+            lin[2] = new Paragraph(Math.Round(Convert.ToDouble(reatorUASB.NumReatores), 2).ToString(), fonte);
+            lin[3] = new Paragraph(Math.Round(Convert.ToDouble(reatorUASB.ProducaoLodo), 2).ToString(), fonte);
+            lin[4] = new Paragraph(Math.Round(Convert.ToDouble(reatorUASB.ProducaoGas), 2).ToString(), fonte);
+            lin[5] = new Paragraph(Math.Round(Convert.ToDouble(reatorUASB.DboFinal), 2).ToString(), fonte);
+            lin[6] = new Paragraph(Math.Round(Convert.ToDouble(reatorUASB.DqoFinal), 2).ToString(), fonte);
+
+
+            cell = new PdfPCell[7];
+            for (int i = 0; i < 7; i++) {
+                cell[i] = new PdfPCell();
+                cell[i].AddElement(lin[i]);
+                tabela.AddCell(cell[i]);
+            }
+
+            pdf.Add(tabela);
+            // FIM TABELA
+
+            throw new NotImplementedException();
+        }
+
 		public void visit(List<CentralTratamento> listC) {
 			Image image = Image.GetInstance(AppDomain.CurrentDomain.BaseDirectory + @"\Imagens\4.png");
 			image.Alignment = Image.ALIGN_CENTER;
