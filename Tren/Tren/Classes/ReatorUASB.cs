@@ -39,9 +39,7 @@ namespace Tren.Classes {
 
         }
 
-        public ReatorUASB (SequenciaSecundaria ss) : base(ss) {
-
-        }
+        public ReatorUASB (SequenciaSecundaria ss) : base(ss) {   }
 
         public void calculaTDH() {
             try {
@@ -50,11 +48,10 @@ namespace Tren.Classes {
                 throw new Exception("Reator UASB: Temperatura do Mês mais frio não informada!");
             }
         }
-
-
+        
         public void calculaCargaDQO() {
             try {
-                cargaDQODiaria = (100 * getPertenceASeq.getCentral.getPopulacaoFut) / 1000;
+                cargaDQODiaria = (dqo * getPertenceASeq.getCentral.getPopulacaoFut) / 1000;
             }catch (Exception) {
                 throw new Exception("Reator UASB: População não informada!");
             }
@@ -62,7 +59,7 @@ namespace Tren.Classes {
 
         public void calculaVolumeTotal() {
             try {
-                volumeTotalReatores = (getPertenceASeq.getCentral.getVazaoMaxFut * tempoDetHidraulica) / 24;
+                volumeTotalReatores = (getPertenceASeq.getCentral.getVazaoMaxFut) * (tempoDetHidraulica / 24);
             }catch (Exception) {
                 throw new Exception("Reator UASB: Vazão máxima futura não foi calculada!");
             }
@@ -110,9 +107,9 @@ namespace Tren.Classes {
 
         public void calculaEficienciaRemocao() {
             try {
-                dboEntrada = (50 / (getPertenceASeq.getCentral.getVazaoMaxFut / getPertenceASeq.getCentral.getPopulacaoFut)) / 1000;
-                dqoEnt = (100 / (getPertenceASeq.getCentral.getVazaoMaxFut / getPertenceASeq.getCentral.getPopulacaoFut)) / 1000;
-
+                dboEntrada = Convert.ToDouble(dbo / getPertenceASeq.getCentral.getQPC) / 1000;
+                dqoEnt = (dqo / getPertenceASeq.getCentral.getQPC) / 1000;
+                Console.WriteLine(getPertenceASeq.getCentral.getQPC);
                 dboSaida = (0.35 * dboEntrada);
                 dqoSai = (0.30 * dqoEnt);
             } catch (Exception) {
@@ -139,7 +136,7 @@ namespace Tren.Classes {
         }
 
         public void calculaFatorCorrecao() {
-                fatorCorrecaoTemp = (60) / (0.08206 * (273 + tempMesFrio));
+                fatorCorrecaoTemp = (64) / (0.08206 * (273 + tempMesFrio));
         }
 
         public void converteMassaMetano() {
@@ -232,6 +229,15 @@ namespace Tren.Classes {
 
         public override void accept(Visitor v) {
             v.visit(this);
+        }
+
+        public void print() {
+            Console.WriteLine(dbo);
+            Console.WriteLine(dqo);
+            Console.WriteLine(cargaDQODiaria);
+            Console.WriteLine(volumeTotalReatores);
+
+            
         }
     }
 }

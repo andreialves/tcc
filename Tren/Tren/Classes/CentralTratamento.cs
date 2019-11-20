@@ -181,6 +181,9 @@ namespace Tren.Classes {
 				dbo = value;
 			}
 		}
+        public double getQPC {
+            get { return qpc; }
+        }
 		public List<Sequencia> getSequencia {
 			get {
 				return sequencia;
