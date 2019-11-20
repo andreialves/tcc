@@ -172,6 +172,9 @@ namespace Tren.Classes {
 		public int getPopulacaoFut {
 			get { return populacaoFut; }
 		}
+        public double getQPC {
+            get { return qpc; }
+        }
 		public List<Sequencia> getSequencia {
 			get {
 				return sequencia;

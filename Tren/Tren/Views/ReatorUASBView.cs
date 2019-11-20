@@ -71,12 +71,16 @@ namespace Tren.Views {
                                     reator.calculaFatorCorrecao();
                                     reator.converteMassaMetano();
                                     reator.calculaBiogas();
+
+                                    reator.print();
                                 }
                             }
                         }
                     }
                 }
             }
+
+            
 
             Pai.avancaView();
             Hide();
