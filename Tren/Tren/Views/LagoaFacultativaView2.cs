@@ -36,7 +36,7 @@ namespace Tren.Views {
 										double dbo = unidadeAnt.getDBOSaida;
 										((LagoaFacultativa)u).setDados(dbo, temp);
 									} else {
-										((LagoaFacultativa)u).setDados(((LagoaFacultativa)u).DBOEntrada, temp);
+										((LagoaFacultativa)u).setDados(c.DBOEntrada, temp);
 									}
 									((LagoaFacultativa)u).calcula();
 								}

@@ -637,7 +637,7 @@ namespace Tren.Classes {
 			lin[6] = new Paragraph(ct.getPopulacao.ToString(), fonte);
 			lin[7] = new Paragraph(ct.getPopulacaoFut.ToString(), fonte);
 			//lin[8] = new Paragraph(Math.Round(la.DBOEntrada, 2).ToString(), fonte);
-			lin[8] = new Paragraph("N/A", fonte);
+			lin[8] = new Paragraph(ct.DBOEntrada.ToString(), fonte);
 
 			var cel = new PdfPCell[9];
 			for (int i = 0; i < 9; i++) {

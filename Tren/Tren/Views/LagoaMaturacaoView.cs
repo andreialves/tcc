@@ -44,10 +44,18 @@ namespace Tren.Views {
 			foreach (var c in Pai.Centrais) {
 				foreach (var s in c.getSequencia) {
 					if (s.GetType() == typeof(SequenciaSecundaria)) {
+						UnidadeSecundaria unidadeAnt = null;
 						foreach (var l in ((SequenciaSecundaria)s).getSeqSecundaria) {
 							foreach (var u in l) {
 								if (u.GetType() == typeof(LagoaMaturacao)) {
 									LagoaMaturacao lm = ((LagoaMaturacao)u);
+									
+									if (unidadeAnt != null) {
+										double dbo = unidadeAnt.getDBOSaida;
+										lm.DBOEntrada = dbo;
+									} else {
+										lm.DBOEntrada = c.DBOEntrada;
+									}
 									lm.ColiformesInicias = col;
 									lm.TemperaturaLiquido = temp;
 									lm.CalculaVolume();
@@ -60,6 +68,7 @@ namespace Tren.Views {
 									lm.CalculaConcentracaoColiformes();
 									lm.CalculaEficiencia();
 								}
+								unidadeAnt = u;
 							}
 						}
 					}

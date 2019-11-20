@@ -138,7 +138,6 @@ namespace Tren.Classes {
 				return espessuraFut;
 			}
 		}
-
 		public double getTempoDetHidr {
 			get {
 				return tempoDetHidraulica;

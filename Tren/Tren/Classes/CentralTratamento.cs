@@ -17,6 +17,7 @@ namespace Tren.Classes {
 		private double vazaoMinFut;
 		private int populacao;
 		private int populacaoFut;
+		private double dbo;
 
 		private double qpc;
 		private double extensaoRede;
@@ -171,6 +172,14 @@ namespace Tren.Classes {
 		}
 		public int getPopulacaoFut {
 			get { return populacaoFut; }
+		}
+		public double DBOEntrada {
+			get {
+				return dbo;
+			}
+			set {
+				dbo = value;
+			}
 		}
 		public List<Sequencia> getSequencia {
 			get {

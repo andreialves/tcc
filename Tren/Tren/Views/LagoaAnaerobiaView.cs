@@ -17,35 +17,31 @@ namespace Tren.Views {
 		}
 		
 		private void bt_lagoaAnaerobia_avancar_Click(object sender, EventArgs e) {
-			string dboEntrada = txb_dboEntrada.Text;
 			string taxaVolumetrica = cb_taxaVolumetrica.Text;
 
-			if (dboEntrada == "" || taxaVolumetrica == "") {
+			if (taxaVolumetrica == "") {
 				return;
 			}
-
-			double dbo = double.Parse(dboEntrada);
+			
 			double txVol = double.Parse(taxaVolumetrica);
-
-			foreach (var c in Pai.Centrais) {
-				foreach (var s in c.getSequencia) {
-					if (s.GetType() == typeof(SequenciaSecundaria)) {
-						((SequenciaSecundaria)s).getSeqSecundaria[0][0].DBOEntrada = dbo;
-						break;
-					}
-				}
-			}
-
+			
 			try {
 				foreach (var c in Pai.Centrais) {
 					foreach (var s in c.getSequencia) {
 						if (s.GetType() == typeof(SequenciaSecundaria)) {
+							UnidadeSecundaria unidadeAnt = null;
 							foreach (var l in ((SequenciaSecundaria)s).getSeqSecundaria) {
 								foreach (var u in l) {
 									if (u.GetType() == typeof(LagoaAnaerobia)) {
-										((LagoaAnaerobia)u).setDados(dbo, txVol);
+										if (unidadeAnt != null) {
+											double dbo = unidadeAnt.getDBOSaida;
+											((LagoaAnaerobia)u).setDados(dbo, txVol);
+										} else {
+											((LagoaAnaerobia)u).setDados(c.DBOEntrada, txVol);
+										}
 										((LagoaAnaerobia)u).calcula();
 									}
+									unidadeAnt = u;
 								}
 							}
 						}

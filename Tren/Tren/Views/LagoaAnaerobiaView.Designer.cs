@@ -27,10 +27,7 @@
 			this.bt_LagoaAnaerobia_voltar = new MetroFramework.Controls.MetroButton();
 			this.bt_lagoaAnaerobia_avancar = new MetroFramework.Controls.MetroButton();
 			this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-			this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
 			this.lb_taxaVolumetrica = new MetroFramework.Controls.MetroLabel();
-			this.txb_dboEntrada = new MetroFramework.Controls.MetroTextBox();
-			this.lb_dbo = new MetroFramework.Controls.MetroLabel();
 			this.lb_aviso = new MetroFramework.Controls.MetroLabel();
 			this.cb_taxaVolumetrica = new System.Windows.Forms.ComboBox();
 			this.SuspendLayout();
@@ -67,53 +64,27 @@
 			// metroLabel1
 			// 
 			this.metroLabel1.AutoSize = true;
-			this.metroLabel1.Location = new System.Drawing.Point(583, 242);
+			this.metroLabel1.Location = new System.Drawing.Point(583, 196);
 			this.metroLabel1.Name = "metroLabel1";
-			this.metroLabel1.Size = new System.Drawing.Size(90, 19);
+			this.metroLabel1.Size = new System.Drawing.Size(62, 19);
 			this.metroLabel1.TabIndex = 71;
-			this.metroLabel1.Text = "KgDBO/(m³d)";
-			// 
-			// metroLabel3
-			// 
-			this.metroLabel3.AutoSize = true;
-			this.metroLabel3.Location = new System.Drawing.Point(583, 175);
-			this.metroLabel3.Name = "metroLabel3";
-			this.metroLabel3.Size = new System.Drawing.Size(72, 19);
-			this.metroLabel3.TabIndex = 70;
-			this.metroLabel3.Text = "mg DBO/L";
+			this.metroLabel1.Text = "Kg/(m³d)";
 			// 
 			// lb_taxaVolumetrica
 			// 
 			this.lb_taxaVolumetrica.AutoSize = true;
-			this.lb_taxaVolumetrica.Location = new System.Drawing.Point(175, 242);
+			this.lb_taxaVolumetrica.Location = new System.Drawing.Point(175, 196);
 			this.lb_taxaVolumetrica.Name = "lb_taxaVolumetrica";
 			this.lb_taxaVolumetrica.Size = new System.Drawing.Size(107, 19);
 			this.lb_taxaVolumetrica.TabIndex = 69;
 			this.lb_taxaVolumetrica.Text = "Taxa Volumétrica";
-			// 
-			// txb_dboEntrada
-			// 
-			this.txb_dboEntrada.Location = new System.Drawing.Point(339, 171);
-			this.txb_dboEntrada.Name = "txb_dboEntrada";
-			this.txb_dboEntrada.Size = new System.Drawing.Size(238, 23);
-			this.txb_dboEntrada.TabIndex = 0;
-			this.txb_dboEntrada.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_numeros);
-			// 
-			// lb_dbo
-			// 
-			this.lb_dbo.AutoSize = true;
-			this.lb_dbo.Location = new System.Drawing.Point(175, 175);
-			this.lb_dbo.Name = "lb_dbo";
-			this.lb_dbo.Size = new System.Drawing.Size(37, 19);
-			this.lb_dbo.TabIndex = 68;
-			this.lb_dbo.Text = "DBO";
 			// 
 			// lb_aviso
 			// 
 			this.lb_aviso.AutoSize = true;
 			this.lb_aviso.CustomForeColor = true;
 			this.lb_aviso.ForeColor = System.Drawing.Color.Red;
-			this.lb_aviso.Location = new System.Drawing.Point(332, 264);
+			this.lb_aviso.Location = new System.Drawing.Point(332, 218);
 			this.lb_aviso.Name = "lb_aviso";
 			this.lb_aviso.Size = new System.Drawing.Size(252, 19);
 			this.lb_aviso.TabIndex = 72;
@@ -128,7 +99,7 @@
             "0,1",
             "0,2",
             "0,3"});
-			this.cb_taxaVolumetrica.Location = new System.Drawing.Point(339, 240);
+			this.cb_taxaVolumetrica.Location = new System.Drawing.Point(339, 194);
 			this.cb_taxaVolumetrica.Name = "cb_taxaVolumetrica";
 			this.cb_taxaVolumetrica.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.cb_taxaVolumetrica.Size = new System.Drawing.Size(238, 21);
@@ -143,10 +114,7 @@
 			this.Controls.Add(this.cb_taxaVolumetrica);
 			this.Controls.Add(this.lb_aviso);
 			this.Controls.Add(this.metroLabel1);
-			this.Controls.Add(this.metroLabel3);
 			this.Controls.Add(this.lb_taxaVolumetrica);
-			this.Controls.Add(this.txb_dboEntrada);
-			this.Controls.Add(this.lb_dbo);
 			this.Controls.Add(this.bt_LagoaAnaerobia_voltar);
 			this.Controls.Add(this.bt_lagoaAnaerobia_avancar);
 			this.Controls.Add(this.lb_LagoaAnaerobiaTitulo);
@@ -163,10 +131,7 @@
 		private MetroFramework.Controls.MetroButton bt_LagoaAnaerobia_voltar;
 		private MetroFramework.Controls.MetroButton bt_lagoaAnaerobia_avancar;
 		private MetroFramework.Controls.MetroLabel metroLabel1;
-		private MetroFramework.Controls.MetroLabel metroLabel3;
 		private MetroFramework.Controls.MetroLabel lb_taxaVolumetrica;
-		private MetroFramework.Controls.MetroTextBox txb_dboEntrada;
-		private MetroFramework.Controls.MetroLabel lb_dbo;
 		private MetroFramework.Controls.MetroLabel lb_aviso;
 		private System.Windows.Forms.ComboBox cb_taxaVolumetrica;
 	}
