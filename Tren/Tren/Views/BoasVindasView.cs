@@ -17,7 +17,7 @@ namespace Tren.Views {
 		private void bt_comeco_Click(object sender, EventArgs e) {
 			List<View> list = new List<View>();
 			list.Add(new LagoaAnaerobiaView(new InicioView()));
-			list.Add(new LagoaFacultativaView2(new InicioView()));
+			list.Add(new LagoaFacultativaView(new InicioView()));
 			list.Add(new LagoaMaturacaoView(new Dictionary<string, string>(), new InicioView()));
 
 			/*SecundariaDinamica secundariaDinamica = new SecundariaDinamica(list);

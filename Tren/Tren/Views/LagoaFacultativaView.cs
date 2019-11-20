@@ -11,37 +11,41 @@ using System.Windows.Forms;
 using Tren.Classes;
 
 namespace Tren.Views {
-	public partial class LagoaFacultativaView1 : View {
-		Dictionary<string, string> dados;
-		public LagoaFacultativaView1(Dictionary<string, string> d, InicioView pai) : base(pai) {
+	public partial class LagoaFacultativaView : View {
+		public LagoaFacultativaView(InicioView pai) : base(pai) {
 			InitializeComponent();
-			dados = d;
 		}
 
 		private void bt_lagoaFacul_avancar_Click(object sender, EventArgs e) {
-			string dboEntrada = txb_dboEntrada.Text;
 			string tempMesFrio = txb_tempMesFrio.Text;
 
-			if (dboEntrada == "" || tempMesFrio == "") {
+			if (tempMesFrio == "") {
 				return;
 			}
-
-			dados["dboEntrada"] = dboEntrada;
-			dados["tempMesFrio"] = tempMesFrio;
-
-			double dbo = double.Parse(dboEntrada);
+			
 			double temp = double.Parse(tempMesFrio);
 
 			foreach (var c in Pai.Centrais) {
 				foreach (var s in c.getSequencia) {
 					if (s.GetType() == typeof(SequenciaSecundaria)) {
-						((SequenciaSecundaria)s).getSeqSecundaria[0][0].DBOEntrada = dbo;
-						break;
+						UnidadeSecundaria unidadeAnt = null;
+						foreach (var l in ((SequenciaSecundaria)s).getSeqSecundaria) {
+							foreach (var u in l) {
+								if (u.GetType() == typeof(LagoaFacultativa)) {
+									if (unidadeAnt != null) {
+										double dbo = unidadeAnt.getDBOSaida;
+										((LagoaFacultativa)u).setDados(dbo, temp);
+									} else {
+										((LagoaFacultativa)u).setDados(c.DBOEntrada, temp);
+									}
+									((LagoaFacultativa)u).calcula();
+								}
+								unidadeAnt = u;
+							}
+						}
 					}
 				}
 			}
-
-
 
 			Pai.avancaView();
 			Hide();

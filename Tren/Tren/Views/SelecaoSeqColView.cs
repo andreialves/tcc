@@ -29,7 +29,7 @@ namespace Tren.Views {
 				Pai.AddView(new DesarenadorView(dados, Pai), "Desarenador");
 				Pai.AddView(new DBOView(Pai), "DBO");
 				Pai.AddView(new LagoaAnaerobiaView(Pai), "LagoaAnaerobia");
-				Pai.AddView(new LagoaFacultativaView2(Pai), "LagoaFacultativa");
+				Pai.AddView(new LagoaFacultativaView(Pai), "LagoaFacultativa");
 
 				// Cria central que representa essa sequencia de unidades
 				CentralTratamento central = new CentralTratamento();
@@ -64,7 +64,7 @@ namespace Tren.Views {
 				Pai.AddView(new DesarenadorView(dados, Pai), "Desarenador");
 				Pai.AddView(new DBOView(Pai), "DBO");
 				Pai.AddView(new LagoaAnaerobiaView(Pai), "LagoaAnaerobia");
-				Pai.AddView(new LagoaFacultativaView2(Pai), "LagoaFacultativa");
+				Pai.AddView(new LagoaFacultativaView(Pai), "LagoaFacultativa");
 				Pai.AddView(new LagoaMaturacaoView(dados, Pai), "LagoaMaturacao");
 
 				// Cria central que representa essa sequencia de unidades
@@ -101,7 +101,7 @@ namespace Tren.Views {
 				Pai.AddView(new GradeView(dados, Pai), "Grade");
 				Pai.AddView(new DesarenadorView(dados, Pai), "Desarenador");
 				Pai.AddView(new DBOView(Pai), "DBO");
-				Pai.AddView(new LagoaFacultativaView2(Pai), "LagoaFacultativa");
+				Pai.AddView(new LagoaFacultativaView(Pai), "LagoaFacultativa");
 
 				// Cria central que representa essa sequencia de unidades
 				CentralTratamento central = new CentralTratamento();
@@ -125,8 +125,9 @@ namespace Tren.Views {
 				Pai.Centrais.Add(central);
 			}
 
-            if (cbx_PRu.Checked) {
-                // Adiciona telas necessárias para coletar os dados da sequencia P + LF
+			// Configurando Sequencia de Unidades da Central P + RU
+			if (cbx_PRu.Checked) {
+                // Adiciona telas necessárias para coletar os dados da sequencia P + RU
                 Pai.AddView(new CentralDeTratamento0View(dados, Pai), "Central0");
                 Pai.AddView(new View(Pai), "CentralX");
                 Pai.AddView(new GradeView(dados, Pai), "Grade");
