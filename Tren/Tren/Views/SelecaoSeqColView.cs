@@ -132,7 +132,6 @@ namespace Tren.Views {
                 Pai.AddView(new GradeView(dados, Pai), "Grade");
                 Pai.AddView(new DesarenadorView(dados, Pai), "Desarenador");
 				Pai.AddView(new DBOView(Pai), "DBO");
-				Pai.AddView(new LagoaFacultativaView2(Pai), "LagoaFacultativa");
                 Pai.AddView(new ReatorUASBView(dados, Pai), "ReatorUasb");
 
                 // Cria central que representa essa sequencia de unidades

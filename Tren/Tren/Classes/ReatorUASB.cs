@@ -109,7 +109,6 @@ namespace Tren.Classes {
             try {
                 dboEntrada = Convert.ToDouble(dbo / getPertenceASeq.getCentral.getQPC) / 1000;
                 dqoEnt = (dqo / getPertenceASeq.getCentral.getQPC) / 1000;
-                Console.WriteLine(getPertenceASeq.getCentral.getQPC);
                 dboSaida = (0.35 * dboEntrada);
                 dqoSai = (0.30 * dqoEnt);
             } catch (Exception) {
@@ -232,6 +231,7 @@ namespace Tren.Classes {
         }
 
         public void print() {
+            Console.WriteLine(getPertenceASeq.getCentral.getQPC);
             Console.WriteLine(dbo);
             Console.WriteLine(dqo);
             Console.WriteLine(cargaDQODiaria);
