@@ -1,5 +1,5 @@
 ﻿namespace Tren.Views {
-	partial class LagoaFacultativaView2 {
+	partial class LagoaFacultativaView {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
