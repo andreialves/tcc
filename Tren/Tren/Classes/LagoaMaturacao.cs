@@ -100,6 +100,7 @@ namespace Tren.Classes {
                 CalculaConcentracaoColiformes();
             }
             eficienciaRemocaoColiMax = ((coliformesIniciais - coliformesFinais) / coliformesIniciais) * 100;
+            dboSaida = dboEntrada;
         }
 
 		public override void accept(Visitor v) {
