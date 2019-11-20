@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +39,7 @@ namespace Tren.Classes {
 		}
 
 		private void carregaTabela() {
+			IFormatProvider prov = CultureInfo.InvariantCulture;
 			try {
 				string[] linhas = System.IO.File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + @"\Tabelas Tren\caixaSAO.tren");
 				tabelaVF = new double[linhas.Length,2];
@@ -45,12 +47,11 @@ namespace Tren.Classes {
 				for (int i = 0; i < linhas.Length; i++) {
 					string[] aux = linhas[i].Split(' ');
 
-					tabelaVF[i, 0] = double.Parse(aux[0]);
-					tabelaVF[i, 1] = double.Parse(aux[1]);
+					tabelaVF[i, 0] = double.Parse(aux[0], prov);
+					tabelaVF[i, 1] = double.Parse(aux[1], prov);
 				}
 			} catch (Exception) {
 				throw new Exception("CaixaSAO::carregaTabela - Erro na leitura de tabelaVF");
-				;
 			}
 		}
 

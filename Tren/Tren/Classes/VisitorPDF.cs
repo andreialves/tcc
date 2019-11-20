@@ -41,7 +41,51 @@ namespace Tren.Classes {
 		}
 
 		public void visit(CaixaSAO cs) {
-			throw new NotImplementedException();
+			Paragraph titulo = new Paragraph("\n\nCaixa SAO\n\n", fonteTitulo);
+			titulo.Alignment = Element.ALIGN_CENTER;
+			pdf.Add(titulo);
+
+			// INICIO TABELA
+			PdfPTable tabela = new PdfPTable(8);
+
+			Paragraph[] labels = new Paragraph[8];
+			labels[0] = new Paragraph("V Vertical (cm/s)", fonte);
+			labels[1] = new Paragraph("V Horizontal (cm/s)", fonte);
+			labels[2] = new Paragraph("Área Transv (m²)", fonte);
+			labels[3] = new Paragraph("Largura (m)", fonte);
+			labels[4] = new Paragraph("Profundidade (m)", fonte);
+			labels[5] = new Paragraph("Comprimento (m)", fonte);
+			labels[6] = new Paragraph("Vol (m³)", fonte);
+			labels[7] = new Paragraph("TDH (min)", fonte);
+
+			PdfPCell[] cell = new PdfPCell[8];
+			for (int i = 0; i < 8; i++) {
+				cell[i] = new PdfPCell();
+				cell[i].AddElement(labels[i]);
+				tabela.AddCell(cell[i]);
+			}
+
+			Paragraph[] lin = new Paragraph[8];
+			lin[0] = new Paragraph(Math.Round(cs.getVVertical, 2).ToString(), fonte);
+			lin[1] = new Paragraph(Math.Round(cs.getVHorizontal, 2).ToString(), fonte);
+			lin[2] = new Paragraph(Math.Round(cs.getAreaTransv, 2).ToString(), fonte);
+			lin[3] = new Paragraph(Math.Round(cs.getLargura, 2).ToString(), fonte);
+			lin[4] = new Paragraph(Math.Round(cs.getProfundidade, 2).ToString(), fonte);
+			lin[5] = new Paragraph(Math.Round(cs.getComprimento, 2).ToString(), fonte);
+			lin[6] = new Paragraph(Math.Round(cs.getVolume, 2).ToString(), fonte);
+			lin[7] = new Paragraph(Math.Round(cs.getTempoRes, 2).ToString(), fonte);
+
+			cell = new PdfPCell[8];
+			for (int i = 0; i < 8; i++) {
+				cell[i] = new PdfPCell();
+				cell[i].AddElement(lin[i]);
+				tabela.AddCell(cell[i]);
+			}
+
+			pdf.Add(tabela);
+			// FIM TABELA
+
+			pdf.Add(new Paragraph("\n"));
 		}
 
 		public void visit(CalhaParshall cp) {
@@ -605,6 +649,8 @@ namespace Tren.Classes {
 			Paragraph titulo = new Paragraph("Resultados\n\n", FontFactory.GetFont("Arial", 18));
 			titulo.Alignment = Element.ALIGN_CENTER;
 			pdf.Add(titulo);
+
+			
 			titulo = new Paragraph("Dados\n\n", fonteTitulo);
 			titulo.Alignment = Element.ALIGN_CENTER;
 			pdf.Add(titulo);
@@ -621,7 +667,7 @@ namespace Tren.Classes {
 			labels[3] = new Paragraph("Vazão Máxima Futura (L/s)", fonte);
 			labels[4] = new Paragraph("Vazão Média Futura (L/s)", fonte);
 			labels[5] = new Paragraph("Vazão Mínima Futura (L/s)", fonte);
-			labels[6] = new Paragraph("Pup", fonte);
+			labels[6] = new Paragraph("Pop", fonte);
 			labels[7] = new Paragraph("Pop Fut", fonte);
 			labels[8] = new Paragraph("DBO (mg/L)", fonte);
 
@@ -653,7 +699,7 @@ namespace Tren.Classes {
 
 			pdf.Add(tabela);
 			// FIM TABELA
-
+			
 
 			graficoArea = new Chart();
 			graficoArea.Titles.Add("Área (m²)");

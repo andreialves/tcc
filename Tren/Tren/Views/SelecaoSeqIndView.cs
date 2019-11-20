@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tren.Classes;
 
 namespace Tren.Views {
 	public partial class SelecaoSeqIndView : View {
@@ -20,11 +21,25 @@ namespace Tren.Views {
 			Dictionary<string, string> dados = new Dictionary<string, string>();
 
 			if (cbx_Cs.Checked) {
+				// Adiciona telas necessárias para coletar os dados da sequencia P(CS)
+				Pai.AddView(new CentralDeTratamento0View(dados, Pai), "Central0");
+				Pai.AddView(new View(Pai), "CentralX");
 				Pai.AddView(new CaixaSAOView(dados, Pai), "CaixaSAO");
-				Pai.AddView(new CalculoViabilidadeView(dados, Pai), "Calculo");
+
+				// Cria central que representa essa sequencia de unidades
+				CentralTratamento central = new CentralTratamento();
+				SequenciaPreliminar seqP = new SequenciaPreliminar(central);
+				central.adicionar(seqP);
+
+				CaixaSAO caixa = new CaixaSAO(seqP);
+				seqP.adicionar(caixa);
+
+				// Adiciona Sequencia à lista de sequencias a serem comparadas
+				Pai.Centrais.Add(central);
 			}
 
-			if (Pai.NumViews == 1)
+			Pai.AddView(new CalculoViabilidadeView(dados, Pai), "Calculo");
+			if (Pai.NumViews == 2)
 				return;
 
 			Pai.avancaView();
