@@ -11,8 +11,8 @@ using System.Windows.Forms;
 using Tren.Classes;
 
 namespace Tren.Views {
-	public partial class LagoaFacultativaView2 : View {
-		public LagoaFacultativaView2(InicioView pai) : base(pai) {
+	public partial class LagoaFacultativaView : View {
+		public LagoaFacultativaView(InicioView pai) : base(pai) {
 			InitializeComponent();
 		}
 
