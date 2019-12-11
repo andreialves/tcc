@@ -59,11 +59,11 @@
 			this.lb_SeqPreliminarTitulo.AutoSize = true;
 			this.lb_SeqPreliminarTitulo.FontSize = MetroFramework.MetroLabelSize.Tall;
 			this.lb_SeqPreliminarTitulo.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-			this.lb_SeqPreliminarTitulo.Location = new System.Drawing.Point(321, 9);
+			this.lb_SeqPreliminarTitulo.Location = new System.Drawing.Point(268, 9);
 			this.lb_SeqPreliminarTitulo.Name = "lb_SeqPreliminarTitulo";
-			this.lb_SeqPreliminarTitulo.Size = new System.Drawing.Size(161, 25);
+			this.lb_SeqPreliminarTitulo.Size = new System.Drawing.Size(266, 25);
 			this.lb_SeqPreliminarTitulo.TabIndex = 51;
-			this.lb_SeqPreliminarTitulo.Text = "Entrada de Dados";
+			this.lb_SeqPreliminarTitulo.Text = "Entrada de Dados - Caixa SAO";
 			// 
 			// txb_turbulencia
 			// 

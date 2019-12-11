@@ -80,13 +80,13 @@
 			this.lb_LagFaculTitulo.AutoSize = true;
 			this.lb_LagFaculTitulo.FontSize = MetroFramework.MetroLabelSize.Tall;
 			this.lb_LagFaculTitulo.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-			this.lb_LagFaculTitulo.Location = new System.Drawing.Point(294, 9);
+			this.lb_LagFaculTitulo.Location = new System.Drawing.Point(236, 9);
 			this.lb_LagFaculTitulo.Name = "lb_LagFaculTitulo";
-			this.lb_LagFaculTitulo.Size = new System.Drawing.Size(161, 25);
+			this.lb_LagFaculTitulo.Size = new System.Drawing.Size(324, 25);
 			this.lb_LagFaculTitulo.TabIndex = 71;
-			this.lb_LagFaculTitulo.Text = "Entrada de Dados";
+			this.lb_LagFaculTitulo.Text = "Entrada de Dados - Lagoa Facultativa";
 			// 
-			// LagoaFacultativaView2
+			// LagoaFacultativaView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -97,7 +97,7 @@
 			this.Controls.Add(this.txb_tempMesFrio);
 			this.Controls.Add(this.lb_tempMesFrio);
 			this.Controls.Add(this.lb_LagFaculTitulo);
-			this.Name = "LagoaFacultativaView2";
+			this.Name = "LagoaFacultativaView";
 			this.Text = "LagoaFacultativaView2";
 			this.ResumeLayout(false);
 			this.PerformLayout();

@@ -37,11 +37,11 @@
 			this.lb_LagoaAnaerobiaTitulo.AutoSize = true;
 			this.lb_LagoaAnaerobiaTitulo.FontSize = MetroFramework.MetroLabelSize.Tall;
 			this.lb_LagoaAnaerobiaTitulo.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-			this.lb_LagoaAnaerobiaTitulo.Location = new System.Drawing.Point(320, 9);
+			this.lb_LagoaAnaerobiaTitulo.Location = new System.Drawing.Point(239, 9);
 			this.lb_LagoaAnaerobiaTitulo.Name = "lb_LagoaAnaerobiaTitulo";
-			this.lb_LagoaAnaerobiaTitulo.Size = new System.Drawing.Size(161, 25);
+			this.lb_LagoaAnaerobiaTitulo.Size = new System.Drawing.Size(322, 25);
 			this.lb_LagoaAnaerobiaTitulo.TabIndex = 52;
-			this.lb_LagoaAnaerobiaTitulo.Text = "Entrada de Dados";
+			this.lb_LagoaAnaerobiaTitulo.Text = "Entrada de Dados - Lagoa Anaeróbia";
 			// 
 			// bt_LagoaAnaerobia_voltar
 			// 
